@@ -18,6 +18,7 @@ include_once("../fpdf186/fpdf.php");
             }
         mysqli_close($conecta);
 
+$pdf = new FPDF();
 class PDF_MC_Table extends FPDF
 {
 function Footer(){
