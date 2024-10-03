@@ -1,5 +1,5 @@
 <?php
-session_start()
+session_start();
 include_once("../fpdf186/fpdf.php");
    date_default_timezone_set('America/Mexico_City');
      $conecta =  mysqli_connect('localhost', 'root', 'ctpalm2113', 'estadiaunid');
