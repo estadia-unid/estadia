@@ -1,8 +1,5 @@
 <?php
-include_once("../fpdf186/fpdf.php");
-
-require('fpdf.php');
-
+require("../fpdf186/fpdf.php");
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
