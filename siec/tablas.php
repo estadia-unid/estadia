@@ -358,7 +358,16 @@ include "../conexion.php";
             </tr>
           </thead>
           <tbody>
-
+          <?php
+            $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras`");
+              while ($dato=mysqli_fetch_array($consulta)) {
+                echo "<tr>";
+                echo "<td>".$dato['Departamento']."</td>";
+                echo "<td>".$dato['Puesto']."</td>";
+                echo "<td>".$dato['RPE']."</td>";
+                echo "</tr>";
+            }
+          ?>
             <tr>
               <td>1,001</td>
               <td>random</td>
