@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>CyberMed</title>
-    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="icon" href="../imagenes/svg/cfeicon.png" type="image/x-icon">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
