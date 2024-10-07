@@ -94,6 +94,18 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+      .empresa-logo {
+  width: 100px; /* Ajusta el tamaño según sea necesario */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 50px; /* Limita la altura para que no desplace el header */
+  object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin recortes */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center; /* Centra verticalmente la imagen dentro del header */
+}
+
     </style>
 
     
@@ -206,7 +218,9 @@
 </svg>
 
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">
+    <img src="../imagenes/svg/cfe_icon.svg" alt="Logo de la empresa" class="empresa-logo img-fluid">
+  </a>
 
   <ul class="navbar-nav flex-row d-md-none">
     <li class="nav-item text-nowrap">
@@ -226,25 +240,16 @@
   </div>
 </header>
 
+
 <div class="container-fluid">
   <div class="row">
     <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
       <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-        
-        <!-- Header con imagen -->
-        <div class="offcanvas-header">
-          <div class="header-logo">
-            <img src="ruta-de-la-imagen-header.jpg" alt="Imagen Header" class="img-fluid">
-          </div>
-          <h5 class="offcanvas-title" id="sidebarMenuLabel">C.T.P.A.L.M.</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
-        </div>
-        
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
           
-          <!-- Imagen encima del enlace Inicio -->
+          <!-- Imagen del usuario con marco redondo -->
           <div class="inicio-image-container text-center mb-3">
-            <img src="ruta-de-la-imagen-inicio.jpg" alt="Imagen de Inicio" class="img-fluid">
+            <img src="../imagenes/empleados/9AVB3.jpg" alt="Imagen de usuario" class="img-fluid user-image rounded-circle">
           </div>
     
           <!-- Navegación -->
@@ -255,36 +260,7 @@
                 Inicio
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#file-earmark"/></svg>
-                Orders
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#cart"/></svg>
-                Products
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#people"/></svg>
-                Customers
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#graph-up"/></svg>
-                Reports
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#puzzle"/></svg>
-                Integrations
-              </a>
-            </li>
+            <!-- Otros enlaces... -->
           </ul>
     
           <!-- Sección de reportes guardados -->
@@ -302,24 +278,7 @@
                 Current month
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                Last quarter
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                Social engagement
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                Year-end sale
-              </a>
-            </li>
+            <!-- Otros enlaces... -->
           </ul>
     
           <hr class="my-3">
@@ -341,6 +300,7 @@
         </div>
       </div>
     </div>
+    
     
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
