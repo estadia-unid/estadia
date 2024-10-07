@@ -1,3 +1,6 @@
+<?php
+include "../conexion.php";
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../js/color-modes.js"></script>
@@ -7,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>SYSPER</title>
+    <title>Dashboard Template · Bootstrap v5.3</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
@@ -239,7 +242,7 @@
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
-                Inicio
+                Dashboard
               </a>
             </li>
             <li class="nav-item">
@@ -342,9 +345,7 @@
         </div>
       </div>
 
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
-      <h2>Section title</h2>
+      <h2>hola</h2>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
           <thead>
@@ -357,6 +358,16 @@
             </tr>
           </thead>
           <tbody>
+          <?php
+            $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras`");
+              while ($dato=mysqli_fetch_array($consulta)) {
+                echo "<tr>";
+                echo "<td>".$dato['Departamento']."</td>";
+                echo "<td>".$dato['Puesto']."</td>";
+                echo "<td>".$dato['RPE']."</td>";
+                echo "</tr>";
+            }
+          ?>
             <tr>
               <td>1,001</td>
               <td>random</td>
@@ -364,6 +375,7 @@
               <td>placeholder</td>
               <td>text</td>
             </tr>
+
             <tr>
               <td>1,002</td>
               <td>placeholder</td>
