@@ -1,3 +1,4 @@
+<?php require_once("seguridad.php"); ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../js/color-modes.js"></script>
@@ -105,6 +106,34 @@
   display: flex;
   align-items: center; /* Centra verticalmente la imagen dentro del header */
 }
+.inicio-image-container {
+  display: flex; /* Coloca la imagen y el texto en una fila horizontal */
+  align-items: center; /* Alinea verticalmente el contenido al centro */
+  margin-bottom: 1rem;
+}
+
+.user-image {
+  width: 80px; /* Ajusta el tamaño de la imagen */
+  height: 80px; /* Asegura que la imagen sea cuadrada */
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.user-info {
+  margin-left: 10px; /* Espacio entre la imagen y la información del usuario */
+}
+
+.user-name {
+  font-size: 1rem; /* Ajusta el tamaño del texto del nombre */
+  font-weight: bold; /* Hace que el nombre sea más destacado */
+}
+
+.user-cargo {
+  font-size: 0.875rem; /* Ajusta el tamaño del texto del cargo */
+  color: #6c757d; /* Color gris para un tono más sutil */
+}
+
 
     </style>
 
@@ -247,13 +276,34 @@
       <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
           
-          <!-- Imagen del usuario con marco redondo -->
-          <div class="inicio-image-container text-center mb-3">
+          <div class="inicio-image-container d-flex align-items-center">
             <img src="../imagenes/empleados/9AVB3.jpg" alt="Imagen de usuario" class="img-fluid user-image rounded-circle">
+            <div class="user-info ms-3"> <!-- Contenedor para el nombre y cargo -->
+              <p class="user-name mb-0">Ricardo Mercado Lima</p> <!-- Nombre del usuario, puede ser llamado desde la base de datos -->
+              <p class="user-cargo text-muted">Profesionista</p> <!-- Cargo del usuario -->
+            </div>
           </div>
     
           <!-- Navegación -->
           <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                Inicio
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                Inicio
+              </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
