@@ -29,7 +29,7 @@ $conn->close();
 // Comprobar si se recuperó la imagen
 if ($imagen_binaria) {
     // Configurar el encabezado para mostrar la imagen
-    header("Content-Type: image/jpeg");
+    header("Content-Type: image/jpg");
     echo $imagen_binaria;
 } else {
     // En caso de no encontrar la imagen, puedes manejarlo aquí
