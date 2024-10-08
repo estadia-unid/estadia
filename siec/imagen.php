@@ -1,38 +1,31 @@
 <?php
-// Configuración de la conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "ctpalm2113";
-$dbname = "rescatar";
+date_default_timezone_set('America/Mexico_City');
+  $conecta =  mysqli_connect('localhost', 'root', 'ctpalm2113', 'rescatare');
+  if(!$conecta){
+      die('no pudo conectarse:' . mysqli_connect_error());
+   }
+if (!mysqli_set_charset($conecta,'utf8')) {
+ die('No pudo conectarse: ' . mysqli_error($conecta));
+ }
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+$idImagen = "9AVB3";
+$resultado = mysqli_query($conecta, "SELECT imagen FROM imagenes WHERE idImagen = '$idImagen'");
 
-// Comprobar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+if ($resultado) {
+    $fila = mysqli_fetch_assoc($resultado);
+    $foto = $fila['imagen']; // 'imagen' debe ser el nombre correcto de la columna
 
-// ID de la imagen a recuperar
-$id = "9AVB3"; // Cambia esto por el ID de la imagen que deseas recuperar
-
-// Consulta para obtener la imagen
-$sql = "SELECT imagen FROM `imagenes` WHERE `idImagen` = `9AVB3`";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$stmt->bind_result($imagen_binaria);
-$stmt->fetch();
-$stmt->close();
-$conn->close();
-
-// Comprobar si se recuperó la imagen
-if ($imagen_binaria) {
-    // Configurar el encabezado para mostrar la imagen
-    header("Content-Type: image/jpg");
-    echo $imagen_binaria;
+    if ($foto) {
+        // https://www.php.net/manual/en/function.imagejpeg.php
+        // https://www.superprof.es/blog/tecnica-codigo-foto-programacion/
+        // https://www.php.net/manual/es/function.header.php 
+        header("Content-Type: image/jpeg");
+        echo $foto;
+    } else {
+        echo "No imagen.";
+    }
 } else {
-    // En caso de no encontrar la imagen, puedes manejarlo aquí
-    header("HTTP/1.0 404 Not Found");
+    echo "error chavo" . mysqli_error($conecta);
 }
+mysqli_close($conecta);
 ?>
