@@ -1,4 +1,5 @@
 <?php
+session_start();
 date_default_timezone_set('America/Mexico_City');
   $conecta =  mysqli_connect('localhost', 'root', 'ctpalm2113', 'rescatare');
   if(!$conecta){
@@ -8,12 +9,12 @@ if (!mysqli_set_charset($conecta,'utf8')) {
  die('No pudo conectarse: ' . mysqli_error($conecta));
  }
 
-$idImagen = "9AVB3";
+$idImagen = $_SESSION['rpe'];
 $resultado = mysqli_query($conecta, "SELECT imagen FROM imagenes WHERE idImagen = '$idImagen'");
 
 if ($resultado) {
     $fila = mysqli_fetch_assoc($resultado);
-    $foto = $fila['imagen']; // 'imagen' debe ser el nombre correcto de la columna
+    $foto = $fila['imagen'];
 
     if ($foto) {
         // https://www.php.net/manual/en/function.imagejpeg.php
@@ -22,7 +23,7 @@ if ($resultado) {
         header("Content-Type: image/jpeg");
         echo $foto;
     } else {
-        echo "No imagen.";
+        echo "No se encontro la imagen.";
     }
 } else {
     echo "error chavo" . mysqli_error($conecta);
