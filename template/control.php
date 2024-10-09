@@ -12,7 +12,7 @@
 
 	  $miclave    = md5(htmlentities($password));
 
-	  $myusuario  = "select idusuario from usuarios where idusuario = '$miuser'";
+	  $myusuario  = "select rpe from usuarios where rpe = '$miuser'";
 
 	  $validacion = mysqli_query($conecta,$myusuario); 
 
@@ -40,13 +40,13 @@
 
 			   $user=$_SESSION['usuarioactual'];
 
-			   $ensesion="UPDATE usuarios SET login=1 WHERE idusuario='$user'";
+			   $ensesion="UPDATE usuarios SET login=1 WHERE rpe='$user'";
 
                 mysqli_query($conecta,$ensesion);
 
 				$cadena=$_SESSION['usuarioactual'];
 
-				$buscar="JozzRam";
+				$buscar="rpe";
 
 			    $palabra = stripos($cadena,$buscar);
 
