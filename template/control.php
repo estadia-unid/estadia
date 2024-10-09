@@ -1,5 +1,5 @@
 <?php
- require_once("../conexion.php"); 
+ require_once("conexion.php"); 
        /* El query valida si el usuario ingresado existe en la base de datos. Se utiliza la función 
 
      htmlentities para evitar inyecciones SQL. */
@@ -22,7 +22,7 @@
 
      if($nmyusuario != 0){
 
-	     $sql = "select * from usuarios where estado = 1 and idusuario = '$miuser' and clave = '$miclave'";             
+	     $sql = "select * from usuarios where estado = 1 and rpe = '$miuser' and clave = '$miclave'";             
 
 		 $myclave = mysqli_query($conecta,$sql);
 
