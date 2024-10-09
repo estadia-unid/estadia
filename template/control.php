@@ -1,79 +1,46 @@
 <?php
- require_once("conexion.php"); 
-       /* El query valida si el usuario ingresado existe en la base de datos. Se utiliza la función 
+require_once("conexion.php");  // Conectar a la base de datos
 
-     htmlentities para evitar inyecciones SQL. */
+// Recoger los datos del formulario
+$miusuario = $_POST['usuario'];
+$password = $_POST['clave'];
 
-	  $miusuario  = $_POST['usuario'];
+// Proteger contra inyección SQL y XSS
+$miuser = mysqli_real_escape_string($conecta, htmlentities($miusuario));
+$miclave = htmlentities($password);
 
-	  $password   = $_POST['clave'];
+// Consulta para verificar si el usuario existe y está activo
+$sql = "SELECT * FROM usuarios WHERE rpe = '$miuser' AND estado = 1";
+$result = mysqli_query($conecta, $sql);
 
-	  $miuser     = htmlentities($miusuario);
+if (mysqli_num_rows($result) > 0) {
+    // Extraer el usuario de la base de datos
+    $usuario = mysqli_fetch_assoc($result);
 
-	  $miclave    = md5(htmlentities($password));
+    // Verificar la contraseña usando password_verify
+    if (password_verify($miclave, $usuario['clave'])) {
+        // Iniciar sesión
+        session_start();
+        $_SESSION['autentica'] = "SIP";
+        $_SESSION['usuarioactual'] = $miuser;
 
-	  $myusuario  = "select rpe from usuarios where rpe = '$miuser'";
+        // Actualizar el estado de login en la base de datos
+        $ensesion = "UPDATE usuarios SET login = 1 WHERE rpe = '$miuser'";
+        mysqli_query($conecta, $ensesion);
 
-	  $validacion = mysqli_query($conecta,$myusuario); 
+        // Redirigir al usuario a la página principal
+        header("Location: index.php");
+    } else {
+        // Si la contraseña es incorrecta
+        echo "<script>alert('La contraseña del usuario no es correcta');
+              window.location.href = 'login.php';</script>";
+    }
+} else {
+    // Si el usuario no existe o no está activo
+    echo "<script>alert('El usuario no existe o no está activo');
+          window.location.href = 'login.php';</script>";
+}
 
-	  $nmyusuario = mysqli_num_rows($validacion);      	
-
-     //Si existe el usuario, validamos también la contraseña ingresada y el estado del usuario...
-
-     if($nmyusuario != 0){
-
-	     $sql = "select * from usuarios where estado = 1 and rpe = '$miuser' and clave = '$miclave'";             
-
-		 $myclave = mysqli_query($conecta,$sql);
-
-		 $nmyclave = mysqli_num_rows($myclave);
-
-		 //Si el usuario y clave ingresado son correctos (y el usuario está activo en la BD), creamos la sesión del mismo.
-
-          if($nmyclave != 0){
-
-               session_start();
-
-               $_SESSION['autentica'] = "SIP";
-
-			   $_SESSION['usuarioactual'] = $miuser; //nombre del usuario logueado.
-
-			   $user=$_SESSION['usuarioactual'];
-
-			   $ensesion="UPDATE usuarios SET login=1 WHERE rpe='$user'";
-
-                mysqli_query($conecta,$ensesion);
-
-				$cadena=$_SESSION['usuarioactual'];
-
-				$buscar="rpe";
-
-			    $palabra = stripos($cadena,$buscar);
-
-			   	if($palabra!==FALSE){
-                header("Location: index.php");
-				}
-
-			   	 else{
-
-                header("Location: index.php");}
-
-                }
-
-                else{
-
-               echo"<script>alert('La contraseña del usuario no es correcta, verifique también su departamento');
-
-               window.location.href=\"login.php\"</script>"; 
-
-               }
-
-     }else{
-
-          echo"<script>alert('El usuario no existe');window.location.href=\"login.php\"</script>";
-		
-     }
-
-     mysqli_close($conecta);
-
+// Cerrar la conexión
+mysqli_close($conecta);
 ?>

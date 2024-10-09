@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Inicio de Sesion</title>
+    <title>Inicio de Sesión</title>
     <link rel="icon" href="../imagenes/svg/cfe_icon.svg" type="image/x-icon">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -40,11 +40,11 @@
                         </div>
                         <form action="control.php" method="POST">
                             <div class="form-floating mb-3">
-                             <input type="text" class="form-control" id="floatingInput" name="usuario" placeholder="Nombre de usuario">
-                             <label for="floatingInput">Nombre de usuario</label>
-                                 </div>
+                                <input type="text" class="form-control" id="floatingInput" name="usuario" placeholder="Nombre de usuario" required>
+                                <label for="floatingInput">Nombre de usuario</label>
+                            </div>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" id="floatingPassword" name="clave" placeholder="Password" required>
+                                <input type="password" class="form-control" id="floatingPassword" name="clave" placeholder="Contraseña" required>
                                 <label for="floatingPassword">Contraseña</label>
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-4">
@@ -54,7 +54,7 @@
                                 </div>
                                 <a href=""></a>
                             </div>
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Iniciar sesion</button>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Iniciar sesión</button>
                         </form>
                     </div>
                 </div>
