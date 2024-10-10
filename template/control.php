@@ -17,6 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['autentica'] = "SIP";
             $_SESSION['usuarioactual'] = $usuario['rpe'];
+            $_SESSION['rpe'] = $usuario['rpe'];
+
 
             // Hacer consulta a la tabla empleados para obtener el nombre y la categoría
             $sql_empleado = "SELECT nombre, a_paterno, a_materno, categ FROM empleados WHERE rpe = '$usuario[rpe]'";
