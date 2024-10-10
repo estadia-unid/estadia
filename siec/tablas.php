@@ -18,7 +18,7 @@ include "../conexion.php";
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrapsiec.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {

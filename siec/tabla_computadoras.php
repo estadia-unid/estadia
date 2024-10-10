@@ -1,5 +1,5 @@
 <?php
-session_start();
+include "../conexion.php";
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -11,6 +11,7 @@ session_start();
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
     <title>Siec</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
 
 <link href="css/bootstrapsiec.min.css" rel="stylesheet">
 
@@ -112,7 +113,6 @@ session_start();
       </symbol>
     </svg>
 
-    <!--  -->
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
       <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
               id="bd-theme"
@@ -232,13 +232,13 @@ session_start();
           
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Inicio
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="tabla_computadoras.php">
+              <a class="nav-link d-flex align-items-center gap-2 active" href="tabla_computadoras.php">
                 <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                 Computadoras
               </a>
@@ -337,8 +337,73 @@ session_start();
         </div>
       </div>
 
-      <div class="col-auto d-lg-block">
-        <img width="100%" height="250" class="rounded float-start" src="../imagenes/svg/cfe_icon.svg">
+      
+      <h2>hola</h2>
+      <div class="table-responsive small">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
+              <th scope="col">4</th>
+              <th scope="col">5</th>
+              <th scope="col">6</th>
+              <th scope="col">7</th>
+              <th scope="col">8</th>
+              <th scope="col">9</th>
+              <th scope="col">10</th>
+              <th scope="col">11</th>
+              <th scope="col">12</th>
+              <th scope="col">13</th>
+              <th scope="col">14</th>
+              <th scope="col">15</th>
+              <th scope="col">16</th>
+              <!-- <th scope="col">17</th>
+              <th scope="col">18</th>
+              <th scope="col">19</th> -->
+            </tr>
+          </thead>
+          <tbody>
+          <?php
+            $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras`");
+              while ($dato=mysqli_fetch_array($consulta)) {
+                echo "<tr>";
+                /*
+                echo "<td>".$dato[3]."</td>";
+                echo "<td>".$dato[4]."</td>";
+                echo "<td>".$dato[5]."</td>";
+                */
+                echo "<td>";
+                //echo '<li class="item dropdown">';
+                echo '<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">'.$dato[6].'</a>';
+                echo '<ul class="dropdown-menu">';
+                echo '<li><a class="dropdown-item" href="#">'.$dato[3].'</a></li>';
+                echo '<li><a class="dropdown-item" href="#">'.$dato[4].'</a></li>';
+                echo '<li><a class="dropdown-item" href="#">'.$dato[5].'</a></li>';
+                echo '</ul>';
+                //echo '</li>';
+                echo '</td>';
+                echo "<td>".$dato[7]."</td>";
+                echo "<td>".$dato[8]."</td>";
+                echo "<td>".$dato[9]."</td>";
+                echo "<td>".$dato[10]."</td>";
+                echo "<td>".$dato[11]."</td>";
+                echo "<td>".$dato[12]."</td>";
+                echo "<td>".$dato[13]."</td>";
+                echo "<td>".$dato[14]."</td>";
+                echo "<td>".$dato[15]."</td>";
+                echo "<td>".$dato[16]."</td>";
+                echo "<td>".$dato[17]."</td>";
+                echo "<td>".$dato[18]."</td>";
+                echo "<td>".$dato[19]."</td>";
+                echo "<td>".$dato[20]."</td>";
+                echo "<td>".$dato[21]."</td>";
+                echo "</tr>";
+            }
+          ?>
+          </tbody>
+        </table>
       </div>
 
     </main>
