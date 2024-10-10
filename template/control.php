@@ -17,7 +17,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['autentica'] = "SIP";
             $_SESSION['usuarioactual'] = $usuario['rpe'];
-            header("Location: index.php");
+            $_SESSION['rpe'] = $usuario['rpe'];
+
+
+            // Hacer consulta a la tabla empleados para obtener el nombre y la categoría
+            $sql_empleado = "SELECT nombre, a_paterno, a_materno, categ FROM empleados WHERE rpe = '$usuario[rpe]'";
+            $resultado_empleado = mysqli_query($conecta, $sql_empleado);
+            $empleado = mysqli_fetch_assoc($resultado_empleado);
+
+            if ($empleado) {
+                // Guardar los datos del empleado en la sesión
+                $_SESSION['nombre_completo'] = $empleado['nombre'] . " " . $empleado['a_paterno'] . " " . $empleado['a_materno'];
+                $_SESSION['categoria'] = $empleado['categ'];
+
+                header("Location: index.php");
+            } else {
+                echo "<script>alert('No se encontraron datos del empleado'); window.location.href = 'login.php';</script>";
+            }
         } elseif ($password == $usuario['clave']) {
             // La contraseña está en texto plano, cifrarla ahora
             $password_cifrada = password_hash($password, PASSWORD_DEFAULT);
@@ -28,7 +44,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['autentica'] = "SIP";
             $_SESSION['usuarioactual'] = $usuario['rpe'];
-            header("Location: index.php");
+
+            // Hacer consulta a la tabla empleados para obtener el nombre y la categoría
+            $sql_empleado = "SELECT nombre, a_paterno, a_materno, categ FROM empleados WHERE rpe = '$usuario[rpe]'";
+            $resultado_empleado = mysqli_query($conecta, $sql_empleado);
+            $empleado = mysqli_fetch_assoc($resultado_empleado);
+
+            if ($empleado) {
+                // Guardar los datos del empleado en la sesión
+                $_SESSION['nombre_completo'] = $empleado['nombre'] . " " . $empleado['a_paterno'] . " " . $empleado['a_materno'];
+                $_SESSION['categoria'] = $empleado['categ'];
+
+                header("Location: index.php");
+            } else {
+                echo "<script>alert('No se encontraron datos del empleado'); window.location.href = 'login.php';</script>";
+            }
         } else {
             echo "<script>alert('La contraseña es incorrecta'); window.location.href = 'login.php';</script>";
         }

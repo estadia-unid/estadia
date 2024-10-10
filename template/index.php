@@ -1,17 +1,18 @@
-<?php require_once("seguridad.php"); ?>
+<?php 
+require_once("seguridad.php"); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Cybermed</title>
-    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>SYSPER</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="../favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,27 +32,6 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
-       <style>
-        .central-text {
-            position: fixed; /* Mantiene el texto en la misma posición incluso cuando se hace scroll */
-            top: 16; /* Ubica el texto en la parte superior */
-            left: 50%; /* Centra el texto horizontalmente en la página */
-            transform: translateX(-50%); /* Ajusta la posición horizontal para que el texto esté centrado */
-            text-align: center; /* Alinea el texto en el centro del contenedor */
-            z-index: 9999; /* Asegura que el texto esté encima de otros elementos en la página */
-            width: 100%; /* Opcional: Asegura que el contenedor ocupe todo el ancho de la página */
-            padding: 10px; /* Espaciado alrededor del texto, puedes ajustar según necesites */
-        }
-
-        .central-text h1 {
-            font-size: 3rem; /* Tamaño del texto, puedes ajustar según tu preferencia */
-            color: #e04848; /* Color del texto, puedes cambiarlo según el diseño de tu página */
-            margin: 0; /* Elimina márgenes para que el texto esté alineado correctamente */
-            padding: 0; /* Elimina el relleno para mantener el texto en su lugar */
-            font-family: 'Roboto', sans-serif; /* Fuente del texto, puedes cambiarla según tu preferencia */
-        }
-    </style>
 </head>
 
 <body>
@@ -68,16 +48,16 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.php" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>CyberMed</h3>
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>SYSPER</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/jozet.JPEG" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="../imagen.php" alt="rpeimg" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jozet Ramirez</h6>
-                        <span>Admin</span>
+                        <h6 class="mb-0"><?php echo $_SESSION['nombre_completo']; ?></h6> <!-- Nombre del usuario -->
+                        <span><?php echo $_SESSION['categoria']; ?></span> <!-- Categoría del usuario -->
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -92,12 +72,10 @@
                     <a href="buscar_id.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Busqueda</a>
                     <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tablas</a>
                     <a href="imprimir.php" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Imprimir</a>
-                    </div>
                 </div>
             </nav>
         </div>
         <!-- Sidebar End -->
-
 
         <!-- Content Start -->
         <div class="content">
@@ -115,8 +93,8 @@
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/jozet.JPEG" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Jozet Ramirez</span>
+                            <img class="rounded-circle me-lg-2" src="../imagen.php" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['nombre']; ?></span> <!-- Nombre del usuario -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">.</a>
@@ -128,21 +106,15 @@
             </nav>
             <!-- Navbar End -->
             
-              <!-- Central Text Start -->
-        <div class="central-text">
-            <h1>CYBERMED 4EVER!!!</h1>
-        </div>
-        <!-- Central Text End -->
+            
 
             <!-- Blank Start -->
-             <div class="container-fluid pt-4 px-4">
-           <div class="row vh-100 mx-0 image-section">
-        <img src="zelda.jpg" alt="CYBERMED FOREVER!!!">
-        </div>
-        </div>
-          <!-- Blank End -->
-
-                
+            <div class="container-fluid pt-4 px-4">
+                <div class="row vh-100 mx-0 image-section">
+                    <img src="../imagenes/svg/cfe_icon.svg" alt="letrascfe">
+                </div>
+            </div>
+            <!-- Blank End -->
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
@@ -162,7 +134,6 @@
             <!-- Footer End -->
         </div>
         <!-- Content End -->
-
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -184,3 +155,4 @@
 </body>
 
 </html>
+
