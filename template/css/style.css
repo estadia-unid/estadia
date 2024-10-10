@@ -130,9 +130,9 @@
 
 .sidebar .navbar .navbar-nav .nav-link:hover,
 .sidebar .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color: #008e5a;
     background: var(--dark);
-    border-color: var(--primary);
+    border-color: #008e5a;
 }
 
 .sidebar .navbar .navbar-nav .nav-link i {
