@@ -6,13 +6,13 @@ require_once("seguridad.php");
 
 <head>
     <meta charset="utf-8">
-    <title>Cybermed</title>
+    <title>SYSPER</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="../favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@ require_once("seguridad.php");
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.php" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>CyberMed</h3>
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>SYSPER</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
