@@ -7,7 +7,7 @@ require_once("seguridad.php");
 <head>
     <meta charset="utf-8">
     <title>Cybermed</title>
-    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -93,7 +93,7 @@ require_once("seguridad.php");
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/jozet.JPEG" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="../imagen.php" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['nombre']; ?></span> <!-- Nombre del usuario -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
@@ -106,16 +106,12 @@ require_once("seguridad.php");
             </nav>
             <!-- Navbar End -->
             
-            <!-- Central Text Start -->
-            <div class="central-text">
-                <h1>CYBERMED 4EVER!!!</h1>
-            </div>
-            <!-- Central Text End -->
+            
 
             <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row vh-100 mx-0 image-section">
-                    <img src="zelda.jpg" alt="CYBERMED FOREVER!!!">
+                    <img src="../imagenes/svg/cfe_icon.svg" alt="letrascfe">
                 </div>
             </div>
             <!-- Blank End -->
