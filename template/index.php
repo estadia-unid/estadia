@@ -1,4 +1,6 @@
-<?php require_once("seguridad.php"); ?>
+<?php 
+require_once("seguridad.php"); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +11,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -31,27 +32,6 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
-       <style>
-        .central-text {
-            position: fixed; /* Mantiene el texto en la misma posición incluso cuando se hace scroll */
-            top: 16; /* Ubica el texto en la parte superior */
-            left: 50%; /* Centra el texto horizontalmente en la página */
-            transform: translateX(-50%); /* Ajusta la posición horizontal para que el texto esté centrado */
-            text-align: center; /* Alinea el texto en el centro del contenedor */
-            z-index: 9999; /* Asegura que el texto esté encima de otros elementos en la página */
-            width: 100%; /* Opcional: Asegura que el contenedor ocupe todo el ancho de la página */
-            padding: 10px; /* Espaciado alrededor del texto, puedes ajustar según necesites */
-        }
-
-        .central-text h1 {
-            font-size: 3rem; /* Tamaño del texto, puedes ajustar según tu preferencia */
-            color: #e04848; /* Color del texto, puedes cambiarlo según el diseño de tu página */
-            margin: 0; /* Elimina márgenes para que el texto esté alineado correctamente */
-            padding: 0; /* Elimina el relleno para mantener el texto en su lugar */
-            font-family: 'Roboto', sans-serif; /* Fuente del texto, puedes cambiarla según tu preferencia */
-        }
-    </style>
 </head>
 
 <body>
@@ -76,8 +56,8 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jozet Ramirez</h6>
-                        <span>Admin</span>
+                        <h6 class="mb-0"><?php echo $_SESSION['nombre']; ?></h6> <!-- Nombre del usuario -->
+                        <span><?php echo $_SESSION['categoria']; ?></span> <!-- Categoría del usuario -->
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -92,12 +72,10 @@
                     <a href="buscar_id.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Busqueda</a>
                     <a href="table.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tablas</a>
                     <a href="imprimir.php" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Imprimir</a>
-                    </div>
                 </div>
             </nav>
         </div>
         <!-- Sidebar End -->
-
 
         <!-- Content Start -->
         <div class="content">
@@ -116,7 +94,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/jozet.JPEG" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Jozet Ramirez</span>
+                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['nombre']; ?></span> <!-- Nombre del usuario -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">.</a>
@@ -128,21 +106,19 @@
             </nav>
             <!-- Navbar End -->
             
-              <!-- Central Text Start -->
-        <div class="central-text">
-            <h1>CYBERMED 4EVER!!!</h1>
-        </div>
-        <!-- Central Text End -->
+            <!-- Central Text Start -->
+            <div class="central-text">
+                <h1>CYBERMED 4EVER!!!</h1>
+            </div>
+            <!-- Central Text End -->
 
             <!-- Blank Start -->
-             <div class="container-fluid pt-4 px-4">
-           <div class="row vh-100 mx-0 image-section">
-        <img src="zelda.jpg" alt="CYBERMED FOREVER!!!">
-        </div>
-        </div>
-          <!-- Blank End -->
-
-                
+            <div class="container-fluid pt-4 px-4">
+                <div class="row vh-100 mx-0 image-section">
+                    <img src="zelda.jpg" alt="CYBERMED FOREVER!!!">
+                </div>
+            </div>
+            <!-- Blank End -->
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
@@ -162,7 +138,6 @@
             <!-- Footer End -->
         </div>
         <!-- Content End -->
-
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -184,3 +159,4 @@
 </body>
 
 </html>
+
