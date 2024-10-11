@@ -366,7 +366,7 @@ include "../conexion.php";
           </thead>
           <tbody>
           <?php
-            $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras`");
+            $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras` WHERE `oficial` or `no_oficial` = 1");
               while ($dato=mysqli_fetch_array($consulta)) {
                 echo "<tr>";
                 /*
