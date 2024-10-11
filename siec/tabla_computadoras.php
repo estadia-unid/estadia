@@ -222,6 +222,7 @@ include "../conexion.php";
 
 <div class="container-fluid">
   <div class="row">
+    <!-- -->
     <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
       <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-header">
@@ -232,7 +233,7 @@ include "../conexion.php";
           
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="principal.php">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Inicio
               </a>
@@ -250,9 +251,9 @@ include "../conexion.php";
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="reporte.php">
                 <svg class="bi"><use xlink:href="#people"/></svg>
-                Customers
+                Generar Reportes
               </a>
             </li>
             <li class="nav-item">
@@ -321,14 +322,16 @@ include "../conexion.php";
         </div>
       </div>
     </div>
+        <!-- -->
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Bienvenido</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="reporte.php">generar reporte</a></button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=true">Oficiales</a></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?noofi=true">No oficiales</a></button>
           </div>
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
             <svg class="bi"><use xlink:href="#calendar3"/></svg>
@@ -366,41 +369,136 @@ include "../conexion.php";
           </thead>
           <tbody>
           <?php
-            $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras` WHERE `oficial` or `no_oficial` = 1");
-              while ($dato=mysqli_fetch_array($consulta)) {
-                echo "<tr>";
-                /*
-                echo "<td>".$dato[3]."</td>";
-                echo "<td>".$dato[4]."</td>";
-                echo "<td>".$dato[5]."</td>";
-                */
-                echo "<td>";
-                //echo '<li class="item dropdown">';
-                echo '<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">'.$dato[6].'</a>';
-                echo '<ul class="dropdown-menu">';
-                echo '<li><a class="dropdown-item" href="#">'.$dato[3].'</a></li>';
-                echo '<li><a class="dropdown-item" href="#">'.$dato[4].'</a></li>';
-                echo '<li><a class="dropdown-item" href="#">'.$dato[5].'</a></li>';
-                echo '</ul>';
-                //echo '</li>';
-                echo '</td>';
-                echo "<td>".$dato[7]."</td>";
-                echo "<td>".$dato[8]."</td>";
-                echo "<td>".$dato[9]."</td>";
-                echo "<td>".$dato[10]."</td>";
-                echo "<td>".$dato[11]."</td>";
-                echo "<td>".$dato[12]."</td>";
-                echo "<td>".$dato[13]."</td>";
-                echo "<td>".$dato[14]."</td>";
-                echo "<td>".$dato[15]."</td>";
-                echo "<td>".$dato[16]."</td>";
-                echo "<td>".$dato[17]."</td>";
-                echo "<td>".$dato[18]."</td>";
-                echo "<td>".$dato[19]."</td>";
-                echo "<td>".$dato[20]."</td>";
-                echo "<td>".$dato[21]."</td>";
-                echo "</tr>";
-            }
+
+          //https://www.php.net/manual/es/function.isset.php
+          //https://www.php.net/manual/es/function.empty.php
+          function tabla() {
+   date_default_timezone_set('America/Mexico_City');
+     $conecta =  mysqli_connect('localhost', 'root', 'ctpalm2113', 'estadiaunid');
+            $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras`");
+            while ($dato=mysqli_fetch_array($consulta)) {
+              echo "<tr>";
+              /*
+              echo "<td>".$dato[3]."</td>";
+              echo "<td>".$dato[4]."</td>";
+              echo "<td>".$dato[5]."</td>";
+              */
+              echo "<td>";
+              //echo '<li class="item dropdown">';
+              echo '<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">'.$dato[6].'</a>';
+              echo '<ul class="dropdown-menu">';
+              echo '<li><a class="dropdown-item" href="#">'.$dato[3].'</a></li>';
+              echo '<li><a class="dropdown-item" href="#">'.$dato[4].'</a></li>';
+              echo '<li><a class="dropdown-item" href="#">'.$dato[5].'</a></li>';
+              echo '</ul>';
+              //echo '</li>';
+              echo '</td>';
+              echo "<td>".$dato[7]."</td>";
+              echo "<td>".$dato[8]."</td>";
+              echo "<td>".$dato[9]."</td>";
+              echo "<td>".$dato[10]."</td>";
+              echo "<td>".$dato[11]."</td>";
+              echo "<td>".$dato[12]."</td>";
+              echo "<td>".$dato[13]."</td>";
+              echo "<td>".$dato[14]."</td>";
+              echo "<td>".$dato[15]."</td>";
+              echo "<td>".$dato[16]."</td>";
+              echo "<td>".$dato[17]."</td>";
+              echo "<td>".$dato[18]."</td>";
+              echo "<td>".$dato[19]."</td>";
+              echo "<td>".$dato[20]."</td>";
+              echo "<td>".$dato[21]."</td>";
+              echo "</tr>";
+          }
+         }
+         function tablaoficiales() {
+          date_default_timezone_set('America/Mexico_City');
+            $conecta =  mysqli_connect('localhost', 'root', 'ctpalm2113', 'estadiaunid');
+                   $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras` where `ofi` = 1");
+                   while ($dato=mysqli_fetch_array($consulta)) {
+                     echo "<tr>";
+                     /*
+                     echo "<td>".$dato[3]."</td>";
+                     echo "<td>".$dato[4]."</td>";
+                     echo "<td>".$dato[5]."</td>";
+                     */
+                     echo "<td>";
+                     //echo '<li class="item dropdown">';
+                     echo '<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">'.$dato[6].'</a>';
+                     echo '<ul class="dropdown-menu">';
+                     echo '<li><a class="dropdown-item" href="#">'.$dato[3].'</a></li>';
+                     echo '<li><a class="dropdown-item" href="#">'.$dato[4].'</a></li>';
+                     echo '<li><a class="dropdown-item" href="#">'.$dato[5].'</a></li>';
+                     echo '</ul>';
+                     //echo '</li>';
+                     echo '</td>';
+                     echo "<td>".$dato[7]."</td>";
+                     echo "<td>".$dato[8]."</td>";
+                     echo "<td>".$dato[9]."</td>";
+                     echo "<td>".$dato[10]."</td>";
+                     echo "<td>".$dato[11]."</td>";
+                     echo "<td>".$dato[12]."</td>";
+                     echo "<td>".$dato[13]."</td>";
+                     echo "<td>".$dato[14]."</td>";
+                     echo "<td>".$dato[15]."</td>";
+                     echo "<td>".$dato[16]."</td>";
+                     echo "<td>".$dato[17]."</td>";
+                     echo "<td>".$dato[18]."</td>";
+                     echo "<td>".$dato[19]."</td>";
+                     echo "<td>".$dato[20]."</td>";
+                     echo "<td>".$dato[21]."</td>";
+                     echo "</tr>";
+                 }
+                }
+                function tablanooficiales() {
+                  date_default_timezone_set('America/Mexico_City');
+                    $conecta =  mysqli_connect('localhost', 'root', 'ctpalm2113', 'estadiaunid');
+                           $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras` where `noofi` = 1");
+                           while ($dato=mysqli_fetch_array($consulta)) {
+                             echo "<tr>";
+                             /*
+                             echo "<td>".$dato[3]."</td>";
+                             echo "<td>".$dato[4]."</td>";
+                             echo "<td>".$dato[5]."</td>";
+                             */
+                             echo "<td>";
+                             //echo '<li class="item dropdown">';
+                             echo '<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">'.$dato[6].'</a>';
+                             echo '<ul class="dropdown-menu">';
+                             echo '<li><a class="dropdown-item" href="#">'.$dato[3].'</a></li>';
+                             echo '<li><a class="dropdown-item" href="#">'.$dato[4].'</a></li>';
+                             echo '<li><a class="dropdown-item" href="#">'.$dato[5].'</a></li>';
+                             echo '</ul>';
+                             //echo '</li>';
+                             echo '</td>';
+                             echo "<td>".$dato[7]."</td>";
+                             echo "<td>".$dato[8]."</td>";
+                             echo "<td>".$dato[9]."</td>";
+                             echo "<td>".$dato[10]."</td>";
+                             echo "<td>".$dato[11]."</td>";
+                             echo "<td>".$dato[12]."</td>";
+                             echo "<td>".$dato[13]."</td>";
+                             echo "<td>".$dato[14]."</td>";
+                             echo "<td>".$dato[15]."</td>";
+                             echo "<td>".$dato[16]."</td>";
+                             echo "<td>".$dato[17]."</td>";
+                             echo "<td>".$dato[18]."</td>";
+                             echo "<td>".$dato[19]."</td>";
+                             echo "<td>".$dato[20]."</td>";
+                             echo "<td>".$dato[21]."</td>";
+                             echo "</tr>";
+                         }
+                        }
+        if (isset($_GET['tabla'])){
+          tablaoficiales();
+        }
+        if (isset($_GET['noofi'])){
+          tablanooficiales();
+        }
+        if (empty($_GET['tabla'])&&(empty($_GET['noofi']))){
+          tabla();
+        }
+            
           ?>
           </tbody>
         </table>
