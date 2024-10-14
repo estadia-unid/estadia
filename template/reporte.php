@@ -52,7 +52,7 @@ class PDF extends FPDF {
 // Crear instancia de la clase PDF
 $pdf = new PDF();
 $pdf->AddPage();
-$header = array('Col 1', 'Col 2', 'Col 3', 'Col 4', 'Col 5', 'Col 6', 'Col 7', 'Col 8', 'Col 9', 'Col 10');
+$header = array('FECHA', 'HORA ENTRADA', 'HORA SALIDA', 'HORAS EXTRA', 'JUSTIFICACION', 'DES', 'COM', 'CENA', 'P.D.', 'O.M.');
 $pdf->Tabla($header);
 $pdf->Output();
 ?>
