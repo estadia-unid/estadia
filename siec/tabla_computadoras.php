@@ -330,8 +330,8 @@ include "../conexion.php";
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=true">Oficiales</a></button>
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?noofi=true">No oficiales</a></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
           </div>
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
             <svg class="bi"><use xlink:href="#calendar3"/></svg>
@@ -489,15 +489,19 @@ include "../conexion.php";
                              echo "</tr>";
                          }
                         }
-        if (isset($_GET['tabla'])){
-          tablaoficiales();
-        }
-        if (isset($_GET['noofi'])){
-          tablanooficiales();
-        }
-        if (empty($_GET['tabla'])&&(empty($_GET['noofi']))){
-          tabla();
-        }
+                      $tabla = $_GET['tabla'];
+                      switch($tabla){
+                        case "oficiales":
+                          tablaoficiales();
+                          break;
+
+                        case "no_oficiales":
+                          tablanooficiales();
+                          break;
+                          
+                        default:
+                        tabla();
+                        }
             
           ?>
           </tbody>
