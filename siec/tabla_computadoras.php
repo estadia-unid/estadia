@@ -340,7 +340,7 @@ include "../conexion.php";
         </div>
       </div>
 
-      
+    <!-- ya ajusta bien la tabla por favor -->
       <h2>hola</h2>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
