@@ -1,7 +1,7 @@
 <?php
 session_start();
    date_default_timezone_set('America/Mexico_City');
-     $conecta =  mysqli_connect('localhost', 'root', 'ctpalm2113', 'estadiaunid');
+     $conecta =  mysqli_connect('localhost', 'skyper', 'ctpalm2113', 'estadiaunid');
      if(!$conecta){
          die('no pudo conectarse:' . mysqli_connect_error());
       }
