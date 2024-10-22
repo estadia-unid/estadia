@@ -341,172 +341,155 @@ include "../conexion.php";
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-      <h2>hola</h2>
-      <div class="table-responsive small">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">1</th>
-              <th scope="col">2</th>
-              <th scope="col">3</th>
-              <th scope="col">4</th>
-              <th scope="col">5</th>
-              <th scope="col">6</th>
-              <th scope="col">7</th>
-              <th scope="col">8</th>
-              <th scope="col">9</th>
-              <th scope="col">10</th>
-              <th scope="col">11</th>
-              <th scope="col">12</th>
-              <th scope="col">13</th>
-              <th scope="col">14</th>
-              <th scope="col">15</th>
-              <th scope="col">16</th>
-              <!-- <th scope="col">17</th>
-              <th scope="col">18</th>
-              <th scope="col">19</th> -->
-            </tr>
-          </thead>
-          <tbody>
-          <?php
+    <h2>computadoras</h2>
 
-          //https://www.php.net/manual/es/function.isset.php
-          //https://www.php.net/manual/es/function.empty.php
-          function tabla() {
-   date_default_timezone_set('America/Mexico_City');
-     $conecta =  mysqli_connect('localhost', 'root', '', 'estadiaunid');
-            $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras`");
-            while ($dato=mysqli_fetch_array($consulta)) {
-              echo "<tr>";
-              /*
-              echo "<td>".$dato[3]."</td>";
-              echo "<td>".$dato[4]."</td>";
-              echo "<td>".$dato[5]."</td>";
-              */
-              echo "<td>";
-              //echo '<li class="item dropdown">';
-              echo '<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">'.$dato[6].'</a>';
-              echo '<ul class="dropdown-menu">';
-              echo '<li><a class="dropdown-item" href="#">'.$dato[3].'</a></li>';
-              echo '<li><a class="dropdown-item" href="#">'.$dato[4].'</a></li>';
-              echo '<li><a class="dropdown-item" href="#">'.$dato[5].'</a></li>';
-              echo '</ul>';
-              //echo '</li>';
-              echo '</td>';
-              echo "<td>".$dato[7]."</td>";
-              echo "<td>".$dato[8]."</td>";
-              echo "<td>".$dato[9]."</td>";
-              echo "<td>".$dato[10]."</td>";
-              echo "<td>".$dato[11]."</td>";
-              echo "<td>".$dato[12]."</td>";
-              echo "<td>".$dato[13]."</td>";
-              echo "<td>".$dato[14]."</td>";
-              echo "<td>".$dato[15]."</td>";
-              echo "<td>".$dato[16]."</td>";
-              echo "<td>".$dato[17]."</td>";
-              echo "<td>".$dato[18]."</td>";
-              echo "<td>".$dato[19]."</td>";
-              echo "<td>".$dato[20]."</td>";
-              echo "<td>".$dato[21]."</td>";
-              echo "</tr>";
-          }
-         }
-         function tablaoficiales() {
-          date_default_timezone_set('America/Mexico_City');
-            $conecta =  mysqli_connect('localhost', 'root', '', 'estadiaunid');
-                   $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras` where `ofi` = 1");
-                   while ($dato=mysqli_fetch_array($consulta)) {
-                     echo "<tr>";
-                     /*
-                     echo "<td>".$dato[3]."</td>";
-                     echo "<td>".$dato[4]."</td>";
-                     echo "<td>".$dato[5]."</td>";
-                     */
-                     echo "<td>";
-                     //echo '<li class="item dropdown">';
-                     echo '<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">'.$dato[6].'</a>';
-                     echo '<ul class="dropdown-menu">';
-                     echo '<li><a class="dropdown-item" href="#">'.$dato[3].'</a></li>';
-                     echo '<li><a class="dropdown-item" href="#">'.$dato[4].'</a></li>';
-                     echo '<li><a class="dropdown-item" href="#">'.$dato[5].'</a></li>';
-                     echo '</ul>';
-                     //echo '</li>';
-                     echo '</td>';
-                     echo "<td>".$dato[7]."</td>";
-                     echo "<td>".$dato[8]."</td>";
-                     echo "<td>".$dato[9]."</td>";
-                     echo "<td>".$dato[10]."</td>";
-                     echo "<td>".$dato[11]."</td>";
-                     echo "<td>".$dato[12]."</td>";
-                     echo "<td>".$dato[13]."</td>";
-                     echo "<td>".$dato[14]."</td>";
-                     echo "<td>".$dato[15]."</td>";
-                     echo "<td>".$dato[16]."</td>";
-                     echo "<td>".$dato[17]."</td>";
-                     echo "<td>".$dato[18]."</td>";
-                     echo "<td>".$dato[19]."</td>";
-                     echo "<td>".$dato[20]."</td>";
-                     echo "<td>".$dato[21]."</td>";
-                     echo "</tr>";
-                 }
-                }
-                function tablanooficiales() {
-                  date_default_timezone_set('America/Mexico_City');
-                    $conecta =  mysqli_connect('localhost', 'root', '', 'estadiaunid');
-                           $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras` where `noofi` = 1");
-                           while ($dato=mysqli_fetch_array($consulta)) {
-                             echo "<tr>";
-                             /*
-                             echo "<td>".$dato[3]."</td>";
-                             echo "<td>".$dato[4]."</td>";
-                             echo "<td>".$dato[5]."</td>";
-                             */
-                             echo "<td>";
-                             //echo '<li class="item dropdown">';
-                             echo '<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">'.$dato[6].'</a>';
-                             echo '<ul class="dropdown-menu">';
-                             echo '<li><a class="dropdown-item" href="#">'.$dato[3].'</a></li>';
-                             echo '<li><a class="dropdown-item" href="#">'.$dato[4].'</a></li>';
-                             echo '<li><a class="dropdown-item" href="#">'.$dato[5].'</a></li>';
-                             echo '</ul>';
-                             //echo '</li>';
-                             echo '</td>';
-                             echo "<td>".$dato[7]."</td>";
-                             echo "<td>".$dato[8]."</td>";
-                             echo "<td>".$dato[9]."</td>";
-                             echo "<td>".$dato[10]."</td>";
-                             echo "<td>".$dato[11]."</td>";
-                             echo "<td>".$dato[12]."</td>";
-                             echo "<td>".$dato[13]."</td>";
-                             echo "<td>".$dato[14]."</td>";
-                             echo "<td>".$dato[15]."</td>";
-                             echo "<td>".$dato[16]."</td>";
-                             echo "<td>".$dato[17]."</td>";
-                             echo "<td>".$dato[18]."</td>";
-                             echo "<td>".$dato[19]."</td>";
-                             echo "<td>".$dato[20]."</td>";
-                             echo "<td>".$dato[21]."</td>";
-                             echo "</tr>";
-                         }
-                        }
-                      $tabla = $_GET['tabla'];
-                      switch($tabla){
-                        case "oficiales":
-                          tablaoficiales();
-                          break;
+<div class="row g-4">
 
-                        case "no_oficiales":
-                          tablanooficiales();
-                          break;
-                          
-                        default:
-                        tabla();
-                        }
-            
-          ?>
-          </tbody>
+    <div class="col-auto text-start">
+        <label for="num_registros" class="col-form-label">Mostrar: </label>
+    </div>
+
+    <div class="col-auto text-start">
+        <select name="num_registros" id="num_registros" class="form-select">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </div>
+
+    <div class="col-auto text-start">
+        <label for="num_registros" class="col-form-label">registros </label>
+    </div>
+
+    <div class="col-md-4 col-xl-5"></div>
+
+    <div class="col-6 col-md-1 text-end">
+        <label for="campo" class="col-form-label">Buscar: </label>
+    </div>
+    <div class="col-6 col-md-3 text-end">
+        <input type="text" name="campo" id="campo" class="form-control">
+    </div>
+</div>
+
+<div class="row py-4">
+    <div class="col">
+        <table class="table table-sm table-bordered table-striped">
+            <thead>
+                <th class="sort asc">departamento</th>
+                <th class="sort asc">puesto</th>
+                <th class="sort asc">usuario_responsable</th>
+                <th class="sort asc">rpe</th>
+                <th class="sort asc">tipo_de_equipo</th>
+                <th class="sort asc">activo_fijo</th>
+                <th class="sort asc">inventario</th>
+                <th class="sort asc">numero_de_serie</th>
+                <th class="sort asc">marca</th>
+                <th class="sort asc">modelo</th>
+                <th class="sort asc">mac_wifi</th>
+                <th class="sort asc">mac_ethernet</th>
+                <th class="sort asc">memoria</th>
+                <th class="sort asc">disco_duro</th>
+                <th class="sort asc">dominio</th>
+                <th class="sort asc">resg</th>
+                <th class="sort asc">d_activo</th>
+                <th class="sort asc">antivirus</th>
+                <th class="sort asc">observaciones</th>
+                <th></th>
+                <th></th>
+            </thead>
+
+            <!-- El id del cuerpo de la tabla. -->
+            <tbody id="content">
+
+            </tbody>
         </table>
-      </div>
+    </div>
+</div>
+
+<div class="row justify-content-between">
+
+    <div class="col-12 col-md-4">
+        <label id="lbl-total"></label>
+    </div>
+
+    <div class="col-12 col-md-4" id="nav-paginacion"></div>
+
+    <input type="hidden" id="pagina" value="1">
+    <input type="hidden" id="orderCol" value="0">
+    <input type="hidden" id="orderType" value="asc">
+
+</div>
+</div>
+</main>
+
+<script>
+// Llamando a la función getData() al cargar la página
+document.addEventListener("DOMContentLoaded", getData);
+
+// Función para obtener datos con AJAX
+function getData() {
+let input = document.getElementById("campo").value
+let num_registros = document.getElementById("num_registros").value
+let content = document.getElementById("content")
+let pagina = document.getElementById("pagina").value || 1;
+let orderCol = document.getElementById("orderCol").value
+let orderType = document.getElementById("orderType").value
+
+let formaData = new FormData()
+formaData.append('campo', input)
+formaData.append('registros', num_registros)
+formaData.append('pagina', pagina)
+formaData.append('orderCol', orderCol)
+formaData.append('orderType', orderType)
+
+fetch("load.php", {
+        method: "POST",
+        body: formaData
+    })
+    .then(response => response.json())
+    .then(data => {
+        content.innerHTML = data.data
+        document.getElementById("lbl-total").innerHTML = `Mostrando ${data.totalFiltro} de ${data.totalRegistros} registros`;
+        document.getElementById("nav-paginacion").innerHTML = data.paginacion
+
+        // Si la página actual no tiene resultados, ajustar la paginación para mostrar la primera página
+        if (data.data.includes('Sin resultados') && parseInt(pagina) !== 1) {
+            nextPage(1); // Ir a la primera página
+        }
+    })
+    .catch(err => console.log(err))
+}
+
+// Función para cambiar de página
+function nextPage(pagina) {
+document.getElementById('pagina').value = pagina
+getData()
+}
+
+// Función para ordenar columnas
+function ordenar(e) {
+let elemento = e.target;
+let orderType = elemento.classList.contains("asc") ? "desc" : "asc";
+
+document.getElementById('orderCol').value = elemento.cellIndex;
+document.getElementById("orderType").value = orderType;
+elemento.classList.toggle("asc");
+elemento.classList.toggle("desc");
+
+getData()
+}
+
+// Event listeners para los eventos de cambio en el campo de entrada y el select
+document.getElementById("campo").addEventListener("keyup", getData);
+document.getElementById("num_registros").addEventListener("change", getData);
+
+// Event listener para ordenar las columnas
+let columns = document.querySelectorAll(".sort");
+columns.forEach(column => {
+column.addEventListener("click", ordenar);
+});
+</script>
 
     </main>
   </div>

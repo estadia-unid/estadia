@@ -11,7 +11,7 @@
 require "../conexion.php";
 
 // Columnas a mostrar en la tabla
-$columns = ['departamento', 'puesto', 'usuario_responsable', 'rpe', 'tipo_de_equipo'];
+$columns = ['id_computadora', 'departamento', 'puesto', 'usuario_responsable', 'rpe', 'tipo_de_equipo', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
 
 // Nombre de la tabla
 $table = "computadoras";
@@ -95,8 +95,22 @@ if ($num_rows > 0) {
         $output['data'] .= '<td>' . $row['usuario_responsable'] . '</td>';
         $output['data'] .= '<td>' . $row['rpe'] . '</td>';
         $output['data'] .= '<td>' . $row['tipo_de_equipo'] . '</td>';
-        //$output['data'] .= '<td><a class="btn btn-warning btn-sm" href="editar.php?id=' . $row['id_computadora'] . '">Editar</a></td>';
-        //$output['data'] .= "<td><a class='btn btn-danger btn-sm' href='elimiar.php?id=" . $row['id_computadora'] . "'>Eliminar</a></td>";
+        $output['data'] .= '<td>' . $row['activo_fijo'] . '</td>';
+        $output['data'] .= '<td>' . $row['inventario'] . '</td>';
+        $output['data'] .= '<td>' . $row['numero_de_serie'] . '</td>';
+        $output['data'] .= '<td>' . $row['marca'] . '</td>';
+        $output['data'] .= '<td>' . $row['modelo'] . '</td>';
+        $output['data'] .= '<td>' . $row['mac_wifi'] . '</td>';
+        $output['data'] .= '<td>' . $row['mac_ethernet'] . '</td>';
+        $output['data'] .= '<td>' . $row['memoria'] . '</td>';
+        $output['data'] .= '<td>' . $row['disco_duro'] . '</td>';
+        $output['data'] .= '<td>' . $row['dominio'] . '</td>';
+        $output['data'] .= '<td>' . $row['resg'] . '</td>';
+        $output['data'] .= '<td>' . $row['d_activo'] . '</td>';
+        $output['data'] .= '<td>' . $row['antivirus'] . '</td>';
+        $output['data'] .= '<td>' . $row['observaciones'] . '</td>';
+        $output['data'] .= '<td><a href="editar.php?id=' . $row['id_computadora'] . '">Editar</a></td>';
+        $output['data'] .= '<td><a href="elimiar.php?id=' . $row['id_computadora'] . '">Eliminar</a></td>';
         $output['data'] .= '</tr>';
     }
 } else {
