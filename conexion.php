@@ -8,4 +8,4 @@ session_start();
    if (!mysqli_set_charset($conecta,'utf8')) {
     die('No pudo conectarse: ' . mysqli_error($conecta));
     }
-?>
+?> 
