@@ -5,7 +5,7 @@ class PDF extends FPDF {
     // Encabezado
     function Header() {
         // Logo CFE
-        $this->Image('cfe_icon.png',10,8,50); // Coloca tu logo
+        $this->Image('../imagenes/cfe_icon.png',10,8,50); // Coloca tu logo
         // Título centrado
         $this->SetFont('Arial', 'B', 8);
         // Establece el color verde CFE (RGB: 0, 153, 51)
