@@ -1,0 +1,1284 @@
+[07-Aug-2024 00:20:02 America/Mexico_City] PHP Warning:  require_once(conexion.php): Failed to open stream: No such file or directory in /home4/unidsyst/public_html/jozzram/template/index.php on line 3
+[07-Aug-2024 00:20:02 America/Mexico_City] PHP Fatal error:  Uncaught Error: Failed opening required 'conexion.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home4/unidsyst/public_html/jozzram/template/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/index.php on line 3
+[07-Aug-2024 00:23:12 America/Mexico_City] PHP Warning:  Undefined array key "user" in /home4/unidsyst/public_html/jozzram/template/index.php on line 13
+[07-Aug-2024 00:24:51 America/Mexico_City] PHP Warning:  Undefined array key "user" in /home4/unidsyst/public_html/jozzram/template/index.php on line 13
+[07-Aug-2024 00:27:39 America/Mexico_City] PHP Warning:  Undefined array key "user" in /home4/unidsyst/public_html/jozzram/template/index.php on line 13
+[07-Aug-2024 00:28:23 America/Mexico_City] PHP Warning:  Undefined array key "user" in /home4/unidsyst/public_html/jozzram/template/index.php on line 13
+[07-Aug-2024 14:04:41 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'tu_usuario'@'localhost' (using password: YES) in /home4/unidsyst/public_html/jozzram/template/signup.php:42
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/signup.php(42): mysqli->__construct('localhost', 'tu_usuario', Object(SensitiveParameterValue), 'mi_base_de_dato...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/signup.php on line 42
+[07-Aug-2024 14:05:25 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'tu_usuario'@'localhost' (using password: YES) in /home4/unidsyst/public_html/jozzram/template/signup.php:42
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/signup.php(42): mysqli->__construct('localhost', 'tu_usuario', Object(SensitiveParameterValue), 'mi_base_de_dato...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/signup.php on line 42
+[07-Aug-2024 14:09:24 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'tu_usuario'@'localhost' (using password: YES) in /home4/unidsyst/public_html/jozzram/template/signup.php:44
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/signup.php(44): mysqli->__construct('localhost', 'tu_usuario', Object(SensitiveParameterValue), 'mi_base_de_dato...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/signup.php on line 44
+[07-Aug-2024 14:27:12 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 22
+[07-Aug-2024 14:28:17 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 22
+[07-Aug-2024 14:28:20 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 22
+[07-Aug-2024 14:29:16 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 34
+[07-Aug-2024 14:29:31 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 22
+[07-Aug-2024 14:33:35 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 22
+[07-Aug-2024 14:40:04 America/Mexico_City] PHP Warning:  Undefined array key "username" in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 7
+[07-Aug-2024 14:40:04 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'username' in 'where clause' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:12
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(12): mysqli_query(Object(mysqli), 'SELECT * FROM u...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 12
+[07-Aug-2024 14:44:11 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 14:46:11 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 14:47:22 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 14:48:45 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 14:50:53 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 14:53:01 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 14:55:14 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 14:55:31 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 14:56:30 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 15:05:15 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 15:07:17 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, emai...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 15:07:49 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'password' in 'field list' in /home4/unidsyst/public_html/jozzram/template/login_handler.php:18
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/login_handler.php(18): mysqli_query(Object(mysqli), 'SELECT id, pass...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 18
+[07-Aug-2024 15:12:27 America/Mexico_City] PHP Warning:  Undefined array key "nombre_usuario" in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 9
+[07-Aug-2024 15:12:27 America/Mexico_City] PHP Warning:  Undefined array key "contrasena" in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 10
+[07-Aug-2024 15:12:27 America/Mexico_City] PHP Warning:  Undefined variable $conn in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 13
+[07-Aug-2024 15:12:27 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home4/unidsyst/public_html/jozzram/template/login_handler.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 13
+[07-Aug-2024 15:14:01 America/Mexico_City] PHP Warning:  Undefined array key "contrasena" in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 10
+[07-Aug-2024 15:14:01 America/Mexico_City] PHP Warning:  Undefined variable $conn in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 13
+[07-Aug-2024 15:14:01 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home4/unidsyst/public_html/jozzram/template/login_handler.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 13
+[07-Aug-2024 17:39:58 America/Mexico_City] PHP Warning:  Undefined array key "contrasena" in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 10
+[07-Aug-2024 17:39:58 America/Mexico_City] PHP Warning:  Undefined variable $conn in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 13
+[07-Aug-2024 17:39:58 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home4/unidsyst/public_html/jozzram/template/login_handler.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 13
+[07-Aug-2024 17:42:27 America/Mexico_City] PHP Warning:  Undefined array key "contrasena" in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 10
+[07-Aug-2024 17:42:27 America/Mexico_City] PHP Warning:  Undefined variable $conn in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 13
+[07-Aug-2024 17:42:27 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home4/unidsyst/public_html/jozzram/template/login_handler.php:13
+Stack trace:
+#0 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/login_handler.php on line 13
+[07-Aug-2024 18:09:15 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'idusuario' in 'field list' in /home4/unidsyst/public_html/jozzram/template/control.php:17
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/control.php(17): mysqli_query(Object(mysqli), 'select idusuari...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/control.php on line 17
+[07-Aug-2024 18:14:50 America/Mexico_City] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home4/unidsyst/public_html/jozzram/template/control.php on line 35
+[07-Aug-2024 18:14:50 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/control.php on line 54
+[07-Aug-2024 18:16:51 America/Mexico_City] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home4/unidsyst/public_html/jozzram/template/control.php on line 35
+[07-Aug-2024 18:16:51 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/control.php on line 54
+[07-Aug-2024 18:23:43 America/Mexico_City] PHP Warning:  Undefined array key "clave" in /home4/unidsyst/public_html/jozzram/template/signup.php on line 41
+[07-Aug-2024 18:24:22 America/Mexico_City] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home4/unidsyst/public_html/jozzram/template/control.php on line 35
+[07-Aug-2024 18:24:22 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/control.php on line 54
+[07-Aug-2024 18:26:47 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/control.php:17
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/control.php(17): mysqli_query(Object(mysqli), 'select idusuari...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/control.php on line 17
+[07-Aug-2024 18:27:18 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/index.php:7
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/index.php(7): mysqli_query(Object(mysqli), 'SELECT MAX(id) ...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:27:18 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/index.php:7
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/index.php(7): mysqli_query(Object(mysqli), 'SELECT MAX(id) ...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:29:20 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/index.php:7
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/index.php(7): mysqli_query(Object(mysqli), 'SELECT MAX(id) ...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:29:50 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/index.php:7
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/index.php(7): mysqli_query(Object(mysqli), 'SELECT MAX(id) ...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:30:15 America/Mexico_City] PHP Warning:  Undefined variable $conecta in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:30:15 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home4/unidsyst/public_html/jozzram/template/index.php:7
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/index.php(7): mysqli_query(NULL, 'SELECT MAX(id) ...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:30:17 America/Mexico_City] PHP Warning:  Undefined variable $conecta in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:30:17 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home4/unidsyst/public_html/jozzram/template/index.php:7
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/index.php(7): mysqli_query(NULL, 'SELECT MAX(id) ...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:30:30 America/Mexico_City] PHP Warning:  Undefined variable $conecta in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[07-Aug-2024 18:30:30 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home4/unidsyst/public_html/jozzram/template/index.php:7
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/index.php(7): mysqli_query(NULL, 'SELECT MAX(id) ...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/index.php on line 7
+[08-Aug-2024 12:48:04 America/Mexico_City] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home4/unidsyst/public_html/jozzram/template/control.php on line 35
+[08-Aug-2024 12:48:04 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/control.php on line 54
+[08-Aug-2024 12:52:09 America/Mexico_City] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home4/unidsyst/public_html/jozzram/template/control.php on line 35
+[08-Aug-2024 12:52:09 America/Mexico_City] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/unidsyst/public_html/jozzram/template/conexion.php:1) in /home4/unidsyst/public_html/jozzram/template/control.php on line 54
+[08-Aug-2024 12:59:30 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/control.php:15
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/control.php(15): mysqli->prepare('SELECT * FROM u...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/control.php on line 15
+[08-Aug-2024 12:59:43 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/control.php:15
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/control.php(15): mysqli->prepare('SELECT * FROM u...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/control.php on line 15
+[08-Aug-2024 13:06:27 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/control.php:15
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/control.php(15): mysqli->prepare('SELECT * FROM u...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/control.php on line 15
+[08-Aug-2024 13:07:02 America/Mexico_City] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home4/unidsyst/public_html/jozzram/template/control.php:15
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/control.php(15): mysqli->prepare('SELECT * FROM u...')
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/control.php on line 15
+[08-Aug-2024 13:11:26 America/Mexico_City] PHP Parse error:  Unmatched '}' in /home4/unidsyst/public_html/jozzram/template/conexion.php on line 5
+[08-Aug-2024 14:26:55 America/Mexico_City] PHP Warning:  Undefined array key "clave" in /home4/unidsyst/public_html/jozzram/template/signup.php on line 41
+[08-Aug-2024 14:30:07 America/Mexico_City] PHP Warning:  Undefined variable $fusion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 165
+[08-Aug-2024 14:30:07 America/Mexico_City] PHP Warning:  Undefined variable $resultado in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 186
+[08-Aug-2024 14:30:07 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, null given in /home4/unidsyst/public_html/jozzram/template/actualizareg.php:186
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/actualizareg.php(186): mysqli_fetch_array(NULL)
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 186
+[08-Aug-2024 14:31:04 America/Mexico_City] PHP Warning:  Undefined variable $fusion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 165
+[08-Aug-2024 14:31:04 America/Mexico_City] PHP Warning:  Undefined variable $resultado in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 186
+[08-Aug-2024 14:31:04 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, null given in /home4/unidsyst/public_html/jozzram/template/actualizareg.php:186
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/actualizareg.php(186): mysqli_fetch_array(NULL)
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 186
+[08-Aug-2024 14:31:06 America/Mexico_City] PHP Warning:  Undefined variable $fusion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 165
+[08-Aug-2024 14:31:06 America/Mexico_City] PHP Warning:  Undefined variable $resultado in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 186
+[08-Aug-2024 14:31:06 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, null given in /home4/unidsyst/public_html/jozzram/template/actualizareg.php:186
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/actualizareg.php(186): mysqli_fetch_array(NULL)
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 186
+[08-Aug-2024 14:36:27 America/Mexico_City] PHP Warning:  Undefined variable $fusion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 165
+[08-Aug-2024 14:36:27 America/Mexico_City] PHP Warning:  Undefined variable $resultado in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 186
+[08-Aug-2024 14:36:27 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, null given in /home4/unidsyst/public_html/jozzram/template/actualizareg.php:186
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/actualizareg.php(186): mysqli_fetch_array(NULL)
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 186
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Warning:  Undefined variable $fusion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 166
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Warning:  Undefined variable $row in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Warning:  Undefined variable $row in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 178
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 178
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Warning:  Undefined variable $row in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Warning:  Undefined variable $resultado in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 191
+[08-Aug-2024 14:54:43 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, null given in /home4/unidsyst/public_html/jozzram/template/actualizareg.php:191
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/actualizareg.php(191): mysqli_fetch_array(NULL)
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 191
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Warning:  Undefined variable $fusion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 166
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Warning:  Undefined variable $row in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Warning:  Undefined variable $row in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 178
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 178
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Warning:  Undefined variable $row in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Warning:  Undefined variable $resultado in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 191
+[08-Aug-2024 14:55:15 America/Mexico_City] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_array(): Argument #1 ($result) must be of type mysqli_result, null given in /home4/unidsyst/public_html/jozzram/template/actualizareg.php:191
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/actualizareg.php(191): mysqli_fetch_array(NULL)
+#1 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 191
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $busca_folio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 74
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 200
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 204
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 208
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 212
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 216
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 220
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 224
+[08-Aug-2024 15:12:28 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 228
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $busca_folio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 42
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:13:58 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:17:42 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:17:49 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:18:14 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:18:27 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:19:08 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:19:57 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 15:20:09 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 129
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 133
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 137
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 141
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 145
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 149
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 153
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 157
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 161
+[08-Aug-2024 15:29:04 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 165
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 129
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 133
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 137
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 141
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 145
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 149
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 153
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 157
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 161
+[08-Aug-2024 15:31:32 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 165
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 16:16:09 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 16:16:15 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 129
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 133
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 137
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 141
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 145
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 149
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 153
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 157
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 161
+[08-Aug-2024 16:16:21 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 165
+[08-Aug-2024 16:22:05 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 153
+[08-Aug-2024 16:22:05 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 189
+[08-Aug-2024 16:23:55 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 153
+[08-Aug-2024 16:23:55 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 189
+[08-Aug-2024 16:24:27 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 153
+[08-Aug-2024 16:24:27 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 189
+[08-Aug-2024 16:24:55 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 189
+[08-Aug-2024 16:31:35 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 16:35:22 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 16:37:03 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 16:37:47 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 16:37:54 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 16:38:04 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 17:05:03 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 153
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 157
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 161
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 165
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 169
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 173
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 177
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 181
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 185
+[08-Aug-2024 17:05:24 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 189
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 153
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 157
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 161
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 165
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 169
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 173
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 177
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 181
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 185
+[08-Aug-2024 17:06:42 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 189
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 17:06:59 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 17:10:18 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 17:16:30 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 17:17:19 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 17:18:26 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 17:23:16 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 184
+[08-Aug-2024 17:36:43 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 188
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 184
+[08-Aug-2024 17:45:15 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 188
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 184
+[08-Aug-2024 17:46:36 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 188
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 184
+[08-Aug-2024 17:46:46 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 188
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 184
+[08-Aug-2024 18:03:23 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 188
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 18:13:09 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 18:13:18 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 18:13:27 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 160
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 164
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 168
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 172
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 176
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 180
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 184
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 188
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 192
+[08-Aug-2024 18:13:43 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 196
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 18:16:38 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 184
+[08-Aug-2024 18:16:44 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 188
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 18:19:57 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 144
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 148
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 18:20:00 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 18:20:30 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 144
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 148
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 18:21:42 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 144
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 148
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 18:22:42 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 144
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 148
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 18:23:22 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 18:23:35 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 144
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 148
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 152
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 156
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 160
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 164
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 168
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 172
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 176
+[08-Aug-2024 18:23:37 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 180
+[08-Aug-2024 18:34:18 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:34:32 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:35:59 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:36:07 America/Mexico_City] PHP Warning:  Undefined variable $categorizacionn in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:37:20 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:37:35 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 18:38:45 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:38:50 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:39:06 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:39:13 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:40:15 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[08-Aug-2024 18:40:15 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[08-Aug-2024 18:40:20 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[08-Aug-2024 18:40:20 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[08-Aug-2024 18:40:30 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[08-Aug-2024 18:40:30 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[08-Aug-2024 18:40:34 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[08-Aug-2024 18:40:34 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[08-Aug-2024 18:41:30 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[08-Aug-2024 18:52:56 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[08-Aug-2024 18:53:20 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[08-Aug-2024 18:53:24 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[08-Aug-2024 18:53:34 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[09-Aug-2024 20:20:34 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[09-Aug-2024 20:20:42 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[10-Aug-2024 15:29:02 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[10-Aug-2024 15:29:09 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[10-Aug-2024 15:29:14 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[10-Aug-2024 15:29:20 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 15:30:26 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 15:31:18 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 15:31:53 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 16:12:27 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[10-Aug-2024 16:12:54 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 16:13:25 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 16:22:37 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/table.php on line 2
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/table.php on line 2
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 52
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 53
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 54
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 55
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 56
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 57
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 58
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 59
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 60
+[10-Aug-2024 16:22:59 America/Mexico_City] PHP Warning:  Trying to access array offset on value of type null in /home4/unidsyst/public_html/jozzram/template/table.php on line 61
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[10-Aug-2024 16:29:10 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[10-Aug-2024 16:29:44 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[10-Aug-2024 16:29:53 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[10-Aug-2024 16:30:54 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[10-Aug-2024 16:36:07 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 16:38:36 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:36 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:36 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:36 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:39 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:39 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:39 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:39 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:51 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:51 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:51 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 16:38:51 America/Mexico_City] PHP Warning:  Undefined array key "nombre" in /home4/unidsyst/public_html/jozzram/template/registro.php on line 164
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[10-Aug-2024 18:26:21 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[10-Aug-2024 18:26:26 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[10-Aug-2024 21:55:18 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[10-Aug-2024 22:04:32 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[11-Aug-2024 13:36:04 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[12-Aug-2024 17:11:36 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[12-Aug-2024 17:11:38 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[12-Aug-2024 17:11:54 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[13-Aug-2024 14:23:17 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[14-Aug-2024 12:46:56 America/Mexico_City] PHP Warning:  Undefined array key "clave" in /home4/unidsyst/public_html/jozzram/template/signup.php on line 41
+[14-Aug-2024 12:48:21 America/Mexico_City] PHP Warning:  Undefined array key "clave" in /home4/unidsyst/public_html/jozzram/template/signup.php on line 41
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[14-Aug-2024 17:36:56 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[14-Aug-2024 17:42:02 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[14-Aug-2024 17:43:23 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id_examen.php on line 2
+[14-Aug-2024 17:43:23 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id_examen.php on line 101
+[14-Aug-2024 17:43:54 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id_examen.php on line 2
+[14-Aug-2024 17:43:54 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id_examen.php on line 101
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[14-Aug-2024 20:16:37 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[14-Aug-2024 20:17:03 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[14-Aug-2024 20:17:28 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[14-Aug-2024 20:17:38 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[14-Aug-2024 20:17:43 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[14-Aug-2024 20:17:56 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[14-Aug-2024 20:18:00 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[15-Aug-2024 15:04:48 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[15-Aug-2024 15:05:38 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[15-Aug-2024 17:08:44 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[15-Aug-2024 17:08:52 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[15-Aug-2024 17:23:20 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[15-Aug-2024 17:23:36 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[15-Aug-2024 17:23:42 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Too many connections in /home4/unidsyst/public_html/jozzram/template/conexion.php:3
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/conexion.php(3): mysqli_connect('localhost', 'unidsyst_jozet', Object(SensitiveParameterValue), 'unidsyst_cjimag...')
+#1 /home4/unidsyst/public_html/jozzram/template/registro.php(5): require_once('/home4/unidsyst...')
+#2 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/conexion.php on line 3
+[15-Aug-2024 17:23:45 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Too many connections in /home4/unidsyst/public_html/jozzram/template/conexion.php:3
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/conexion.php(3): mysqli_connect('localhost', 'unidsyst_jozet', Object(SensitiveParameterValue), 'unidsyst_cjimag...')
+#1 /home4/unidsyst/public_html/jozzram/template/registro.php(5): require_once('/home4/unidsyst...')
+#2 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/conexion.php on line 3
+[15-Aug-2024 17:23:46 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Too many connections in /home4/unidsyst/public_html/jozzram/template/conexion.php:3
+Stack trace:
+#0 /home4/unidsyst/public_html/jozzram/template/conexion.php(3): mysqli_connect('localhost', 'unidsyst_jozet', Object(SensitiveParameterValue), 'unidsyst_cjimag...')
+#1 /home4/unidsyst/public_html/jozzram/template/registro.php(5): require_once('/home4/unidsyst...')
+#2 {main}
+  thrown in /home4/unidsyst/public_html/jozzram/template/conexion.php on line 3
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[15-Aug-2024 17:51:16 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[17-Aug-2024 10:12:13 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[17-Aug-2024 10:12:24 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[17-Aug-2024 10:12:35 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[17-Aug-2024 10:12:51 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[17-Aug-2024 10:12:56 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[20-Aug-2024 20:13:15 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 151
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 155
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 159
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 163
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 167
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 171
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 175
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 179
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 183
+[20-Aug-2024 20:13:34 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[12-Sep-2024 09:13:37 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[13-Sep-2024 18:22:33 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183
+[14-Sep-2024 19:27:45 America/Mexico_City] PHP Warning:  Undefined array key "usuario" in /home4/unidsyst/public_html/jozzram/template/control.php on line 7
+[14-Sep-2024 19:27:45 America/Mexico_City] PHP Warning:  Undefined array key "clave" in /home4/unidsyst/public_html/jozzram/template/control.php on line 9
+[19-Sep-2024 14:57:00 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/actualizareg.php on line 187
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined array key "sendfolio" in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 2
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 101
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $id in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 147
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $fecha in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 151
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $hora in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 155
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $user in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 159
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $cibermedio in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 163
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $gpo_edit in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 167
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $url in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 171
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $pais in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 175
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $idioma in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 179
+[23-Sep-2024 13:34:58 America/Mexico_City] PHP Warning:  Undefined variable $categorizacion in /home4/unidsyst/public_html/jozzram/template/buscar_id.php on line 183

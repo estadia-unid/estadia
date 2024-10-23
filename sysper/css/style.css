@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #EB1616;
+    --primary: #008e5a;
     --secondary: #191C24;
     --light: #6C7293;
     --dark: #000000;
@@ -130,9 +130,9 @@
 
 .sidebar .navbar .navbar-nav .nav-link:hover,
 .sidebar .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color: #008e5a;
     background: var(--dark);
-    border-color: var(--primary);
+    border-color: #008e5a;
 }
 
 .sidebar .navbar .navbar-nav .nav-link i {
@@ -288,7 +288,7 @@
     border-color: var(--primary);
 }
 
-/* Nueva clase para la secci贸n de imagen */
+/* Nueva clase para la sección de imagen */
 .image-section {
     background: none; /* Elimina cualquier fondo de color */
     height: 100vh; /* Asegura que ocupe toda la altura de la vista */
@@ -299,7 +299,7 @@
 
 .image-section img {
     max-width: 100%;
-    height: auto; /* Mantiene la relaci贸n de aspecto de la imagen */
-    border-radius: 10px; /* A帽ade un poco de borde redondeado si es necesario */
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+    border-radius: 10px; /* Añade un poco de borde redondeado si es necesario */
 }
  
