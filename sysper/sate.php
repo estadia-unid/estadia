@@ -4,7 +4,7 @@ require('fpdf.php');
 class PDF extends FPDF {
     // Encabezado
     function Header() {
-        $this->Image('cfe_icon.png',10,8,50);  // Añade la imagen en la parte superior izquierda
+        $this->Image('../imagenes/svg/cfe_icon.png',10,8,50);  // Añade la imagen en la parte superior izquierda
         $this->SetFont('Arial', 'B', 8);
         $this->SetTextColor(0, 0, 0);  // Cambia el color del texto
         $this->Cell(300, 5, 'CENTRAL TERMOELECTRICA PRESIDENTE ADOLFO LOPEZ MATEOS', 0, 1, 'C');  // Título en la esquina superior derecha

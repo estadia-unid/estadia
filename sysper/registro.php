@@ -35,7 +35,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'fetchData') {
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
      <!-- Incluí algunas referencias CSS necesarias -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+          <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <meta content="" name="keywords">
     <meta content="" name="description">
     <!-- Favicon -->
@@ -165,6 +166,10 @@ if (isset($_POST['action']) && $_POST['action'] == 'fetchData') {
         <div class="col-12">
             <center><h2>REPORTE DE TIEMPO EXTRA</h2></center>
             <form class="row g-3 bg-light-gray p-4" action="registro.php" method="POST" autocomplete="off">
+            <label for="empleados">Selecciona empleados:</label>
+    <select id="empleados" name="empleados[]" multiple="multiple" style="width: 300px;">
+        <!-- Opciones serán cargadas vía Ajax -->
+    </select>
             <div class="col-md-2">
                         <label class="form-label">RPE</label>
                         <input type="text" class="form-control" id="rpe" onkeyup="fetchData()">
@@ -249,6 +254,24 @@ if (isset($_POST['action']) && $_POST['action'] == 'fetchData') {
     </div>
 </div>
 <!-- Form End -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#empleados').select2({
+        ajax: {
+            url: 'get_empleados.php',  // Archivo PHP que obtiene los empleados desde la base de datos
+            dataType: 'json',
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            }
+        }
+    });
+});
+</script>
 
 
 
