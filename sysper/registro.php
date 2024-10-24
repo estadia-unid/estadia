@@ -25,7 +25,7 @@
         placeholder: 'Busca un empleado por RPE',
         allowClear: true,
         ajax: {
-          url: 'buscar_empleados.php', // El archivo PHP que hemos creado
+          url: 'conexion.php', // El archivo PHP que hemos creado
           dataType: 'json',
           delay: 250,
           data: function(params) {
