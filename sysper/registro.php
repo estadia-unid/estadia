@@ -1,6 +1,6 @@
 <?php 
 require_once("seguridad.php"); 
-include 'conexion.php';
+include '../conexion.php';
 
 if (isset($_POST['action']) && $_POST['action'] == 'fetchData') {
     $rpe = $conecta->real_escape_string($_POST['rpe']);
