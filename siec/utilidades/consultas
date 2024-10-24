@@ -1,0 +1,1 @@
+SELECT DISTINCT `categ` FROM `empleados`;
