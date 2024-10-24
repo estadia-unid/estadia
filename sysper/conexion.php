@@ -1,9 +1,9 @@
 <?php
 // Conectar a la base de datos
 $host = 'localhost'; // Cambia según tu configuración
-$user = 'root'; // Cambia según tu usuario
-$password = ''; // Cambia si tienes una contraseña
-$database = 'mi_base_de_datos'; // Cambia por el nombre de tu base de datos
+$user = 'skyper'; // Cambia según tu usuario
+$password = 'ctpalm2113'; // Cambia si tienes una contraseña
+$database = 'estadiaunid'; // Cambia por el nombre de tu base de datos
 
 $conexion = new mysqli($host, $user, $password, $database);
 
