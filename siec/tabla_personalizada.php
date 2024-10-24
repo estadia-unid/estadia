@@ -394,18 +394,16 @@
             <?php
             $consulta_tabla = mysqli_query($conecta, "SELECT * FROM " . $tabla);
             $numero_registros = mysqli_num_rows($consulta_tabla);
-            $datos_tabla = mysqli_fetch_array($consulta_tabla);
-                
-            $i = 0;
-            $a = 0;
-            while($a<=$numero_registros $i){
+            while($fila = mysqli_fetch_assoc($consulta_tabla)) {
                 echo '<tr>';
-                while($i <= $numero_columnas){
-
-                    echo $datos_tabla[$i];
-                    }
-                echo '</tr>';
+                
+                // Recorre cada campo dentro de la fila
+                foreach($fila as $dato) {
+                    echo '<td>' . $dato . '</td>';
                 }
+                
+                echo '</tr>';
+            }
             ?>
             </tbody>
             
