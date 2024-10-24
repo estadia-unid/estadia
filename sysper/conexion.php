@@ -14,8 +14,8 @@ if ($conexion->connect_error) {
 // Obtener la búsqueda del usuario (si existe)
 $searchTerm = isset($_GET['term']) ? $_GET['term'] : '';
 
-// Consultar empleados con un término de búsqueda
-$query = "SELECT id, nombre FROM empleados WHERE nombre LIKE '%$searchTerm%' LIMIT 10";
+// Consultar empleados por RPE
+$query = "SELECT id, rpe, nombre FROM empleados WHERE rpe LIKE '%$searchTerm%' LIMIT 10";
 $resultado = $conexion->query($query);
 
 // Crear un array para almacenar los resultados
@@ -24,7 +24,7 @@ $empleados = array();
 while ($row = $resultado->fetch_assoc()) {
     $empleados[] = array(
         "id" => $row['id'],
-        "text" => $row['nombre']
+        "text" => $row['rpe'] . ' - ' . $row['nombre'] // Mostrar RPE y nombre juntos
     );
 }
 
