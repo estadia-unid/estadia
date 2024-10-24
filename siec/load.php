@@ -8,7 +8,7 @@
  * @license: MIT
  */
 
-require "../conexion.php";
+require "conexion.php";
 
 // Columnas a mostrar en la tabla
 $columns = ['id_computadora', 'departamento', 'puesto', 'usuario_responsable', 'rpe', 'tipo_de_equipo', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];

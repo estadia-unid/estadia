@@ -1,5 +1,5 @@
 <?php
-require("../fpdf186/fpdf.php");
+require("fpdf186/fpdf.php");
    date_default_timezone_set('America/Mexico_City');
      $conecta =  mysqli_connect('localhost', 'root', 'ctpalm2113', 'estadiaunid');
      if(!$conecta){
@@ -13,7 +13,7 @@ class PDF extends FPDF
 function Header()
 {
     // Logo
-    $this->Image('../imagenes/svg/cfelogo.png',10,8,33);
+    $this->Image('imagenes/svg/cfelogo.png',10,8,33);
     // Arial bold 15
     $this->SetFont('Arial','B',15);
     // Movernos a la derecha
