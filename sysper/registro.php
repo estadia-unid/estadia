@@ -12,17 +12,18 @@
 
   <h1>Seleccionador de Empleados por RPE</h1>
 
-  <form>
-    <label for="empleados">Selecciona un empleado:</label>
-    <select id="empleados" style="width: 50%;">
+  <form action="procesar_empleados.php" method="post"> <!-- Asegúrate de apuntar a tu archivo PHP de procesamiento -->
+    <label for="empleados">Selecciona empleados:</label>
+    <select id="empleados" name="empleados[]" multiple="multiple" style="width: 50%;">
       <!-- Las opciones se llenarán dinámicamente -->
     </select>
+    <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
   </form>
 
   <script>
     $(document).ready(function() {
       $('#empleados').select2({
-        placeholder: 'Busca un empleado por RPE',
+        placeholder: 'Busca empleados por RPE',
         allowClear: true,
         ajax: {
           url: 'conexion.php', // El archivo PHP que hemos creado
