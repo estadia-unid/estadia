@@ -167,21 +167,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'fetchData') {
             <center><h2>REPORTE DE TIEMPO EXTRA</h2></center>
             <form class="row g-3 bg-light-gray p-4" action="registro.php" method="POST" autocomplete="off">
             <label for="empleados">Selecciona empleados:</label>
-    <select id="empleados" name="empleados[]" multiple="multiple" style="width: 300px;">
-        <!-- Opciones serán cargadas vía Ajax -->
-    </select>
-            <div class="col-md-2">
-                        <label class="form-label">RPE</label>
-                        <input type="text" class="form-control" id="rpe" onkeyup="fetchData()">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" disabled>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Categoría</label>
-                        <input type="text" class="form-control" id="categoria" disabled>
-                    </div>
+             <select id="empleados" name="empleados[]" multiple="multiple" style="width: 300px;">
+                 <!-- Opciones serán cargadas vía Ajax -->
+                </select>
                 <div class="col-md-2">
                     <label class="form-label">Fecha</label>
                     <input type="date" value="<?php echo date("Y-m-d"); ?>" class="form-control" name="fecha_display" disabled>
