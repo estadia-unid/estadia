@@ -127,48 +127,73 @@ include '../conexion.php';
                             <h2>SOLICITUD DE AUTORIZACION DE TIEMPO EXTRAORDINARIO</h2>
                         </center>
                         <form action="procesar_horas.php" method="POST">
-    <label for="fecha">Fecha:</label>
-    <input type="date" name="fecha" required>
+                            <div>
+                                <!-- Datos comunes -->
+                                <div class="col-md-12 mb-3">
+                                    <label>Fecha:</label>
+                                    <input type="text" id="fecha" name="fecha" class="form-control" required>
+                                </div>
+                                <div id="empleados-container">
+                                <div class="empleado-item">
+                                    <h3>EQUIPO 1</h3>
+                                    <button type="button" class="btn btn-danger remove-equipo">Eliminar equipo</button>
+                                    <div class="mb-3">
+                                        <label for="empleados" class="form-label">Selecciona empleados:</label>
+                                        <select class="textarea empleados-select" id="empleados" name="empleados[]" multiple="multiple">
+                                            <!-- Las opciones se llenarán dinámicamente -->
+                                        </select>
+                                    </div>
+                                <div class="col-md-12 mb-3">
+                                        <label>No. Orden:</label>
+                                        <input type="number" name="numero_orden[]" class="form-control" required>
+                                    </div>
+                                <div class="col-md-12 mb-3">
+                                    <label>Actividades realizadas:</label>
+                                    <textarea name="actividades" class="form-control" rows="3" required></textarea>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label>Justificación técnica:</label>
+                                    <textarea name="justificacion" class="form-control" rows="3" required></textarea>
+                                </div>
+                            </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label>OM:</label>
+                                        <input type="number" name="om[]" class="form-control" required>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label>Hora de inicio:</label>
+                                            <input type="text" name="hora_inicio[]" class="form-control hora" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Hora de término:</label>
+                                            <input type="text" name="hora_termino[]" class="form-control hora" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">    
+                                        <label class="form-label">Vista Previa PDF</label>
+                                        </div>
+                                        <div class="col-md-12 mt-2">
+                                            <iframe id="viewer" src="sate.php" frameborder="0" scrolling="yes" width="100%" height="600"></iframe>
+                                        </div>
 
-    <label for="numero_orden">Número de Orden:</label>
-    <input type="number" name="numero_orden[]" required>
-
-    <label for="actividades">Actividades:</label>
-    <textarea name="actividades" required></textarea>
-
-    <label for="justificacion">Justificación:</label>
-    <textarea name="justificacion" required></textarea>
-
-    <label for="om">OM:</label>
-    <input type="number" name="om[]" required>
-
-    <label for="hora_inicio">Hora Inicio:</label>
-    <input type="time" name="hora_inicio[]" required>
-
-    <label for="hora_termino">Hora Término:</label>
-    <input type="time" name="hora_termino[]" required>
-
-    <div id="equipos-container">
-        <label>Empleados:</label>
-        <input type="text" name="empleados[]" placeholder="Nombre del empleado" required>
-    </div>
-    <button type="button" onclick="agregarEmpleado()">Agregar Empleado</button>
-
-    <button type="submit">Guardar</button>
-</form>
+                                        <script>
+                                            // Función para actualizar el iframe en intervalos regulares
+                                            setInterval(function() {
+                                                var iframe = document.getElementById('viewer');
+                                                iframe.src = iframe.src;  // Recarga el iframe
+                                            }, 5000); // Cambia 5000 a cualquier intervalo en milisegundos que desees (5 segundos en este caso)
+                                        </script>
+                            <button type="button" id="add-empleado">Agregar otro equipo</button>
+                            <button type="submit">Guardar</button>
+                        </form> 
                     </div>
                 </div>
             </div>
-            <script>
-function agregarEmpleado() {
-    const container = document.getElementById('equipos-container');
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.name = 'empleados[]';
-    input.placeholder = 'Nombre del empleado';
-    container.appendChild(input);
-}
-</script>
+
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
             <script>
                 let empleadoIndex = 1;
