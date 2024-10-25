@@ -119,8 +119,8 @@ include '../conexion.php';
                 </div>
             </nav>
             <!-- Navbar End -->
-            <!-- Form Start -->
-            <div class="container-fluid pt-4 px-4">
+                        <!-- Form Start -->
+                        <div class="container-fluid pt-4 px-4">
                 <div class="row vh-40 bg-secondary rounded align-items-center justify-content-center mx-2">
                     <div class="col-12">
                         <center>
@@ -169,9 +169,24 @@ include '../conexion.php';
                                             <label>Hora de término:</label>
                                             <input type="text" name="hora_termino[]" class="form-control hora" required>
                                         </div>
-                                         </div>
+                                    </div>
                                 </div>
                             </div>
+                            
+                            <div class="col-md-12">    
+                                        <label class="form-label">Vista Previa PDF</label>
+                                        </div>
+                                        <div class="col-md-12 mt-2">
+                                            <iframe id="viewer" src="sate.php" frameborder="0" scrolling="yes" width="100%" height="600"></iframe>
+                                        </div>
+
+                                        <script>
+                                            // Función para actualizar el iframe en intervalos regulares
+                                            setInterval(function() {
+                                                var iframe = document.getElementById('viewer');
+                                                iframe.src = iframe.src;  // Recarga el iframe
+                                            }, 5000); // Cambia 5000 a cualquier intervalo en milisegundos que desees (5 segundos en este caso)
+                                        </script>
                             <button type="button" id="add-empleado">Agregar otro equipo</button>
                             <button type="submit">Guardar</button>
                         </form> 
