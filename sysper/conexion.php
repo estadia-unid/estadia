@@ -15,7 +15,7 @@ if ($conexion->connect_error) {
 $searchTerm = isset($_GET['term']) ? $_GET['term'] : '';
 
 // Consultar empleados por RPE
-$query = "SELECT rpe, nombre, a_paterno, a_materno FROM empleados WHERE rpe LIKE '%$searchTerm%' LIMIT 10";
+$query = "SELECT rpe, nombre, a_paterno, a_materno, categ FROM empleados WHERE rpe LIKE '%$searchTerm%' LIMIT 10";
 $resultado = $conexion->query($query);
 
 // Crear un array para almacenar los resultados
@@ -25,7 +25,7 @@ while ($row = $resultado->fetch_assoc()) {
     $nombre_completo = $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'];
     $empleados[] = array(
         "id" => $row['rpe'], // Aquí usaremos el RPE como el ID
-        "text" => $row['rpe'] . ' - ' . $nombre_completo // Mostrar RPE y nombre completo
+        "text" => $row['categ'] . ' - ' . $nombre_completo . ' - ' . $row['rpe'] // Mostrar RPE y nombre completo
     );
 }
 
