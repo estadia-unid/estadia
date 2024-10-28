@@ -1,55 +1,58 @@
 <?php
-// Procesar el formulario
-
-// Conectar a la base de datos
-$servername = "localhost";
-$username = "skyper";
-$password = "ctpalm2113";
-$dbname = "estadiaunid";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+// Conexión a la base de datos
+$conexion = new mysqli('localhost', 'skyper', 'ctpalm2113', 'estadiaunid');
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
 }
 
-// Obtener datos comunes
-$fecha = $_POST['fecha'];
+// Validar si el formulario fue enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recibir y limpiar los datos de la solicitud
+    $fecha = mysqli_real_escape_string($conexion, $_POST['fecha']);
 
-// Guardar cada equipo en la base de datos
-foreach ($_POST['numero_orden'] as $index => $numero_orden) {
-    // Obtenemos los valores del equipo actual
-    $actividades = $_POST['actividades'][$index];
-    $justificacion = $_POST['justificacion'][$index];
-    $om = $_POST['om'][$index];
-    $hora_inicio = $_POST['hora_inicio'][$index];
-    $hora_termino = $_POST['hora_termino'][$index];
-    $empleados = $_POST['empleados'][$index] ?? [];
+    // Insertar la solicitud en sysper_solicitudes_extraordinarias
+    $querySolicitud = "INSERT INTO sysper_solicitudes_extraordinarias (sysper_fecha) VALUES ('$fecha')";
+    if ($conexion->query($querySolicitud) === TRUE) {
+        $solicitudId = $conexion->insert_id; // Obtener el ID de la solicitud insertada
 
-    // Insertar solicitud en la tabla solicitudes_extraordinarias
-    $sql = "INSERT INTO solicitudes_extraordinarias (fecha, numero_orden, actividades, justificacion, om, hora_inicio, hora_termino) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssss", $fecha, $numero_orden, $actividades, $justificacion, $om, $hora_inicio, $hora_termino);
+        // Procesar cada equipo ingresado
+        foreach ($_POST['equipos'] as $equipo) {
+            $categ = mysqli_real_escape_string($conexion, $equipo['categ']);
+            $nombre = mysqli_real_escape_string($conexion, $equipo['nombre']);
+            $rpe = mysqli_real_escape_string($conexion, $equipo['rpe']);
+            $inicio = mysqli_real_escape_string($conexion, $equipo['inicio']);
+            $termino = mysqli_real_escape_string($conexion, $equipo['termino']);
+            $noHoras = mysqli_real_escape_string($conexion, $equipo['no_horas']);
 
-    if ($stmt->execute()) {
-        $solicitud_id = $stmt->insert_id; // Obtener el ID de la solicitud recién insertada
+            // Insertar datos en la tabla sysper_equipos
+            $queryEquipo = "INSERT INTO sysper_equipos (sysper_solicitud_id, sysper_categ, sysper_nombre, sysper_rpe, sysper_inicio, sysper_termino, sysper_no_horas) 
+                            VALUES ('$solicitudId', '$categ', '$nombre', '$rpe', '$inicio', '$termino', '$noHoras')";
 
-        // Guardar cada empleado del equipo en la tabla equipos
-        foreach ($empleados as $empleado) {
-            $sqlEquipo = "INSERT INTO equipos (solicitud_id, empleado) VALUES (?, ?)";
-            $stmtEquipo = $conn->prepare($sqlEquipo);
-            $stmtEquipo->bind_param("is", $solicitud_id, $empleado);
-            $stmtEquipo->execute();
-            $stmtEquipo->close();
+            if ($conexion->query($queryEquipo) === TRUE) {
+                $equipoId = $conexion->insert_id; // Obtener el ID del equipo insertado
+
+                // Procesar cada detalle del equipo ingresado
+                foreach ($equipo['detalles'] as $detalle) {
+                    $actReal = mysqli_real_escape_string($conexion, $detalle['act_real']);
+                    $noOrden = mysqli_real_escape_string($conexion, $detalle['no_orden']);
+                    $justTec = mysqli_real_escape_string($conexion, $detalle['just_tec']);
+                    $om = mysqli_real_escape_string($conexion, $detalle['om']);
+
+                    // Insertar detalles en la tabla sysper_detalles_equipo
+                    $queryDetalle = "INSERT INTO sysper_detalles_equipo (sysper_equipo_id, sysper_act_real, sysper_no_orden, sysper_just_tec, sysper_om) 
+                                     VALUES ('$equipoId', '$actReal', '$noOrden', '$justTec', '$om')";
+
+                    if (!$conexion->query($queryDetalle)) {
+                        echo "Error al insertar detalles del equipo: " . $conexion->error;
+                    }
+                }
+            } else {
+                echo "Error al insertar equipo: " . $conexion->error;
+            }
         }
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error al insertar la solicitud: " . $conexion->error;
     }
-
-    $stmt->close();
 }
-
-$conn->close();
-echo "Registro guardado correctamente.";
+$conexion->close();
 ?>
