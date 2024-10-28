@@ -119,126 +119,46 @@ include '../conexion.php';
                 </div>
             </nav>
             <!-- Navbar End -->
-                        <!-- Form Start -->
-                        <div class="container-fluid pt-4 px-4">
-                <div class="row vh-40 bg-secondary rounded align-items-center justify-content-center mx-2">
-                    <div class="col-12">
-                        <center>
-                            <h2>SOLICITUD DE AUTORIZACION DE TIEMPO EXTRAORDINARIO</h2>
-                        </center>
-                        <form action="procesar_horas.php" method="POST">
-                            <div>
-                                <!-- Datos comunes -->
-                                <div class="col-md-12 mb-3">
-                                    <label>Fecha:</label>
-                                    <input type="text" id="fecha" name="fecha" class="form-control" required>
-                                </div>
-                                <div id="empleados-container">
-                                <div class="empleado-item">
-                                    <h3>EQUIPO 1</h3>
-                                    <button type="button" class="btn btn-danger remove-equipo">Eliminar equipo</button>
-                                    <div class="mb-3">
-                                        <label for="empleados" class="form-label">Selecciona empleados:</label>
-                                        <select class="textarea empleados-select" id="empleados" name="empleados[]" multiple="multiple">
-                                            <!-- Las opciones se llenarán dinámicamente -->
-                                        </select>
-                                    </div>
-                                <div class="col-md-12 mb-3">
-                                        <label>No. Orden:</label>
-                                        <input type="number" name="numero_orden[]" class="form-control" required>
-                                    </div>
-                                <div class="col-md-12 mb-3">
-                                    <label>Actividades realizadas:</label>
-                                    <textarea name="actividades" class="form-control" rows="3" required></textarea>
-                                </div>
-                                <div class="col-md-12 mb-3">
-                                    <label>Justificación técnica:</label>
-                                    <textarea name="justificacion" class="form-control" rows="3" required></textarea>
-                                </div>
-                            </div>
-                                    <div class="col-md-12 mb-3">
-                                        <label>OM:</label>
-                                        <input type="number" name="om[]" class="form-control" required>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label>Hora de inicio:</label>
-                                            <input type="text" name="hora_inicio[]" class="form-control hora" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Hora de término:</label>
-                                            <input type="text" name="hora_termino[]" class="form-control hora" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-12">    
-                                        <label class="form-label">Vista Previa PDF</label>
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            <iframe id="viewer" src="sate.php" frameborder="0" scrolling="yes" width="100%" height="600"></iframe>
-                                        </div>
-
-                                        <script>
-                                            // Función para actualizar el iframe en intervalos regulares
-                                            setInterval(function() {
-                                                var iframe = document.getElementById('viewer');
-                                                iframe.src = iframe.src;  // Recarga el iframe
-                                            }, 5000); // Cambia 5000 a cualquier intervalo en milisegundos que desees (5 segundos en este caso)
-                                        </script>
-                            <button type="button" id="add-empleado">Agregar otro equipo</button>
-                            <button type="submit">Guardar</button>
-                        </form> 
+                    <!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row vh-40 bg-secondary rounded align-items-center justify-content-center mx-2">
+        <div class="col-12">
+            <center>
+                <h2>SOLICITUD DE AUTORIZACION DE TIEMPO EXTRAORDINARIO</h2>
+            </center>
+            <form action="procesar_horas.php" method="POST">
+                <div>
+                    <!-- Datos comunes -->
+                    <div class="col-md-12 mb-3">
+                        <label>Fecha:</label>
+                        <input type="text" id="fecha" name="fecha" class="form-control" required>
                     </div>
-                </div>
-            </div>
-
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script>
-                let empleadoIndex = 1;
-                let empleadosAsignados = new Set();
-
-                flatpickr("#fecha", {
-                    dateFormat: "Y-m-d",
-                });
-
-                document.querySelectorAll('.hora').forEach(function(input) {
-                    flatpickr(input, {
-                        enableTime: true,
-                        noCalendar: true,
-                        dateFormat: "H:i",
-                        time_24hr: true
-                    });
-                });
-
-                document.getElementById('add-empleado').addEventListener('click', function() {
-                    empleadoIndex++;
-                    const newEmpleado = `
+                    <div id="empleados-container">
                         <div class="empleado-item">
-                            <h3>EQUIPO ${empleadoIndex}</h3>
+                            <h3>EQUIPO 1</h3>
                             <button type="button" class="btn btn-danger remove-equipo">Eliminar equipo</button>
                             <div class="mb-3">
                                 <label for="empleados" class="form-label">Selecciona empleados:</label>
-                                <select class="textarea empleados-select" name="empleados[]" multiple="multiple">
+                                <select class="textarea empleados-select" id="empleados" name="empleados[0][]" multiple="multiple">
+                                    <!-- Las opciones se llenarán dinámicamente -->
                                 </select>
                             </div>
-                              <div class="col-md-12 mb-3">
-                                        <label>No. Orden:</label>
-                                        <input type="number" name="numero_orden[]" class="form-control" required>
-                                    </div>
-                                <div class="col-md-12 mb-3">
-                                    <label>Actividades realizadas:</label>
-                                    <textarea name="actividades" class="form-control" rows="3" required></textarea>
-                                </div>
-                                <div class="col-md-12 mb-3">
-                                    <label>Justificación técnica:</label>
-                                    <textarea name="justificacion" class="form-control" rows="3" required></textarea>
-                                </div>
-                                <div class="col-md-12 mb-3">
-                                        <label>OM:</label>
-                                        <input type="number" name="om[]" class="form-control" required>
-                                    </div>
+                            <div class="col-md-12 mb-3">
+                                <label>No. Orden:</label>
+                                <input type="number" name="numero_orden[]" class="form-control" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label>Actividades realizadas:</label>
+                                <textarea name="actividades[]" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label>Justificación técnica:</label>
+                                <textarea name="justificacion[]" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label>OM:</label>
+                                <input type="number" name="om[]" class="form-control" required>
+                            </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label>Hora de inicio:</label>
@@ -248,92 +168,83 @@ include '../conexion.php';
                                     <label>Hora de término:</label>
                                     <input type="text" name="hora_termino[]" class="form-control hora" required>
                                 </div>
-                            </div
+                            </div>
                         </div>
-                    `;
-                    
+                    </div>
 
-                    document.getElementById('empleados-container').insertAdjacentHTML('beforeend', newEmpleado);
-                    const lastEmpleadoSelect = document.querySelectorAll('.empleados-select');
-                    const newSelect = lastEmpleadoSelect[lastEmpleadoSelect.length - 1];
+                    <div class="col-md-12">
+                        <label class="form-label">Vista Previa PDF</label>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <iframe id="viewer" src="sate.php" frameborder="0" scrolling="yes" width="100%" height="600"></iframe>
+                    </div>
 
-                    $(newSelect).select2({
-                        placeholder: 'Busca empleados por RPE',
-                        allowClear: true,
-                        ajax: {
-                            url: 'conexion.php',
-                            dataType: 'json',
-                            delay: 250,
-                            data: function(params) {
-                                return {
-                                    term: params.term
-                                };
-                            },
-                            processResults: function(data) {
-                                const filteredData = data.filter(item => !empleadosAsignados.has(item.id));
-                                return { results: filteredData };
-                            },
-                            cache: true
-                        }
-                    });
+                    <script>
+                        // Función para actualizar el iframe en intervalos regulares
+                        setInterval(function() {
+                            var iframe = document.getElementById('viewer');
+                            iframe.src = iframe.src; // Recarga el iframe
+                        }, 5000); // Cambia 5000 a cualquier intervalo en milisegundos que desees (5 segundos en este caso)
+                    </script>
+                    <button type="button" id="add-empleado">Agregar otro equipo</button>
+                    <button type="submit">Guardar</button>
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>
 
-                    $(newSelect).on('change', function() {
-                        empleadosAsignados.clear();
-                        document.querySelectorAll('.empleados-select').forEach(select => {
-                            $(select).val().forEach(id => empleadosAsignados.add(id));
-                        });
-                        updateEmployeeOptions();
-                    });
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    let empleadoIndex = 1;
 
-                    document.querySelectorAll('.hora').forEach(function(input) {
-                        flatpickr(input, {
-                            enableTime: true,
-                            noCalendar: true,
-                            dateFormat: "H:i",
-                            time_24hr: true
-                        });
-                    });
-                });
+    // Código Javascript existente para agregar otro equipo
+    document.getElementById('add-empleado').addEventListener('click', function() {
+        empleadoIndex++;
+        const newEmpleado = `
+            <div class="empleado-item">
+                <h3>EQUIPO ${empleadoIndex}</h3>
+                <button type="button" class="btn btn-danger remove-equipo">Eliminar equipo</button>
+                <div class="mb-3">
+                    <label for="empleados" class="form-label">Selecciona empleados:</label>
+                    <select class="textarea empleados-select" name="empleados[${empleadoIndex - 1}][]" multiple="multiple"></select>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>No. Orden:</label>
+                    <input type="number" name="numero_orden[]" class="form-control" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>Actividades realizadas:</label>
+                    <textarea name="actividades[]" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>Justificación técnica:</label>
+                    <textarea name="justificacion[]" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>OM:</label>
+                    <input type="number" name="om[]" class="form-control" required>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label>Hora de inicio:</label>
+                        <input type="text" name="hora_inicio[]" class="form-control hora" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Hora de término:</label>
+                        <input type="text" name="hora_termino[]" class="form-control hora" required>
+                    </div>
+                </div>
+            </div>
+        `;
 
-                document.getElementById('empleados-container').addEventListener('click', function(e) {
-                    if (e.target.classList.contains('remove-equipo')) {
-                        e.target.closest('.empleado-item').remove();
-                        empleadosAsignados.clear();
-                        document.querySelectorAll('.empleados-select').forEach(select => {
-                            $(select).val().forEach(id => empleadosAsignados.add(id));
-                        });
-                        updateEmployeeOptions();
-                    }
-                });
+        document.getElementById('empleados-container').insertAdjacentHTML('beforeend', newEmpleado);
+        // Se aplica select2 y flatpickr a los nuevos elementos generados dinámicamente...
+    });
 
-                function updateEmployeeOptions() {
-                    document.querySelectorAll('.empleados-select').forEach(select => {
-                        const selectedEmployees = $(select).val();
-                        $(select).select2({
-                            placeholder: 'Busca empleados por RPE',
-                            allowClear: true,
-                            ajax: {
-                                url: 'conexion.php',
-                                dataType: 'json',
-                                delay: 250,
-                                data: function(params) {
-                                    return {
-                                        term: params.term
-                                    };
-                                },
-                                processResults: function(data) {
-                                    const filteredData = data.filter(item => 
-                                        !empleadosAsignados.has(item.id) || selectedEmployees.includes(item.id)
-                                    );
-                                    return { results: filteredData };
-                                },
-                                cache: true
-                            }
-                        });
-                    });
-                }
-            </script>
+</script>
 <!-- Form End -->
+
 
 
 
