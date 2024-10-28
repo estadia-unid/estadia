@@ -119,7 +119,7 @@ include '../conexion.php';
                 </div>
             </nav>
             <!-- Navbar End -->
-                   <!-- Form Start -->
+             <!-- Form Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row vh-40 bg-secondary rounded align-items-center justify-content-center mx-2">
         <div class="col-12">
@@ -139,7 +139,7 @@ include '../conexion.php';
                             <button type="button" class="btn btn-danger remove-equipo">Eliminar equipo</button>
                             <div class="mb-3">
                                 <label for="empleados" class="form-label">Selecciona empleados:</label>
-                                <select class="textarea empleados-select" name="empleados[]" multiple="multiple">
+                                <select class="textarea empleados-select" id="empleados" name="empleados[]" multiple="multiple">
                                     <!-- Las opciones se llenarán dinámicamente -->
                                 </select>
                             </div>
@@ -149,11 +149,11 @@ include '../conexion.php';
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label>Actividades realizadas:</label>
-                                <textarea name="actividades[]" class="form-control" rows="3" required></textarea>
+                                <textarea name="actividades" class="form-control" rows="3" required></textarea>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label>Justificación técnica:</label>
-                                <textarea name="justificacion[]" class="form-control" rows="3" required></textarea>
+                                <textarea name="justificacion" class="form-control" rows="3" required></textarea>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label>OM:</label>
@@ -171,16 +171,23 @@ include '../conexion.php';
                             </div>
                         </div>
                     </div>
-                    
+
+                    <div class="col-md-12">    
+                        <label class="form-label">Vista Previa PDF</label>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <iframe id="viewer" src="sate.php" frameborder="0" scrolling="yes" width="100%" height="600"></iframe>
+                    </div>
+
+                    <script>
+                        // Función para actualizar el iframe en intervalos regulares
+                        setInterval(function() {
+                            var iframe = document.getElementById('viewer');
+                            iframe.src = iframe.src;  // Recarga el iframe
+                        }, 5000); // Cambia 5000 a cualquier intervalo en milisegundos que desees (5 segundos en este caso)
+                    </script>
                     <button type="button" id="add-empleado">Agregar otro equipo</button>
                     <button type="submit">Guardar</button>
-                </div>
-
-                <div class="col-md-12">    
-                    <label class="form-label">Vista Previa PDF</label>
-                </div>
-                <div class="col-md-12 mt-2">
-                    <iframe id="viewer" src="sate.php" frameborder="0" scrolling="yes" width="100%" height="600"></iframe>
                 </div>
             </form> 
         </div>
@@ -192,7 +199,6 @@ include '../conexion.php';
     let empleadoIndex = 1;
     let empleadosAsignados = new Set();
 
-    // Inicializa el calendario para el campo de fecha
     flatpickr("#fecha", {
         dateFormat: "Y-m-d",
     });
@@ -206,7 +212,6 @@ include '../conexion.php';
         });
     });
 
-    // Código Javascript existente para agregar otro equipo
     document.getElementById('add-empleado').addEventListener('click', function() {
         empleadoIndex++;
         const newEmpleado = `
@@ -215,7 +220,8 @@ include '../conexion.php';
                 <button type="button" class="btn btn-danger remove-equipo">Eliminar equipo</button>
                 <div class="mb-3">
                     <label for="empleados" class="form-label">Selecciona empleados:</label>
-                    <select class="textarea empleados-select" name="empleados[${empleadoIndex - 1}][]" multiple="multiple"></select>
+                    <select class="textarea empleados-select" name="empleados[]" multiple="multiple">
+                    </select>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label>No. Orden:</label>
@@ -223,11 +229,11 @@ include '../conexion.php';
                 </div>
                 <div class="col-md-12 mb-3">
                     <label>Actividades realizadas:</label>
-                    <textarea name="actividades[]" class="form-control" rows="3" required></textarea>
+                    <textarea name="actividades" class="form-control" rows="3" required></textarea>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label>Justificación técnica:</label>
-                    <textarea name="justificacion[]" class="form-control" rows="3" required></textarea>
+                    <textarea name="justificacion" class="form-control" rows="3" required></textarea>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label>OM:</label>
@@ -247,10 +253,9 @@ include '../conexion.php';
         `;
 
         document.getElementById('empleados-container').insertAdjacentHTML('beforeend', newEmpleado);
-
-        // Aplica select2 y Flatpickr al nuevo equipo
         const lastEmpleadoSelect = document.querySelectorAll('.empleados-select');
         const newSelect = lastEmpleadoSelect[lastEmpleadoSelect.length - 1];
+
         $(newSelect).select2({
             placeholder: 'Busca empleados por RPE',
             allowClear: true,
@@ -259,7 +264,9 @@ include '../conexion.php';
                 dataType: 'json',
                 delay: 250,
                 data: function(params) {
-                    return { term: params.term };
+                    return {
+                        term: params.term
+                    };
                 },
                 processResults: function(data) {
                     const filteredData = data.filter(item => !empleadosAsignados.has(item.id));
@@ -267,6 +274,14 @@ include '../conexion.php';
                 },
                 cache: true
             }
+        });
+
+        $(newSelect).on('change', function() {
+            empleadosAsignados.clear();
+            document.querySelectorAll('.empleados-select').forEach(select => {
+                $(select).val().forEach(id => empleadosAsignados.add(id));
+            });
+            updateEmployeeOptions();
         });
 
         document.querySelectorAll('.hora').forEach(function(input) {
@@ -279,7 +294,6 @@ include '../conexion.php';
         });
     });
 
-    // Lógica para eliminar equipos y actualizar select2
     document.getElementById('empleados-container').addEventListener('click', function(e) {
         if (e.target.classList.contains('remove-equipo')) {
             e.target.closest('.empleado-item').remove();
@@ -287,14 +301,38 @@ include '../conexion.php';
             document.querySelectorAll('.empleados-select').forEach(select => {
                 $(select).val().forEach(id => empleadosAsignados.add(id));
             });
+            updateEmployeeOptions();
         }
     });
+
+    function updateEmployeeOptions() {
+        document.querySelectorAll('.empleados-select').forEach(select => {
+            const selectedEmployees = $(select).val();
+            $(select).select2({
+                placeholder: 'Busca empleados por RPE',
+                allowClear: true,
+                ajax: {
+                    url: 'conexion.php',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function(params) {
+                        return {
+                            term: params.term
+                        };
+                    },
+                    processResults: function(data) {
+                        const filteredData = data.filter(item => 
+                            !empleadosAsignados.has(item.id) || selectedEmployees.includes(item.id)
+                        );
+                        return { results: filteredData };
+                    },
+                    cache: true
+                }
+            });
+        });
+    }
 </script>
 <!-- Form End -->
-
-
-
-
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
