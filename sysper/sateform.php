@@ -139,7 +139,7 @@ include '../conexion.php';
                             <button type="button" class="btn btn-danger remove-equipo">Eliminar equipo</button>
                             <div class="mb-3">
                                 <label for="empleados" class="form-label">Selecciona empleados:</label>
-                                <select class="textarea empleados-select" name="empleados[0][]" multiple="multiple">
+                                <select class="textarea empleados-select" name="empleados[]" multiple="multiple">
                                     <!-- Las opciones se llenarán dinámicamente -->
                                 </select>
                             </div>
