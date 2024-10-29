@@ -322,11 +322,13 @@ include "conexion.php";
         </div>
       </div>
     </div>
-        <!-- -->
+         
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Bienvenido</h1>
+        <h1 class="h2">Nueva Computadora</h1>
+        <!--
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
@@ -338,20 +340,12 @@ include "conexion.php";
             This week
           </button>
         </div>
+            -->
       </div>
-
-    <!-- ya ajusta bien la tabla por favor -->
-    <h2>computadoras</h2>
 
     <div class="container">
   <main>
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="imagenes/svg/cfelogo.png" alt="" width="72" height="57">
-      <h2>Checkout form</h2>
-      <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-    </div>
-
-    <div class="row g-5">
+      <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-last">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-primary">Your cart</span>
@@ -399,12 +393,74 @@ include "conexion.php";
           </div>
         </form>
       </div>
+
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Billing address</h4>
         <form class="needs-validation" novalidate>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
+          </div>
+          <div class="row g-3">
+          <div class="col-md-4">
+              <label for="state" class="form-label">departamento</label>
+              <select class="form-select" id="state" required>
+              <?php
+                $departamentos = mysqli_query($conecta, "SELECT * FROM `departamentos`");
+                while($deparamentos_resultado=mysqli_fetch_array($departamentos)) {
+                  echo '<option value="">' . $deparamentos_resultado[1] . '</option>';
+                }
+              ?>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+            <div class="col-md-auto">
+              <label for="state" class="form-label">Usuario responsable</label>
+              <select class="form-select" id="state" required>
+              <?php
+                $empleados = mysqli_query($conecta, "SELECT `nombre`,`a_paterno`,`a_materno`,`rpe` FROM `empleados`");
+                while($empleados_resultado=mysqli_fetch_array($empleados)) {
+                  echo '<option value="">' . $empleados_resultado[0] . $empleados_resultado[1] . $empleados_resultado[2] . $empleados_resultado[3] . '</option>';
+                }
+              ?>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+          </div>
+
+            <h4 class="mb-3">Payment</h4>
+
+    <div class="my-3">
+      <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
+          </div>
+        <div class="form-check">
+          <input id="credit" name="paymentMethod" type="checkbox" class="form-check-input" checked required>
+          <label class="form-check-label" for="credit">resguardo</label>
+        </div>
+        <div class="form-check">
+          <input id="debit" name="paymentMethod" type="checkbox" class="form-check-input" required>
+          <label class="form-check-label" for="debit">dorectorio activo</label>
+        </div>
+        <div class="form-check">
+          <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
+          <label class="form-check-label" for="paypal">antivirus</label>
+        </div>
+        <div class="form-check">
+          <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
+          <label class="form-check-label" for="paypal">escritorio remoto</label>
+        </div>
+    </div>
+
           <div class="row g-3">
             <div class="col-sm-6">
-              <label for="firstName" class="form-label">First name</label>
+              <label for="firstName" class="form-label">departamento asignado</label>
               <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
               <div class="invalid-feedback">
                 Valid first name is required.
@@ -462,16 +518,7 @@ include "conexion.php";
               </div>
             </div>
 
-            <div class="col-md-4">
-              <label for="state" class="form-label">State</label>
-              <select class="form-select" id="state" required>
-                <option value="">Choose...</option>
-                <option>California</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
+
 
             <div class="col-md-3">
               <label for="zip" class="form-label">Zip</label>
@@ -489,29 +536,11 @@ include "conexion.php";
             <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
           </div>
 
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Save this information for next time</label>
-          </div>
+
 
           <hr class="my-4">
 
-          <h4 class="mb-3">Payment</h4>
 
-          <div class="my-3">
-            <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-              <label class="form-check-label" for="credit">Credit card</label>
-            </div>
-            <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="debit">Debit card</label>
-            </div>
-            <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="paypal">PayPal</label>
-            </div>
-          </div>
 
           <div class="row gy-3">
             <div class="col-md-6">
