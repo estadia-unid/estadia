@@ -20,9 +20,9 @@ class ControlSesiones{
         ]);
         
         if ($rpe = $resultado_sesion->fetch(PDO::FETCH_ASSOC)) {
-            echo "Consulta exitosa<br>";
             $_SESSION['rpe'] = $rpe['rpe'];
-            echo "Sesión iniciada para: " . $_SESSION['rpe'];
+            header("Location: principal.php");
+            die();
         } else {
             echo "No se encontró un usuario que coincida con los datos ingresados.<br>";
         }

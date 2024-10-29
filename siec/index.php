@@ -1,6 +1,13 @@
 <?php
 include_once "conexion.php";
 include "autoloader.php";
+
+if(isset($_POST['guardar'])){
+    $usuario = $_POST['rpe'];
+    $contraseña = $_POST['contraseña'];
+    $usuario = new ControlSesiones($usuario,$contraseña);
+    $usuario->iniciar_sesion($conecta);
+}
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -156,15 +163,9 @@ include "autoloader.php";
     1.-RPE.
     2.-Contraseña.
     -->
-    <?php
-      if(isset($_POST['guardar'])){
-          $usuario = $_POST['rpe'];
-          $contraseña = $_POST['contraseña'];
-          $usuario = new ControlSesiones($usuario,$contraseña);
-          $usuario->iniciar_sesion($conecta);
-      }
-    ?>
+
 <main class="form-signin w-100 m-auto">
+
   <form action="" method="post">
     <div class="text-center">
       <img class="mb-6" src="imagenes/svg/cfe_icon.svg" alt="logo cfe en svg" width="200" height="160">
