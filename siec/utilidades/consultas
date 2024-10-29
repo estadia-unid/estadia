@@ -1,3 +1,60 @@
 SELECT DISTINCT `categ` FROM `empleados`;
 SELECT DISTINCT `categ` FROM `empleados`;
 SET GLOBAL FOREIGN_KEY_CHECKS=0;
+
+class Equipo {
+    private $conexion;
+
+    public function __construct($conexion) {
+        $this->conexion = $conexion;
+    }
+
+    public function obtenerTodos() {
+        $sql = "SELECT * FROM equipos";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function agregar($nombre, $marca, $modelo, $estado, $ubicacion) {
+        $sql = "INSERT INTO equipos (nombre, marca, modelo, estado, ubicacion) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([$nombre, $marca, $modelo, $estado, $ubicacion]);
+    }
+
+    // Aquí puedes agregar otros métodos como actualizar, eliminar, etc.
+}
+<?php
+class Equipo {
+    private $conexion;
+
+    public function __construct($conexion) {
+        $this->conexion = $conexion;
+    }
+
+    public function obtenerTodos() {
+        $sql = "SELECT * FROM equipos";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function agregar($nombre, $marca, $modelo, $estado, $ubicacion) {
+        $sql = "INSERT INTO equipos (nombre, marca, modelo, estado, ubicacion) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([$nombre, $marca, $modelo, $estado, $ubicacion]);
+    }
+
+    public function actualizar($id, $nombre, $marca, $modelo, $estado, $ubicacion) {
+        $sql = "UPDATE equipos SET nombre = ?, marca = ?, modelo = ?, estado = ?, ubicacion = ? WHERE id = ?";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([$nombre, $marca, $modelo, $estado, $ubicacion, $id]);
+    }
+
+    public function eliminar($id) {
+        $sql = "DELETE FROM equipos WHERE id = ?";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([$id]);
+    }
+}
+?>

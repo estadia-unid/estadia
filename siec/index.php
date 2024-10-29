@@ -1,3 +1,7 @@
+<?php
+include_once "conexion.php";
+include "autoloader.php";
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
@@ -152,8 +156,16 @@
     1.-RPE.
     2.-Contraseña.
     -->
+    <?php
+      if(isset($_POST['guardar'])){
+          $usuario = $_POST['rpe'];
+          $contraseña = $_POST['contraseña'];
+          $usuario = new ControlSesiones($usuario,$contraseña);
+          $usuario->iniciar_sesion($conecta);
+      }
+    ?>
 <main class="form-signin w-100 m-auto">
-  <form action="control_de_sesion.php" method="post">
+  <form action="" method="post">
     <div class="text-center">
       <img class="mb-6" src="imagenes/svg/cfe_icon.svg" alt="logo cfe en svg" width="200" height="160">
       <h1 class="h3 mb-3 fw-normal" >Por favor inicie sesion</h1>
@@ -176,7 +188,7 @@
       </label>
     </div>
     -->
-    <button class="btn btn-primary w-100 py-2" type="submit">Iniciar sesion</button>
+    <button class="btn btn-primary w-100 py-2" type="submit" name="guardar">Iniciar sesion</button>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2024–2024</p>
   </form>
 </main>
