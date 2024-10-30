@@ -11,21 +11,19 @@ class ControlSesiones{
     }
 
     function iniciar_sesion($conecta) {
-        $sesion = "SELECT `rpe` FROM `usuarios` WHERE `rpe` = :usuario AND `clave` = :clave";
+        $sesion = "SELECT * FROM `usuarios` WHERE `rpe` = :usuario";
+
         $resultado_sesion = $conecta->prepare($sesion);
         
-        $resultado_sesion->execute([
-            ':usuario' => $this->usuario,
-            ':clave' => $this->contraseña
-        ]);
-        
-        if ($rpe = $resultado_sesion->fetch(PDO::FETCH_ASSOC)) {
-            $_SESSION['rpe'] = $rpe['rpe'];
-            header("Location: principal.php");
-            die();
-        } else {
-            echo "No se encontró un usuario que coincida con los datos ingresados.<br>";
-        }
+        $resultado_sesion->execute([':usuario' => $this->usuario]);
+        $hash = $resultado_sesion->fetch(PDO::FETCH_ASSOC);
+            if (password_verify($this->contraseña, $hash['clave'])) {
+                $_SESSION['rpe'] = $hash['rpe'];
+                header("Location: principal.php");
+                die();
+            } else {
+                 echo 'Invalid password.';
+            }
     }
 
     function cerrar_sesion() {
@@ -33,5 +31,16 @@ class ControlSesiones{
         session_destroy();
         echo "Sesión cerrada.";
     }
+
+    function agregar_usuario(){
+        echo password_hash("rasmuslerdorf", PASSWORD_BCRYPT)."\n";
+        if (password_verify('Alfredo Paz', $password_base_datos)) {
+            echo 'Es correcta tu contraseña';
+        } else {
+            echo 'No es correcta tu contraseña';
+        }
+    }
 }
+// https://www.php.net/manual/es/function.password-verify.php
+// https://www.php.net/manual/es/function.password-hash.php
 ?>
