@@ -1,5 +1,5 @@
 <?php
-include "conexion.php";
+//include "conexion.php";
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -377,10 +377,7 @@ include "conexion.php";
         <table class="table table-sm table-bordered table-striped">
             <thead>
                 <th class="sort asc">departamento</th>
-                <th class="sort asc">puesto</th>
-                <th class="sort asc">usuario_responsable</th>
                 <th class="sort asc">rpe</th>
-                <th class="sort asc">tipo_de_equipo</th>
                 <th class="sort asc">activo_fijo</th>
                 <th class="sort asc">inventario</th>
                 <th class="sort asc">numero_de_serie</th>

@@ -1,5 +1,5 @@
 <?php
- include "conexion.php";
+ //include "conexion.php";
 ?>
 <!doctype html>
 <html lang="es" data-bs-theme="auto">
@@ -376,6 +376,14 @@
         <table class="table table-sm table-bordered table-striped">
             <thead>
                 <?php
+                    date_default_timezone_set('America/Mexico_City');
+                    $conecta =  mysqli_connect('localhost', 'siec', 'ctpalm2113', 'siec');
+                    if(!$conecta){
+                        die('no pudo conectarse:' . mysqli_connect_error());
+                     }
+                  if (!mysqli_set_charset($conecta,'utf8')) {
+                   die('No pudo conectarse: ' . mysqli_error($conecta));
+                   }
                                 $tabla = $_GET['tabla'];
                                 echo $tabla;
                 $sql = "Describe " . $tabla;

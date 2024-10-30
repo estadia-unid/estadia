@@ -1,5 +1,5 @@
 <?php
-    include "conexion.php";
+    //include "conexion.php";
 ?>
 <!doctype html>
 <html lang="es" data-bs-theme="auto">
@@ -343,6 +343,14 @@
     <!-- ya ajusta bien la tabla por favor -->
     <h2>Tablas</h2>
     <?php
+        date_default_timezone_set('America/Mexico_City');
+        $conecta =  mysqli_connect('localhost', 'siec', 'ctpalm2113', 'siec');
+        if(!$conecta){
+            die('no pudo conectarse:' . mysqli_connect_error());
+         }
+      if (!mysqli_set_charset($conecta,'utf8')) {
+       die('No pudo conectarse: ' . mysqli_error($conecta));
+       }
     $sql = "SHOW FULL TABLES;";
     $consulta = mysqli_query($conecta, $sql);
     while ($dato = mysqli_fetch_column($consulta)){
