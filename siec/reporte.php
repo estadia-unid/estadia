@@ -33,18 +33,11 @@ function BasicTable($conecta){
     for($i=0;$i<count($header);$i++)
         $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
     $this->Ln();
-    $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras`");
+    $consulta = mysqli_query($conecta, "SELECT * FROM computadoras INNER JOIN empleados ON computadoras.rpe = empleados.rpe;");
     while ($dato = mysqli_fetch_array($consulta)) {
-     $busca = $dato['rpe'];
-        $persona = mysqli_query($conecta, "SELECT * FROM `siec`.`empleados` WHERE `rpe` = '" . mysqli_real_escape_string($conecta, $busca) . "'");
-    
-    if ($datospersona = mysqli_fetch_array($persona)) {
-            $this->Cell(40, 6, $dato['rpe'], 1);
-        $this->Cell(40, 6, $dato['puesto'], 1);
-        $this->Cell(40, 6, $datospersona['nombre'], 1);
-    }else {
-        $this->Cell(40, 6, 'No', 1); 
-    }
+            $this->MultiCell(40, 6, $dato['rpe']."\n", 1);
+        $this->MultiCell(40, 6, $dato['departamento']."\n", 1);
+        $this->MultiCell(40, 6, $dato['nombre']."\n", 1);
     $this->Ln();
 }
 }
