@@ -29,7 +29,8 @@ class ControlSesiones{
     function cerrar_sesion() {
         session_unset();
         session_destroy();
-        echo "Sesión cerrada.";
+        header("Location: index.php");
+        die();
     }
 
     function agregar_usuario(){
@@ -40,6 +41,10 @@ class ControlSesiones{
             echo 'No es correcta tu contraseña';
         }
     }
+}
+if(isset($_GET['cerrarSesion'])){
+    $controlSesion = new ControlSesiones(null, null);
+    $controlSesion->cerrar_sesion();
 }
 // https://www.php.net/manual/es/function.password-verify.php
 // https://www.php.net/manual/es/function.password-hash.php

@@ -24,7 +24,7 @@ function Header()
     $this->Ln(20);
 }
 function BasicTable($conecta){
-    $header = array('hola')
+    $header = array('rpe','puesto');
     $this->SetFillColor(255,0,0);
     $this->SetDrawColor(128,0,0);
     $this->SetLineWidth(.3);
@@ -34,12 +34,19 @@ function BasicTable($conecta){
         $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
     $this->Ln();
     $consulta = mysqli_query($conecta, "SELECT * FROM `computadoras`");
-    while ($dato=mysqli_fetch_array($consulta)) {
-        $this->Cell(40,6,$dato[5],1);
-        $this->Ln();
-        $this->Cell(40,6,$dato[3],1);
-        $this->Ln();
+    while ($dato = mysqli_fetch_array($consulta)) {
+     $busca = $dato['rpe'];
+        $persona = mysqli_query($conecta, "SELECT * FROM `siec`.`empleados` WHERE `rpe` = '" . mysqli_real_escape_string($conecta, $busca) . "'");
+    
+    if ($datospersona = mysqli_fetch_array($persona)) {
+            $this->Cell(40, 6, $dato['rpe'], 1);
+        $this->Cell(40, 6, $dato['puesto'], 1);
+        $this->Cell(40, 6, $datospersona['nombre'], 1);
+    }else {
+        $this->Cell(40, 6, 'No', 1); 
     }
+    $this->Ln();
+}
 }
 }
 $pdf = new PDF();
