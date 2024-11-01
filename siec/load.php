@@ -8,10 +8,18 @@
  * @license: MIT
  */
 
-require "../conexion.php";
+ session_start();
+    date_default_timezone_set('America/Mexico_City');
+      $conecta =  mysqli_connect('localhost', 'siec', 'ctpalm2113', 'siec');
+      if(!$conecta){
+          die('no pudo conectarse:' . mysqli_connect_error());
+       }
+    if (!mysqli_set_charset($conecta,'utf8')) {
+     die('No pudo conectarse: ' . mysqli_error($conecta));
+     }
 
 // Columnas a mostrar en la tabla
-$columns = ['id_computadora', 'departamento', 'puesto', 'usuario_responsable', 'rpe', 'tipo_de_equipo', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
+$columns = ['id_computadora', 'departamento', 'rpe', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
 
 // Nombre de la tabla
 $table = "computadoras";
@@ -91,10 +99,7 @@ if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
         $output['data'] .= '<tr>';
         $output['data'] .= '<td>' . $row['departamento'] . '</td>';
-        $output['data'] .= '<td>' . $row['puesto'] . '</td>';
-        $output['data'] .= '<td>' . $row['usuario_responsable'] . '</td>';
         $output['data'] .= '<td>' . $row['rpe'] . '</td>';
-        $output['data'] .= '<td>' . $row['tipo_de_equipo'] . '</td>';
         $output['data'] .= '<td>' . $row['activo_fijo'] . '</td>';
         $output['data'] .= '<td>' . $row['inventario'] . '</td>';
         $output['data'] .= '<td>' . $row['numero_de_serie'] . '</td>';

@@ -1,9 +1,10 @@
 <?php
-session_start();
+include_once "conexion.php";
+include "autoloader.php";
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="../js/color-modes.js"></script>
+  <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -93,7 +94,7 @@ session_start();
       }
     </style>
 
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -327,7 +328,8 @@ session_start();
         <h1 class="h2">Bienvenido</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="ControlSesiones.php?cerrarSesion=true">cerrar sesion</a></button>
+
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
           </div>
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
@@ -338,13 +340,13 @@ session_start();
       </div>
 
       <div class="col-auto d-lg-block">
-        <img width="100%" height="250" class="rounded float-start" src="../imagenes/svg/cfe_icon.svg">
+        <img width="100%" height="250" class="rounded float-start" src="imagenes/svg/cfe_icon.svg">
       </div>
 
     </main>
   </div>
 </div>
-<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="../js/dashboard.js"></script></body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="js/dashboard.js"></script></body>
 </html>

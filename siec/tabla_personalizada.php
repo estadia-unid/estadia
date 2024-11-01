@@ -1,9 +1,8 @@
 <?php
-session_start();
-//include "conexion.php";
+ //include "conexion.php";
 ?>
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="es" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -327,16 +326,13 @@ session_start();
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">computadoras</h1>
+        <h1 class="h2">Bienvenido</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-        <!--  
-        <div class="btn-group me-2">
-            
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
           </div>
-          -->
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
             <svg class="bi"><use xlink:href="#calendar3"/></svg>
             This week
@@ -345,7 +341,7 @@ session_start();
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-    <h2></h2>
+    <h2>computadoras</h2>
 
 <div class="row g-4">
 
@@ -375,35 +371,50 @@ session_start();
         <input type="text" name="campo" id="campo" class="form-control">
     </div>
 </div>
-
 <div class="row py-4">
     <div class="col">
         <table class="table table-sm table-bordered table-striped">
             <thead>
-                <th class="sort asc">departamento</th>
-                <th class="sort asc">rpe</th>
-                <th class="sort asc">activo_fijo</th>
-                <th class="sort asc">inventario</th>
-                <th class="sort asc">numero_de_serie</th>
-                <th class="sort asc">marca</th>
-                <th class="sort asc">modelo</th>
-                <th class="sort asc">mac_wifi</th>
-                <th class="sort asc">mac_ethernet</th>
-                <th class="sort asc">memoria</th>
-                <th class="sort asc">disco_duro</th>
-                <th class="sort asc">dominio</th>
-                <th class="sort asc">resg</th>
-                <th class="sort asc">d_activo</th>
-                <th class="sort asc">antivirus</th>
-                <th class="sort asc">observaciones</th>
+                <?php
+                    date_default_timezone_set('America/Mexico_City');
+                    $conecta =  mysqli_connect('localhost', 'siec', 'ctpalm2113', 'siec');
+                    if(!$conecta){
+                        die('no pudo conectarse:' . mysqli_connect_error());
+                     }
+                  if (!mysqli_set_charset($conecta,'utf8')) {
+                   die('No pudo conectarse: ' . mysqli_error($conecta));
+                   }
+                                $tabla = $_GET['tabla'];
+                                echo $tabla;
+                $sql = "Describe " . $tabla;
+                $consulta = mysqli_query($conecta, $sql);
+                $numero_columnas = mysqli_num_rows($consulta);
+                while ($dato = mysqli_fetch_column($consulta)){
+                    echo '<th class="sort asc">' . $dato . '</th>';
+                }
+                ?>
                 <th></th>
                 <th></th>
             </thead>
 
             <!-- El id del cuerpo de la tabla. -->
             <tbody id="content">
-
+            <?php
+            $consulta_tabla = mysqli_query($conecta, "SELECT * FROM " . $tabla);
+            $numero_registros = mysqli_num_rows($consulta_tabla);
+            while($fila = mysqli_fetch_assoc($consulta_tabla)) {
+                echo '<tr>';
+                
+                // Recorre cada campo dentro de la fila
+                foreach($fila as $dato) {
+                    echo '<td>' . $dato . '</td>';
+                }
+                
+                echo '</tr>';
+            }
+            ?>
             </tbody>
+            
         </table>
     </div>
 </div>
@@ -423,7 +434,7 @@ session_start();
 </div>
 </div>
 </main>
-
+<!--
 <script>
 // Llamando a la función getData() al cargar la página
 document.addEventListener("DOMContentLoaded", getData);
@@ -491,7 +502,7 @@ columns.forEach(column => {
 column.addEventListener("click", ordenar);
 });
 </script>
-
+            -->
     </main>
   </div>
 </div>

@@ -1,9 +1,8 @@
 <?php
-session_start();
-//include "conexion.php";
+    //include "conexion.php";
 ?>
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="es" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -327,16 +326,13 @@ session_start();
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">computadoras</h1>
+        <h1 class="h2">Bienvenido</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-        <!--  
-        <div class="btn-group me-2">
-            
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
           </div>
-          -->
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
             <svg class="bi"><use xlink:href="#calendar3"/></svg>
             This week
@@ -345,153 +341,24 @@ session_start();
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-    <h2></h2>
-
-<div class="row g-4">
-
-    <div class="col-auto text-start">
-        <label for="num_registros" class="col-form-label">Mostrar: </label>
-    </div>
-
-    <div class="col-auto text-start">
-        <select name="num_registros" id="num_registros" class="form-select">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-        </select>
-    </div>
-
-    <div class="col-auto text-start">
-        <label for="num_registros" class="col-form-label">registros </label>
-    </div>
-
-    <div class="col-md-4 col-xl-5"></div>
-
-    <div class="col-6 col-md-1 text-end">
-        <label for="campo" class="col-form-label">Buscar: </label>
-    </div>
-    <div class="col-6 col-md-3 text-end">
-        <input type="text" name="campo" id="campo" class="form-control">
-    </div>
-</div>
-
-<div class="row py-4">
-    <div class="col">
-        <table class="table table-sm table-bordered table-striped">
-            <thead>
-                <th class="sort asc">departamento</th>
-                <th class="sort asc">rpe</th>
-                <th class="sort asc">activo_fijo</th>
-                <th class="sort asc">inventario</th>
-                <th class="sort asc">numero_de_serie</th>
-                <th class="sort asc">marca</th>
-                <th class="sort asc">modelo</th>
-                <th class="sort asc">mac_wifi</th>
-                <th class="sort asc">mac_ethernet</th>
-                <th class="sort asc">memoria</th>
-                <th class="sort asc">disco_duro</th>
-                <th class="sort asc">dominio</th>
-                <th class="sort asc">resg</th>
-                <th class="sort asc">d_activo</th>
-                <th class="sort asc">antivirus</th>
-                <th class="sort asc">observaciones</th>
-                <th></th>
-                <th></th>
-            </thead>
-
-            <!-- El id del cuerpo de la tabla. -->
-            <tbody id="content">
-
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="row justify-content-between">
-
-    <div class="col-12 col-md-4">
-        <label id="lbl-total"></label>
-    </div>
-
-    <div class="col-12 col-md-4" id="nav-paginacion"></div>
-
-    <input type="hidden" id="pagina" value="1">
-    <input type="hidden" id="orderCol" value="0">
-    <input type="hidden" id="orderType" value="asc">
-
-</div>
+    <h2>Tablas</h2>
+    <?php
+        date_default_timezone_set('America/Mexico_City');
+        $conecta =  mysqli_connect('localhost', 'siec', 'ctpalm2113', 'siec');
+        if(!$conecta){
+            die('no pudo conectarse:' . mysqli_connect_error());
+         }
+      if (!mysqli_set_charset($conecta,'utf8')) {
+       die('No pudo conectarse: ' . mysqli_error($conecta));
+       }
+    $sql = "SHOW FULL TABLES;";
+    $consulta = mysqli_query($conecta, $sql);
+    while ($dato = mysqli_fetch_column($consulta)){
+        echo '<a href="tabla_personalizada.php?tabla=' .$dato. '">' . $dato . '</a><br>';
+    }
+    ?>
 </div>
 </main>
-
-<script>
-// Llamando a la función getData() al cargar la página
-document.addEventListener("DOMContentLoaded", getData);
-
-// Función para obtener datos con AJAX
-function getData() {
-let input = document.getElementById("campo").value
-let num_registros = document.getElementById("num_registros").value
-let content = document.getElementById("content")
-let pagina = document.getElementById("pagina").value || 1;
-let orderCol = document.getElementById("orderCol").value
-let orderType = document.getElementById("orderType").value
-
-let formaData = new FormData()
-formaData.append('campo', input)
-formaData.append('registros', num_registros)
-formaData.append('pagina', pagina)
-formaData.append('orderCol', orderCol)
-formaData.append('orderType', orderType)
-
-fetch("load.php", {
-        method: "POST",
-        body: formaData
-    })
-    .then(response => response.json())
-    .then(data => {
-        content.innerHTML = data.data
-        document.getElementById("lbl-total").innerHTML = `Mostrando ${data.totalFiltro} de ${data.totalRegistros} registros`;
-        document.getElementById("nav-paginacion").innerHTML = data.paginacion
-
-        // Si la página actual no tiene resultados, ajustar la paginación para mostrar la primera página
-        if (data.data.includes('Sin resultados') && parseInt(pagina) !== 1) {
-            nextPage(1); // Ir a la primera página
-        }
-    })
-    .catch(err => console.log(err))
-}
-
-// Función para cambiar de página
-function nextPage(pagina) {
-document.getElementById('pagina').value = pagina
-getData()
-}
-
-// Función para ordenar columnas
-function ordenar(e) {
-let elemento = e.target;
-let orderType = elemento.classList.contains("asc") ? "desc" : "asc";
-
-document.getElementById('orderCol').value = elemento.cellIndex;
-document.getElementById("orderType").value = orderType;
-elemento.classList.toggle("asc");
-elemento.classList.toggle("desc");
-
-getData()
-}
-
-// Event listeners para los eventos de cambio en el campo de entrada y el select
-document.getElementById("campo").addEventListener("keyup", getData);
-document.getElementById("num_registros").addEventListener("change", getData);
-
-// Event listener para ordenar las columnas
-let columns = document.querySelectorAll(".sort");
-columns.forEach(column => {
-column.addEventListener("click", ordenar);
-});
-</script>
-
     </main>
   </div>
 </div>

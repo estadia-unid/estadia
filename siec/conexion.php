@@ -1,11 +1,11 @@
 <?php
 session_start();
-   date_default_timezone_set('America/Mexico_City');
-     $conecta =  mysqli_connect('localhost', 'siec', 'ctpalm2113', 'estadiaunid');
-     if(!$conecta){
-         die('no pudo conectarse:' . mysqli_connect_error());
-      }
-   if (!mysqli_set_charset($conecta,'utf8')) {
-    die('No pudo conectarse: ' . mysqli_error($conecta));
-    }
+$contraseña = "ctpalm2113";
+$usuario = "siec";
+$nombre_base_de_datos = "siec";
+try{
+	$conecta = new PDO('mysql:host=localhost;dbname=siec', $usuario, $contraseña);
+}catch(Exception $e){
+	echo "Ocurrió algo con la base de datos: " . $e->getMessage();
+}
 ?> 

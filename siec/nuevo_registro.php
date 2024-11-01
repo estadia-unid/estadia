@@ -1,6 +1,5 @@
 <?php
-session_start();
-//include "conexion.php";
+include "conexion.php";
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -323,175 +322,285 @@ session_start();
         </div>
       </div>
     </div>
-        <!-- -->
+         
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">computadoras</h1>
+        <h1 class="h2">Nueva Computadora</h1>
+        <!--
         <div class="btn-toolbar mb-2 mb-md-0">
-        <!--  
-        <div class="btn-group me-2">
-            
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
           </div>
-          -->
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
             <svg class="bi"><use xlink:href="#calendar3"/></svg>
             This week
           </button>
         </div>
+            -->
       </div>
 
-    <!-- ya ajusta bien la tabla por favor -->
-    <h2></h2>
+    <div class="container">
+  <main>
+      <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-pill">3</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Product name</h6>
+              <small class="text-body-secondary">Brief description</small>
+            </div>
+            <span class="text-body-secondary">$12</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Second product</h6>
+              <small class="text-body-secondary">Brief description</small>
+            </div>
+            <span class="text-body-secondary">$8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Third item</h6>
+              <small class="text-body-secondary">Brief description</small>
+            </div>
+            <span class="text-body-secondary">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
 
-<div class="row g-4">
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>
+      </div>
 
-    <div class="col-auto text-start">
-        <label for="num_registros" class="col-form-label">Mostrar: </label>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Billing address</h4>
+        <form class="needs-validation" novalidate>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
+          </div>
+          <div class="row g-3">
+          <div class="col-md-4">
+              <label for="state" class="form-label">departamento</label>
+              <select class="form-select" id="state" required>
+              <?php
+                $departamentos = mysqli_query($conecta, "SELECT * FROM `departamentos`");
+                while($deparamentos_resultado=mysqli_fetch_array($departamentos)) {
+                  echo '<option value="">' . $deparamentos_resultado[1] . '</option>';
+                }
+              ?>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+            <div class="col-md-auto">
+              <label for="state" class="form-label">Usuario responsable</label>
+              <select class="form-select" id="state" required>
+              <?php
+                $empleados = mysqli_query($conecta, "SELECT `nombre`,`a_paterno`,`a_materno`,`rpe` FROM `empleados`");
+                while($empleados_resultado=mysqli_fetch_array($empleados)) {
+                  echo '<option value="">' . $empleados_resultado[0] . $empleados_resultado[1] . $empleados_resultado[2] . $empleados_resultado[3] . '</option>';
+                }
+              ?>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+          </div>
+
+            <h4 class="mb-3">Payment</h4>
+
+    <div class="my-3">
+      <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
+          </div>
+        <div class="form-check">
+          <input id="credit" name="paymentMethod" type="checkbox" class="form-check-input" checked required>
+          <label class="form-check-label" for="credit">resguardo</label>
+        </div>
+        <div class="form-check">
+          <input id="debit" name="paymentMethod" type="checkbox" class="form-check-input" required>
+          <label class="form-check-label" for="debit">dorectorio activo</label>
+        </div>
+        <div class="form-check">
+          <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
+          <label class="form-check-label" for="paypal">antivirus</label>
+        </div>
+        <div class="form-check">
+          <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
+          <label class="form-check-label" for="paypal">escritorio remoto</label>
+        </div>
     </div>
 
-    <div class="col-auto text-start">
-        <select name="num_registros" id="num_registros" class="form-select">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-        </select>
-    </div>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">departamento asignado</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
 
-    <div class="col-auto text-start">
-        <label for="num_registros" class="col-form-label">registros </label>
-    </div>
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
 
-    <div class="col-md-4 col-xl-5"></div>
+            <div class="col-12">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
+              <div class="invalid-feedback">
+                  Your username is required.
+                </div>
+              </div>
+            </div>
 
-    <div class="col-6 col-md-1 text-end">
-        <label for="campo" class="col-form-label">Buscar: </label>
+            <div class="col-12">
+              <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label">Address 2 <span class="text-body-secondary">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">Country</label>
+              <select class="form-select" id="country" required>
+                <option value="">Choose...</option>
+                <option>United States</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+
+
+
+            <div class="col-md-3">
+              <label for="zip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="zip" placeholder="" required>
+              <div class="invalid-feedback">
+                Zip code required.
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address">
+            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+          </div>
+
+
+
+          <hr class="my-4">
+
+
+
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <label for="cc-name" class="form-label">Name on card</label>
+              <input type="text" class="form-control" id="cc-name" placeholder="" required>
+              <small class="text-body-secondary">Full name as displayed on card</small>
+              <div class="invalid-feedback">
+                Name on card is required
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="cc-number" class="form-label">Credit card number</label>
+              <input type="text" class="form-control" id="cc-number" placeholder="" required>
+              <div class="invalid-feedback">
+                Credit card number is required
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-expiration" class="form-label">Expiration</label>
+              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+              <div class="invalid-feedback">
+                Expiration date required
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-cvv" class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+              <div class="invalid-feedback">
+                Security code required
+              </div>
+            </div>
+          </div>
+            <div class="col-md-12">
+                <label class="form-label">Descripción</label>
+                <textarea name="descripcion" class="form-control letra" rows="3"></textarea>
+            </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+        </form>
+      </div>
     </div>
-    <div class="col-6 col-md-3 text-end">
-        <input type="text" name="campo" id="campo" class="form-control">
-    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+    <p class="mb-1">&copy; 2017–2024 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
 </div>
 
-<div class="row py-4">
-    <div class="col">
-        <table class="table table-sm table-bordered table-striped">
-            <thead>
-                <th class="sort asc">departamento</th>
-                <th class="sort asc">rpe</th>
-                <th class="sort asc">activo_fijo</th>
-                <th class="sort asc">inventario</th>
-                <th class="sort asc">numero_de_serie</th>
-                <th class="sort asc">marca</th>
-                <th class="sort asc">modelo</th>
-                <th class="sort asc">mac_wifi</th>
-                <th class="sort asc">mac_ethernet</th>
-                <th class="sort asc">memoria</th>
-                <th class="sort asc">disco_duro</th>
-                <th class="sort asc">dominio</th>
-                <th class="sort asc">resg</th>
-                <th class="sort asc">d_activo</th>
-                <th class="sort asc">antivirus</th>
-                <th class="sort asc">observaciones</th>
-                <th></th>
-                <th></th>
-            </thead>
-
-            <!-- El id del cuerpo de la tabla. -->
-            <tbody id="content">
-
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="row justify-content-between">
-
-    <div class="col-12 col-md-4">
-        <label id="lbl-total"></label>
-    </div>
-
-    <div class="col-12 col-md-4" id="nav-paginacion"></div>
-
-    <input type="hidden" id="pagina" value="1">
-    <input type="hidden" id="orderCol" value="0">
-    <input type="hidden" id="orderType" value="asc">
-
-</div>
 </div>
 </main>
-
-<script>
-// Llamando a la función getData() al cargar la página
-document.addEventListener("DOMContentLoaded", getData);
-
-// Función para obtener datos con AJAX
-function getData() {
-let input = document.getElementById("campo").value
-let num_registros = document.getElementById("num_registros").value
-let content = document.getElementById("content")
-let pagina = document.getElementById("pagina").value || 1;
-let orderCol = document.getElementById("orderCol").value
-let orderType = document.getElementById("orderType").value
-
-let formaData = new FormData()
-formaData.append('campo', input)
-formaData.append('registros', num_registros)
-formaData.append('pagina', pagina)
-formaData.append('orderCol', orderCol)
-formaData.append('orderType', orderType)
-
-fetch("load.php", {
-        method: "POST",
-        body: formaData
-    })
-    .then(response => response.json())
-    .then(data => {
-        content.innerHTML = data.data
-        document.getElementById("lbl-total").innerHTML = `Mostrando ${data.totalFiltro} de ${data.totalRegistros} registros`;
-        document.getElementById("nav-paginacion").innerHTML = data.paginacion
-
-        // Si la página actual no tiene resultados, ajustar la paginación para mostrar la primera página
-        if (data.data.includes('Sin resultados') && parseInt(pagina) !== 1) {
-            nextPage(1); // Ir a la primera página
-        }
-    })
-    .catch(err => console.log(err))
-}
-
-// Función para cambiar de página
-function nextPage(pagina) {
-document.getElementById('pagina').value = pagina
-getData()
-}
-
-// Función para ordenar columnas
-function ordenar(e) {
-let elemento = e.target;
-let orderType = elemento.classList.contains("asc") ? "desc" : "asc";
-
-document.getElementById('orderCol').value = elemento.cellIndex;
-document.getElementById("orderType").value = orderType;
-elemento.classList.toggle("asc");
-elemento.classList.toggle("desc");
-
-getData()
-}
-
-// Event listeners para los eventos de cambio en el campo de entrada y el select
-document.getElementById("campo").addEventListener("keyup", getData);
-document.getElementById("num_registros").addEventListener("change", getData);
-
-// Event listener para ordenar las columnas
-let columns = document.querySelectorAll(".sort");
-columns.forEach(column => {
-column.addEventListener("click", ordenar);
-});
-</script>
-
     </main>
   </div>
 </div>
