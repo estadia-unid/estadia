@@ -1,5 +1,6 @@
 <?php
 require("fpdf186/fpdf.php");
+include_once "conexion.php";
 
 class PDF extends FPDF
 {
@@ -20,7 +21,7 @@ class PDF extends FPDF
         $this->SetFont('Arial', 'I', 8);
         $this->Cell(0, 10, 'Pagina ' . $this->PageNo() . '/{nb}', 0, 0, 'C');
     }
-    function TableHeader()
+    public function TableHeader()
     {
         $this->SetFont('Arial', 'B', 10);
         $this->SetFillColor(192, 192, 192);
@@ -36,36 +37,50 @@ class PDF extends FPDF
         $this->Cell(30, 7, 'Inventario', 1, 1, 'C', true);
     }
 
-    function LoadData()
+    function LoadData($conecta)
     {
-        return [
-            ['HP COMPAQ', 'DC580 SFF', 'G094AC', 'AMD Phenom', '2.3 GHz', '2 GB', '10.41.24.70', 'WIN7 A 64', '45001189', 'C-00594479'],
-            ['HP COMPAQ', 'D530 SFF', 'MJX434043F', 'Core i3', '2.5 GHz', '4 GB', '10.41.24.71', 'WIN7 ETNA MONTALVO', '43000191', 'C-00353930'],
-        ];
+        $leer = "SELECT * FROM `computadoras` INNER JOIN `empleados` ON computadoras.rpe = empleados.rpe ORDER BY `departamento`";
+        $resultado_leer = $conecta->prepare($leer);
+        $resultado_leer->execute([]);
+        return $resultado_leer;
+        
+    }
+    public function tabluwu($datos){
+        $this->Cell(30, 6, $datos['departamento'], 1);
+        $this->Cell(30, 6, $datos['numero_de_serie'], 1);
+        $this->Cell(30, 6, $datos['modelo'], 1);
+        $this->Cell(30, 6, $datos['a_materno'], 1);
+        $this->Cell(30, 6, $datos['rpe'], 1);
+        $this->Cell(20, 6, $datos['memoria'], 1);
+        $this->Cell(30, 6, $datos['ip'], 1);
+        $this->Cell(30, 6, $datos['rpe'], 1);
+        $this->Cell(30, 6, $datos['activo_fijo'], 1);
+        $this->Cell(30, 6, $datos['inventario'], 1);
+        $this->Ln();
     }
     function TableBody($data)
     {
         $this->SetFont('Arial', '', 9);
-        foreach ($data as $row) {
-            $this->Cell(30, 6, $row[0], 1);
-            $this->Cell(30, 6, $row[1], 1);
-            $this->Cell(30, 6, $row[2], 1);
-            $this->Cell(30, 6, $row[3], 1);
-            $this->Cell(30, 6, $row[4], 1);
-            $this->Cell(20, 6, $row[5], 1);
-            $this->Cell(30, 6, $row[6], 1);
-            $this->Cell(30, 6, $row[7], 1);
-            $this->Cell(30, 6, $row[8], 1);
-            $this->Cell(30, 6, $row[9], 1);
-            $this->Ln();
+            while($datos = $data->fetch(PDO::FETCH_ASSOC)){
+                $this->Cell(30, 6, $datos['departamento'], 1);
+                $this->Cell(30, 6, $datos['numero_de_serie'], 1);
+                $this->Cell(30, 6, $datos['modelo'], 1);
+                $this->Cell(30, 6, $datos['a_materno'], 1);
+                $this->Cell(30, 6, $datos['rpe'], 1);
+                $this->Cell(20, 6, $datos['memoria'], 1);
+                $this->Cell(30, 6, $datos['ip'], 1);
+                $this->Cell(30, 6, $datos['rpe'], 1);
+                $this->Cell(30, 6, $datos['activo_fijo'], 1);
+                $this->Cell(30, 6, $datos['inventario'], 1);
+                $this->Ln();
+                }
         }
-    }
 }
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage('L');
 $pdf->TableHeader();
-$data = $pdf->LoadData();
+$data = $pdf->LoadData($conecta);
 $pdf->TableBody($data);
 $pdf->Output();
 ?>
