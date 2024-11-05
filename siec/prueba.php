@@ -27,9 +27,7 @@ class PDF extends FPDF
 
     function LoadData($conecta)
     {
-        $leer = "SELECT * FROM `computadoras` 
-                 INNER JOIN `empleados` ON computadoras.rpe = empleados.rpe 
-                 ORDER BY `departamento`, empleados.rpe";
+        $leer = "SELECT * FROM `computadoras` INNER JOIN `empleados` ON computadoras.rpe = empleados.rpe ORDER BY `departamento`, empleados.rpe";
         $resultado_leer = $conecta->prepare($leer);
         $resultado_leer->execute([]);
         return $resultado_leer->fetchAll(PDO::FETCH_ASSOC);

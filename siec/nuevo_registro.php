@@ -375,46 +375,43 @@ include_once "conexionsql.php";
                         Please provide a valid state.
                       </div>
                     </div>
-                  </div>
-                  
-                  <div class="col-md-4">
-                    <label for="state" class="form-label">Dominio</label>
-                    <select class="form-select" id="state" required>
-                      <?php
-                        $dominios = mysqli_query($conecta, "SELECT * FROM `dominios`");
-                        while($dominios_resultado=mysqli_fetch_array($dominios)) {
-                          echo '<option value="">' . $dominios_resultado[1] . '</option>';
-                        }
-                      ?>
-                    </select>
-                    <div class="invalid-feedback">
-                      Please provide a valid state.
+                    <div class="col-md-4">
+                      <label for="state" class="form-label">Dominio</label>
+                      <select class="form-select" id="state" required>
+                        <?php
+                          $dominios = mysqli_query($conecta, "SELECT * FROM `dominios`");
+                          while($dominios_resultado=mysqli_fetch_array($dominios)) {
+                            echo '<option value="">' . $dominios_resultado[1] . '</option>';
+                          }
+                        ?>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="state" class="form-label">Vlan</label>
+                      <select class="form-select" id="state" required>
+                        <?php
+                          $vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
+                          while($vlan_resultado=mysqli_fetch_array($vlan)) {
+                            echo '<option value="">' . $vlan_resultado[1] . '</option>';
+                          }
+                        ?>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <label for="state" class="form-label">Vlan</label>
-                    <select class="form-select" id="state" required>
-                      <?php
-                        $vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
-                        while($vlan_resultado=mysqli_fetch_array($vlan)) {
-                          echo '<option value="">' . $vlan_resultado[1] . '</option>';
-                        }
-                      ?>
-                    </select>
-                    <div class="invalid-feedback">
-                      Please provide a valid state.
-                    </div>
-                  </div>
-
-                  <h4 class="mb-3">Payment</h4>
 
                   <div class="my-3">
                     <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="save-info">
+                      <input type="checkbox" class="form-check-input" id="save-info"  checked>
                       <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
                     </div>
                     <div class="form-check">
-                      <input id="credit" name="paymentMethod" type="checkbox" class="form-check-input" checked required>
+                      <input id="credit" name="paymentMethod" type="checkbox" class="form-check-input"  required>
                       <label class="form-check-label" for="credit">Resguardo</label>
                     </div>
                     <div class="form-check">
