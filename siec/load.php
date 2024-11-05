@@ -19,7 +19,7 @@
      }
 
 // Columnas a mostrar en la tabla
-$columns = ['id_computadora', 'departamento', 'nombre', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
+$columns = ['id_computadora', 'departamento', 'nombre', 'computadoras.rpe', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
 
 // Nombre de la tabla
 $table = "computadoras";
@@ -100,7 +100,7 @@ if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
         $output['data'] .= '<tr>';
         $output['data'] .= '<td>' . $row['departamento'] . '</td>';
-        $output['data'] .= '<td>' . $row['nombre'] . '</td>';
+        $output['data'] .= '<td>' . $row['rpe'] . '</td>';
         $output['data'] .= '<td>' . $row['activo_fijo'] . '</td>';
         $output['data'] .= '<td>' . $row['inventario'] . '</td>';
         $output['data'] .= '<td>' . $row['numero_de_serie'] . '</td>';
