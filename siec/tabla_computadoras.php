@@ -376,7 +376,7 @@ session_start();
     </div>
 </div>
 
-<div class="row py-4">
+<div class="table-responsive">
     <div class="col">
         <table class="table table-sm table-bordered table-striped">
             <thead>

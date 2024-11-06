@@ -19,8 +19,7 @@ if(isset($_POST['guardar'])){
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
     <title>Inicio de sesion</title>
-
-<link href="css/bootstrapsiec.min.css" rel="stylesheet">
+    <link href="css/bootstrapsiec.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -100,8 +99,6 @@ if(isset($_POST['guardar'])){
         display: block !important;
       }
     </style>
-
-    
     <!-- Custom styles for this template -->
     <link href="css/sign-in.css" rel="stylesheet">
   </head>
@@ -158,42 +155,35 @@ if(isset($_POST['guardar'])){
     </div>
 
     <!--
-    mira, este es el inicio de sesion. funciona asi.
-    es un formulario simple, solo contiene 2 cosas:
-    1.-RPE.
-    2.-Contraseña.
+      mira, este es el inicio de sesion. funciona asi.
+      es un formulario simple, solo contiene 2 cosas:
+      1.-RPE.
+      2.-Contraseña.
     -->
 
-<main class="form-signin w-100 m-auto">
+    <main class="form-signin w-100 m-auto">
 
-  <form action="" method="post">
-    <div class="text-center">
-      <img class="mb-6" src="imagenes/svg/cfe_icon.svg" alt="logo cfe en svg" width="200" height="160">
-      <h1 class="h3 mb-3 fw-normal" >Por favor inicie sesion</h1>
-    </div>
+      <form action="" method="post">
+        <div class="text-center">
+          <img class="mb-6" src="imagenes/svg/cfe_icon.svg" alt="logo cfe en svg" width="200" height="160">
+          <h1 class="h3 mb-3 fw-normal" >Por favor inicie sesion</h1>
+        </div>
 
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" name="rpe" placeholder="Ponga su RPE" maxlength="5" style="text-transform: uppercase;">
-      <label for="floatingInput">RPE</label>
-    </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" name="rpe" placeholder="Ponga su RPE" maxlength="5" style="text-transform: uppercase;">
+          <label for="floatingInput">RPE</label>
+        </div>
     
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" name="contraseña" placeholder="Password" maxlength="8">
-      <label for="floatingPassword">Contraseña</label>
-    </div>
-<!--
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
-    </div>
-    -->
-    <button class="btn btn-primary w-100 py-2" type="submit" name="guardar">Iniciar sesion</button>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2024–2024</p>
-  </form>
-</main>
-<script src="js/bootstrap.bundle.min.js"></script>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" name="contraseña" placeholder="Password" maxlength="8">
+          <label for="floatingPassword">Contraseña</label>
+        </div>
 
-    </body>
+        <button class="btn btn-primary w-100 py-2" type="submit" name="guardar">Iniciar sesion</button>
+        <p class="mt-5 mb-3 text-body-secondary">&copy; 2024–2024</p>
+      </form>
+    </main>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+  </body>
 </html>

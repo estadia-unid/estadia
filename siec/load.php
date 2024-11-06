@@ -19,7 +19,7 @@
      }
 
 // Columnas a mostrar en la tabla
-$columns = ['id_computadora', 'departamento', 'rpe', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
+$columns = ['id_computadora', 'departamento', 'nombre', 'computadoras.rpe', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
 
 // Nombre de la tabla
 $table = "computadoras";
@@ -70,6 +70,7 @@ if (isset($_POST['orderCol'])) {
 // Consulta
 $sql = "SELECT SQL_CALC_FOUND_ROWS " . implode(", ", $columns) . "
 FROM $table
+INNER JOIN empleados ON computadoras.rpe = empleados.rpe
 $where
 $sOrder
 $sLimit";

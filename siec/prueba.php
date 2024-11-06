@@ -1,5 +1,6 @@
 <?php
 require("fpdf186/fpdf.php");
+include_once "conexion.php";
 
 class PDF extends FPDF
 {
@@ -14,16 +15,28 @@ class PDF extends FPDF
         $this->Cell(0, 10, 'INFORME DE PC POR AREA', 0, 1, 'C');
         $this->Ln(10);
     }
+
     function Footer()
     {
         $this->SetY(-15);
         $this->SetFont('Arial', 'I', 8);
         $this->Cell(0, 10, 'Pagina ' . $this->PageNo() . '/{nb}', 0, 0, 'C');
+        $DateAndTime = date('d-m-Y', time());
+        $this->Cell(0, 15, 'Fecha ' . $DateAndTime, 0, 0, 'R');
     }
+
+    function LoadData($conecta)
+    {
+        $leer = "SELECT * FROM `computadoras` INNER JOIN `empleados` ON computadoras.rpe = empleados.rpe ORDER BY `departamento`, empleados.rpe";
+        $resultado_leer = $conecta->prepare($leer);
+        $resultado_leer->execute([]);
+        return $resultado_leer->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function TableHeader()
     {
         $this->SetFont('Arial', 'B', 10);
-        $this->SetFillColor(192, 192, 192);
+        $this->SetFillColor(253, 60, 60);
         $this->Cell(30, 7, 'Marca', 1, 0, 'C', true);
         $this->Cell(30, 7, 'Modelo', 1, 0, 'C', true);
         $this->Cell(30, 7, 'Serie', 1, 0, 'C', true);
@@ -36,36 +49,54 @@ class PDF extends FPDF
         $this->Cell(30, 7, 'Inventario', 1, 1, 'C', true);
     }
 
-    function LoadData()
-    {
-        return [
-            ['HP COMPAQ', 'DC580 SFF', 'G094AC', 'AMD Phenom', '2.3 GHz', '2 GB', '10.41.24.70', 'WIN7 A 64', '45001189', 'C-00594479'],
-            ['HP COMPAQ', 'D530 SFF', 'MJX434043F', 'Core i3', '2.5 GHz', '4 GB', '10.41.24.71', 'WIN7 ETNA MONTALVO', '43000191', 'C-00353930'],
-        ];
-    }
     function TableBody($data)
     {
         $this->SetFont('Arial', '', 9);
+        $this->SetFillColor(253, 253, 60);
+        $currentDepartment = '';
+        $currentEmployee = '';
+
         foreach ($data as $row) {
-            $this->Cell(30, 6, $row[0], 1);
-            $this->Cell(30, 6, $row[1], 1);
-            $this->Cell(30, 6, $row[2], 1);
-            $this->Cell(30, 6, $row[3], 1);
-            $this->Cell(30, 6, $row[4], 1);
-            $this->Cell(20, 6, $row[5], 1);
-            $this->Cell(30, 6, $row[6], 1);
-            $this->Cell(30, 6, $row[7], 1);
-            $this->Cell(30, 6, $row[8], 1);
-            $this->Cell(30, 6, $row[9], 1);
+            // Verificar si el departamento cambió
+            if ($row['departamento'] != $currentDepartment) {
+                $currentDepartment = $row['departamento'];
+                $this->SetFont('Arial', 'B', 10);
+                $this->Cell(0, 10, 'Departamento: ' . $currentDepartment, 1, 1, 'L', 1);
+                $this->Ln(2);
+                $this->SetFont('Arial', '', 9);
+            }
+
+            // Verificar si el empleado cambió
+            if ($row['rpe'] != $currentEmployee) {
+                $currentEmployee = $row['rpe'];
+                // Imprimir información del empleado una sola vez
+                $this->SetFont('Arial', 'I', 9);
+                $this->Cell(0, 6, 'Empleado: ' . utf8_decode($row['nombre']) . ' ' . utf8_decode($row['a_paterno']) . ' ' . utf8_decode($row['a_materno']) . ' - RPE: ' . $row['rpe'] . '    ' . 'Puesto: ' . utf8_decode($row['categ']), 0, 1, 'L');
+                $this->Ln(1);
+                $this->SetFont('Arial', '', 9);
+            }
+
+            // Imprimir información de la computadora
+            $this->Cell(30, 6, $row['marca'], 1,0,'L',0);
+            $this->Cell(30, 6, $row['modelo'], 1);
+            $this->Cell(30, 6, $row['numero_de_serie'], 1);
+            $this->Cell(30, 6, $row['rpe'], 1);
+            $this->Cell(30, 6, $row['nombre'], 1);
+            $this->Cell(20, 6, $row['rpe'], 1);
+            $this->Cell(30, 6, $row['ip'], 1);
+            $this->Cell(30, 6, $row['observaciones'], 1);
+            $this->Cell(30, 6, $row['activo_fijo'], 1);
+            $this->Cell(30, 6, $row['inventario'], 1);
             $this->Ln();
         }
     }
 }
+
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage('L');
 $pdf->TableHeader();
-$data = $pdf->LoadData();
+$data = $pdf->LoadData($conecta);
 $pdf->TableBody($data);
 $pdf->Output();
 ?>
