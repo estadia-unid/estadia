@@ -1,6 +1,7 @@
 SELECT DISTINCT `categ` FROM `empleados`;
 SELECT DISTINCT `categ` FROM `empleados`;
 SET GLOBAL FOREIGN_KEY_CHECKS=0;
+UPDATE `computadoras` SET `departamento` = 'Juridico' WHERE `computadoras`.`id_computadora` = 35 AND `computadoras`.`rpe` = '9MP6E'
 
 class Equipo {
     private $conexion;
