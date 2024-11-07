@@ -33,19 +33,24 @@ class ControlSesiones{
         die();
     }
 
-    function agregar_usuario(){
-        echo password_hash("rasmuslerdorf", PASSWORD_BCRYPT)."\n";
-        if (password_verify('Alfredo Paz', $password_base_datos)) {
-            echo 'Es correcta tu contraseña';
-        } else {
-            echo 'No es correcta tu contraseña';
-        }
+    function agregar_usuario($conecta){
+            $contraseñaCifrada = password_hash($this->contraseña, PASSWORD_BCRYPT);
+            $sql="INSERT INTO `usuarios` (`rpe`, `clave`) VALUES (:rpe,:clave)";
+            
+            $sql = $conecta->prepare($sql);
+            
+            $sql->bindParam(':rpe',$this->usuario);
+            $sql->bindParam(':clave',$contraseñaCifrada);
+            
+            $sql->execute();
+            
     }
 }
 if(isset($_GET['cerrarSesion'])){
     $controlSesion = new ControlSesiones(null, null);
     $controlSesion->cerrar_sesion();
 }
+
 // https://www.php.net/manual/es/function.password-verify.php
 // https://www.php.net/manual/es/function.password-hash.php
 ?>

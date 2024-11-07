@@ -1,9 +1,16 @@
 <?php
 include_once "conexion.php";
 include "autoloader.php";
+
+if(isset($_POST['insertar'])){
+    $usuario = $_POST['rpe'];
+    $contraseña = $_POST['contraseña'];
+    $usuario = new ControlSesiones($usuario,$contraseña);
+    $usuario->agregar_usuario($conecta);
+}
 ?>
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="es" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -223,7 +230,6 @@ include "autoloader.php";
 
 <div class="container-fluid">
   <div class="row">
-    <!-- sidebar-->
     <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
       <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-header">
@@ -272,30 +278,28 @@ include "autoloader.php";
           </ul>
 
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>Reportes</span>
-            <!--
+            <span>Saved reports</span>
             <a class="link-secondary" href="#" aria-label="Add a new report">
               <svg class="bi"><use xlink:href="#plus-circle"/></svg>
             </a>
-            -->
           </h6>
           <ul class="nav flex-column mb-auto">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="informe_por_area.php">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                INFORME DE PC POR AREA
+                Current month
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="informe_por_empleado.php">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                INFORME DE PC POR EMPLEADO
+                Last quarter
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="informe_empleado.php">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                INFORME DE EMPLEADO
+                Social engagement
               </a>
             </li>
             <li class="nav-item">
@@ -316,16 +320,15 @@ include "autoloader.php";
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="ControlSesiones.php?cerrarSesion=true">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#door-closed"/></svg>
-                Cerrar Sesion
+                Sign out
               </a>
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <!-- sidebar-->
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -343,10 +346,35 @@ include "autoloader.php";
         </div>
       </div>
 
-      <div class="col-auto d-lg-block">
-        <img width="100%" height="250" class="rounded float-start" src="imagenes/svg/cfe_icon.svg">
-      </div>
+       <!--
+      mira, este es el inicio de sesion. funciona asi.
+      es un formulario simple, solo contiene 2 cosas:
+      1.-RPE.
+      2.-Contraseña.
+    -->
+        <!-- formulario-->
 
+        <form action="" method="post" class="row g-3">
+            <div class="text-center">
+                <img class="mb-6" src="imagenes/svg/cfe_icon.svg" alt="logo cfe en svg" width="200" height="160">
+                <h1 class="h3 mb-3 fw-normal" >Ingrese los Datos del Usuario a Agregar</h1>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="rpe" placeholder="Ponga su RPE" maxlength="5" style="text-transform: uppercase;">
+                <label for="floatingInput">RPE De La Persona</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" name="contraseña" placeholder="Password" maxlength="8">
+                <label for="floatingPassword">Contraseña</label>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2" type="submit" name="insertar">agregar usuario</button>
+                <p class="mt-5 mb-3 text-body-secondary">&copy; 2024–2024</p>
+        </form>
+
+        <!-- /formulario-->
     </main>
   </div>
 </div>

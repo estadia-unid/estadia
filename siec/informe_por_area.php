@@ -13,7 +13,7 @@ class PDF extends FPDF
         $this->Cell(0, 5, 'Sistema de Inventario de Equipos de Computo', 0, 1, 'C');
         $this->Ln(5);
         $this->SetFont('Arial', 'B', 16);
-        $this->Cell(0, 5, 'INFORME DE PC POR EMPLEADO', 0, 1, 'C');
+        $this->Cell(0, 5, 'INFORME DE PC POR AREA', 0, 1, 'C');
         $this->Ln(5);
     }
 
@@ -54,33 +54,27 @@ class PDF extends FPDF
     {
         $this->SetFont('Arial', '', 9);
         $this->SetFillColor(253, 253, 60);
-        //$departamenteActual = '';
+        $departamenteActual = '';
         $empleadoActual = '';
         $total = 0;
         foreach ($datos as $row) {
-           /*
             if ($row['departamento'] != $departamenteActual) {
+                $this->SetFont('Arial', 'B', 10);
                 if ($departamenteActual != '') {
-                    $this->SetFont('Arial', 'B', 10);
                     $this->Cell(40, 10, 'Total ' . $total, 0, 1, 'L', 0);
                     $this->Ln(2);
                 }
                 $departamenteActual = $row['departamento'];
-                
+                $total = 0;
                 $this->Cell(0, 10, 'Departamento: ' . $departamenteActual, 1, 1, 'L', 1);
                 $this->Ln(2);
                 $this->SetFont('Arial', '', 9);
             }
-            */
-            if ($row['rpe'] != $empleadoActual) {
-                $this->SetFont('Arial', 'B', 10);
-                if($empleadoActual != ''){
-                    $this->Cell(0, 10, 'Total ' . $total, 0, 1, 'L', 0);
-                }
-                $empleadoActual = $row['rpe'];
-                $this->Cell(0, 6, 'Empleado: ' . utf8_decode($row['nombre']) . ' ' . utf8_decode($row['a_paterno']) . ' ' . utf8_decode($row['a_materno']) . ' - RPE: ' . $row['rpe'] . '    ' . 'Puesto: ' . utf8_decode($row['categ']), 1, 1, 'L',1);
 
-                $total = 0;
+            if ($row['rpe'] != $empleadoActual) {
+                $empleadoActual = $row['rpe'];
+                $this->SetFont('Arial', 'I', 9);
+                $this->Cell(0, 6, 'Empleado: ' . utf8_decode($row['nombre']) . ' ' . utf8_decode($row['a_paterno']) . ' ' . utf8_decode($row['a_materno']) . ' - RPE: ' . $row['rpe'] . '    ' . 'Puesto: ' . utf8_decode($row['categ']), 0, 1, 'L');
                 $this->Ln(1);
                 $this->SetFont('Arial', '', 9);
             }
