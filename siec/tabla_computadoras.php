@@ -376,27 +376,23 @@ session_start();
     </div>
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive -lg">
     <div class="col">
-        <table class="table table-sm table-bordered table-striped">
+        <table class="table table-bordered table-striped table-hover">
             <thead>
-                <th class="sort asc">departamento</th>
-                <th class="sort asc">rpe</th>
-                <th class="sort asc">activo_fijo</th>
-                <th class="sort asc">inventario</th>
-                <th class="sort asc">numero_de_serie</th>
-                <th class="sort asc">marca</th>
-                <th class="sort asc">modelo</th>
-                <th class="sort asc">mac_wifi</th>
-                <th class="sort asc">mac_ethernet</th>
-                <th class="sort asc">memoria</th>
-                <th class="sort asc">disco_duro</th>
-                <th class="sort asc">dominio</th>
-                <th class="sort asc">resg</th>
-                <th class="sort asc">d_activo</th>
-                <th class="sort asc">antivirus</th>
-                <th class="sort asc">observaciones</th>
-                <th></th>
+                <th class="sort asc">Departamento Asignado</th>
+                <th class="sort asc">Usuario Responsable</th>
+                <th class="sort asc">Activo fijo</th>
+                <th class="sort asc">Inventario</th>
+                <th class="sort asc">Numero de serie</th>
+                <th class="sort asc">Marca y Modelo</th>
+                <th class="sort asc">Direccion MAC WIFI</th>
+                <th class="sort asc">MAC Ethernet</th>
+                <th class="sort asc">Memoria</th>
+                <th class="sort asc">Disco duro</th>
+                <th class="sort asc">Dominio</th>
+                <th class="sort asc">Adicional</th>
+                <th class="sort asc">Observaciones</th>
                 <th></th>
             </thead>
 
