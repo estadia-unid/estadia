@@ -19,13 +19,13 @@
      }
 
 // Columnas a mostrar en la tabla
-$columns = ['id_computadora', 'oficial', 'departamento', 'nombre', 'a_paterno', 'escritorio_remoto', 'a_materno', 'computadoras.rpe', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
+$columns = ['id_servidor', 'marca', 'modelo', 'num_serie', 'procesador', 'velocidad', 'ram', 'ip', 'activo_fijo', 'inventario', 'observaciones'];
 
 // Nombre de la tabla
-$table = "computadoras";
+$table = "servidores";
 
 // Clave principal de la tabla
-$id = 'id_computadora';
+$id = 'id_servidor';
 
 // Campo a buscar
 $campo = isset($_POST['campo']) ? $conecta->real_escape_string($_POST['campo']) : null;
@@ -70,7 +70,6 @@ if (isset($_POST['orderCol'])) {
 // Consulta
 $sql = "SELECT SQL_CALC_FOUND_ROWS " . implode(", ", $columns) . "
 FROM $table
-INNER JOIN empleados ON computadoras.rpe = empleados.rpe
 $where
 $sOrder
 $sLimit";
@@ -99,37 +98,20 @@ $output['paginacion'] = '';
 if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
         $output['data'] .= '<tr>';
-        $output['data'] .= '<td>' . $row['oficial'] . '</td>'; 
-        $output['data'] .= '<td>' . $row['departamento'] . '</td>'; 
-        $output['data'] .= '<td>' . $row['nombre'] . '  ' . $row['a_paterno'] . '  ' . $row['a_materno'] . '<div class="dropdown">' . '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">' . $row['rpe'] . '</button>' . 
-        '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> ' . 
-        '<li><a class="dropdown-item rounded-2">' .$row['rpe'] . '</a></li>' .
-        '<li><a class="dropdown-item rounded-2">' .$row['rpe'] . '</a></li>' . 
-        '<li><a class="dropdown-item rounded-2">' .$row['rpe'] . '</a></li>' . 
-        '<li><a class="dropdown-item rounded-2">' .$row['rpe'] . '</a></li>' . 
-        '</ul>' . '</div>' .  
-        '</td>';
+        $output['data'] .= '<td>' . $row['marca'] . '</td>';
+        $output['data'] .= '<td>' . $row['modelo'] . '</td>';
+        $output['data'] .= '<td>' . $row['num_serie'] . '</td>';
+        $output['data'] .= '<td>' . $row['procesador'] . '</td>';
+        $output['data'] .= '<td>' . $row['velocidad'] . '</td>';
+        $output['data'] .= '<td>' . $row['ram'] . '</td>';
+        $output['data'] .= '<td>' . $row['ip'] . '</td>';
         $output['data'] .= '<td>' . $row['activo_fijo'] . '</td>';
         $output['data'] .= '<td>' . $row['inventario'] . '</td>';
-        $output['data'] .= '<td>' . $row['numero_de_serie'] . '</td>';
-        $output['data'] .= '<td>' . $row['marca'] . '   ' . $row['modelo'] . '</td>';
-        $output['data'] .= '<td>' . $row['mac_wifi'] . '</td>';
-        $output['data'] .= '<td>' . $row['mac_ethernet'] . '</td>';
-        $output['data'] .= '<td>' . $row['memoria'] . '</td>';
-        $output['data'] .= '<td>' . $row['disco_duro'] . '</td>';
-        $output['data'] .= '<td>' . $row['dominio'] . '</td>';
-        $output['data'] .= '<td><div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> Opciones </button>' . 
-        '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> ' . 
-        '<li><a class="dropdown-item rounded-2"> Resguardo: ' . $row['resg'] . '</a></li>' .
-        '<li><a class="dropdown-item rounded-2"> Directorio activo: ' . $row['d_activo'] . '</a></li>' .
-        '<li><a class="dropdown-item rounded-2"> Antivirus: ' . $row['antivirus'] . '</a></li>' . 
-        '<li><a class="dropdown-item rounded-2"> Escritorio Remoto: ' . $row['escritorio_remoto'] . '</a></li>' . 
-        '</ul></div></td>';
         $output['data'] .= '<td>' . $row['observaciones'] . '</td>';
         $output['data'] .= '<td><div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> Opciones </button>' . 
         '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> ' . 
-        '<li><a class="dropdown-item rounded-2" href="editar.php?id=' . $row['id_computadora'] . '">Editar</a></li>' .
-        '<li><a class="dropdown-item rounded-2" href="elimiar.php?id=' . $row['id_computadora'] . '">Eliminar</a></li>' . 
+        '<li><a class="dropdown-item rounded-2" href="editar.php?id=' . $row['id_servidor'] . '">Editar</a></li>' .
+        '<li><a class="dropdown-item rounded-2" href="elimiar.php?id=' . $row['id_servidor'] . '">Eliminar</a></li>' . 
         '</ul></div></td>';
         $output['data'] .= '</tr>';
     }
