@@ -223,7 +223,7 @@ session_start();
 
 <div class="container-fluid">
   <div class="row">
-    <!-- -->
+    <!-- sidebar-->
     <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
       <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-header">
@@ -234,13 +234,13 @@ session_start();
           
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="principal.php">
+              <a class="nav-link d-flex align-items-center gap-2" href="principal.php">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Inicio
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" href="tabla_computadoras.php">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="tabla_computadoras.php">
                 <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                 Computadoras
               </a>
@@ -252,9 +252,9 @@ session_start();
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="reporte.php">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#people"/></svg>
-                Generar Reportes
+                Customers
               </a>
             </li>
             <li class="nav-item">
@@ -272,28 +272,30 @@ session_start();
           </ul>
 
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>Saved reports</span>
+            <span>Reportes</span>
+            <!--
             <a class="link-secondary" href="#" aria-label="Add a new report">
               <svg class="bi"><use xlink:href="#plus-circle"/></svg>
             </a>
+            -->
           </h6>
           <ul class="nav flex-column mb-auto">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="informe_por_area.php">
                 <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                Current month
+                INFORME DE PC POR AREA
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="informe_por_empleado.php">
                 <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                Last quarter
+                INFORME DE PC POR EMPLEADO
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="informe_empleado.php">
                 <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
-                Social engagement
+                INFORME DE EMPLEADO
               </a>
             </li>
             <li class="nav-item">
@@ -314,16 +316,16 @@ session_start();
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="ControlSesiones.php?cerrarSesion=true">
                 <svg class="bi"><use xlink:href="#door-closed"/></svg>
-                Sign out
+                Cerrar Sesion
               </a>
             </li>
           </ul>
         </div>
       </div>
     </div>
-        <!-- -->
+    <!-- sidebar-->
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -376,7 +378,7 @@ session_start();
     </div>
 </div>
 
-<div class="table-responsive -lg">
+<div class="table-responsive row py-4">
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
             <thead>
@@ -387,7 +389,7 @@ session_start();
                 <th class="sort asc">Numero de serie</th>
                 <th class="sort asc">Marca y Modelo</th>
                 <th class="sort asc">Direccion MAC WIFI</th>
-                <th class="sort asc">MAC Ethernet</th>
+                <th class="sort asc">Direccion MAC Ethernet</th>
                 <th class="sort asc">Memoria</th>
                 <th class="sort asc">Disco duro</th>
                 <th class="sort asc">Dominio</th>
