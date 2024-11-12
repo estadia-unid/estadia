@@ -3,24 +3,29 @@ include_once "conexion.php";
 include "autoloader.php";
 
 if(isset($_POST['insertar'])){
+    $datos = [
+    'marca' => $_POST['marca'],
+    'modelo' => $_POST['modelo'],
+    'num_serie' => $_POST['numeroserie'],
+    'procesador' => $_POST['procesador'],
+    'velocidad' => $_POST['velocidad'],
+    'ram' => $_POST['ram'],
+    'ip' => $_POST['ip'],
+    'activo_fijo' => $_POST['activo'],
+    'inventario' => $_POST['inventario'],
+    'observaciones' => $_POST['observaciones'],
+    ];
     try{
-        $marca = $_POST['marca'];
-        $modelo = $_POST['modelo'];
-        $numeroserie = $_POST['numeroserie'];
-        $procesador = $_POST['procesador'];
-        $velocidad = $_POST['velocidad'];
-        $ram = $_POST['ram'];
-        $ip = $_POST['ip'];
-        $activo = $_POST['activo'];
-        $inventario = $_POST['inventario'];
-        $observaciones = $_POST['observaciones'];
         $usuario = new ControlFormulario('');
-        $usuario->nuevo_servidor($conecta,$marca,$modelo,$numeroserie,$procesador,$velocidad,$ram,$ip,$activo,$inventario,$observaciones);
+        $usuario->insertar_datos($conecta,'servidores',$datos);
+        header("Location: nuevo_servidores.php");
+        die();
     }catch(Exception $e){
         echo "Ocurrió un error al registrar los datos: " . $e->getMessage();
     }
 }
-unset($_POST);
+
+  //https://www.php.net/manual/es/function.unset.php
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">

@@ -16,26 +16,25 @@ class ControlFormulario{
         
     }
     
-    function actualizar(){
-    }
-    function nuevo_servidor($conecta,$marca,$modelo,$numeroserie,$procesador,$velocidad,$ram,$ip,$activo,$inventario,$observaciones){
-        $nuevoServidor = "INSERT INTO `servidores`(`marca`, `modelo`, `num_serie`, `procesador`, `velocidad`, `ram`, `ip`, `activo_fijo`, `inventario`, `observaciones`)
-        VALUES (:marca,:modelo,:num_serie,:procesador,:velocidad,:ram,:ip,:activo_fijo,:inventario,:observaciones)";
-                    $sql = $conecta->prepare($nuevoServidor);
-                    $sql->bindParam(':marca',$marca);
-                    $sql->bindParam(':modelo',$modelo);
-                    $sql->bindParam(':num_serie',$numeroserie);
-                    $sql->bindParam(':procesador',$procesador);
-                    $sql->bindParam(':velocidad',$velocidad);
-                    $sql->bindParam(':ram',$ram);
-                    $sql->bindParam(':ip',$ip);
-                    $sql->bindParam(':activo_fijo',$activo);
-                    $sql->bindParam(':inventario',$inventario);
-                    $sql->bindParam(':observaciones',$observaciones);
-                    $sql->execute();
+    function insertar_datos($conecta,$tabla,$datos){
+            $columnas = implode(", ", array_keys($datos));
+            $valores = ":" . implode(", :", array_keys($datos));
+            
+            $insertar = "INSERT INTO `$tabla` ($columnas) VALUES ($valores)";
+            $sql = $conecta->prepare($insertar);
+            foreach ($datos as $clave => $valor) {
+                $sql->bindValue(":$clave", $valor);
+            }
+            $sql->execute();
     }
     
     function busqueda($conecta){
     }
 }
+/*
+    cosas utilizadas:
+    https://www.php.net/manual/es/control-structures.foreach.php
+    https://stackoverflow.com/questions/10827242/understanding-the-post-redirect-get-pattern
+    https://stackoverflow.com/questions/37890694/create-a-dynamic-insert-statement-php-mysql
+*/
 ?>
