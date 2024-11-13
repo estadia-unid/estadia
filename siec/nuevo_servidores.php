@@ -2,8 +2,15 @@
 include_once "conexion.php";
 include "autoloader.php";
 
+if(isset($_GET['editar'])){
+  $registro = $_GET['editar'];
+  $where = "`id_servidor` = $registro";
+  $datos = new ControlFormulario('');
+  $datoseditar = $datos->leer($conecta,'servidores',$where);
+}
+
 if(isset($_POST['insertar'])){
-    $datos = [
+  $datos = [
     'marca' => $_POST['marca'],
     'modelo' => $_POST['modelo'],
     'num_serie' => $_POST['numeroserie'],
@@ -15,16 +22,22 @@ if(isset($_POST['insertar'])){
     'inventario' => $_POST['inventario'],
     'observaciones' => $_POST['observaciones'],
     ];
-    try{
-        $usuario = new ControlFormulario('');
-        $usuario->insertar_datos($conecta,'servidores',$datos);
-        header("Location: nuevo_servidores.php");
-        die();
-    }catch(Exception $e){
-        echo "Ocurrió un error al registrar los datos: " . $e->getMessage();
-    }
-}
 
+switch($_POST['accion']){
+  case 'insertar':
+          $usuario = new ControlFormulario('');
+          $usuario->insertar_datos($conecta,'servidores',$datos);
+          header("Location: nuevo_servidores.php");
+          die();
+      break;
+    case  'edicion':
+        $where = "`id_servidor` = $registro";
+        $usuario = new ControlFormulario('');
+        $usuario->actualizar($conecta,'servidores',$datos,$where);
+        header("Location: nuevo_servidores.php");
+      break;
+}
+}
   //https://www.php.net/manual/es/function.unset.php
 ?>
 <!doctype html>
@@ -375,7 +388,11 @@ if(isset($_POST['insertar'])){
                   <div class="row g-3">
                     <div class="col-sm-2">
                       <label for="marca" class="form-label">Marca</label>
-                      <input type="text" class="form-control" id="marca" name="marca" placeholder="" value="">
+                      <input type="text" class="form-control" id="marca" name="marca" placeholder="" <?php if(isset($datoseditar[0]['marca'])){ 
+                        echo 'value="' . $datoseditar[0]['marca'] . '"';
+                      } 
+                        ?>
+                        >
                       <div class="invalid-feedback">
                         dato invalido
                       </div>
@@ -383,7 +400,10 @@ if(isset($_POST['insertar'])){
 
                     <div class="col-sm-3">
                       <label for="modelo" class="form-label">Modelo</label>
-                      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="" value="">
+                      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="" <?php if(isset($datoseditar[0]['modelo'])){ 
+                        echo 'value="' . $datoseditar[0]['modelo'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -391,7 +411,11 @@ if(isset($_POST['insertar'])){
 
                     <div class="col-sm-4">
                       <label for="numeroserie" class="form-label">Numero de serie</label>
-                      <input type="text" class="form-control" id="numeroserie" name="numeroserie" placeholder="" value="" >
+                      <input type="text" class="form-control" id="numeroserie" name="numeroserie" placeholder="" <?php if(isset($datoseditar[0]['num_serie'])){ 
+                        echo 'value="' . $datoseditar[0]['num_serie'] . '"';
+                      } 
+                        ?>
+                         >
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -399,7 +423,10 @@ if(isset($_POST['insertar'])){
 
                     <div class="col-sm-4">
                       <label for="procesador" class="form-label">Procesador</label>
-                      <input type="text" class="form-control" id="procesador" name="procesador" placeholder="" value="">
+                      <input type="text" class="form-control" id="procesador" name="procesador" placeholder="" <?php if(isset($datoseditar[0]['procesador'])){ 
+                        echo 'value="' . $datoseditar[0]['procesador'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -407,7 +434,10 @@ if(isset($_POST['insertar'])){
 
                     <div class="col-sm-3">
                       <label for="velocidad" class="form-label">Velocidad del Procesador</label>
-                      <input type="text" class="form-control" id="velocidad" name="velocidad" placeholder="" value="">
+                      <input type="text" class="form-control" id="velocidad" name="velocidad" placeholder="" <?php if(isset($datoseditar[0]['velocidad'])){ 
+                        echo 'value="' . $datoseditar[0]['velocidad'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -415,7 +445,10 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-sm-2">
                       <label for="ram" class="form-label">Cantidad de Memoria RAM</label>
-                      <input type="text" class="form-control" id="ram" name="ram" placeholder="" value="">
+                      <input type="text" class="form-control" id="ram" name="ram" placeholder="" <?php if(isset($datoseditar[0]['ram'])){ 
+                        echo 'value="' . $datoseditar[0]['ram'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -423,7 +456,10 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-sm-4">
                       <label for="ip" class="form-label">Direccion IP Asignada</label>
-                      <input type="text" class="form-control" id="ip" name="ip" placeholder="" value="" maxlength="15" required>
+                      <input type="text" class="form-control" id="ip" name="ip" placeholder="" <?php if(isset($datoseditar[0]['ip'])){ 
+                        echo 'value="' . $datoseditar[0]['ip'] . '"';
+                      } 
+                        ?> maxlength="15" required>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -431,7 +467,10 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-sm-3">
                       <label for="activo" class="form-label">Activo Fijo</label>
-                      <input type="text" class="form-control" id="activo" name="activo" placeholder="" value="" maxlength="8">
+                      <input type="text" class="form-control" id="activo" name="activo" placeholder="" <?php if(isset($datoseditar[0]['activo_fijo'])){ 
+                        echo 'value="' . $datoseditar[0]['activo_fijo'] . '"';
+                      } 
+                        ?> maxlength="8">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -439,7 +478,10 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-sm-3">
                       <label for="inventario" class="form-label">Inventario</label>
-                      <input type="text" class="form-control" id="inventario" name="inventario" placeholder="" value="" maxlength="8">
+                      <input type="text" class="form-control" id="inventario" name="inventario" placeholder="" <?php if(isset($datoseditar[0]['inventario'])){ 
+                        echo 'value="' . $datoseditar[0]['inventario'] . '"';
+                      } 
+                        ?> maxlength="8">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -447,9 +489,18 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-md-12">
                         <label class="form-label">Observaciones</label>
-                        <textarea name="observaciones" class="form-control letra" rows="3"></textarea>
+                        <textarea name="observaciones" class="form-control letra" rows="3"><?php if(isset($datoseditar[0]['marca'])){ 
+                        echo $datoseditar[0]['observaciones'];
+                      } 
+                        ?></textarea>
                     </div>
-                
+                    
+                    <input type="hidden" name="accion" <?php if(isset($_GET['editar'])){ 
+                        echo 'value="edicion"';
+                      }else{
+                        echo 'value="insertar"';
+                      }
+                        ?>>
 
                     <button class="w-100 btn btn-primary btn-lg" type="submit" name="insertar">Registrar</button>
                   </div>

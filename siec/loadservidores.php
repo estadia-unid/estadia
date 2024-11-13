@@ -110,8 +110,8 @@ if ($num_rows > 0) {
         $output['data'] .= '<td>' . $row['observaciones'] . '</td>';
         $output['data'] .= '<td><div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> Opciones </button>' . 
         '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> ' . 
-        '<li><a class="dropdown-item rounded-2" href="editar.php?id=' . $row['id_servidor'] . '">Editar</a></li>' .
-        '<li><a class="dropdown-item rounded-2" href="elimiar.php?id=' . $row['id_servidor'] . '">Eliminar</a></li>' . 
+        '<li><a class="dropdown-item rounded-2" href="nuevo_servidores.php?editar=' . $row['id_servidor'] . '">Editar</a></li>' .
+        '<li><a class="dropdown-item rounded-2" href="tabla_servidores.php?borrar=' . $row['id_servidor'] . '">Eliminar</a></li>' . 
         '</ul></div></td>';
         $output['data'] .= '</tr>';
     }

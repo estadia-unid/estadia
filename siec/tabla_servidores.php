@@ -1,5 +1,14 @@
 <?php
-session_start();
+include_once "conexion.php";
+include "autoloader.php";
+
+if(isset($_GET['borrar'])){
+  $registro = $_GET['borrar'];
+  $where = "`id_servidor` = $registro";
+  $datos = new ControlFormulario('');
+  $datosborrar = $datos->borrar($conecta,'servidores',$where);
+}
+
 //include "conexion.php";
 ?>
 <!doctype html>
