@@ -1,5 +1,8 @@
 <?php
-include_once "conexionsql.php";
+include_once "conexion.php";
+include "autoloader.php";
+
+//include_once "conexionsql.php";
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -343,17 +346,18 @@ include_once "conexionsql.php";
           </div>
 
           <div class="container">
-              <div class="col-md-7 col-lg-8">
-                <h4 class="mb-3">Billing address</h4>
+              <div class="col-md-auto col-lg-auto">
+                <!--<h4 class="mb-3">Billing address</h4>-->
                 <form class="needs-validation" novalidate>
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <label for="state" class="form-label">departamento</label>
+                      <label for="state" class="form-label">Departamento Asignado</label>
                       <select class="form-select" id="state" required>
                         <?php
-                          $departamentos = mysqli_query($conecta, "SELECT * FROM `departamentos`");
-                          while($deparamentos_resultado=mysqli_fetch_array($departamentos)) {
-                            echo '<option value="">' . $deparamentos_resultado[1] . '</option>';
+                          $departamentosselect = new ControlFormulario('');
+                          $opciondepa = $departamentosselect->leer($conecta,'departamentos');
+                          foreach($opciondepa as $row) {
+                            echo '<option value="">' . $row['departamento'] . '</option>';
                           }
                         ?>
                       </select>
@@ -365,9 +369,10 @@ include_once "conexionsql.php";
                       <label for="state" class="form-label">Usuario responsable</label>
                       <select class="form-select" id="state" required>
                         <?php
-                          $empleados = mysqli_query($conecta, "SELECT `nombre`,`a_paterno`,`a_materno`,`rpe` FROM `empleados`");
-                          while($empleados_resultado=mysqli_fetch_array($empleados)) {
-                            echo '<option value="">' . $empleados_resultado[0] . '  ' . $empleados_resultado[1] . '  ' . $empleados_resultado[2] . '  ' . $empleados_resultado[3] . '</option>';
+                          $empleadosSelect = new ControlFormulario('');
+                          $selectempe = $empleadosSelect->leer($conecta,'empleados');
+                          foreach($selectempe as $row) {
+                            echo '<option value="">' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . ' ' . $row['rpe'] . '</option>';
                           }
                         ?>
                       </select>
@@ -379,9 +384,10 @@ include_once "conexionsql.php";
                       <label for="state" class="form-label">Dominio</label>
                       <select class="form-select" id="state" required>
                         <?php
-                          $dominios = mysqli_query($conecta, "SELECT * FROM `dominios`");
-                          while($dominios_resultado=mysqli_fetch_array($dominios)) {
-                            echo '<option value="">' . $dominios_resultado[1] . '</option>';
+                          $dominios = new ControlFormulario('');
+                          $dominios_resultado = $dominios->leer($conecta,'dominios');
+                          foreach($dominios_resultado as $row) {
+                            echo '<option value="">' . $row['dominio'] . '</option>';
                           }
                         ?>
                       </select>
@@ -393,14 +399,55 @@ include_once "conexionsql.php";
                       <label for="state" class="form-label">Vlan</label>
                       <select class="form-select" id="state" required>
                         <?php
-                          $vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
-                          while($vlan_resultado=mysqli_fetch_array($vlan)) {
-                            echo '<option value="">' . $vlan_resultado[1] . '</option>';
+                          $vlans = new ControlFormulario('');
+                          $vlans_resultado = $vlans->leer($conecta,'vlan');
+                          foreach($vlans_resultado as $row){
+                            echo '<option value="">' . $row['gateway'] . '</option>';
                           }
+                          //$vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
+                          //while($vlan_resultado=mysqli_fetch_array($vlan)) {
+                            
+                          //}
                         ?>
                       </select>
                       <div class="invalid-feedback">
                         Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Nombre del Equipo</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Disco Duro</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Direccion MAC Wifi</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Direccion MAC Ethernet</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Sistema Operativo</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <div class="invalid-feedback">
+                        Valid first name is required.
                       </div>
                     </div>
                   </div>
@@ -429,52 +476,121 @@ include_once "conexionsql.php";
                   </div>
 
                   <div class="row g-3">
-                    <div class="col-sm-6">
-                      <label for="firstName" class="form-label">Departamento Asignado</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <div class="col-sm-2">
+                      <label for="marca" class="form-label">Marca</label>
+                      <input type="text" class="form-control" id="marca" name="marca" placeholder="" <?php if(isset($datoseditar[0]['marca'])){ 
+                        echo 'value="' . $datoseditar[0]['marca'] . '"';
+                      } 
+                        ?>
+                        >
                       <div class="invalid-feedback">
-                        Valid first name is required.
+                        dato invalido
                       </div>
                     </div>
 
-                    <div class="col-sm-6">
-                      <label for="lastName" class="form-label">Last name</label>
-                      <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                    <div class="col-sm-3">
+                      <label for="modelo" class="form-label">Modelo</label>
+                      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="" <?php if(isset($datoseditar[0]['modelo'])){ 
+                        echo 'value="' . $datoseditar[0]['modelo'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
-                        Valid last name is required.
+                      dato invalido
                       </div>
                     </div>
 
-                    <div class="col-12">
-                      <label for="username" class="form-label">Username</label>
-                      <div class="input-group has-validation">
-                      <span class="input-group-text">@</span>
-                      <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <div class="col-sm-4">
+                      <label for="numeroserie" class="form-label">Numero de serie</label>
+                      <input type="text" class="form-control" id="numeroserie" name="numeroserie" placeholder="" <?php if(isset($datoseditar[0]['num_serie'])){ 
+                        echo 'value="' . $datoseditar[0]['num_serie'] . '"';
+                      } 
+                        ?>
+                         >
                       <div class="invalid-feedback">
-                        Your username is required.
+                      dato invalido
                       </div>
                     </div>
-                  </div>
 
-                  <div class="col-12">
-                    <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                      Please enter a valid email address for shipping updates.
+                    <div class="col-sm-4">
+                      <label for="procesador" class="form-label">Procesador</label>
+                      <input type="text" class="form-control" id="procesador" name="procesador" placeholder="" <?php if(isset($datoseditar[0]['procesador'])){ 
+                        echo 'value="' . $datoseditar[0]['procesador'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-12">
-                    <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                    <div class="invalid-feedback">
-                      Please enter your shipping address.
+                    <div class="col-sm-3">
+                      <label for="velocidad" class="form-label">Velocidad del Procesador</label>
+                      <input type="text" class="form-control" id="velocidad" name="velocidad" placeholder="" <?php if(isset($datoseditar[0]['velocidad'])){ 
+                        echo 'value="' . $datoseditar[0]['velocidad'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
                     </div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="address2" class="form-label">Address 2 <span class="text-body-secondary">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                    
+                    <div class="col-sm-2">
+                      <label for="ram" class="form-label">Cantidad de Memoria RAM</label>
+                      <input type="text" class="form-control" id="ram" name="ram" placeholder="" <?php if(isset($datoseditar[0]['ram'])){ 
+                        echo 'value="' . $datoseditar[0]['ram'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                      <label for="ip" class="form-label">Direccion IP Asignada</label>
+                      <input type="text" class="form-control" id="ip" name="ip" placeholder="" <?php if(isset($datoseditar[0]['ip'])){ 
+                        echo 'value="' . $datoseditar[0]['ip'] . '"';
+                      } 
+                        ?> maxlength="15" required>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+                    
+                    <div class="col-sm-3">
+                      <label for="activo" class="form-label">Activo Fijo</label>
+                      <input type="text" class="form-control" id="activo" name="activo" placeholder="" <?php if(isset($datoseditar[0]['activo_fijo'])){ 
+                        echo 'value="' . $datoseditar[0]['activo_fijo'] . '"';
+                      } 
+                        ?> maxlength="8">
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+                    
+                    <div class="col-sm-3">
+                      <label for="inventario" class="form-label">Inventario</label>
+                      <input type="text" class="form-control" id="inventario" name="inventario" placeholder="" <?php if(isset($datoseditar[0]['inventario'])){ 
+                        echo 'value="' . $datoseditar[0]['inventario'] . '"';
+                      } 
+                        ?> maxlength="8">
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <label class="form-label">Observaciones</label>
+                        <textarea name="observaciones" class="form-control letra" rows="3"><?php if(isset($datoseditar[0]['marca'])){ 
+                        echo $datoseditar[0]['observaciones'];
+                      } 
+                        ?></textarea>
+                    </div>
+                    
+                    <input type="hidden" name="accion" <?php if(isset($_GET['editar'])){ 
+                        echo 'value="edicion"';
+                      }else{
+                        echo 'value="insertar"';
+                      }
+                        ?>>
                   </div>
 
                   <div class="col-md-5">
