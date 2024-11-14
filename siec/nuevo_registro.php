@@ -2,10 +2,65 @@
 include_once "conexion.php";
 include "autoloader.php";
 
-//include_once "conexionsql.php";
+if(isset($_GET['editar'])){
+  $registro = $_GET['editar'];
+  $where = "`id_computadora` = $registro";
+  $datos = new ControlFormulario('');
+  $datoseditar = $datos->leer($conecta,'computadoras',$where);
+}
+
+if(isset($_POST['insertar'])){
+  $datos = [
+    'oficial' => $_POST['oficial'],
+    'departamento' => $_POST['departamento'],
+    'rpe' => $_POST['rpe'],
+    'nombre_equipo' => $_POST['nombre_equipo'],
+    'activo_fijo' => $_POST['activo_fijo'],
+    'inventario' => $_POST['inventario'],
+    'numero_de_serie' => $_POST['numero_de_serie'],
+    'marca' => $_POST['marca'],
+    'modelo' => $_POST['modelo'],
+    'procesador' => $_POST['procesador'],
+    'velocidad' => $_POST['velocidad'],
+    'so' => $_POST['so'],
+    'ip' => $_POST['ip'],
+    'vlan' => $_POST['vlan'],
+    'mac_wifi' => $_POST['mac_wifi'],
+    'mac_ethernet' => $_POST['mac_ethernet'],
+    'memoria' => $_POST['memoria'],
+    'disco_duro' => $_POST['disco_duro'],
+    'dominio' => $_POST['dominio'],
+    'resg' => $_POST['resg'],
+    'd_activo' => $_POST['d_activo'],
+    'antivirus' => $_POST['antivirus'],
+    'escritorio_remoto' => $_POST['escritorio_remoto'],
+    'observaciones' => $_POST['observaciones'],
+    ];
+
+switch($_POST['accion']){
+  case 'insertar':
+          $usuario = new ControlFormulario('');
+          $usuario->insertar_datos($conecta,'computadoras',$datos);
+          $_SESSION['mensaje'] = "Los datos se registraron con éxito.";
+          /*
+          header("Location: nuevo_registro.php");
+          die();
+          */
+      break;
+    case  'edicion':
+        $where = "`id_computadora` = $registro";
+        $usuario = new ControlFormulario('');
+        $usuario->actualizar($conecta,'computadoras',$datos,$where);
+        $_SESSION['mensaje'] = "Los datos se actualizaron con éxito.";
+        header("Location: nuevo_registro.php");
+        die();
+      break;
+}
+}
+  //https://www.php.net/manual/es/function.unset.php
 ?>
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="es" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -347,39 +402,45 @@ include "autoloader.php";
 
           <div class="container">
               <div class="col-md-auto col-lg-auto">
+              <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                ?>
                 <!--<h4 class="mb-3">Billing address</h4>-->
-                <form class="needs-validation" novalidate>
+                <form action="" method="post">
                   <div class="row g-3">
                       <div class="my-6">
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="save-info"  checked>
+                          <input type="checkbox" class="form-check-input" id="save-info" name="oficial" value="chi">
                           <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
                         </div>
                         <div class="form-check">
-                          <input id="credit" name="paymentMethod" type="checkbox" class="form-check-input"  required>
+                          <input id="credit" name="resg" type="checkbox" class="form-check-input" value="chi">
                           <label class="form-check-label" for="credit">Resguardo</label>
                         </div>
                         <div class="form-check">
-                          <input id="debit" name="paymentMethod" type="checkbox" class="form-check-input" required>
+                          <input id="debit" name="d_activo" type="checkbox" class="form-check-input" value="chi">
                           <label class="form-check-label" for="debit">Directorio Activo</label>
                         </div>
                         <div class="form-check">
-                          <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
+                          <input id="paypal" name="antivirus" type="checkbox" class="form-check-input" value="chi">
                           <label class="form-check-label" for="paypal">Antivirus</label>
                         </div>
                         <div class="form-check">
-                          <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
+                          <input id="paypal" name="escritorio_remoto" type="checkbox" class="form-check-input" value="chi">
                           <label class="form-check-label" for="paypal">Escritorio Remoto</label>
                         </div>
                       </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Departamento Asignado</label>
-                      <select class="form-select" id="state" required>
+                      <select class="form-select" id="state" name="departamento">
                         <?php
                           $departamentosselect = new ControlFormulario('');
                           $opciondepa = $departamentosselect->leer($conecta,'departamentos');
                           foreach($opciondepa as $row) {
-                            echo '<option value="">' . $row['departamento'] . '</option>';
+                            echo '<option value="' . $row['departamento'] . '">' . $row['departamento'] . '</option>';
                           }
                         ?>
                       </select>
@@ -389,12 +450,12 @@ include "autoloader.php";
                     </div>
                     <div class="col-md-auto">
                       <label for="state" class="form-label">Usuario responsable</label>
-                      <select class="form-select" id="state" required>
+                      <select class="form-select" id="state" name="rpe" required>
                         <?php
                           $empleadosSelect = new ControlFormulario('');
                           $selectempe = $empleadosSelect->leer($conecta,'empleados');
                           foreach($selectempe as $row) {
-                            echo '<option value="">' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . ' ' . $row['rpe'] . '</option>';
+                            echo '<option value="' . $row['rpe'] . '">' . $row['rpe'] . '</option>';
                           }
                         ?>
                       </select>
@@ -404,7 +465,7 @@ include "autoloader.php";
                     </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Dominio</label>
-                      <select class="form-select" id="state" required>
+                      <select class="form-select" id="state" name="dominio" required>
                         <?php
                           $dominios = new ControlFormulario('');
                           $dominios_resultado = $dominios->leer($conecta,'dominios');
@@ -419,12 +480,12 @@ include "autoloader.php";
                     </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Vlan</label>
-                      <select class="form-select" id="state" required>
+                      <select class="form-select" id="state" name="vlan" required>
                         <?php
                           $vlans = new ControlFormulario('');
                           $vlans_resultado = $vlans->leer($conecta,'vlan');
                           foreach($vlans_resultado as $row){
-                            echo '<option value="">' . $row['gateway'] . '</option>';
+                            echo '<option value="' . $row['gateway'] . '">' . $row['gateway'] . '</option>';
                           }
                           //$vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
                           //while($vlan_resultado=mysqli_fetch_array($vlan)) {
@@ -439,35 +500,35 @@ include "autoloader.php";
                     <div class="row g-3">
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Nombre del Equipo</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="nombre_equipo" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Disco Duro</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="disco_duro" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Direccion MAC Wifi</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="mac_wifi" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Direccion MAC Ethernet</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="mac_ethernet" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Sistema Operativo</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="so" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
@@ -500,7 +561,7 @@ include "autoloader.php";
 
                     <div class="col-sm-4">
                       <label for="numeroserie" class="form-label">Numero de serie</label>
-                      <input type="text" class="form-control" id="numeroserie" name="numeroserie" placeholder="" <?php if(isset($datoseditar[0]['num_serie'])){ 
+                      <input type="text" class="form-control" id="numeroserie" name="numero_de_serie" placeholder="" <?php if(isset($datoseditar[0]['num_serie'])){ 
                         echo 'value="' . $datoseditar[0]['num_serie'] . '"';
                       } 
                         ?>
@@ -534,7 +595,7 @@ include "autoloader.php";
                     
                     <div class="col-sm-2">
                       <label for="ram" class="form-label">Cantidad de Memoria RAM</label>
-                      <input type="text" class="form-control" id="ram" name="ram" placeholder="" <?php if(isset($datoseditar[0]['ram'])){ 
+                      <input type="text" class="form-control" id="ram" name="memoria" placeholder="" <?php if(isset($datoseditar[0]['ram'])){ 
                         echo 'value="' . $datoseditar[0]['ram'] . '"';
                       } 
                         ?>>
@@ -556,7 +617,7 @@ include "autoloader.php";
                     
                     <div class="col-sm-3">
                       <label for="activo" class="form-label">Activo Fijo</label>
-                      <input type="text" class="form-control" id="activo" name="activo" placeholder="" <?php if(isset($datoseditar[0]['activo_fijo'])){ 
+                      <input type="text" class="form-control" id="activo" name="activo_fijo" placeholder="" <?php if(isset($datoseditar[0]['activo_fijo'])){ 
                         echo 'value="' . $datoseditar[0]['activo_fijo'] . '"';
                       } 
                         ?> maxlength="8">
@@ -590,12 +651,8 @@ include "autoloader.php";
                         echo 'value="insertar"';
                       }
                         ?>>
+                  <button class="w-100 btn btn-primary btn-lg" type="submit" name="insertar" >Registrar</button>
                   </div>
-
-                  
-                  <hr class="my-4">
-
-                  <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
                 </form>
               </div>
         </main>

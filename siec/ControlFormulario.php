@@ -7,8 +7,8 @@ class ControlFormulario{
         try{
             $columnas = implode(", ", array_keys($datos));
             $valores = ":" . implode(", :", array_keys($datos));
-            
             $insertar = "INSERT INTO `$tabla` ($columnas) VALUES ($valores)";
+            echo $insertar;
             $sql = $conecta->prepare($insertar);
             foreach ($datos as $clave => $valor) {
                 $sql->bindValue(":$clave", $valor);
@@ -20,7 +20,7 @@ class ControlFormulario{
     }
     function leer($conecta,$tabla,$where = '1'){
         $lectura = "SELECT * FROM `$tabla` WHERE $where";
-        //echo $lectura;
+        echo $lectura;
         $resultado_leer = $conecta->prepare($lectura);
         $resultado_leer->execute([]);
         return $resultado_leer->fetchAll(PDO::FETCH_ASSOC);
@@ -47,7 +47,7 @@ class ControlFormulario{
     function borrar($conecta,$tabla,$where){
         try{
             $borrar = "DELETE FROM `$tabla` WHERE $where";
-            //echo $borrar;   
+            echo $borrar;   
             $sql = $conecta->prepare($borrar);
             $sql->execute();
         }catch(Exception $e){
@@ -59,6 +59,7 @@ class ControlFormulario{
     cosas utilizadas:
     https://www.php.net/manual/es/control-structures.foreach.php
     https://www.php.net/manual/es/language.types.array.php
+    https://icodemag.com/prg-pattern-in-php-what-why-and-how/
     https://stackoverflow.com/questions/10827242/understanding-the-post-redirect-get-pattern
     https://stackoverflow.com/questions/37890694/create-a-dynamic-insert-statement-php-mysql
 */
