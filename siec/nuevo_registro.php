@@ -350,6 +350,28 @@ include "autoloader.php";
                 <!--<h4 class="mb-3">Billing address</h4>-->
                 <form class="needs-validation" novalidate>
                   <div class="row g-3">
+                      <div class="my-6">
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="save-info"  checked>
+                          <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
+                        </div>
+                        <div class="form-check">
+                          <input id="credit" name="paymentMethod" type="checkbox" class="form-check-input"  required>
+                          <label class="form-check-label" for="credit">Resguardo</label>
+                        </div>
+                        <div class="form-check">
+                          <input id="debit" name="paymentMethod" type="checkbox" class="form-check-input" required>
+                          <label class="form-check-label" for="debit">Directorio Activo</label>
+                        </div>
+                        <div class="form-check">
+                          <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
+                          <label class="form-check-label" for="paypal">Antivirus</label>
+                        </div>
+                        <div class="form-check">
+                          <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
+                          <label class="form-check-label" for="paypal">Escritorio Remoto</label>
+                        </div>
+                      </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Departamento Asignado</label>
                       <select class="form-select" id="state" required>
@@ -449,29 +471,6 @@ include "autoloader.php";
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
-                    </div>
-                  </div>
-
-                  <div class="my-3">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="save-info"  checked>
-                      <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
-                    </div>
-                    <div class="form-check">
-                      <input id="credit" name="paymentMethod" type="checkbox" class="form-check-input"  required>
-                      <label class="form-check-label" for="credit">Resguardo</label>
-                    </div>
-                    <div class="form-check">
-                      <input id="debit" name="paymentMethod" type="checkbox" class="form-check-input" required>
-                      <label class="form-check-label" for="debit">Directorio Activo</label>
-                    </div>
-                    <div class="form-check">
-                      <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
-                      <label class="form-check-label" for="paypal">Antivirus</label>
-                    </div>
-                    <div class="form-check">
-                      <input id="paypal" name="paymentMethod" type="checkbox" class="form-check-input" required>
-                      <label class="form-check-label" for="paypal">Escritorio Remoto</label>
                     </div>
                   </div>
 
