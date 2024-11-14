@@ -27,6 +27,7 @@ switch($_POST['accion']){
   case 'insertar':
           $usuario = new ControlFormulario('');
           $usuario->insertar_datos($conecta,'servidores',$datos);
+          $_SESSION['mensaje'] = "Los datos se registraron con éxito.";
           header("Location: nuevo_servidores.php");
           die();
       break;
@@ -34,7 +35,9 @@ switch($_POST['accion']){
         $where = "`id_servidor` = $registro";
         $usuario = new ControlFormulario('');
         $usuario->actualizar($conecta,'servidores',$datos,$where);
+        $_SESSION['mensaje'] = "Los datos se actualizaron con éxito.";
         header("Location: nuevo_servidores.php");
+        die();
       break;
 }
 }
@@ -446,6 +449,12 @@ switch($_POST['accion']){
 
           <div class="container" >
               <div class="col-md-auto col-lg-auto">
+                <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                ?>
                 <form action="" method="post">
 
                   <div class="row g-3">

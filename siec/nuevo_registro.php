@@ -593,74 +593,7 @@ include "autoloader.php";
                         ?>>
                   </div>
 
-                  <div class="col-md-5">
-                    <label for="country" class="form-label">Country</label>
-                    <select class="form-select" id="country" required>
-                      <option value="">Choose...</option>
-                      <option>United States</option>
-                    </select>
-                    <div class="invalid-feedback">
-                      Please select a valid country.
-                    </div>
-                  </div>
-
-                  <div class="col-md-3">
-                    <label for="zip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="zip" placeholder="" required>
-                    <div class="invalid-feedback">
-                      Zip code required.
-                    </div>
-                  </div>
-
-                  <hr class="my-4">
-
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="same-address">
-                    <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-                  </div>
-
-                  <hr class="my-4">
-
-                  <div class="row gy-3">
-                    <div class="col-md-6">
-                      <label for="cc-name" class="form-label">Name on card</label>
-                      <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                      <small class="text-body-secondary">Full name as displayed on card</small>
-                      <div class="invalid-feedback">
-                        Name on card is required
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="cc-number" class="form-label">Credit card number</label>
-                      <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                      <div class="invalid-feedback">
-                        Credit card number is required
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <label for="cc-expiration" class="form-label">Expiration</label>
-                      <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                      <div class="invalid-feedback">
-                        Expiration date required
-                      </div>
-                    </div>
-
-                    <div class="col-md-3">
-                      <label for="cc-cvv" class="form-label">CVV</label>
-                      <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                      <div class="invalid-feedback">
-                        Security code required
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <label class="form-label">Observaciones</label>
-                    <textarea name="descripcion" class="form-control letra" rows="3"></textarea>
-                  </div>
-
+                  
                   <hr class="my-4">
 
                   <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
