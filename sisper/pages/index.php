@@ -20,7 +20,7 @@ date_default_timezone_set('America/Mexico_City');
 // Configurar la localización a español (funciona en la mayoría de los servidores)
  setlocale(LC_TIME, 'es_ES.UTF-8');
 // Conexión a la base de datos
-$conexion = new mysqli("localhost", "skyper", "ctpalm2113", "escuela");
+$conexion = new mysqli("localhost", "skyper", "ctpalm2113", "estadiaunid");
 
 // Verifica si la conexión fue exitosa
 if ($conexion->connect_error) {
@@ -28,24 +28,17 @@ if ($conexion->connect_error) {
 }
 
 // Consulta para contar el número de alumnos
-$consulta = "SELECT COUNT(*) AS total_alumnos FROM persona";
+$consulta = "SELECT COUNT(*) AS total_empleados FROM empleados";
 $resultado = $conexion->query($consulta);
 
 // Obtener el total de alumnos
 $total_alumnos = 0;
 if ($resultado && $fila = $resultado->fetch_assoc()) {
-    $total_alumnos = $fila['total_alumnos'];
+    $total_alumnos = $fila['total_empleados'];
 }
 // Obtener la fecha actual
 $fecha_hoy = date("Y-m-d");
 
-// Consulta para contar los registros realizados hoy
-$consulta = "SELECT COUNT(*) AS nuevos_registros FROM alumnos WHERE DATE(fecha_registro) = '$fecha_hoy'";
-$resultado = $conexion->query($consulta);
-
-$nuevos_registros = 0;
-if ($resultado && $fila = $resultado->fetch_assoc()) {
-    $nuevos_registros = $fila['nuevos_registros'];
 }
 
 // Cerrar la conexión
@@ -260,28 +253,7 @@ $fecha_hoy = date("d") . " de " . date("F") . " de " . date("Y");
             
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Nuevos Registros</p>
-                    <h5 class="font-weight-bolder">
-                    <?php echo $nuevos_registros; ?>
-                    </h5>
-                    
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       
             <!-- Card del Reloj -->
     <div class="col-xl-3 col-sm-6">
         <div class="card">
