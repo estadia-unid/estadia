@@ -235,7 +235,7 @@ $fecha_hoy = date("d") . " de " . date("F") . " de " . date("Y");
                   <div class="numbers">
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">ALUMNOS</p>
                     <h5 class="font-weight-bolder">
-                      <?php echo number_format($total_alumnos); ?>
+                      <?php echo number_format($total_empleados); ?>
                     </h5>
                     <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder"></span>
