@@ -13,6 +13,8 @@ if(isset($_POST['insertar'])){
   $datos = [
     'oficial' => $_POST['oficial'],
     'departamento' => $_POST['departamento'],
+    'puesto' => $_POST['puesto'],
+    'usuario' => $_POST['usuario'],
     'rpe' => $_POST['rpe'],
     'nombre_equipo' => $_POST['nombre_equipo'],
     'activo_fijo' => $_POST['activo_fijo'],
@@ -30,7 +32,6 @@ if(isset($_POST['insertar'])){
     'memoria' => $_POST['memoria'],
     'disco_duro' => $_POST['disco_duro'],
     'dominio' => $_POST['dominio'],
-    'resg' => $_POST['resg'],
     'd_activo' => $_POST['d_activo'],
     'antivirus' => $_POST['antivirus'],
     'escritorio_remoto' => $_POST['escritorio_remoto'],
@@ -411,28 +412,46 @@ switch($_POST['accion']){
                 <!--<h4 class="mb-3">Billing address</h4>-->
                 <form action="" method="post">
                   <div class="row g-3">
-                      <div class="my-6">
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="save-info" name="oficial" value="chi">
-                          <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="credit" name="resg" type="checkbox" class="form-check-input" value="chi">
-                          <label class="form-check-label" for="credit">Resguardo</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="debit" name="d_activo" type="checkbox" class="form-check-input" value="chi">
-                          <label class="form-check-label" for="debit">Directorio Activo</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="paypal" name="antivirus" type="checkbox" class="form-check-input" value="chi">
-                          <label class="form-check-label" for="paypal">Antivirus</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="paypal" name="escritorio_remoto" type="checkbox" class="form-check-input" value="chi">
-                          <label class="form-check-label" for="paypal">Escritorio Remoto</label>
-                        </div>
+                      <div class="col-md-4">
+                      <label for="state" class="form-label">¿El equipo es oficial?</label>
+                      <select class="form-select" id="state" name="oficial" required>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
                       </div>
+                    </div>
+                      <div class="col-md-4">
+                      <label for="state" class="form-label">Directorio Activo</label>
+                      <select class="form-select" id="state" name="d_activo" required>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                      <div class="col-md-4">
+                      <label for="state" class="form-label">Antivirus</label>
+                      <select class="form-select" id="state" name="antivirus" required>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                      <div class="col-md-4">
+                      <label for="state" class="form-label">Escritorio Remoto</label>
+                      <select class="form-select" id="state" name="escritorio_remoto" required>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Departamento Asignado</label>
                       <select class="form-select" id="state" name="departamento">
@@ -455,7 +474,25 @@ switch($_POST['accion']){
                           $empleadosSelect = new ControlFormulario('');
                           $selectempe = $empleadosSelect->leer($conecta,'empleados');
                           foreach($selectempe as $row) {
-                            echo '<option value="' . $row['rpe'] . '">' . $row['rpe'] . '</option>';
+                            echo '<option value="' . $row['rpe'] . '">' . ' ' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '  ' . $row['rpe'] . '</option>';
+                          }
+                        ?>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                      <input type="hidden" name="usuario" <?php 
+                      echo 'value="' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '"';
+                      ?>>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="state" class="form-label">Puesto</label>
+                      <select class="form-select" id="state" name="puesto">
+                        <?php
+                          $departamentosselect = new ControlFormulario('');
+                          $opciondepa = $departamentosselect->leer($conecta,'categorias');
+                          foreach($opciondepa as $row) {
+                            echo '<option value="' . $row['categoria'] . '">' . $row['categoria'] . '</option>';
                           }
                         ?>
                       </select>
@@ -470,7 +507,7 @@ switch($_POST['accion']){
                           $dominios = new ControlFormulario('');
                           $dominios_resultado = $dominios->leer($conecta,'dominios');
                           foreach($dominios_resultado as $row) {
-                            echo '<option value="">' . $row['dominio'] . '</option>';
+                            echo '<option value="' . $row['dominio'] . '">' . $row['dominio'] . '</option>';
                           }
                         ?>
                       </select>
