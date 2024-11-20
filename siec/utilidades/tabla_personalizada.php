@@ -1,8 +1,16 @@
 <?php
- //include "conexion.php";
+include_once "conexion.php";
+include "autoloader.php";
+
+if(isset($_GET['borrar'])){
+  $registro = $_GET['borrar'];
+  $where = "`id_computadora` = $registro";
+  $datos = new ControlFormulario('');
+  $datosborrar = $datos->borrar($conecta,'computadoras',$where);
+}
 ?>
 <!doctype html>
-<html lang="es" data-bs-theme="auto">
+<html lang="en" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -200,7 +208,7 @@
 
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
 
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"> <img width="20%" height="20%"  src="imagen_usuario.php">  <?php echo "Hola". $_SESSION['rpe']; ?></a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"> <img width="20%" height="20%"  src="imagen_usuario.php">  <?php echo "Hola" . ' ' . $_SESSION['rpe']; ?></a>
 
   <ul class="navbar-nav flex-row d-md-none">
     <li class="nav-item text-nowrap">
@@ -383,10 +391,12 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Bienvenido</h1>
+        <h1 class="h2">Empleados</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
+        <!--  
+        <div class="btn-group me-2">
+            
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">Todas</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
           </div>
@@ -394,11 +404,12 @@
             <svg class="bi"><use xlink:href="#calendar3"/></svg>
             This week
           </button>
+          -->
         </div>
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-    <h2>computadoras</h2>
+    <h2></h2>
 
 <div class="row g-4">
 
@@ -428,50 +439,45 @@
         <input type="text" name="campo" id="campo" class="form-control">
     </div>
 </div>
-<div class="row py-4">
+
+<div class="table-responsive row py-4">
     <div class="col">
-        <table class="table table-sm table-bordered table-striped">
+        <table class="table table-bordered table-striped table-hover">
             <thead>
-                <?php
-                    date_default_timezone_set('America/Mexico_City');
-                    $conecta =  mysqli_connect('localhost', 'siec', 'ctpalm2113', 'siec');
-                    if(!$conecta){
-                        die('no pudo conectarse:' . mysqli_connect_error());
-                     }
-                  if (!mysqli_set_charset($conecta,'utf8')) {
-                   die('No pudo conectarse: ' . mysqli_error($conecta));
-                   }
-                                $tabla = $_GET['tabla'];
-                                echo $tabla;
-                $sql = "Describe " . $tabla;
-                $consulta = mysqli_query($conecta, $sql);
-                $numero_columnas = mysqli_num_rows($consulta);
-                while ($dato = mysqli_fetch_column($consulta)){
-                    echo '<th class="sort asc">' . $dato . '</th>';
-                }
-                ?>
-                <th></th>
+                <th class="sort asc">ID</th>
+                <th class="sort asc">Oficial</th>
+                <th class="sort asc">Departamento Asignado</th>
+                <th class="sort asc">puesto</th>
+                <th class="sort asc">Usuario Responsable</th>
+                <th class="sort asc">RPE</th>
+                <th class="sort asc">Nombre del equipo</th>
+                <th class="sort asc">Activo fijo</th>
+                <th class="sort asc">Inventario</th>
+                <th class="sort asc">Numero de serie</th>
+                <th class="sort asc">Marca</th>
+                <th class="sort asc">Modelo</th>
+                <th class="sort asc">Procesador</th>
+                <th class="sort asc">Velocidad</th>
+                <th class="sort asc">Sistema Operativo</th>
+                <th class="sort asc">Direccion IP</th>
+                <th class="sort asc">VLan a la que pertenece</th>
+                <th class="sort asc">Direccion MAC WIFI</th>
+                <th class="sort asc">Direccion MAC Ethernet</th>
+                <th class="sort asc">Memoria RAM</th>
+                <th class="sort asc">Disco duro</th>
+                <th class="sort asc">Dominio</th>
+                <th class="sort asc">Direcctorio activo</th>
+                <th class="sort asc">Antivirus</th>
+                <th class="sort asc">Escritorio remoto</th>
+                <th class="sort asc">Estado</th>
+                <th class="sort asc">Observaciones</th>
                 <th></th>
             </thead>
 
             <!-- El id del cuerpo de la tabla. -->
             <tbody id="content">
-            <?php
-            $consulta_tabla = mysqli_query($conecta, "SELECT * FROM " . $tabla);
-            $numero_registros = mysqli_num_rows($consulta_tabla);
-            while($fila = mysqli_fetch_assoc($consulta_tabla)) {
-                echo '<tr>';
-                
-                // Recorre cada campo dentro de la fila
-                foreach($fila as $dato) {
-                    echo '<td>' . $dato . '</td>';
-                }
-                
-                echo '</tr>';
-            }
-            ?>
+
             </tbody>
-            
         </table>
     </div>
 </div>
@@ -491,43 +497,43 @@
 </div>
 </div>
 </main>
-<!--
+
 <script>
 // Llamando a la función getData() al cargar la página
 document.addEventListener("DOMContentLoaded", getData);
-
-// Función para obtener datos con AJAX
 function getData() {
-let input = document.getElementById("campo").value
-let num_registros = document.getElementById("num_registros").value
-let content = document.getElementById("content")
-let pagina = document.getElementById("pagina").value || 1;
-let orderCol = document.getElementById("orderCol").value
-let orderType = document.getElementById("orderType").value
+    let input = document.getElementById("campo").value;
+    let num_registros = document.getElementById("num_registros").value;
+    let content = document.getElementById("content");
+    let pagina = document.getElementById("pagina").value || 1;
+    let orderCol = document.getElementById("orderCol").value;
+    let orderType = document.getElementById("orderType").value;
+    // Nombres de los archivos dinámicos
+    let editFile = "nuevo_registro.php"; // Cambia según el archivo
+    let deleteFile = "tabla_computadoras.php"; // Cambia según el archivo
+    let formaData = new FormData();
+    formaData.append('table', 'computadoras'); // Tabla dinámica
+    formaData.append('columns', 'id_computadora,oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,d_activo,antivirus,escritorio_remoto,estado,observaciones'); // Columnas dinámicas
+    formaData.append('id', 'id_computadora'); // Clave primaria
+    formaData.append('editFile', editFile); // Archivo de edición
+    formaData.append('deleteFile', deleteFile);
+    formaData.append('campo', input);
+    formaData.append('registros', num_registros);
+    formaData.append('pagina', pagina);
+    formaData.append('orderCol', orderCol);
+    formaData.append('orderType', orderType);
 
-let formaData = new FormData()
-formaData.append('campo', input)
-formaData.append('registros', num_registros)
-formaData.append('pagina', pagina)
-formaData.append('orderCol', orderCol)
-formaData.append('orderType', orderType)
-
-fetch("load.php", {
+    fetch("load.php", {
         method: "POST",
         body: formaData
     })
     .then(response => response.json())
     .then(data => {
-        content.innerHTML = data.data
+        content.innerHTML = data.data;
         document.getElementById("lbl-total").innerHTML = `Mostrando ${data.totalFiltro} de ${data.totalRegistros} registros`;
-        document.getElementById("nav-paginacion").innerHTML = data.paginacion
-
-        // Si la página actual no tiene resultados, ajustar la paginación para mostrar la primera página
-        if (data.data.includes('Sin resultados') && parseInt(pagina) !== 1) {
-            nextPage(1); // Ir a la primera página
-        }
+        document.getElementById("nav-paginacion").innerHTML = data.paginacion;
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 }
 
 // Función para cambiar de página
@@ -558,8 +564,9 @@ let columns = document.querySelectorAll(".sort");
 columns.forEach(column => {
 column.addEventListener("click", ordenar);
 });
+
 </script>
-            -->
+
     </main>
   </div>
 </div>

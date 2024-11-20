@@ -37,17 +37,17 @@ class PDF extends FPDF
     function TableHeader()
     {
         $this->SetFont('Arial', 'B', 10);
-        $this->SetFillColor(253, 60, 60);
+        $this->SetFillColor(0,142,90);
         $this->Cell(30, 7, 'Marca', 1, 0, 'C', true);
-        $this->Cell(30, 7, 'Modelo', 1, 0, 'C', true);
-        $this->Cell(30, 7, 'Serie', 1, 0, 'C', true);
-        $this->Cell(30, 7, 'Procesador', 1, 0, 'C', true);
-        $this->Cell(30, 7, 'Velocidad', 1, 0, 'C', true);
+        $this->Cell(40, 7, 'Modelo', 1, 0, 'C', true);
+        $this->Cell(35, 7, 'Serie', 1, 0, 'C', true);
+        $this->Cell(25, 7, 'Procesador', 1, 0, 'C', true);
+        $this->Cell(20, 7, 'Velocidad', 1, 0, 'C', true);
         $this->Cell(20, 7, 'RAM', 1, 0, 'C', true);
         $this->Cell(30, 7, 'IP del Equipo', 1, 0, 'C', true);
-        $this->Cell(30, 7, 'Observaciones', 1, 0, 'C', true);
-        $this->Cell(30, 7, 'Activo Fijo', 1, 0, 'C', true);
-        $this->Cell(30, 7, 'Inventario', 1, 1, 'C', true);
+        $this->Cell(37, 7, 'Sistema Operativo', 1, 0, 'C', true);
+        $this->Cell(20, 7, 'Activo Fijo', 1, 0, 'C', true);
+        $this->Cell(20, 7, 'Inventario', 1, 1, 'C', true);
     }
 
     function TableBody($datos)
@@ -66,7 +66,7 @@ class PDF extends FPDF
                 }
                 $departamenteActual = $row['departamento'];
                 $total = 0;
-                $this->Cell(0, 10, 'Departamento: ' . $departamenteActual, 1, 1, 'L', 1);
+                $this->Cell(0, 10, 'Departamento: ' . $departamenteActual, 1, 1, 'L', true);
                 $this->Ln(2);
                 $this->SetFont('Arial', '', 9);
             }
@@ -79,16 +79,16 @@ class PDF extends FPDF
                 $this->SetFont('Arial', '', 9);
             }
 
-            $this->Cell(30, 6, $row['marca'], 1,0,'L',0);
-            $this->Cell(30, 6, $row['modelo'], 1);
-            $this->Cell(30, 6, $row['numero_de_serie'], 1);
-            $this->Cell(30, 6, $row['rpe'], 1);
-            $this->Cell(30, 6, $row['nombre'], 1);
-            $this->Cell(20, 6, $row['rpe'], 1);
-            $this->Cell(30, 6, $row['ip'], 1);
-            $this->Cell(30, 6, $row['observaciones'], 1);
-            $this->Cell(30, 6, $row['activo_fijo'], 1);
-            $this->Cell(30, 6, $row['inventario'], 1);
+            $this->Cell(30, 6, $row['marca'], 1,0,'C',0);
+            $this->Cell(40, 6, $row['modelo'], 1,0,'C',);
+            $this->Cell(35, 6, $row['numero_de_serie'],1,0,'C');
+            $this->Cell(25, 6, $row['procesador'], 1,0,'C',);
+            $this->Cell(20, 6, $row['velocidad'], 1,0,'C',);
+            $this->Cell(20, 6, $row['memoria'], 1,0,'C',);
+            $this->Cell(30, 6, $row['ip'], 1,0,'C',);
+            $this->Cell(37, 6, $row['so'], 1,0,'C',);
+            $this->Cell(20, 6, $row['activo_fijo'], 1,0,'C',);
+            $this->Cell(20, 6, $row['inventario'], 1,0,'C',);
             $this->Ln();
             $total++;
             // https://www.php.net/manual/es/function.end.php

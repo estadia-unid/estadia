@@ -8,8 +8,6 @@ if(isset($_GET['borrar'])){
   $datos = new ControlFormulario('');
   $datosborrar = $datos->borrar($conecta,'servidores',$where);
 }
-
-//include "conexion.php";
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -449,12 +447,13 @@ if(isset($_GET['borrar'])){
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
             <thead>
+                <th class="sort asc">ID</th>
                 <th class="sort asc">Marca</th>
                 <th class="sort asc">Modelo</th>
-                <th class="sort asc">Serie</th>
+                <th class="sort asc">Numero de serie</th>
                 <th class="sort asc">Procesador</th>
                 <th class="sort asc">Velocidad</th>
-                <th class="sort asc">RAM</th>
+                <th class="sort asc">Memoria RAM</th>
                 <th class="sort asc">IP</th>
                 <th class="sort asc">Activo Fijo</th>
                 <th class="sort asc">Inventario</th>
@@ -489,39 +488,39 @@ if(isset($_GET['borrar'])){
 <script>
 // Llamando a la función getData() al cargar la página
 document.addEventListener("DOMContentLoaded", getData);
-
-// Función para obtener datos con AJAX
 function getData() {
-let input = document.getElementById("campo").value
-let num_registros = document.getElementById("num_registros").value
-let content = document.getElementById("content")
-let pagina = document.getElementById("pagina").value || 1;
-let orderCol = document.getElementById("orderCol").value
-let orderType = document.getElementById("orderType").value
+    let input = document.getElementById("campo").value;
+    let num_registros = document.getElementById("num_registros").value;
+    let content = document.getElementById("content");
+    let pagina = document.getElementById("pagina").value || 1;
+    let orderCol = document.getElementById("orderCol").value;
+    let orderType = document.getElementById("orderType").value;
+    // Nombres de los archivos dinámicos
+    let editFile = "nuevo_servidores.php"; // Cambia según el archivo
+    let deleteFile = "tabla_servidores.php"; // Cambia según el archivo
+    let formaData = new FormData();
+    formaData.append('table', 'servidores'); // Tabla dinámica
+    formaData.append('columns', 'id_servidor,marca,modelo,num_serie,procesador,velocidad,ram,ip,activo_fijo,inventario,observaciones'); // Columnas dinámicas
+    formaData.append('id', 'id_servidor'); // Clave primaria
+    formaData.append('editFile', editFile); // Archivo de edición
+    formaData.append('deleteFile', deleteFile);
+    formaData.append('campo', input);
+    formaData.append('registros', num_registros);
+    formaData.append('pagina', pagina);
+    formaData.append('orderCol', orderCol);
+    formaData.append('orderType', orderType);
 
-let formaData = new FormData()
-formaData.append('campo', input)
-formaData.append('registros', num_registros)
-formaData.append('pagina', pagina)
-formaData.append('orderCol', orderCol)
-formaData.append('orderType', orderType)
-
-fetch("loadservidores.php", {
+    fetch("load.php", {
         method: "POST",
         body: formaData
     })
     .then(response => response.json())
     .then(data => {
-        content.innerHTML = data.data
+        content.innerHTML = data.data;
         document.getElementById("lbl-total").innerHTML = `Mostrando ${data.totalFiltro} de ${data.totalRegistros} registros`;
-        document.getElementById("nav-paginacion").innerHTML = data.paginacion
-
-        // Si la página actual no tiene resultados, ajustar la paginación para mostrar la primera página
-        if (data.data.includes('Sin resultados') && parseInt(pagina) !== 1) {
-            nextPage(1); // Ir a la primera página
-        }
+        document.getElementById("nav-paginacion").innerHTML = data.paginacion;
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 }
 
 // Función para cambiar de página
@@ -552,6 +551,7 @@ let columns = document.querySelectorAll(".sort");
 columns.forEach(column => {
 column.addEventListener("click", ordenar);
 });
+
 </script>
 
     </main>

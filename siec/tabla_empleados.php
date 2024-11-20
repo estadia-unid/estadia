@@ -1,6 +1,13 @@
 <?php
-session_start();
-//include "conexion.php";
+include_once "conexion.php";
+include "autoloader.php";
+
+if(isset($_GET['borrar'])){
+  $registro = $_GET['borrar'];
+  $where = "`id_empleado` = $registro";
+  $datos = new ControlFormulario('');
+  $datosborrar = $datos->borrar($conecta,'empleados',$where);
+}
 ?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -437,6 +444,7 @@ session_start();
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
             <thead>
+                <th class="sort asc">ID</th>
                 <th class="sort asc">Centro de Trabajo</th>
                 <th class="sort asc">RPE</th>
                 <th class="sort asc">Nombre</th>
@@ -489,39 +497,39 @@ session_start();
 <script>
 // Llamando a la función getData() al cargar la página
 document.addEventListener("DOMContentLoaded", getData);
-
-// Función para obtener datos con AJAX
 function getData() {
-let input = document.getElementById("campo").value
-let num_registros = document.getElementById("num_registros").value
-let content = document.getElementById("content")
-let pagina = document.getElementById("pagina").value || 1;
-let orderCol = document.getElementById("orderCol").value
-let orderType = document.getElementById("orderType").value
+    let input = document.getElementById("campo").value;
+    let num_registros = document.getElementById("num_registros").value;
+    let content = document.getElementById("content");
+    let pagina = document.getElementById("pagina").value || 1;
+    let orderCol = document.getElementById("orderCol").value;
+    let orderType = document.getElementById("orderType").value;
+    // Nombres de los archivos dinámicos
+    let editFile = "nuevo_empleado.php"; // Cambia según el archivo
+    let deleteFile = "tabla_empleados.php"; // Cambia según el archivo
+    let formaData = new FormData();
+    formaData.append('table', 'empleados'); // Tabla dinámica
+    formaData.append('columns', 'id_empleado,centro_trabajo,rpe,nombre,a_paterno,a_materno,rfc,nss,sexo,n_plaza,categ,f_nacimiento,edad_actual,fecha_antiguedad,fecha_jubilacion,ent_federativa,rama,tp_contrato,est_civil,correo,curp,alta_permanente,fecha_fidelidad,porcentaje_fidelidad,escolaridad'); // Columnas dinámicas
+    formaData.append('id', 'id_empleado'); // Clave primaria
+    formaData.append('editFile', editFile); // Archivo de edición
+    formaData.append('deleteFile', deleteFile);
+    formaData.append('campo', input);
+    formaData.append('registros', num_registros);
+    formaData.append('pagina', pagina);
+    formaData.append('orderCol', orderCol);
+    formaData.append('orderType', orderType);
 
-let formaData = new FormData()
-formaData.append('campo', input)
-formaData.append('registros', num_registros)
-formaData.append('pagina', pagina)
-formaData.append('orderCol', orderCol)
-formaData.append('orderType', orderType)
-
-fetch("loadempleados.php", {
+    fetch("load.php", {
         method: "POST",
         body: formaData
     })
     .then(response => response.json())
     .then(data => {
-        content.innerHTML = data.data
+        content.innerHTML = data.data;
         document.getElementById("lbl-total").innerHTML = `Mostrando ${data.totalFiltro} de ${data.totalRegistros} registros`;
-        document.getElementById("nav-paginacion").innerHTML = data.paginacion
-
-        // Si la página actual no tiene resultados, ajustar la paginación para mostrar la primera página
-        if (data.data.includes('Sin resultados') && parseInt(pagina) !== 1) {
-            nextPage(1); // Ir a la primera página
-        }
+        document.getElementById("nav-paginacion").innerHTML = data.paginacion;
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 }
 
 // Función para cambiar de página
@@ -552,6 +560,7 @@ let columns = document.querySelectorAll(".sort");
 columns.forEach(column => {
 column.addEventListener("click", ordenar);
 });
+
 </script>
 
     </main>

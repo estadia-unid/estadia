@@ -162,7 +162,13 @@ if(isset($_POST['guardar'])){
     -->
 
     <main class="form-signin w-100 m-auto">
-
+                <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-danger" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                  //https://getbootstrap.com/docs/5.3/components/alerts/#examples
+                ?>
       <form action="" method="post">
         <div class="text-center">
           <img class="mb-6" src="imagenes/svg/cfe_icon.svg" alt="logo cfe en svg" width="200" height="160">
