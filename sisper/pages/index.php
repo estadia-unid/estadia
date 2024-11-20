@@ -27,20 +27,6 @@ if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
-// Consulta para contar el número de alumnos
-$consulta = "SELECT COUNT(*) AS total_empleados FROM empleados";
-$resultado = $conexion->query($consulta);
-
-// Obtener el total de alumnos
-$total_alumnos = 0;
-if ($resultado && $fila = $resultado->fetch_assoc()) {
-    $total_alumnos = $fila['total_empleados'];
-}
-// Obtener la fecha actual
-$fecha_hoy = date("Y-m-d");
-
-}
-
 // Cerrar la conexión
 $conexion->close();
 
@@ -233,9 +219,9 @@ $fecha_hoy = date("d") . " de " . date("F") . " de " . date("Y");
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">ALUMNOS</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">EMPLEADOS</p>
                     <h5 class="font-weight-bolder">
-                      <?php echo number_format($total_empleados); ?>
+                     
                     </h5>
                     <p class="mb-0">
                       <span class="text-success text-sm font-weight-bolder"></span>
@@ -253,7 +239,28 @@ $fecha_hoy = date("d") . " de " . date("F") . " de " . date("Y");
             
           </div>
         </div>
-       
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Nuevos Registros</p>
+                    <h5 class="font-weight-bolder">
+                    
+                    </h5>
+                    
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
+                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
             <!-- Card del Reloj -->
     <div class="col-xl-3 col-sm-6">
         <div class="card">
