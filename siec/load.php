@@ -1,162 +1,115 @@
 <?php
+// Conexión a la base de datos usando PDO
+$contraseña = "ctpalm2113";
+$usuario = "siec";
+$nombre_base_de_datos = "siec";
+try {
+    $conecta = new PDO('mysql:host=localhost;dbname=' . $nombre_base_de_datos, $usuario, $contraseña);
+    $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conecta->exec("SET NAMES utf8");
+} catch (Exception $e) {
+    echo json_encode(['error' => 'Ocurrió algo con la base de datos: ' . $e->getMessage()]);
+    exit;
+}
 
-/**
- * Script para cargar datos de lado del servidor con PHP y MySQL
- *
- * @author mroblesdev
- * @link https://github.com/mroblesdev/server-side-php
- * @license: MIT
- */
+// Validar parámetros dinámicos
+$table = isset($_POST['table']) ? htmlspecialchars($_POST['table']) : null;
+$columns = isset($_POST['columns']) ? explode(',', htmlspecialchars($_POST['columns'])) : [];
+$id = isset($_POST['id']) ? htmlspecialchars($_POST['id']) : 'id';
 
- session_start();
-    date_default_timezone_set('America/Mexico_City');
-      $conecta =  mysqli_connect('localhost', 'siec', 'ctpalm2113', 'siec');
-      if(!$conecta){
-          die('no pudo conectarse:' . mysqli_connect_error());
-       }
-    if (!mysqli_set_charset($conecta,'utf8')) {
-     die('No pudo conectarse: ' . mysqli_error($conecta));
-     }
+if (!$table || empty($columns)) {
+    echo json_encode(['error' => 'Tabla o columnas no especificadas']);
+    exit;
+}
 
-// Columnas a mostrar en la tabla
-$columns = ['id_computadora', 'oficial', 'departamento', 'nombre', 'a_paterno', 'escritorio_remoto', 'a_materno', 'computadoras.rpe', 'activo_fijo', 'inventario', 'numero_de_serie', 'marca', 'modelo', 'mac_wifi', 'mac_ethernet', 'memoria', 'disco_duro', 'dominio', 'resg', 'd_activo', 'antivirus', 'observaciones'];
-
-// Nombre de la tabla
-$table = "computadoras";
-
-// Clave principal de la tabla
-$id = 'id_computadora';
-
-// Campo a buscar
-$campo = isset($_POST['campo']) ? $conecta->real_escape_string($_POST['campo']) : null;
+// Campo de búsqueda
+$campo = isset($_POST['campo']) ? htmlspecialchars($_POST['campo']) : null;
 
 // Filtrado
 $where = '';
-
-if ($campo != null) {
-    $where = "WHERE (";
-
-    $cont = count($columns);
-    for ($i = 0; $i < $cont; $i++) {
-        $where .= $columns[$i] . " LIKE '%" . $campo . "%' OR ";
+if ($campo) {
+    $filters = [];
+    foreach ($columns as $column) {
+        $filters[] = "$column LIKE :campo";
     }
-    $where = substr_replace($where, "", -3);
-    $where .= ")";
+    $where = 'WHERE ' . implode(' OR ', $filters);
 }
 
-// Limites
-$limit = isset($_POST['registros']) ? $conecta->real_escape_string($_POST['registros']) : 10;
-$pagina = isset($_POST['pagina']) ? $conecta->real_escape_string($_POST['pagina']) : 0;
+// Límite y paginación
+$limit = isset($_POST['registros']) ? intval($_POST['registros']) : 10;
+$pagina = isset($_POST['pagina']) ? intval($_POST['pagina']) : 1;
+$inicio = ($pagina - 1) * $limit;
 
-if (!$pagina) {
-    $inicio = 0;
-    $pagina = 1;
-} else {
-    $inicio = ($pagina - 1) * $limit;
+// Orden
+$orderCol = isset($_POST['orderCol']) ? intval($_POST['orderCol']) : 0;
+$orderType = isset($_POST['orderType']) && strtolower($_POST['orderType']) === 'desc' ? 'DESC' : 'ASC';
+$order = "ORDER BY {$columns[$orderCol]} $orderType";
+
+// Consultar datos dinámicamente
+$sql = "SELECT SQL_CALC_FOUND_ROWS " . implode(', ', $columns) . " FROM $table $where $order LIMIT :inicio, :limit";
+$stmt = $conecta->prepare($sql);
+if ($campo) {
+    $stmt->bindValue(':campo', "%$campo%", PDO::PARAM_STR);
 }
+$stmt->bindValue(':inicio', $inicio, PDO::PARAM_INT);
+$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
 
-$sLimit = "LIMIT $inicio , $limit";
+$stmt->execute();
+$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Ordenamiento
-
-$sOrder = "";
-if (isset($_POST['orderCol'])) {
-    $orderCol = $_POST['orderCol'];
-    $oderType = isset($_POST['orderType']) ? $_POST['orderType'] : 'asc';
-
-    $sOrder = "ORDER BY " . $columns[intval($orderCol)] . ' ' . $oderType;
-}
-
-// Consulta
-$sql = "SELECT SQL_CALC_FOUND_ROWS " . implode(", ", $columns) . "
-FROM $table
-INNER JOIN empleados ON computadoras.rpe = empleados.rpe
-$where
-$sOrder
-$sLimit";
-$resultado = $conecta->query($sql);
-$num_rows = $resultado->num_rows;
-
-// Consulta para total de registro filtrados
+// Total de registros filtrados
 $sqlFiltro = "SELECT FOUND_ROWS()";
-$resFiltro = $conecta->query($sqlFiltro);
-$row_filtro = $resFiltro->fetch_array();
-$totalFiltro = $row_filtro[0];
+$totalFiltro = $conecta->query($sqlFiltro)->fetchColumn();
 
-// Consulta para total de registro
-$sqlTotal = "SELECT count($id) FROM $table ";
-$resTotal = $conecta->query($sqlTotal);
-$row_total = $resTotal->fetch_array();
-$totalRegistros = $row_total[0];
+// Total de registros
+$sqlTotal = "SELECT COUNT($id) FROM $table";
+$totalRegistros = $conecta->query($sqlTotal)->fetchColumn();
 
-// Mostrado resultados
-$output = [];
-$output['totalRegistros'] = $totalRegistros;
-$output['totalFiltro'] = $totalFiltro;
-$output['data'] = '';
-$output['paginacion'] = '';
+// Generar salida
+$output = [
+    'totalRegistros' => $totalRegistros,
+    'totalFiltro' => $totalFiltro,
+    'data' => '',
+    'paginacion' => ''
+];
 
-if ($num_rows > 0) {
-    while ($row = $resultado->fetch_assoc()) {
+$editFile = isset($_POST['editFile']) ? htmlspecialchars($_POST['editFile']) : null;
+$deleteFile = isset($_POST['deleteFile']) ? htmlspecialchars($_POST['deleteFile']) : null;
+
+if (!empty($data)) {
+    foreach ($data as $row) {
         $output['data'] .= '<tr>';
-        $output['data'] .= '<td>' . $row['oficial'] . '</td>'; 
-        $output['data'] .= '<td>' . $row['departamento'] . '</td>'; 
-        $output['data'] .= '<td>' . $row['nombre'] . '  ' . $row['a_paterno'] . '  ' . $row['a_materno'] . '<div class="dropdown">' . '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">' . $row['rpe'] . '</button>' . 
-        '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> ' . 
-        '<li><a class="dropdown-item rounded-2">' .$row['rpe'] . '</a></li>' .
-        '<li><a class="dropdown-item rounded-2">' .$row['rpe'] . '</a></li>' . 
-        '<li><a class="dropdown-item rounded-2">' .$row['rpe'] . '</a></li>' . 
-        '<li><a class="dropdown-item rounded-2">' .$row['rpe'] . '</a></li>' . 
-        '</ul>' . '</div>' .  
-        '</td>';
-        $output['data'] .= '<td>' . $row['activo_fijo'] . '</td>';
-        $output['data'] .= '<td>' . $row['inventario'] . '</td>';
-        $output['data'] .= '<td>' . $row['numero_de_serie'] . '</td>';
-        $output['data'] .= '<td>' . $row['marca'] . '   ' . $row['modelo'] . '</td>';
-        $output['data'] .= '<td>' . $row['mac_wifi'] . '</td>';
-        $output['data'] .= '<td>' . $row['mac_ethernet'] . '</td>';
-        $output['data'] .= '<td>' . $row['memoria'] . '</td>';
-        $output['data'] .= '<td>' . $row['disco_duro'] . '</td>';
-        $output['data'] .= '<td>' . $row['dominio'] . '</td>';
-        $output['data'] .= '<td><div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> Opciones </button>' . 
-        '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> ' . 
-        '<li><a class="dropdown-item rounded-2"> Resguardo: ' . $row['resg'] . '</a></li>' .
-        '<li><a class="dropdown-item rounded-2"> Directorio activo: ' . $row['d_activo'] . '</a></li>' .
-        '<li><a class="dropdown-item rounded-2"> Antivirus: ' . $row['antivirus'] . '</a></li>' . 
-        '<li><a class="dropdown-item rounded-2"> Escritorio Remoto: ' . $row['escritorio_remoto'] . '</a></li>' . 
-        '</ul></div></td>';
-        $output['data'] .= '<td>' . $row['observaciones'] . '</td>';
-        $output['data'] .= '<td><div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> Opciones </button>' . 
-        '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> ' . 
-        '<li><a class="dropdown-item rounded-2" href="editar.php?id=' . $row['id_computadora'] . '">Editar</a></li>' .
-        '<li><a class="dropdown-item rounded-2" href="elimiar.php?id=' . $row['id_computadora'] . '">Eliminar</a></li>' . 
-        '</ul></div></td>';
+        foreach ($columns as $column) {
+            $output['data'] .= '<td>' . htmlspecialchars($row[$column]) . '</td>';
+        }
+
+        // Menú desplegable con archivos dinámicos
+        $output['data'] .= '<td>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Opciones
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item rounded-2" href="' . $editFile . '?editar=' . $row[$id] . '">Editar</a></li>
+                    <li><a class="dropdown-item rounded-2" href="' . $deleteFile . '?borrar=' . $row[$id] . '">Eliminar</a></li>
+                </ul>
+            </div>
+        </td>';
+
         $output['data'] .= '</tr>';
     }
 } else {
-    $output['data'] .= '<tr>';
-    $output['data'] .= '<td colspan="7">Sin resultados</td>';
-    $output['data'] .= '</tr>';
+    $output['data'] .= '<tr><td colspan="' . (count($columns) + 1) . '">Sin resultados</td></tr>';
 }
 
 // Paginación
-if ($totalRegistros > 0) {
-    $totalPaginas = ceil($totalFiltro / $limit);
-
-    $output['paginacion'] .= '<nav>';
-    $output['paginacion'] .= '<ul class="pagination">';
-
-    $numeroInicio = max(1, $pagina - 4);
-    $numeroFin = min($totalPaginas, $numeroInicio + 9);
-
-    for ($i = $numeroInicio; $i <= $numeroFin; $i++) {
-        $output['paginacion'] .= '<li class="page-item' . ($pagina == $i ? ' active' : '') . '">';
-        $output['paginacion'] .= '<a class="page-link" href="#" onclick="nextPage(' . $i . ')">' . $i . '</a>';
-        $output['paginacion'] .= '</li>';
-    }
-
-    $output['paginacion'] .= '</ul>';
-    $output['paginacion'] .= '</nav>';
+$totalPaginas = ceil($totalFiltro / $limit);
+$output['paginacion'] .= '<nav><ul class="pagination">';
+for ($i = 1; $i <= $totalPaginas; $i++) {
+    $active = ($i == $pagina) ? 'active' : '';
+    $output['paginacion'] .= "<li class='page-item $active'><a class='page-link' href='#' onclick='nextPage($i)'>$i</a></li>";
 }
+$output['paginacion'] .= '</ul></nav>';
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
+?>

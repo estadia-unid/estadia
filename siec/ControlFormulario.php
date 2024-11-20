@@ -3,34 +3,64 @@ include_once "conexion.php";
 
 class ControlFormulario{
 
-    function crear($conecta) {
-        $insertar = "INSERT INTO ";
+    function insertar_datos($conecta,$tabla,$datos){
+        try{
+            $columnas = implode(", ", array_keys($datos));
+            $valores = ":" . implode(", :", array_keys($datos));
+            $insertar = "INSERT INTO `$tabla` ($columnas) VALUES ($valores)";
+            echo $insertar;
+            $sql = $conecta->prepare($insertar);
+            foreach ($datos as $clave => $valor) {
+                $sql->bindValue(":$clave", $valor);
+            }
+            $sql->execute();
+        }catch(Exception $e){
+            echo "Ocurrió un error al registrar los datos: " . $e->getMessage();
+        }
     }
-
-    function leer($conecta,$tabla) {
-        $leer = "SELECT * FROM $tabla";
-        $resultado_leer = $conecta->prepare($leer);
+    function leer($conecta,$tabla,$where = '1'){
+        $lectura = "SELECT * FROM `$tabla` WHERE $where";
+        echo $lectura;
+        $resultado_leer = $conecta->prepare($lectura);
         $resultado_leer->execute([]);
-        $leer_vista = $resultado_leer->fetch(PDO::FETCH_ASSOC)
-            return $leer_vista;
-        
+        return $resultado_leer->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-    function actualizar(){
-        $actualizar = "UPDATE `computadoras` SET `id_computadora`='[value-1]',`oficial`='[value-2]',`no_oficial`='[value-3]',`departamento`='[value-4]',`puesto`='[value-5]',`usuario_responsable`='[value-6]',`rpe`='[value-7]',`tipo_de_equipo`='[value-8]',`activo_fijo`='[value-9]',`inventario`='[value-10]',`numero_de_serie`='[value-11]',`marca`='[value-12]',`modelo`='[value-13]',`mac_wifi`='[value-14]',`mac_ethernet`='[value-15]',`memoria`='[value-16]',`disco_duro`='[value-17]',`dominio`='[value-18]',`resg`='[value-19]',`d_activo`='[value-20]',`antivirus`='[value-21]',`observaciones`='[value-22]' WHERE 1";
-        $resultado_actualizar = $conecta->prepare($actualizar);
-        $resultado_sesion->execute([
-            ':usuario' => $this->usuario,
-            ':clave' => $this->contraseña
-        ]);
-    }
-    function borrar(){
+    function actualizar($conecta,$tabla,$datos,$where){
+        try{
+        $actualizar = [];
+        foreach ($datos as $clave => $valor) {
+            $actualizar[] = "`$clave` = :$clave";
+        }
+        $columna = implode(", ", $actualizar);
+        $insertar = "UPDATE `$tabla` SET $columna WHERE $where";
+        $sql = $conecta->prepare($insertar);
 
+        foreach ($datos as $clave => $valor) {
+            $sql->bindValue(":$clave", $valor);
+        }
+
+        $sql->execute();
+    }catch(Exception $e){
+        echo "Ocurrió un error al registrar los datos: " . $e->getMessage();
     }
-    
-    function busqueda($conecta){
+    }
+    function borrar($conecta,$tabla,$where){
+        try{
+            $borrar = "DELETE FROM `$tabla` WHERE $where";
+            echo $borrar;   
+            $sql = $conecta->prepare($borrar);
+            $sql->execute();
+        }catch(Exception $e){
+            echo "Ocurrió un error al borrar los datos: " . $e->getMessage();
+        }
     }
 }
-$visual = new ControlFormulario('');
-$visual->leer($conecta,"departamentos");
+/*
+    cosas utilizadas:
+    https://www.php.net/manual/es/control-structures.foreach.php
+    https://www.php.net/manual/es/language.types.array.php
+    https://icodemag.com/prg-pattern-in-php-what-why-and-how/
+    https://stackoverflow.com/questions/10827242/understanding-the-post-redirect-get-pattern
+    https://stackoverflow.com/questions/37890694/create-a-dynamic-insert-statement-php-mysql
+*/
 ?>

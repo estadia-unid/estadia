@@ -12,19 +12,23 @@ class ControlSesiones{
 
     function iniciar_sesion($conecta) {
         $sesion = "SELECT * FROM `usuarios` WHERE `rpe` = :usuario";
-
+    
         $resultado_sesion = $conecta->prepare($sesion);
-        
         $resultado_sesion->execute([':usuario' => $this->usuario]);
         $hash = $resultado_sesion->fetch(PDO::FETCH_ASSOC);
+    
+        if ($hash !== false) {
             if (password_verify($this->contraseña, $hash['clave'])) {
                 $_SESSION['rpe'] = $hash['rpe'];
                 header("Location: principal.php");
                 die();
             } else {
-                 echo 'Invalid password.';
+                $_SESSION['mensaje'] = 'Contraseña inválida.';
             }
-    }
+        } else {
+            $_SESSION['mensaje'] = 'Usuario no encontrado.';
+        }
+    }    
 
     function cerrar_sesion() {
         session_unset();

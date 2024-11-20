@@ -2,65 +2,33 @@
 include_once "conexion.php";
 include "autoloader.php";
 
-if(isset($_GET['editar'])){
-  $registro = $_GET['editar'];
-  $where = "`id_computadora` = $registro";
-  $datos = new ControlFormulario('');
-  $datoseditar = $datos->leer($conecta,'computadoras',$where);
-}
-
 if(isset($_POST['insertar'])){
-  $datos = [
-    'oficial' => $_POST['oficial'],
-    'departamento' => $_POST['departamento'],
-    'rpe' => $_POST['rpe'],
-    'nombre_equipo' => $_POST['nombre_equipo'],
-    'activo_fijo' => $_POST['activo_fijo'],
-    'inventario' => $_POST['inventario'],
-    'numero_de_serie' => $_POST['numero_de_serie'],
+    $datos = [
     'marca' => $_POST['marca'],
     'modelo' => $_POST['modelo'],
+    'num_serie' => $_POST['numeroserie'],
     'procesador' => $_POST['procesador'],
     'velocidad' => $_POST['velocidad'],
-    'so' => $_POST['so'],
+    'ram' => $_POST['ram'],
     'ip' => $_POST['ip'],
-    'vlan' => $_POST['vlan'],
-    'mac_wifi' => $_POST['mac_wifi'],
-    'mac_ethernet' => $_POST['mac_ethernet'],
-    'memoria' => $_POST['memoria'],
-    'disco_duro' => $_POST['disco_duro'],
-    'dominio' => $_POST['dominio'],
-    'resg' => $_POST['resg'],
-    'd_activo' => $_POST['d_activo'],
-    'antivirus' => $_POST['antivirus'],
-    'escritorio_remoto' => $_POST['escritorio_remoto'],
+    'activo_fijo' => $_POST['activo'],
+    'inventario' => $_POST['inventario'],
     'observaciones' => $_POST['observaciones'],
     ];
-
-switch($_POST['accion']){
-  case 'insertar':
-          $usuario = new ControlFormulario('');
-          $usuario->insertar_datos($conecta,'computadoras',$datos);
-          $_SESSION['mensaje'] = "Los datos se registraron con éxito.";
-          /*
-          header("Location: nuevo_registro.php");
-          die();
-          */
-      break;
-    case  'edicion':
-        $where = "`id_computadora` = $registro";
+    try{
         $usuario = new ControlFormulario('');
-        $usuario->actualizar($conecta,'computadoras',$datos,$where);
-        $_SESSION['mensaje'] = "Los datos se actualizaron con éxito.";
-        header("Location: nuevo_registro.php");
+        $usuario->insertar_datos($conecta,'servidores',$datos);
+        header("Location: nuevo_servidores.php");
         die();
-      break;
+    }catch(Exception $e){
+        echo "Ocurrió un error al registrar los datos: " . $e->getMessage();
+    }
 }
-}
+
   //https://www.php.net/manual/es/function.unset.php
 ?>
 <!doctype html>
-<html lang="es" data-bs-theme="auto">
+<html lang="en" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -384,7 +352,7 @@ switch($_POST['accion']){
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Nueva Computadora</h1>
+            <h1 class="h2">Registro de Nuevo Servidor</h1>
             <!--
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
@@ -400,149 +368,14 @@ switch($_POST['accion']){
             -->
           </div>
 
-          <div class="container">
+          <div class="container" >
               <div class="col-md-auto col-lg-auto">
-              <?php
-                  if (isset($_SESSION['mensaje'])) {
-                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
-                  unset($_SESSION['mensaje']);
-                  }
-                ?>
-                <!--<h4 class="mb-3">Billing address</h4>-->
                 <form action="" method="post">
-                  <div class="row g-3">
-                      <div class="my-6">
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="save-info" name="oficial" value="chi">
-                          <label class="form-check-label" for="save-info">¿El equipo es oficial?</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="credit" name="resg" type="checkbox" class="form-check-input" value="chi">
-                          <label class="form-check-label" for="credit">Resguardo</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="debit" name="d_activo" type="checkbox" class="form-check-input" value="chi">
-                          <label class="form-check-label" for="debit">Directorio Activo</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="paypal" name="antivirus" type="checkbox" class="form-check-input" value="chi">
-                          <label class="form-check-label" for="paypal">Antivirus</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="paypal" name="escritorio_remoto" type="checkbox" class="form-check-input" value="chi">
-                          <label class="form-check-label" for="paypal">Escritorio Remoto</label>
-                        </div>
-                      </div>
-                    <div class="col-md-4">
-                      <label for="state" class="form-label">Departamento Asignado</label>
-                      <select class="form-select" id="state" name="departamento">
-                        <?php
-                          $departamentosselect = new ControlFormulario('');
-                          $opciondepa = $departamentosselect->leer($conecta,'departamentos');
-                          foreach($opciondepa as $row) {
-                            echo '<option value="' . $row['departamento'] . '">' . $row['departamento'] . '</option>';
-                          }
-                        ?>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                    </div>
-                    <div class="col-md-auto">
-                      <label for="state" class="form-label">Usuario responsable</label>
-                      <select class="form-select" id="state" name="rpe" required>
-                        <?php
-                          $empleadosSelect = new ControlFormulario('');
-                          $selectempe = $empleadosSelect->leer($conecta,'empleados');
-                          foreach($selectempe as $row) {
-                            echo '<option value="' . $row['rpe'] . '">' . $row['rpe'] . '</option>';
-                          }
-                        ?>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <label for="state" class="form-label">Dominio</label>
-                      <select class="form-select" id="state" name="dominio" required>
-                        <?php
-                          $dominios = new ControlFormulario('');
-                          $dominios_resultado = $dominios->leer($conecta,'dominios');
-                          foreach($dominios_resultado as $row) {
-                            echo '<option value="">' . $row['dominio'] . '</option>';
-                          }
-                        ?>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <label for="state" class="form-label">Vlan</label>
-                      <select class="form-select" id="state" name="vlan" required>
-                        <?php
-                          $vlans = new ControlFormulario('');
-                          $vlans_resultado = $vlans->leer($conecta,'vlan');
-                          foreach($vlans_resultado as $row){
-                            echo '<option value="' . $row['gateway'] . '">' . $row['gateway'] . '</option>';
-                          }
-                          //$vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
-                          //while($vlan_resultado=mysqli_fetch_array($vlan)) {
-                            
-                          //}
-                        ?>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                    </div>
-                    <div class="row g-3">
-                    <div class="col-sm-6">
-                      <label for="firstName" class="form-label">Nombre del Equipo</label>
-                      <input type="text" class="form-control" id="firstName" name="nombre_equipo" placeholder="" value="" required>
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <label for="firstName" class="form-label">Disco Duro</label>
-                      <input type="text" class="form-control" id="firstName" name="disco_duro" placeholder="" value="" required>
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <label for="firstName" class="form-label">Direccion MAC Wifi</label>
-                      <input type="text" class="form-control" id="firstName" name="mac_wifi" placeholder="" value="" required>
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <label for="firstName" class="form-label">Direccion MAC Ethernet</label>
-                      <input type="text" class="form-control" id="firstName" name="mac_ethernet" placeholder="" value="" required>
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <label for="firstName" class="form-label">Sistema Operativo</label>
-                      <input type="text" class="form-control" id="firstName" name="so" placeholder="" value="" required>
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
-                    </div>
-                  </div>
 
                   <div class="row g-3">
-                  <div class="col-sm-2">
+                    <div class="col-sm-2">
                       <label for="marca" class="form-label">Marca</label>
-                      <input type="text" class="form-control" id="marca" name="marca" placeholder="" <?php if(isset($datoseditar[0]['marca'])){ 
-                        echo 'value="' . $datoseditar[0]['marca'] . '"';
-                      } 
-                        ?>
-                        >
+                      <input type="text" class="form-control" id="marca" name="marca" placeholder="" value="">
                       <div class="invalid-feedback">
                         dato invalido
                       </div>
@@ -550,10 +383,7 @@ switch($_POST['accion']){
 
                     <div class="col-sm-3">
                       <label for="modelo" class="form-label">Modelo</label>
-                      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="" <?php if(isset($datoseditar[0]['modelo'])){ 
-                        echo 'value="' . $datoseditar[0]['modelo'] . '"';
-                      } 
-                        ?>>
+                      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="" value="">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -561,11 +391,7 @@ switch($_POST['accion']){
 
                     <div class="col-sm-4">
                       <label for="numeroserie" class="form-label">Numero de serie</label>
-                      <input type="text" class="form-control" id="numeroserie" name="numero_de_serie" placeholder="" <?php if(isset($datoseditar[0]['num_serie'])){ 
-                        echo 'value="' . $datoseditar[0]['num_serie'] . '"';
-                      } 
-                        ?>
-                         >
+                      <input type="text" class="form-control" id="numeroserie" name="numeroserie" placeholder="" value="" >
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -573,10 +399,7 @@ switch($_POST['accion']){
 
                     <div class="col-sm-4">
                       <label for="procesador" class="form-label">Procesador</label>
-                      <input type="text" class="form-control" id="procesador" name="procesador" placeholder="" <?php if(isset($datoseditar[0]['procesador'])){ 
-                        echo 'value="' . $datoseditar[0]['procesador'] . '"';
-                      } 
-                        ?>>
+                      <input type="text" class="form-control" id="procesador" name="procesador" placeholder="" value="">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -584,10 +407,7 @@ switch($_POST['accion']){
 
                     <div class="col-sm-3">
                       <label for="velocidad" class="form-label">Velocidad del Procesador</label>
-                      <input type="text" class="form-control" id="velocidad" name="velocidad" placeholder="" <?php if(isset($datoseditar[0]['velocidad'])){ 
-                        echo 'value="' . $datoseditar[0]['velocidad'] . '"';
-                      } 
-                        ?>>
+                      <input type="text" class="form-control" id="velocidad" name="velocidad" placeholder="" value="">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -595,10 +415,7 @@ switch($_POST['accion']){
                     
                     <div class="col-sm-2">
                       <label for="ram" class="form-label">Cantidad de Memoria RAM</label>
-                      <input type="text" class="form-control" id="ram" name="memoria" placeholder="" <?php if(isset($datoseditar[0]['ram'])){ 
-                        echo 'value="' . $datoseditar[0]['ram'] . '"';
-                      } 
-                        ?>>
+                      <input type="text" class="form-control" id="ram" name="ram" placeholder="" value="">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -606,10 +423,7 @@ switch($_POST['accion']){
                     
                     <div class="col-sm-4">
                       <label for="ip" class="form-label">Direccion IP Asignada</label>
-                      <input type="text" class="form-control" id="ip" name="ip" placeholder="" <?php if(isset($datoseditar[0]['ip'])){ 
-                        echo 'value="' . $datoseditar[0]['ip'] . '"';
-                      } 
-                        ?> maxlength="15" required>
+                      <input type="text" class="form-control" id="ip" name="ip" placeholder="" value="" maxlength="15" required>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -617,10 +431,7 @@ switch($_POST['accion']){
                     
                     <div class="col-sm-3">
                       <label for="activo" class="form-label">Activo Fijo</label>
-                      <input type="text" class="form-control" id="activo" name="activo_fijo" placeholder="" <?php if(isset($datoseditar[0]['activo_fijo'])){ 
-                        echo 'value="' . $datoseditar[0]['activo_fijo'] . '"';
-                      } 
-                        ?> maxlength="8">
+                      <input type="text" class="form-control" id="activo" name="activo" placeholder="" value="" maxlength="8">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -628,10 +439,7 @@ switch($_POST['accion']){
                     
                     <div class="col-sm-3">
                       <label for="inventario" class="form-label">Inventario</label>
-                      <input type="text" class="form-control" id="inventario" name="inventario" placeholder="" <?php if(isset($datoseditar[0]['inventario'])){ 
-                        echo 'value="' . $datoseditar[0]['inventario'] . '"';
-                      } 
-                        ?> maxlength="8">
+                      <input type="text" class="form-control" id="inventario" name="inventario" placeholder="" value="" maxlength="8">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -639,19 +447,11 @@ switch($_POST['accion']){
                     
                     <div class="col-md-12">
                         <label class="form-label">Observaciones</label>
-                        <textarea name="observaciones" class="form-control letra" rows="3"><?php if(isset($datoseditar[0]['marca'])){ 
-                        echo $datoseditar[0]['observaciones'];
-                      } 
-                        ?></textarea>
+                        <textarea name="observaciones" class="form-control letra" rows="3"></textarea>
                     </div>
-                    
-                    <input type="hidden" name="accion" <?php if(isset($_GET['editar'])){ 
-                        echo 'value="edicion"';
-                      }else{
-                        echo 'value="insertar"';
-                      }
-                        ?>>
-                  <button class="w-100 btn btn-primary btn-lg" type="submit" name="insertar" >Registrar</button>
+                
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" name="insertar">Registrar</button>
                   </div>
                 </form>
               </div>
