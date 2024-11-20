@@ -1,0 +1,8 @@
+SELECT DISTINCT `categ` FROM `empleados`;
+SELECT DISTINCT `categ` FROM `empleados`;
+SET GLOBAL FOREIGN_KEY_CHECKS=0;
+INSERT INTO `servidores` (`id_servidor`, `marca`, `modelo`, `num_serie`, `procesador`, `velocidad`, `ram`, `ip`, `activo_fijo`, `inventario`, `observaciones`) VALUES (NULL, 'hp', 'pavilion', '2dsa222e', 'xeon 4', '5 GHZ', '8 GB', '100.100.100.100', '90000000', '99999999', 'fgcfgfgfhghghhgghfgfgfgfgfgf')
+INSERT INTO `servidores`(`id_servidor`, `marca`, `modelo`, `num_serie`, `procesador`, `velocidad`, `ram`, `ip`, `activo_fijo`, `inventario`, `observaciones`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]')
+UPDATE `computadoras` SET `departamento` = 'Juridico' WHERE `computadoras`.`id_computadora` = 35 AND `computadoras`.`rpe` = '9MP6E'
+
+INSERT INTO `usuarios` (`id`, `rpe`, `clave`, `fecha_creacion`) VALUES (NULL, '9AV5L', 'uwu', CURRENT_TIMESTAMP)
