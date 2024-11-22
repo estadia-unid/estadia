@@ -243,7 +243,7 @@ include "autoloader.php";
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="menu.php">
+                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="menu.php">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"/>
                         <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/>
@@ -384,18 +384,7 @@ include "autoloader.php";
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Bienvenido</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="ControlSesiones.php?cerrarSesion=true">cerrar sesion</a></button>
-
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-            <svg class="bi"><use xlink:href="#calendar3"/></svg>
-            This week
-          </button>
-        </div>
+        <h1 class="h2">Menu</h1>
       </div>
 
       <div class="table-responsive row py-4">
@@ -411,8 +400,13 @@ include "autoloader.php";
             <tbody id="content">
 
               <tr>
+                <td>Access Points</td>
+                <td><a href="nuevo_ap.php">Agregar Access point</a></td>
+                <td><a href="tabla_ap.php">Ver tabla de Access point</a></td>
+              </tr>
+              <tr>
                 <td>Empleados</td>
-                <td><a href="nuevo_empleado.php">Agregar Empleados</a></td>
+                <td><a href="nuevo_empleado.php">Agregar Empleado</a></td>
                 <td><a href="tabla_empleados.php">Ver tabla de Empleados</a></td>
               </tr>
 
