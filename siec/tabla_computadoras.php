@@ -10,7 +10,7 @@ if(isset($_GET['borrar'])){
 }
 ?>
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="es" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -463,7 +463,7 @@ if(isset($_GET['borrar'])){
                 <th class="sort asc">Direcctorio activo</th>
                 <th class="sort asc">Antivirus</th>
                 <th class="sort asc">Escritorio remoto</th>
-                
+                <th class="sort asc">Estado</th>
                 <th class="sort asc">Observaciones</th>
                 <th></th>
             </thead>
@@ -502,15 +502,17 @@ function getData() {
     let pagina = document.getElementById("pagina").value || 1;
     let orderCol = document.getElementById("orderCol").value;
     let orderType = document.getElementById("orderType").value;
+
     // Nombres de los archivos dinámicos
-    let editFile = "nuevo_registro.php"; // Cambia según el archivo
-    let deleteFile = "tabla_computadoras.php"; // Cambia según el archivo
+    let editFile = "nuevo_registro.php";
+    let deleteFile = "tabla_computadoras.php";
+
     let formaData = new FormData();
     formaData.append('table', 'computadoras'); // Tabla dinámica
     formaData.append('columns', 'oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,d_activo,antivirus,escritorio_remoto,observaciones'); // Columnas dinámicas
     formaData.append('id', 'id_computadora'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
-    formaData.append('deleteFile', deleteFile);
+    formaData.append('deleteFile', deleteFile); // Archivo de eliminación
     formaData.append('campo', input);
     formaData.append('registros', num_registros);
     formaData.append('pagina', pagina);
@@ -529,6 +531,7 @@ function getData() {
     })
     .catch(err => console.log(err));
 }
+
 
 // Función para cambiar de página
 function nextPage(pagina) {
