@@ -453,9 +453,15 @@ include "autoloader.php";
               </tr>
 
               <tr>
-                <td>Categoria</td>
+                <td>Categorias</td>
                 <td><a href="nuevo_categoria.php">Agregar Categoria</a></td>
                 <td><a href="tabla_categorias.php">Ver tabla de Categorias</a></td>
+              </tr>
+
+              <tr>
+                <td>Access Points</td>
+                <td><a href="nuevo_ap.php">Agregar Empleados</a></td>
+                <td><a href="tabla_ap.php">Ver tabla de Empleados</a></td>
               </tr>
 
 

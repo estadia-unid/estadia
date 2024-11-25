@@ -447,7 +447,6 @@ if(isset($_GET['borrar'])){
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
             <thead>
-                <th class="sort asc">ID</th>
                 <th class="sort asc">Siitic</th>
                 <th class="sort asc">IP</th>
                 <th class="sort asc">Mascara</th>
@@ -503,7 +502,7 @@ function getData() {
     let deleteFile = "tabla_ap.php"; // Cambia según el archivo
     let formaData = new FormData();
     formaData.append('table', 'aps'); // Tabla dinámica
-    formaData.append('columns', 'id_ap,siitic,ip,mask,gw,marca,modelo,serial,ubicacion,descripcion,firmware,channel,sec,newpass'); // Columnas dinámicas
+    formaData.append('columns', 'siitic,ip,mask,gw,marca,modelo,serial,ubicacion,descripcion,firmware,channel,sec,newpass'); // Columnas dinámicas
     formaData.append('id', 'id_ap'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
     formaData.append('deleteFile', deleteFile);
