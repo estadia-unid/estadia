@@ -454,7 +454,6 @@ if(isset($_GET['borrar'])){
                 <th class="sort asc">Activo Fijo</th>
                 <th class="sort asc">Inventario</th>
                 <th class="sort asc">Observaciones</th>
-                <th class="sort asc">Estado</th>
                 <th></th>
             </thead>
 
