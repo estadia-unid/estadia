@@ -201,24 +201,27 @@ include "autoloader.php";
 
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
 
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"> <img width="20%" height="20%"  src="imagen_usuario.php">  <?php echo "Hola". $_SESSION['rpe']; ?></a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"> <?php echo "Hola" . ' ' . $_SESSION['rpe']; ?></a>
 
   <ul class="navbar-nav flex-row d-md-none">
+    <!--
     <li class="nav-item text-nowrap">
       <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle search">
         <svg class="bi"><use xlink:href="#search"/></svg>
       </button>
     </li>
+    -->
     <li class="nav-item text-nowrap">
       <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <svg class="bi"><use xlink:href="#list"/></svg>
       </button>
     </li>
   </ul>
-
+    <!--
   <div id="navbarSearch" class="navbar-search w-100">
     <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
   </div>
+    -->
 </header>
 
 <div class="container-fluid">
@@ -243,7 +246,7 @@ include "autoloader.php";
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="menu.php">
+                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="menu.php">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"/>
                         <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/>
@@ -266,7 +269,7 @@ include "autoloader.php";
               </h6>
             <ul class="nav flex-column mb-auto">
               <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="tabla_computadoras.php">
+                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="tabla_computadoras.php">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc" viewBox="0 0 16 16">
                     <path d="M5 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm.5 14a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1m2 0a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1M5 1.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5M5.5 3h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1"/>
                   </svg>
@@ -336,6 +339,7 @@ include "autoloader.php";
                   INFORME DE PC POR EMPLEADO
                 </a>
               </li>
+              <!--
               <li class="nav-item">
                 <a class="nav-link d-flex align-items-center gap-2" href="informe_empleado.php">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
@@ -345,6 +349,7 @@ include "autoloader.php";
                   INFORME DE EMPLEADO
                 </a>
               </li>
+              -->
               <li class="nav-item">
                 <a class="nav-link d-flex align-items-center gap-2" href="informe_servidores_de_red.php">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
@@ -359,14 +364,6 @@ include "autoloader.php";
             <hr class="my-3">
   
             <ul class="nav flex-column mb-auto">
-              <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="configuracion.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-wide-connected" viewBox="0 0 16 16">
-                        <path d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5m0-1a4.998 4.998 0 0 0-7.557-3.779l2.834 3.78zM5.048 3.967l-.087.065zm-.431.355A4.98 4.98 0 0 0 3.002 8c0 1.455.622 2.765 1.615 3.678L7.375 8zm.344 7.646.087.065z"/>
-                      </svg>
-                  Configuracion
-                </a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link d-flex align-items-center gap-2" href="ControlSesiones.php?cerrarSesion=true">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
@@ -384,18 +381,7 @@ include "autoloader.php";
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Bienvenido</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="ControlSesiones.php?cerrarSesion=true">cerrar sesion</a></button>
-
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-            <svg class="bi"><use xlink:href="#calendar3"/></svg>
-            This week
-          </button>
-        </div>
+        <h1 class="h2">Menu</h1>
       </div>
 
       <div class="table-responsive row py-4">
@@ -411,8 +397,13 @@ include "autoloader.php";
             <tbody id="content">
 
               <tr>
+                <td>Access Points</td>
+                <td><a href="nuevo_ap.php">Agregar Access point</a></td>
+                <td><a href="tabla_ap.php">Ver tabla de Access point</a></td>
+              </tr>
+              <tr>
                 <td>Empleados</td>
-                <td><a href="nuevo_empleado.php">Agregar Empleados</a></td>
+                <td><a href="nuevo_empleado.php">Agregar Empleado</a></td>
                 <td><a href="tabla_empleados.php">Ver tabla de Empleados</a></td>
               </tr>
 
@@ -453,9 +444,15 @@ include "autoloader.php";
               </tr>
 
               <tr>
-                <td>Categoria</td>
+                <td>Categorias</td>
                 <td><a href="nuevo_categoria.php">Agregar Categoria</a></td>
                 <td><a href="tabla_categorias.php">Ver tabla de Categorias</a></td>
+              </tr>
+
+              <tr>
+                <td>Access Points</td>
+                <td><a href="nuevo_ap.php">Agregar Empleados</a></td>
+                <td><a href="tabla_ap.php">Ver tabla de Empleados</a></td>
               </tr>
 
 
