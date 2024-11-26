@@ -137,19 +137,6 @@ switch($_POST['accion']){
     </style>
 
     <link href="css/dashboard.css" rel="stylesheet">
-    <script>
-        function filtrarOpciones() {
-            const input = document.getElementById('buscador');
-            const filter = input.value.toLowerCase();
-            const select = document.getElementById('opciones');
-            const opciones = select.getElementsByTagName('option');
-
-            for (let i = 0; i < opciones.length; i++) {
-                const texto = opciones[i].textContent || opciones[i].innerText;
-                opciones[i].style.display = texto.toLowerCase().includes(filter) ? '' : 'none';
-            }
-        }
-    </script>
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -295,9 +282,8 @@ switch($_POST['accion']){
                 <form action="" method="post">
 
                 <div class="col-md-4">
-                <label for="buscador">Buscar:</label>
-                  <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
-                      <label for="opciones" class="form-label">ubicacion</label>
+                      <label for="opciones" class="form-label">Ubicacion</label>
+                      <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
                       <select class="form-select" id="opciones" name="ubicacion">
                         <?php
                         if(isset($datoseditar[0]['ubicacion'])){ 

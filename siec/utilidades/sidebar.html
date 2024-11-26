@@ -1,3 +1,16 @@
+<script>
+  function filtrarOpciones() {
+      const input = document.getElementById('buscador');
+      const filter = input.value.toLowerCase();
+      const select = document.getElementById('opciones');
+      const opciones = select.getElementsByTagName('option');
+
+      for (let i = 0; i < opciones.length; i++) {
+          const texto = opciones[i].textContent || opciones[i].innerText;
+          opciones[i].style.display = texto.toLowerCase().includes(filter) ? '' : 'none';
+      }
+  }
+</script>
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
 
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"> <?php echo "Hola". '  ' . $_SESSION['rpe']; ?></a>
