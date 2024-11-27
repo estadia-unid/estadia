@@ -7,6 +7,15 @@ if(isset($_GET['borrar'])){
   $where = "`id_computadora` = $registro";
   $datos = new ControlFormulario('');
   $datosborrar = $datos->borrar($conecta,'computadoras',$where);
+  $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+}
+if(isset($_GET['refaccionamiento'])){
+  $registro = $_GET['refaccionamiento'];
+  $where = "`id_computadora` = $registro";
+  $datos = new ControlFormulario('');
+  $formulario = $datos->copiar_datos($conecta,'computadoras','refac_computadoras',$where);
+  $datosborrar = $datos->borrar($conecta,'computadoras',$where);
+  $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
 }
 ?>
 <!doctype html>
@@ -394,6 +403,7 @@ if(isset($_GET['borrar'])){
         <div class="btn-group me-2">
             
           <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_registro.php">agregar</a></button>
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="refaccionamiento.php">ver refaccionamiento</a></button>
                   <!--  
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
@@ -404,7 +414,12 @@ if(isset($_GET['borrar'])){
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-    <h2></h2>
+    <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                ?>
 
 <div class="row g-4">
 
@@ -506,7 +521,7 @@ function getData() {
     // Nombres de los archivos dinámicos
     let editFile = "nuevo_registro.php";
     let deleteFile = "tabla_computadoras.php";
-
+    let refaccionamientoFile = "refaccionamientoFile.php";
     let formaData = new FormData();
     formaData.append('table', 'computadoras'); // Tabla dinámica
     formaData.append('columns', 'oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,d_activo,antivirus,escritorio_remoto,observaciones'); // Columnas dinámicas

@@ -7,6 +7,15 @@ if(isset($_GET['borrar'])){
   $where = "`id_switch` = $registro";
   $datos = new ControlFormulario('');
   $datosborrar = $datos->borrar($conecta,'switches',$where);
+  $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+}
+if(isset($_GET['refaccionamiento'])){
+  $registro = $_GET['refaccionamiento'];
+  $where = "`id_switch` = $registro";
+  $datos = new ControlFormulario('');
+  $formulario = $datos->copiar_datos($conecta,'switches','refac_switches',$where);
+  $datosborrar = $datos->borrar($conecta,'switches',$where);
+  $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
 }
 ?>
 <!doctype html>
@@ -220,7 +229,8 @@ if(isset($_GET['borrar'])){
         <div class="btn-group me-2">
             
           <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_switch.php">Agregar</a></button>
-            <!--    
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="refac_switches.php">ver refaccionamiento</a></button>  
+          <!--    
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
             -->
@@ -235,7 +245,12 @@ if(isset($_GET['borrar'])){
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-    <h2></h2>
+    <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                ?>
 
 <div class="row g-4">
 

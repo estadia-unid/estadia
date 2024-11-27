@@ -8,7 +8,7 @@ class ControlFormulario{
             $columnas = implode(", ", array_keys($datos));
             $valores = ":" . implode(", :", array_keys($datos));
             $insertar = "INSERT INTO `$tabla` ($columnas) VALUES ($valores)";
-            echo $insertar;
+            //echo $insertar;
             $sql = $conecta->prepare($insertar);
             foreach ($datos as $clave => $valor) {
                 $sql->bindValue(":$clave", $valor);
@@ -20,7 +20,7 @@ class ControlFormulario{
     }
     function leer($conecta,$tabla,$where = '1'){
         $lectura = "SELECT * FROM `$tabla` WHERE $where";
-        echo $lectura;
+        //echo $lectura;
         $resultado_leer = $conecta->prepare($lectura);
         $resultado_leer->execute([]);
         return $resultado_leer->fetchAll(PDO::FETCH_ASSOC);
@@ -47,13 +47,24 @@ class ControlFormulario{
     function borrar($conecta,$tabla,$where){
         try{
             $borrar = "DELETE FROM `$tabla` WHERE $where";
-            echo $borrar;   
+            //echo $borrar;   
             $sql = $conecta->prepare($borrar);
             $sql->execute();
         }catch(Exception $e){
             echo "Ocurrió un error al borrar los datos: " . $e->getMessage();
         }
     }
+    function copiar_datos($conecta, $tabla_origen, $tabla_destino, $where = '1') {
+        try {
+            $datos = $this->leer($conecta, $tabla_origen, $where);
+            foreach ($datos as $fila) {
+                $this->insertar_datos($conecta, $tabla_destino, $fila);
+            }
+        } catch (Exception $e) {
+            echo "Error al copiar los datos: " . $e->getMessage();
+        }
+    }
+    
 }
 /*
     cosas utilizadas:

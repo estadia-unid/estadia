@@ -4,6 +4,9 @@ $id = isset($_POST['id']) ? htmlspecialchars($_POST['id']) : null; // ID de la t
 $table = isset($_POST['table']) ? htmlspecialchars($_POST['table']) : null;
 $columns = isset($_POST['columns']) ? explode(',', htmlspecialchars($_POST['columns'])) : [];
 
+// Tablas específicas para mostrar el botón "Enviar a refaccionamiento"
+$tablasConRefaccionamiento = ['computadoras', 'switches','laptops']; // Cambia estos nombres a los de tus tablas
+
 // Validar parámetros
 if (!$table || !$columns || !$id) {
     echo json_encode(['error' => 'Faltan parámetros necesarios']);
@@ -64,7 +67,7 @@ if ($data) {
             $output['data'] .= '<td>' . htmlspecialchars($row[$column]) . '</td>';
         }
 
-        // Agregar acciones de edición y eliminación usando el ID
+        // Agregar acciones de edición, eliminación y "Enviar a refaccionamiento"
         $output['data'] .= '<td>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,8 +75,14 @@ if ($data) {
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['editFile']) . '?editar=' . $row[$id] . '">Editar</a></li>
-                    <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?borrar=' . $row[$id] . '">Eliminar</a></li>
-                </ul>
+                    <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?borrar=' . $row[$id] . '">Eliminar</a></li>';
+
+        // Mostrar botón "Enviar a refaccionamiento" solo para tablas específicas
+        if (in_array($table, $tablasConRefaccionamiento)) {
+            $output['data'] .= '<li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?refaccionamiento=' . $row[$id] . '">Enviar a refaccionamiento</a></li>';
+        }
+
+        $output['data'] .= '</ul>
             </div>
         </td>';
 
