@@ -5,7 +5,7 @@ $table = isset($_POST['table']) ? htmlspecialchars($_POST['table']) : null;
 $columns = isset($_POST['columns']) ? explode(',', htmlspecialchars($_POST['columns'])) : [];
 
 // Tablas específicas para mostrar el botón "Enviar a refaccionamiento"
-$tablasConRefaccionamiento = ['computadoras','servidores', 'switches','laptops','aps']; // Cambia estos nombres a los de tus tablas
+$tablasConRefaccionamiento = ['refac_computadoras', 'refac_switches','refac_servidores','refac_laptops','refac_aps']; // Cambia estos nombres a los de tus tablas
 
 // Validar parámetros
 if (!$table || !$columns || !$id) {
@@ -74,12 +74,11 @@ if ($data) {
                     Opciones
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['editFile']) . '?editar=' . $row[$id] . '">Editar</a></li>
                     <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?borrar=' . $row[$id] . '">Eliminar</a></li>';
 
         // Mostrar botón "Enviar a refaccionamiento" solo para tablas específicas
         if (in_array($table, $tablasConRefaccionamiento)) {
-            $output['data'] .= '<li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?refaccionamiento=' . $row[$id] . '">Enviar a refaccionamiento</a></li>';
+            $output['data'] .= '<li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?refaccionamiento=' . $row[$id] . '">Reactivar</a></li>';
         }
 
         $output['data'] .= '</ul>

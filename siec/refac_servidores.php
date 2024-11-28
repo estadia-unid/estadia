@@ -4,21 +4,21 @@ include "autoloader.php";
 
 if(isset($_GET['borrar'])){
   $registro = $_GET['borrar'];
-  $where = "`id_laptop` = $registro";
+  $where = "`id_servidor` = $registro";
   $datos = new ControlFormulario('');
-  $datosborrar = $datos->borrar($conecta,'laptops',$where);
+  $datosborrar = $datos->borrar($conecta,'refac_servidores',$where);
   $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
-  header("Location: tabla_laptops.php");
+  header("Location: refac_servidores.php");
   die();
 }
 if(isset($_GET['refaccionamiento'])){
   $registro = $_GET['refaccionamiento'];
-  $where = "`id_laptop` = $registro";
+  $where = "`id_servidor` = $registro";
   $datos = new ControlFormulario('');
-  $formulario = $datos->copiar_datos($conecta,'laptops','refac_laptops',$where);
-  $datosborrar = $datos->borrar($conecta,'laptops',$where);
-  $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
-  header("Location: tabla_laptops.php");
+  $formulario = $datos->copiar_datos($conecta,'refac_servidores','servidores',$where);
+  $datosborrar = $datos->borrar($conecta,'refac_servidores',$where);
+  $_SESSION['mensaje'] = "El registro se encuentra activo de nuevo";
+  header("Location: refac_servidores.php");
   die();
 }
 ?>
@@ -297,7 +297,7 @@ if(isset($_GET['refaccionamiento'])){
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"  href="tabla_laptops.php">
+              <a class="nav-link d-flex align-items-center gap-2" href="tabla_laptops.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
                   <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5"/>
                 </svg>
@@ -305,7 +305,7 @@ if(isset($_GET['refaccionamiento'])){
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="tabla_servidores.php">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="tabla_servidores.php">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc-horizontal" viewBox="0 0 16 16">
                 <path d="M1 6a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm11.5 1a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1m2 0a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1M1 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5M1.25 9h5.5a.25.25 0 0 1 0 .5h-5.5a.25.25 0 0 1 0-.5"/>
               </svg>
@@ -399,23 +399,27 @@ if(isset($_GET['refaccionamiento'])){
     </div>
     <!-- sidebar-->
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Laptops</h1>
+        <h1 class="h2">Servidores en refaccionamiento</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
 
         <div class="btn-group me-2">
-            
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_laptop.php">Agregar</a></button>
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="refac_laptops.php">ver refaccionamiento</a></button>
-
-          <!--  
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
+                      <!--    
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_switch.php">Agregar</a></button>
+                      -->
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_servidores.php">ver activos</a></button>  
+          <!--    
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
-                    -->
+            -->
           </div>
-
-
+          <!--  
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
+            <svg class="bi"><use xlink:href="#calendar3"/></svg>
+            This week
+          </button>
+          -->
         </div>
       </div>
 
@@ -459,37 +463,19 @@ if(isset($_GET['refaccionamiento'])){
 <div class="table-responsive row py-4">
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <th class="sort asc">Oficial</th>
-                <th class="sort asc">Departamento Asignado</th>
-                <th class="sort asc">puesto</th>
-                <th class="sort asc">Usuario Responsable</th>
-                <th class="sort asc">RPE</th>
-                <th class="sort asc">Nombre del equipo</th>
-                <th class="sort asc">Activo fijo</th>
-                <th class="sort asc">Inventario</th>
-                <th class="sort asc">Numero de serie</th>
+        <thead>
                 <th class="sort asc">Marca</th>
                 <th class="sort asc">Modelo</th>
+                <th class="sort asc">Numero de serie</th>
                 <th class="sort asc">Procesador</th>
                 <th class="sort asc">Velocidad</th>
-                <th class="sort asc">Sistema Operativo</th>
-                <th class="sort asc">Direccion IP</th>
-                <th class="sort asc">VLan a la que pertenece</th>
-                <th class="sort asc">Direccion MAC WIFI</th>
-                <th class="sort asc">Direccion MAC Ethernet</th>
                 <th class="sort asc">Memoria RAM</th>
-                <th class="sort asc">Disco duro</th>
-                <th class="sort asc">Resguardo</th>
-                <th class="sort asc">Dominio</th>
-                <th class="sort asc">Direcctorio activo</th>
-                <th class="sort asc">Antivirus</th>
-                <th class="sort asc">Escritorio remoto</th>
-                <th class="sort asc">Estado</th>
+                <th class="sort asc">IP</th>
+                <th class="sort asc">Activo Fijo</th>
+                <th class="sort asc">Inventario</th>
                 <th class="sort asc">Observaciones</th>
                 <th></th>
             </thead>
-
             <!-- El id del cuerpo de la tabla. -->
             <tbody id="content">
 
@@ -525,12 +511,12 @@ function getData() {
     let orderCol = document.getElementById("orderCol").value;
     let orderType = document.getElementById("orderType").value;
     // Nombres de los archivos dinámicos
-    let editFile = "nuevo_laptop.php"; // Cambia según el archivo
-    let deleteFile = "tabla_laptops.php"; // Cambia según el archivo
+    let editFile = "nuevo_ap.php"; // Cambia según el archivo
+    let deleteFile = "refac_servidores.php"; // Cambia según el archivo
     let formaData = new FormData();
-    formaData.append('table', 'laptops'); // Tabla dinámica
-    formaData.append('columns', 'oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,resg,d_activo,antivirus,escritorio_remoto,estado,observaciones'); // Columnas dinámicas
-    formaData.append('id', 'id_laptop'); // Clave primaria
+    formaData.append('table', 'refac_servidores'); // Tabla dinámica
+    formaData.append('columns', 'marca,modelo,num_serie,procesador,velocidad,ram,ip,activo_fijo,inventario,observaciones'); // Columnas dinámicas
+    formaData.append('id', 'id_servidor'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
     formaData.append('deleteFile', deleteFile);
     formaData.append('campo', input);
@@ -539,7 +525,7 @@ function getData() {
     formaData.append('orderCol', orderCol);
     formaData.append('orderType', orderType);
 
-    fetch("load.php", {
+    fetch("load_refac.php", {
         method: "POST",
         body: formaData
     })

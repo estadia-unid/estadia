@@ -7,6 +7,19 @@ if(isset($_GET['borrar'])){
   $where = "`id_servidor` = $registro";
   $datos = new ControlFormulario('');
   $datosborrar = $datos->borrar($conecta,'servidores',$where);
+  $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+  header("Location: tabla_servidores.php");
+  die();
+}
+if(isset($_GET['refaccionamiento'])){
+  $registro = $_GET['refaccionamiento'];
+  $where = "`id_servidor` = $registro";
+  $datos = new ControlFormulario('');
+  $formulario = $datos->copiar_datos($conecta,'servidores','refac_servidores',$where);
+  $datosborrar = $datos->borrar($conecta,'servidores',$where);
+  $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
+  header("Location: tabla_servidores.php");
+  die();
 }
 ?>
 <!doctype html>
@@ -394,7 +407,9 @@ if(isset($_GET['borrar'])){
         <div class="btn-group me-2">
             
           <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_servidores.php">Agregar</a></button>
-            <!--    
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="refac_servidores.php">ver refaccionamiento</a></button>
+
+          <!--    
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
             -->
@@ -409,7 +424,12 @@ if(isset($_GET['borrar'])){
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-    <h2></h2>
+    <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                ?>
 
 <div class="row g-4">
 

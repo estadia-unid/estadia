@@ -6,19 +6,19 @@ if(isset($_GET['borrar'])){
   $registro = $_GET['borrar'];
   $where = "`id_laptop` = $registro";
   $datos = new ControlFormulario('');
-  $datosborrar = $datos->borrar($conecta,'laptops',$where);
+  $datosborrar = $datos->borrar($conecta,'refac_laptops',$where);
   $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
-  header("Location: tabla_laptops.php");
+  header("Location: refac_laptops.php");
   die();
 }
 if(isset($_GET['refaccionamiento'])){
   $registro = $_GET['refaccionamiento'];
   $where = "`id_laptop` = $registro";
   $datos = new ControlFormulario('');
-  $formulario = $datos->copiar_datos($conecta,'laptops','refac_laptops',$where);
-  $datosborrar = $datos->borrar($conecta,'laptops',$where);
-  $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
-  header("Location: tabla_laptops.php");
+  $formulario = $datos->copiar_datos($conecta,'refac_laptops','laptops',$where);
+  $datosborrar = $datos->borrar($conecta,'refac_laptops',$where);
+  $_SESSION['mensaje'] = "El registro se encuentra activo de nuevo";
+  header("Location: refac_laptops.php");
   die();
 }
 ?>
@@ -399,23 +399,27 @@ if(isset($_GET['refaccionamiento'])){
     </div>
     <!-- sidebar-->
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Laptops</h1>
+        <h1 class="h2">Laptops en refaccionamiento</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
 
         <div class="btn-group me-2">
-            
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_laptop.php">Agregar</a></button>
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="refac_laptops.php">ver refaccionamiento</a></button>
-
-          <!--  
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
+                      <!--    
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_switch.php">Agregar</a></button>
+                      -->
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_laptops.php">ver activos</a></button>  
+          <!--    
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
-                    -->
+            -->
           </div>
-
-
+          <!--  
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
+            <svg class="bi"><use xlink:href="#calendar3"/></svg>
+            This week
+          </button>
+          -->
         </div>
       </div>
 
@@ -459,7 +463,7 @@ if(isset($_GET['refaccionamiento'])){
 <div class="table-responsive row py-4">
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
-            <thead>
+        <thead>
                 <th class="sort asc">Oficial</th>
                 <th class="sort asc">Departamento Asignado</th>
                 <th class="sort asc">puesto</th>
@@ -489,7 +493,6 @@ if(isset($_GET['refaccionamiento'])){
                 <th class="sort asc">Observaciones</th>
                 <th></th>
             </thead>
-
             <!-- El id del cuerpo de la tabla. -->
             <tbody id="content">
 
@@ -525,10 +528,10 @@ function getData() {
     let orderCol = document.getElementById("orderCol").value;
     let orderType = document.getElementById("orderType").value;
     // Nombres de los archivos dinámicos
-    let editFile = "nuevo_laptop.php"; // Cambia según el archivo
-    let deleteFile = "tabla_laptops.php"; // Cambia según el archivo
+    let editFile = "nuevo_ap.php"; // Cambia según el archivo
+    let deleteFile = "refac_laptops.php"; // Cambia según el archivo
     let formaData = new FormData();
-    formaData.append('table', 'laptops'); // Tabla dinámica
+    formaData.append('table', 'refac_laptops'); // Tabla dinámica
     formaData.append('columns', 'oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,resg,d_activo,antivirus,escritorio_remoto,estado,observaciones'); // Columnas dinámicas
     formaData.append('id', 'id_laptop'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
@@ -539,7 +542,7 @@ function getData() {
     formaData.append('orderCol', orderCol);
     formaData.append('orderType', orderType);
 
-    fetch("load.php", {
+    fetch("load_refac.php", {
         method: "POST",
         body: formaData
     })

@@ -7,6 +7,15 @@ if(isset($_GET['borrar'])){
   $where = "`id_ap` = $registro";
   $datos = new ControlFormulario('');
   $datosborrar = $datos->borrar($conecta,'aps',$where);
+  $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+}
+if(isset($_GET['refaccionamiento'])){
+  $registro = $_GET['refaccionamiento'];
+  $where = "`id_ap` = $registro";
+  $datos = new ControlFormulario('');
+  $formulario = $datos->copiar_datos($conecta,'aps','refac_aps',$where);
+  $datosborrar = $datos->borrar($conecta,'aps',$where);
+  $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
 }
 ?>
 <!doctype html>
@@ -220,6 +229,7 @@ if(isset($_GET['borrar'])){
         <div class="btn-group me-2">
             
           <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_ap.php">Agregar</a></button>
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="refac_aps.php">ver refaccionamiento</a></button> 
             <!--    
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
@@ -283,7 +293,6 @@ if(isset($_GET['borrar'])){
                 <th class="sort asc">Canal</th>
                 <th class="sort asc">Sec</th>
                 <th class="sort asc">Newpas</th>
-                <th class="sort asc">Estado</th>
                 <th></th>
             </thead>
 
