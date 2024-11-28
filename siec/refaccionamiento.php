@@ -7,6 +7,19 @@ if(isset($_GET['borrar'])){
   $where = "`id_computadora` = $registro";
   $datos = new ControlFormulario('');
   $datosborrar = $datos->borrar($conecta,'refac_computadoras',$where);
+  $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+  header("Location: refaccionamiento.php");
+  die();
+}
+if(isset($_GET['refaccionamiento'])){
+  $registro = $_GET['refaccionamiento'];
+  $where = "`id_computadora` = $registro";
+  $datos = new ControlFormulario('');
+  $formulario = $datos->copiar_datos($conecta,'refac_computadoras','computadoras',$where);
+  $datosborrar = $datos->borrar($conecta,'refac_computadoras',$where);
+  $_SESSION['mensaje'] = "El registro se encuentra activo de nuevo";
+  header("Location: refaccionamiento.php");
+  die();
 }
 ?>
 <!doctype html>
@@ -388,23 +401,29 @@ if(isset($_GET['borrar'])){
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Computadoras</h1>
+        <h1 class="h2">Computadoras En Refaccionamiento</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-                  <!--  
+                  
         <div class="btn-group me-2">
-            
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_registro.php">agregar</a></button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php">ver activos</a></button>  
+          <!--  
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_registro.php">agregar</a></button>
 
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
-
-          </div>
                     -->
+          </div>
+
         </div>
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-    <h2></h2>
+    <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                ?>
 
 <div class="row g-4">
 
@@ -505,7 +524,7 @@ function getData() {
 
     // Nombres de los archivos dinámicos
     let editFile = "nuevo_registro.php";
-    let deleteFile = "tabla_computadoras.php";
+    let deleteFile = "refaccionamiento.php";
 
     let formaData = new FormData();
     formaData.append('table', 'refac_computadoras'); // Tabla dinámica
@@ -519,7 +538,7 @@ function getData() {
     formaData.append('orderCol', orderCol);
     formaData.append('orderType', orderType);
 
-    fetch("load.php", {
+    fetch("load_refac.php", {
         method: "POST",
         body: formaData
     })

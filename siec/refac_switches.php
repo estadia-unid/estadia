@@ -8,14 +8,18 @@ if(isset($_GET['borrar'])){
   $datos = new ControlFormulario('');
   $datosborrar = $datos->borrar($conecta,'refac_switches',$where);
   $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+  header("Location: refac_switches.php");
+  die();
 }
 if(isset($_GET['refaccionamiento'])){
   $registro = $_GET['refaccionamiento'];
   $where = "`id_switch` = $registro";
   $datos = new ControlFormulario('');
-  $formulario = $datos->copiar_datos($conecta,'switches','refac_switches',$where);
-  $datosborrar = $datos->borrar($conecta,'switches',$where);
-  $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
+  $formulario = $datos->copiar_datos($conecta,'refac_switches','switches',$where);
+  $datosborrar = $datos->borrar($conecta,'refac_switches',$where);
+  $_SESSION['mensaje'] = "El registro se encuentra activo de nuevo";
+  header("Location: refac_switches.php");
+  die();
 }
 ?>
 <!doctype html>
@@ -349,7 +353,7 @@ function getData() {
     formaData.append('orderCol', orderCol);
     formaData.append('orderType', orderType);
 
-    fetch("load.php", {
+    fetch("load_refac.php", {
         method: "POST",
         body: formaData
     })

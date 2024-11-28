@@ -8,6 +8,8 @@ if(isset($_GET['borrar'])){
   $datos = new ControlFormulario('');
   $datosborrar = $datos->borrar($conecta,'computadoras',$where);
   $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+  header("Location: tabla_computadoras.php");
+  die();
 }
 if(isset($_GET['refaccionamiento'])){
   $registro = $_GET['refaccionamiento'];
@@ -16,6 +18,8 @@ if(isset($_GET['refaccionamiento'])){
   $formulario = $datos->copiar_datos($conecta,'computadoras','refac_computadoras',$where);
   $datosborrar = $datos->borrar($conecta,'computadoras',$where);
   $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
+  header("Location: tabla_computadoras.php");
+  die();
 }
 ?>
 <!doctype html>

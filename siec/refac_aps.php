@@ -4,18 +4,22 @@ include "autoloader.php";
 
 if(isset($_GET['borrar'])){
   $registro = $_GET['borrar'];
-  $where = "`id_switch` = $registro";
+  $where = "`id_ap` = $registro";
   $datos = new ControlFormulario('');
-  $datosborrar = $datos->borrar($conecta,'refac_switches',$where);
+  $datosborrar = $datos->borrar($conecta,'refac_aps',$where);
   $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+  header("Location: refac_aps.php");
+  die();
 }
 if(isset($_GET['refaccionamiento'])){
   $registro = $_GET['refaccionamiento'];
-  $where = "`id_switch` = $registro";
+  $where = "`id_ap` = $registro";
   $datos = new ControlFormulario('');
-  $formulario = $datos->copiar_datos($conecta,'switches','refac_switches',$where);
-  $datosborrar = $datos->borrar($conecta,'switches',$where);
-  $_SESSION['mensaje'] = "Los datos se enviaron a refaccionamiento con éxito.";
+  $formulario = $datos->copiar_datos($conecta,'refac_aps','aps',$where);
+  $datosborrar = $datos->borrar($conecta,'refac_aps',$where);
+  $_SESSION['mensaje'] = "El registro se encuentra activo de nuevo";
+  header("Location: refac_aps.php");
+  die();
 }
 ?>
 <!doctype html>
@@ -223,13 +227,15 @@ if(isset($_GET['refaccionamiento'])){
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Access points</h1>
+        <h1 class="h2">Access points en refaccionamiento</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
 
         <div class="btn-group me-2">
-            
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_ap.php">Agregar</a></button>
-            <!--    
+                      <!--    
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_switch.php">Agregar</a></button>
+                      -->
+          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_ap.php">ver activos</a></button>  
+          <!--    
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=oficiales">Oficiales</a></button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
             -->
@@ -244,7 +250,12 @@ if(isset($_GET['refaccionamiento'])){
       </div>
 
     <!-- ya ajusta bien la tabla por favor -->
-    <h2></h2>
+    <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                ?>
 
 <div class="row g-4">
 
@@ -278,7 +289,7 @@ if(isset($_GET['refaccionamiento'])){
 <div class="table-responsive row py-4">
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
-            <thead>
+        <thead>
                 <th class="sort asc">Siitic</th>
                 <th class="sort asc">IP</th>
                 <th class="sort asc">Mascara</th>
@@ -292,10 +303,8 @@ if(isset($_GET['refaccionamiento'])){
                 <th class="sort asc">Canal</th>
                 <th class="sort asc">Sec</th>
                 <th class="sort asc">Newpas</th>
-                <th class="sort asc">Estado</th>
                 <th></th>
             </thead>
-
             <!-- El id del cuerpo de la tabla. -->
             <tbody id="content">
 
@@ -332,9 +341,9 @@ function getData() {
     let orderType = document.getElementById("orderType").value;
     // Nombres de los archivos dinámicos
     let editFile = "nuevo_ap.php"; // Cambia según el archivo
-    let deleteFile = "tabla_ap.php"; // Cambia según el archivo
+    let deleteFile = "refac_aps.php"; // Cambia según el archivo
     let formaData = new FormData();
-    formaData.append('table', 'aps'); // Tabla dinámica
+    formaData.append('table', 'refac_aps'); // Tabla dinámica
     formaData.append('columns', 'siitic,ip,mask,gw,marca,modelo,serial,ubicacion,descripcion,firmware,channel,sec,newpass'); // Columnas dinámicas
     formaData.append('id', 'id_ap'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
@@ -345,7 +354,7 @@ function getData() {
     formaData.append('orderCol', orderCol);
     formaData.append('orderType', orderType);
 
-    fetch("load.php", {
+    fetch("load_refac.php", {
         method: "POST",
         body: formaData
     })
