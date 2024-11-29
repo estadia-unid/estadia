@@ -43,10 +43,10 @@ switch($_POST['accion']){
           $usuario = new ControlFormulario('');
           $usuario->insertar_datos($conecta,'computadoras',$datos);
           $_SESSION['mensaje'] = "Los datos se registraron con éxito.";
-          /*
+          
           header("Location: nuevo_registro.php");
           die();
-          */
+          
       break;
     case  'edicion':
         $where = "`id_computadora` = $registro";
@@ -153,6 +153,19 @@ switch($_POST['accion']){
     </style>
 
     <link href="css/dashboard.css" rel="stylesheet">
+    <script>
+  function filtrarOpciones() {
+      const input = document.getElementById('buscador');
+      const filter = input.value.toLowerCase();
+      const select = document.getElementById('opciones');
+      const opciones = select.getElementsByTagName('option');
+
+      for (let i = 0; i < opciones.length; i++) {
+          const texto = opciones[i].textContent || opciones[i].innerText;
+          opciones[i].style.display = texto.toLowerCase().includes(filter) ? '' : 'none';
+      }
+  }
+</script>
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -510,11 +523,12 @@ switch($_POST['accion']){
                     <div class="col-md-4">
                       <label for="state" class="form-label">Departamento Asignado</label>
                       <select class="form-select" id="state" name="departamento">
+                      <option value=""></option>
                         <?php
                           $departamentosselect = new ControlFormulario('');
                           $opciondepa = $departamentosselect->leer($conecta,'departamentos');
                           foreach($opciondepa as $row) {
-                            echo '<option value="' . $row['departamento'] . '">' . $row['departamento'] . '</option>';
+                            echo '<option value="' . $row['departamento'] . '">' . $row['cve_depto'] . '  ' . $row['departamento'] . '</option>';
                           }
                         ?>
                       </select>
@@ -523,13 +537,15 @@ switch($_POST['accion']){
                       </div>
                     </div>
                     <div class="col-md-auto">
-                      <label for="state" class="form-label">Usuario responsable</label>
-                      <select class="form-select" id="state" name="rpe" required>
+                    <label for="opciones" class="form-label">Usuario responsable</label>
+                      <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
+                      <select class="form-select" id="opciones" name="rpe">
+                      <option value=""></option>
                         <?php
                           $empleadosSelect = new ControlFormulario('');
                           $selectempe = $empleadosSelect->leer($conecta,'empleados');
                           foreach($selectempe as $row) {
-                            echo '<option value="' . $row['rpe'] . '">' . ' ' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '  ' . $row['rpe'] . '</option>';
+                            echo '<option value="' . $row['rpe'] . '">' . $row['rpe'] . ' ' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '</option>';
                           }
                         ?>
                       </select>
@@ -543,11 +559,12 @@ switch($_POST['accion']){
                     <div class="col-md-4">
                       <label for="state" class="form-label">Puesto</label>
                       <select class="form-select" id="state" name="puesto">
+                      <option value=""></option>
                         <?php
                           $departamentosselect = new ControlFormulario('');
                           $opciondepa = $departamentosselect->leer($conecta,'categorias');
                           foreach($opciondepa as $row) {
-                            echo '<option value="' . $row['categoria'] . '">' . $row['categoria'] . '</option>';
+                            echo '<option value="' . $row['categoria'] . '">' . $row['cve_categoria'] . ' ' . $row['categoria'] . '</option>';
                           }
                         ?>
                       </select>
@@ -558,6 +575,7 @@ switch($_POST['accion']){
                     <div class="col-md-4">
                       <label for="state" class="form-label">Dominio</label>
                       <select class="form-select" id="state" name="dominio" required>
+                      <option value=""></option>
                         <?php
                           $dominios = new ControlFormulario('');
                           $dominios_resultado = $dominios->leer($conecta,'dominios');
@@ -573,11 +591,12 @@ switch($_POST['accion']){
                     <div class="col-md-4">
                       <label for="state" class="form-label">Vlan</label>
                       <select class="form-select" id="state" name="vlan" required>
+                      <option value=""></option>
                         <?php
                           $vlans = new ControlFormulario('');
                           $vlans_resultado = $vlans->leer($conecta,'vlan');
                           foreach($vlans_resultado as $row){
-                            echo '<option value="' . $row['gateway'] . '">' . $row['gateway'] . '</option>';
+                            echo '<option value="' . $row['numero'] . '">' . $row['numero'] . '</option>';
                           }
                           //$vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
                           //while($vlan_resultado=mysqli_fetch_array($vlan)) {
@@ -599,28 +618,28 @@ switch($_POST['accion']){
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Disco Duro</label>
-                      <input type="text" class="form-control" id="firstName" name="disco_duro" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="disco_duro" placeholder="" value="" >
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Direccion MAC Wifi</label>
-                      <input type="text" class="form-control" id="firstName" name="mac_wifi" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="mac_wifi" placeholder="" value="" >
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Direccion MAC Ethernet</label>
-                      <input type="text" class="form-control" id="firstName" name="mac_ethernet" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="mac_ethernet" placeholder="" value="" >
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Sistema Operativo</label>
-                      <input type="text" class="form-control" id="firstName" name="so" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="so" placeholder="" value=""  >
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>

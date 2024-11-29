@@ -285,6 +285,7 @@ switch($_POST['accion']){
                       <label for="opciones" class="form-label">Ubicacion</label>
                       <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
                       <select class="form-select" id="opciones" name="ubicacion">
+                      <option value=""></option>
                         <?php
                         if(isset($datoseditar[0]['ubicacion'])){ 
                           echo '<option value="' . $datoseditar[0]['ubicacion'] . '">' . $datoseditar[0]['ubicacion'] . '</option>';
@@ -292,7 +293,7 @@ switch($_POST['accion']){
                           $departamentosselect = new ControlFormulario('');
                           $opciondepa = $departamentosselect->leer($conecta,'departamentos');
                           foreach($opciondepa as $row) {
-                            echo '<option value="' . $row['departamento'] . '">' . $row['departamento'] . '</option>';
+                            echo '<option value="' . $row['departamento'] . '">' . $row['cve_depto'] . '  ' . $row['departamento'] . '</option>';
                           }
                         ?>
                       </select>
