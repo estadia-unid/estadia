@@ -1,7 +1,5 @@
-<?
-session_start();
-setcookie('PHPSESSID', $_COOKIE['PHPSESSID'], time()+86400);
-if($_SESSION["autentica"] != "SIP"){
+<?php
+if(!isset($_SESSION["rpe"])){
 	header("Location:index.php");
 	exit();
 }

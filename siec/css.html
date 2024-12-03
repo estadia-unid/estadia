@@ -1,14 +1,3 @@
-<?php
-include_once "conexion.php";
-include "autoloader.php";
-
-if(isset($_POST['guardar'])){
-    $usuario = $_POST['rpe'];
-    $contraseña = $_POST['contraseña'];
-    $usuario = new ControlSesiones($usuario,$contraseña);
-    $usuario->iniciar_sesion($conecta);
-}
-?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
@@ -77,14 +66,13 @@ if(isset($_POST['guardar'])){
       .btn-bd-primary {
         --bd-violet-bg: #198754;
         --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
         --bs-btn-font-weight: 600;
         --bs-btn-color: var(--bs-white);
         --bs-btn-bg: var(--bd-violet-bg);
         --bs-btn-border-color: var(--bd-violet-bg);
         --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #198754;
-        --bs-btn-hover-border-color: #198754;
+        --bs-btn-hover-bg: #0f663e;
+        --bs-btn-hover-border-color: #0b5a35;
         --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
         --bs-btn-active-color: var(--bs-btn-hover-color);
         --bs-btn-active-bg: #198754;
@@ -162,13 +150,6 @@ if(isset($_POST['guardar'])){
     -->
 
     <main class="form-signin w-100 m-auto">
-                <?php
-                  if (isset($_SESSION['mensaje'])) {
-                  echo '<div class="alert alert-danger" role="alert">' . $_SESSION['mensaje'] . '</div>';
-                  unset($_SESSION['mensaje']);
-                  }
-                  //https://getbootstrap.com/docs/5.3/components/alerts/#examples
-                ?>
       <form action="" method="post">
         <div class="text-center">
           <img class="mb-6" src="imagenes/svg/cfe_icon.svg" alt="logo cfe en svg" width="200" height="160">
