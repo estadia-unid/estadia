@@ -5,39 +5,55 @@ include "autoloader.php";
 
 if(isset($_GET['editar'])){
   $registro = $_GET['editar'];
-  $where = "`id_servidor` = $registro";
+  $where = "`id_empleado` = $registro";
   $datos = new ControlFormulario('');
-  $datoseditar = $datos->leer($conecta,'servidores',$where);
+  $datoseditar = $datos->leer($conecta,'empleados',$where);
 }
 
 if(isset($_POST['insertar'])){
   $datos = [
-    'marca' => $_POST['marca'],
-    'modelo' => $_POST['modelo'],
-    'num_serie' => $_POST['numeroserie'],
-    'procesador' => $_POST['procesador'],
-    'velocidad' => $_POST['velocidad'],
-    'ram' => $_POST['ram'],
-    'ip' => $_POST['ip'],
-    'activo_fijo' => $_POST['activo'],
-    'inventario' => $_POST['inventario'],
-    'observaciones' => $_POST['observaciones'],
+    'centro_trabajo' => $_POST['centro_trabajo'],
+    'rpe' => $_POST['rpe'],
+    'nombre' => $_POST['nombre'],
+    'a_paterno' => $_POST['a_paterno'],
+    'a_materno' => $_POST['a_materno'],
+    'rfc' => $_POST['rfc'],
+    'nss' => $_POST['nss'],
+    'sexo' => $_POST['sexo'],
+    'n_plaza' => $_POST['n_plaza'],
+    'categ' => $_POST['categ'],
+    'f_nacimiento' => $_POST['f_nacimiento'],
+    'edad_actual' => $_POST['edad_actual'],
+    'fecha_antiguedad' => $_POST['fecha_antiguedad'],
+    'fecha_jubilacion' => $_POST['fecha_jubilacion'],
+    'ent_federativa' => $_POST['ent_federativa'],
+    'rama' => $_POST['rama'],
+    'tp_contrato' => $_POST['tp_contrato'],
+    'est_civil' => $_POST['est_civil'],
+    'correo' => $_POST['correo'],
+    'curp' => $_POST['curp'],
+    'alta_permanente' => $_POST['alta_permanente'],
+    'fecha_fidelidad' => $_POST['fecha_fidelidad'],
+    'porcentaje_fidelidad' => $_POST['porcentaje_fidelidad'],
+    'escolaridad' => $_POST['escolaridad'],
     ];
 
 switch($_POST['accion']){
   case 'insertar':
           $usuario = new ControlFormulario('');
-          $usuario->insertar_datos($conecta,'servidores',$datos);
+          $usuario->insertar_datos($conecta,'empleados',$datos);
           $_SESSION['mensaje'] = "Los datos se registraron con éxito.";
-          header("Location: nuevo_servidores.php");
+          
+          header("Location: nuevo_empleado.php");
           die();
+          
       break;
     case  'edicion':
-        $where = "`id_servidor` = $registro";
+        $where = "`id_empleado` = $registro";
         $usuario = new ControlFormulario('');
-        $usuario->actualizar($conecta,'servidores',$datos,$where);
+        $usuario->actualizar($conecta,'empleados',$datos,$where);
         $_SESSION['mensaje'] = "Los datos se actualizaron con éxito.";
-        header("Location: nuevo_servidores.php");
+        header("Location: nuevo_empleado.php");
         die();
       break;
 }
@@ -45,7 +61,7 @@ switch($_POST['accion']){
   //https://www.php.net/manual/es/function.unset.php
 ?>
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="es" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -137,6 +153,19 @@ switch($_POST['accion']){
     </style>
 
     <link href="css/dashboard.css" rel="stylesheet">
+    <script>
+  function filtrarOpciones() {
+      const input = document.getElementById('buscador');
+      const filter = input.value.toLowerCase();
+      const select = document.getElementById('opciones');
+      const opciones = select.getElementsByTagName('option');
+
+      for (let i = 0; i < opciones.length; i++) {
+          const texto = opciones[i].textContent || opciones[i].innerText;
+          opciones[i].style.display = texto.toLowerCase().includes(filter) ? '' : 'none';
+      }
+  }
+</script>
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -326,7 +355,7 @@ switch($_POST['accion']){
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="tabla_servidores.php">
+              <a class="nav-link d-flex align-items-center gap-2" href="tabla_servidores.php">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc-horizontal" viewBox="0 0 16 16">
                 <path d="M1 6a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm11.5 1a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1m2 0a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1M1 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5M1.25 9h5.5a.25.25 0 0 1 0 .5h-5.5a.25.25 0 0 1 0-.5"/>
               </svg>
@@ -334,7 +363,7 @@ switch($_POST['accion']){
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="tabla_empleados.php">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="tabla_empleados.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
                   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
                 </svg>
@@ -424,12 +453,7 @@ switch($_POST['accion']){
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2"><?php if(isset($_GET['editar'])){ 
-                        echo 'Edicion del registro del Servidor';
-                      }else{
-                        echo 'Registro de Nuevo Servidor';
-                      } ?>
-                      </h1>
+            <h1 class="h2">Nuevo empleado</h1>
             <!--
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
@@ -445,33 +469,138 @@ switch($_POST['accion']){
             -->
           </div>
 
-          <div class="container" >
+          <div class="container">
               <div class="col-md-auto col-lg-auto">
-                <?php
+              <?php
                   if (isset($_SESSION['mensaje'])) {
                   echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
                   unset($_SESSION['mensaje']);
                   }
                 ?>
+                <!--<h4 class="mb-3">Billing address</h4>-->
                 <form action="" method="post">
-
-                  <div class="row g-3">
+                <div class="row g-3">
                     <div class="col-sm-2">
-                      <label for="marca" class="form-label">Marca</label>
-                      <input type="text" class="form-control" id="marca" name="marca" placeholder="" <?php if(isset($datoseditar[0]['marca'])){ 
-                        echo 'value="' . $datoseditar[0]['marca'] . '"';
+                      <label for="centro_trabajo" class="form-label">Centro de trabajo</label>
+                      <input type="text" class="form-control" id="centro_trabajo" name="centro_trabajo" placeholder="" <?php if(isset($datoseditar[0]['centro_trabajo'])){ 
+                        echo 'value="' . $datoseditar[0]['centro_trabajo'] . '"';
                       } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                      <label for="rpe" class="form-label">RPE</label>
+                      <input type="text" class="form-control" id="rpe" name="rpe" placeholder="" <?php if(isset($datoseditar[0]['rpe'])){ 
+                        echo 'value="' . $datoseditar[0]['rpe'] . '"';
+                      } 
+                        ?> maxlength="5" required>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="nombre" class="form-label">Nombre/s</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="" <?php if(isset($datoseditar[0]['nombre'])){ 
+                        echo 'value="' . $datoseditar[0]['nombre'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="a_paterno" class="form-label">Apellido Paterno</label>
+                      <input type="text" class="form-control" id="a_paterno" name="a_paterno" placeholder="" <?php if(isset($datoseditar[0]['a_paterno'])){ 
+                        echo 'value="' . $datoseditar[0]['a_paterno'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="a_materno" class="form-label">Apellido Materno</label>
+                      <input type="text" class="form-control" id="a_materno" name="a_materno" placeholder="" <?php if(isset($datoseditar[0]['a_materno'])){ 
+                        echo 'value="' . $datoseditar[0]['a_materno'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="rfc" class="form-label">RFC</label>
+                      <input type="text" class="form-control" id="rfc" name="rfc" placeholder="" <?php if(isset($datoseditar[0]['rfc'])){ 
+                        echo 'value="' . $datoseditar[0]['rfc'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="nss" class="form-label">Numero de seguridad social</label>
+                      <input type="text" class="form-control" id="nss" name="nss" placeholder="" <?php if(isset($datoseditar[0]['nss'])){ 
+                        echo 'value="' . $datoseditar[0]['nss'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <label for="sexo" class="form-label">Sexo</label>
+                      <select class="form-select" id="sexo" name="sexo">
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="n_plaza" class="form-label">Numero de plaza</label>
+                      <input type="text" class="form-control" id="n_plaza" name="n_plaza" placeholder="" <?php if(isset($datoseditar[0]['n_plaza'])){ 
+                        echo 'value="' . $datoseditar[0]['n_plaza'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                    <label for="opciones" class="form-label">Usuario responsable</label>
+                      <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
+                      <select class="form-select" id="opciones" name="categ">
+                      <option value=""></option>
+                        <?php
+                          $departamentosselect = new ControlFormulario('');
+                          $opciondepa = $departamentosselect->leer($conecta,'categorias');
+                          foreach($opciondepa as $row) {
+                            echo '<option value="' . $row['categoria'] . '">' . $row['cve_categoria'] . ' ' . $row['categoria'] . '</option>';
+                          }
                         ?>
-                        >
+                      </select>
                       <div class="invalid-feedback">
-                        dato invalido
+                        Please provide a valid state.
                       </div>
                     </div>
 
                     <div class="col-sm-3">
-                      <label for="modelo" class="form-label">Modelo</label>
-                      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="" <?php if(isset($datoseditar[0]['modelo'])){ 
-                        echo 'value="' . $datoseditar[0]['modelo'] . '"';
+                      <label for="f_nacimiento" class="form-label">Fecha de nacimiento</label>
+                      <input type="text" class="form-control" id="f_nacimiento" name="f_nacimiento" placeholder="" <?php if(isset($datoseditar[0]['f_nacimiento'])){ 
+                        echo 'value="' . $datoseditar[0]['f_nacimiento'] . '"';
                       } 
                         ?>>
                       <div class="invalid-feedback">
@@ -479,22 +608,86 @@ switch($_POST['accion']){
                       </div>
                     </div>
 
-                    <div class="col-sm-4">
-                      <label for="numeroserie" class="form-label">Numero de serie</label>
-                      <input type="text" class="form-control" id="numeroserie" name="numeroserie" placeholder="" <?php if(isset($datoseditar[0]['num_serie'])){ 
-                        echo 'value="' . $datoseditar[0]['num_serie'] . '"';
+                    <div class="col-sm-3">
+                      <label for="edad_actual" class="form-label">Edad actual</label>
+                      <input type="text" class="form-control" id="edad_actual" name="edad_actual" placeholder="" <?php if(isset($datoseditar[0]['edad_actual'])){ 
+                        echo 'value="' . $datoseditar[0]['edad_actual'] . '"';
                       } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="fecha_antiguedad" class="form-label">Fecha de antiguedad</label>
+                      <input type="text" class="form-control" id="fecha_antiguedad" name="fecha_antiguedad" placeholder="" <?php if(isset($datoseditar[0]['fecha_antiguedad'])){ 
+                        echo 'value="' . $datoseditar[0]['fecha_antiguedad'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="fecha_jubilacion" class="form-label"></label>
+                      <input type="text" class="form-control" id="fecha_jubilacion" name="fecha_jubilacion" placeholder="" <?php if(isset($datoseditar[0]['fecha_jubilacion'])){ 
+                        echo 'value="' . $datoseditar[0]['fecha_jubilacion'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="ent_federativa" class="form-label">Entidad Federativa</label>
+                      <input type="text" class="form-control" id="ent_federativa" name="ent_federativa" placeholder="" <?php if(isset($datoseditar[0]['ent_federativa'])){ 
+                        echo 'value="' . $datoseditar[0]['ent_federativa'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <label for="rama" class="form-label">Rama</label>
+                      <select class="form-select" id="rama" name="rama">
+                      <option value=""></option>
+                        <?php
+                          $vlans = new ControlFormulario('');
+                          $vlans_resultado = $vlans->leer($conecta,'rama');
+                          foreach($vlans_resultado as $row){
+                            echo '<option value="' . $row['rama'] . '">' . $row['rama'] . '</option>';
+                          }
+                          //$vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
+                          //while($vlan_resultado=mysqli_fetch_array($vlan)) {
+                            
+                          //}
                         ?>
-                         >
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="tp_contrato" class="form-label">Tipo de contrato</label>
+                      <input type="text" class="form-control" id="tp_contrato" name="tp_contrato" placeholder="" <?php if(isset($datoseditar[0]['tp_contrato'])){ 
+                        echo 'value="' . $datoseditar[0]['tp_contrato'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
                     </div>
 
-                    <div class="col-sm-4">
-                      <label for="procesador" class="form-label">Procesador</label>
-                      <input type="text" class="form-control" id="procesador" name="procesador" placeholder="" <?php if(isset($datoseditar[0]['procesador'])){ 
-                        echo 'value="' . $datoseditar[0]['procesador'] . '"';
+                    <div class="col-sm-3">
+                      <label for="est_civil" class="form-label">Estado civil</label>
+                      <input type="text" class="form-control" id="est_civil" name="est_civil" placeholder="" <?php if(isset($datoseditar[0]['est_civil'])){ 
+                        echo 'value="' . $datoseditar[0]['est_civil'] . '"';
                       } 
                         ?>>
                       <div class="invalid-feedback">
@@ -503,9 +696,20 @@ switch($_POST['accion']){
                     </div>
 
                     <div class="col-sm-3">
-                      <label for="velocidad" class="form-label">Velocidad del Procesador</label>
-                      <input type="text" class="form-control" id="velocidad" name="velocidad" placeholder="" <?php if(isset($datoseditar[0]['velocidad'])){ 
-                        echo 'value="' . $datoseditar[0]['velocidad'] . '"';
+                      <label for="correo" class="form-label">Correo</label>
+                      <input type="email" class="form-control" id="correo" name="correo" placeholder="" <?php if(isset($datoseditar[0]['correo'])){ 
+                        echo 'value="' . $datoseditar[0]['correo'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="curp" class="form-label">CURP</label>
+                      <input type="text" class="form-control" id="curp" name="curp" placeholder="" <?php if(isset($datoseditar[0]['curp'])){ 
+                        echo 'value="' . $datoseditar[0]['curp'] . '"';
                       } 
                         ?>>
                       <div class="invalid-feedback">
@@ -513,10 +717,32 @@ switch($_POST['accion']){
                       </div>
                     </div>
                     
-                    <div class="col-sm-2">
-                      <label for="ram" class="form-label">Cantidad de Memoria RAM</label>
-                      <input type="text" class="form-control" id="ram" name="ram" placeholder="" <?php if(isset($datoseditar[0]['ram'])){ 
-                        echo 'value="' . $datoseditar[0]['ram'] . '"';
+                    <div class="col-sm-3">
+                      <label for="alta_permanente" class="form-label">Alta permanente</label>
+                      <input type="text" class="form-control" id="alta_permanente" name="alta_permanente" placeholder="" <?php if(isset($datoseditar[0]['alta_permanente'])){ 
+                        echo 'value="' . $datoseditar[0]['alta_permanente'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="fecha_fidelidad" class="form-label">Fecha de fidelidad</label>
+                      <input type="text" class="form-control" id="fecha_fidelidad" name="fecha_fidelidad" placeholder="" <?php if(isset($datoseditar[0]['fecha_fidelidad'])){ 
+                        echo 'value="' . $datoseditar[0]['fecha_fidelidad'] . '"';
+                      } 
+                        ?>>
+                      <div class="invalid-feedback">
+                      dato invalido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <label for="porcentaje_fidelidad" class="form-label">Porcentaje de fidelidad</label>
+                      <input type="text" class="form-control" id="porcentaje_fidelidad" name="porcentaje_fidelidad" placeholder="" <?php if(isset($datoseditar[0]['porcentaje_fidelidad'])){ 
+                        echo 'value="' . $datoseditar[0]['porcentaje_fidelidad'] . '"';
                       } 
                         ?>>
                       <div class="invalid-feedback">
@@ -524,45 +750,15 @@ switch($_POST['accion']){
                       </div>
                     </div>
                     
-                    <div class="col-sm-4">
-                      <label for="ip" class="form-label">Direccion IP Asignada</label>
-                      <input type="text" class="form-control" id="ip" name="ip" placeholder="" <?php if(isset($datoseditar[0]['ip'])){ 
-                        echo 'value="' . $datoseditar[0]['ip'] . '"';
-                      } 
-                        ?> maxlength="15" required>
-                      <div class="invalid-feedback">
-                      dato invalido
-                      </div>
-                    </div>
-                    
                     <div class="col-sm-3">
-                      <label for="activo" class="form-label">Activo Fijo</label>
-                      <input type="text" class="form-control" id="activo" name="activo" placeholder="" <?php if(isset($datoseditar[0]['activo_fijo'])){ 
-                        echo 'value="' . $datoseditar[0]['activo_fijo'] . '"';
+                      <label for="escolaridad" class="form-label">Escolaridad</label>
+                      <input type="text" class="form-control" id="escolaridad" name="escolaridad" placeholder="" <?php if(isset($datoseditar[0]['escolaridad'])){ 
+                        echo 'value="' . $datoseditar[0]['escolaridad'] . '"';
                       } 
-                        ?> maxlength="8">
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
-                    </div>
-                    
-                    <div class="col-sm-3">
-                      <label for="inventario" class="form-label">Inventario</label>
-                      <input type="text" class="form-control" id="inventario" name="inventario" placeholder="" <?php if(isset($datoseditar[0]['inventario'])){ 
-                        echo 'value="' . $datoseditar[0]['inventario'] . '"';
-                      } 
-                        ?> maxlength="8">
-                      <div class="invalid-feedback">
-                      dato invalido
-                      </div>
-                    </div>
-                    
-                    <div class="col-md-12">
-                        <label class="form-label">Observaciones</label>
-                        <textarea name="observaciones" class="form-control letra" rows="3"><?php if(isset($datoseditar[0]['marca'])){ 
-                        echo $datoseditar[0]['observaciones'];
-                      } 
-                        ?></textarea>
                     </div>
                     
                     <input type="hidden" name="accion" <?php if(isset($_GET['editar'])){ 
@@ -571,21 +767,11 @@ switch($_POST['accion']){
                         echo 'value="insertar"';
                       }
                         ?>>
-
-                    <button class="w-100 btn btn-primary btn-lg" type="submit" name="insertar">Registrar</button>
+                  <button class="w-100 btn btn-primary btn-lg" type="submit" name="insertar" >Registrar</button>
                   </div>
                 </form>
               </div>
         </main>
-
-        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-          <p class="mb-1">&copy; 2017–2024 Company Name</p>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-          </ul>
-        </footer>
       </div>
     </div>
 

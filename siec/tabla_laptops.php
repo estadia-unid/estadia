@@ -1,5 +1,6 @@
 <?php
 include_once "conexion.php";
+include_once "seguridad.php";
 include "autoloader.php";
 
 if(isset($_GET['borrar'])){
@@ -90,7 +91,7 @@ if(isset($_GET['refaccionamiento'])){
       }
 
       .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
+        --bd-violet-bg: #198754;
         --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
 
         --bs-btn-font-weight: 600;
@@ -98,12 +99,12 @@ if(isset($_GET['refaccionamiento'])){
         --bs-btn-bg: var(--bd-violet-bg);
         --bs-btn-border-color: var(--bd-violet-bg);
         --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-hover-bg: #198754;
+        --bs-btn-hover-border-color: #198754;
         --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
         --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
+        --bs-btn-active-bg: #198754;
+        --bs-btn-active-border-color: #198754;
       }
 
       .bd-mode-toggle {
@@ -480,12 +481,11 @@ if(isset($_GET['refaccionamiento'])){
                 <th class="sort asc">Direccion MAC Ethernet</th>
                 <th class="sort asc">Memoria RAM</th>
                 <th class="sort asc">Disco duro</th>
-                <th class="sort asc">Resguardo</th>
                 <th class="sort asc">Dominio</th>
+                <th class="sort asc">Resguardo</th>
                 <th class="sort asc">Direcctorio activo</th>
                 <th class="sort asc">Antivirus</th>
                 <th class="sort asc">Escritorio remoto</th>
-                <th class="sort asc">Estado</th>
                 <th class="sort asc">Observaciones</th>
                 <th></th>
             </thead>
@@ -529,7 +529,7 @@ function getData() {
     let deleteFile = "tabla_laptops.php"; // Cambia según el archivo
     let formaData = new FormData();
     formaData.append('table', 'laptops'); // Tabla dinámica
-    formaData.append('columns', 'oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,resg,d_activo,antivirus,escritorio_remoto,estado,observaciones'); // Columnas dinámicas
+    formaData.append('columns', 'oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,resg,d_activo,antivirus,escritorio_remoto,observaciones'); // Columnas dinámicas
     formaData.append('id', 'id_laptop'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
     formaData.append('deleteFile', deleteFile);

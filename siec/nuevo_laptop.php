@@ -1,30 +1,64 @@
 <?php
 include_once "conexion.php";
+include_once "seguridad.php";
 include "autoloader.php";
 
-if(isset($_POST['insertar'])){
-    $datos = [
-    'marca' => $_POST['marca'],
-    'modelo' => $_POST['modelo'],
-    'num_serie' => $_POST['numeroserie'],
-    'procesador' => $_POST['procesador'],
-    'velocidad' => $_POST['velocidad'],
-    'ram' => $_POST['ram'],
-    'ip' => $_POST['ip'],
-    'activo_fijo' => $_POST['activo'],
-    'inventario' => $_POST['inventario'],
-    'observaciones' => $_POST['observaciones'],
-    ];
-    try{
-        $usuario = new ControlFormulario('');
-        $usuario->insertar_datos($conecta,'servidores',$datos);
-        header("Location: nuevo_servidores.php");
-        die();
-    }catch(Exception $e){
-        echo "Ocurrió un error al registrar los datos: " . $e->getMessage();
-    }
+if(isset($_GET['editar'])){
+  $registro = $_GET['editar'];
+  $where = "`id_laptop` = $registro";
+  $datos = new ControlFormulario('');
+  $datoseditar = $datos->leer($conecta,'laptops',$where);
 }
 
+if(isset($_POST['insertar'])){
+  $datos = [
+    'oficial' => $_POST['oficial'],
+    'departamento' => $_POST['departamento'],
+    'puesto' => $_POST['puesto'],
+    'usuario' => $_POST['usuario'],
+    'rpe' => $_POST['rpe'],
+    'nombre_equipo' => $_POST['nombre_equipo'],
+    'activo_fijo' => $_POST['activo_fijo'],
+    'inventario' => $_POST['inventario'],
+    'numero_de_serie' => $_POST['numero_de_serie'],
+    'marca' => $_POST['marca'],
+    'modelo' => $_POST['modelo'],
+    'procesador' => $_POST['procesador'],
+    'velocidad' => $_POST['velocidad'],
+    'so' => $_POST['so'],
+    'ip' => $_POST['ip'],
+    'vlan' => $_POST['vlan'],
+    'mac_wifi' => $_POST['mac_wifi'],
+    'mac_ethernet' => $_POST['mac_ethernet'],
+    'memoria' => $_POST['memoria'],
+    'disco_duro' => $_POST['disco_duro'],
+    'dominio' => $_POST['dominio'],
+    'd_activo' => $_POST['d_activo'],
+    'antivirus' => $_POST['antivirus'],
+    'escritorio_remoto' => $_POST['escritorio_remoto'],
+    'observaciones' => $_POST['observaciones'],
+    ];
+
+switch($_POST['accion']){
+  case 'insertar':
+          $usuario = new ControlFormulario('');
+          $usuario->insertar_datos($conecta,'laptops',$datos);
+          $_SESSION['mensaje'] = "Los datos se registraron con éxito.";
+          
+          header("Location: nuevo_laptop.php");
+          die();
+          
+      break;
+    case  'edicion':
+        $where = "`id_laptop` = $registro";
+        $usuario = new ControlFormulario('');
+        $usuario->actualizar($conecta,'laptops',$datos,$where);
+        $_SESSION['mensaje'] = "Los datos se actualizaron con éxito.";
+        header("Location: nuevo_laptop.php");
+        die();
+      break;
+}
+}
   //https://www.php.net/manual/es/function.unset.php
 ?>
 <!doctype html>
@@ -94,7 +128,7 @@ if(isset($_POST['insertar'])){
       }
 
       .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
+        --bd-violet-bg: #198754;
         --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
 
         --bs-btn-font-weight: 600;
@@ -102,12 +136,12 @@ if(isset($_POST['insertar'])){
         --bs-btn-bg: var(--bd-violet-bg);
         --bs-btn-border-color: var(--bd-violet-bg);
         --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-hover-bg: #198754;
+        --bs-btn-hover-border-color: #198754;
         --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
         --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
+        --bs-btn-active-bg: #198754;
+        --bs-btn-active-border-color: #198754;
       }
 
       .bd-mode-toggle {
@@ -120,6 +154,19 @@ if(isset($_POST['insertar'])){
     </style>
 
     <link href="css/dashboard.css" rel="stylesheet">
+    <script>
+  function filtrarOpciones() {
+      const input = document.getElementById('buscador');
+      const filter = input.value.toLowerCase();
+      const select = document.getElementById('opciones');
+      const opciones = select.getElementsByTagName('option');
+
+      for (let i = 0; i < opciones.length; i++) {
+          const texto = opciones[i].textContent || opciones[i].innerText;
+          opciones[i].style.display = texto.toLowerCase().includes(filter) ? '' : 'none';
+      }
+  }
+</script>  
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -425,12 +472,188 @@ if(isset($_POST['insertar'])){
 
           <div class="container" >
               <div class="col-md-auto col-lg-auto">
-                <form action="" method="post">
+              <?php
+                  if (isset($_SESSION['mensaje'])) {
+                  echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                  unset($_SESSION['mensaje']);
+                  }
+                ?>
+              <form action="" method="post">
+                  <div class="row g-3">
+                      <div class="col-md-4">
+                      <label for="state" class="form-label">¿El equipo es oficial?</label>
+                      <select class="form-select" id="state" name="oficial" required>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                      <div class="col-md-4">
+                      <label for="state" class="form-label">Directorio Activo</label>
+                      <select class="form-select" id="state" name="d_activo" required>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                      <div class="col-md-4">
+                      <label for="state" class="form-label">Antivirus</label>
+                      <select class="form-select" id="state" name="antivirus" required>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                      <div class="col-md-4">
+                      <label for="state" class="form-label">Escritorio Remoto</label>
+                      <select class="form-select" id="state" name="escritorio_remoto" required>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="state" class="form-label">Departamento Asignado</label>
+                      <select class="form-select" id="state" name="departamento">
+                      <option value=""></option>
+                        <?php
+                          $departamentosselect = new ControlFormulario('');
+                          $opciondepa = $departamentosselect->leer($conecta,'departamentos');
+                          foreach($opciondepa as $row) {
+                            echo '<option value="' . $row['departamento'] . '">' . $row['cve_depto'] . '  ' . $row['departamento'] . '</option>';
+                          }
+                        ?>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-auto">
+                    <label for="opciones" class="form-label">Usuario responsable</label>
+                      <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
+                      <select class="form-select" id="opciones" name="rpe">
+                      <option value=""></option>
+                        <?php
+                          $empleadosSelect = new ControlFormulario('');
+                          $selectempe = $empleadosSelect->leer($conecta,'empleados');
+                          foreach($selectempe as $row) {
+                            echo '<option value="' . $row['rpe'] . '">' . $row['rpe'] . ' ' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '</option>';
+                          }
+                        ?>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                      <input type="hidden" name="usuario" <?php 
+                      echo 'value="' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '"';
+                      ?>>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="state" class="form-label">Puesto</label>
+                      <select class="form-select" id="state" name="puesto">
+                      <option value=""></option>
+                        <?php
+                          $departamentosselect = new ControlFormulario('');
+                          $opciondepa = $departamentosselect->leer($conecta,'categorias');
+                          foreach($opciondepa as $row) {
+                            echo '<option value="' . $row['categoria'] . '">' . $row['cve_categoria'] . ' ' . $row['categoria'] . '</option>';
+                          }
+                        ?>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="state" class="form-label">Dominio</label>
+                      <select class="form-select" id="state" name="dominio" required>
+                      <option value=""></option>
+                        <?php
+                          $dominios = new ControlFormulario('');
+                          $dominios_resultado = $dominios->leer($conecta,'dominios');
+                          foreach($dominios_resultado as $row) {
+                            echo '<option value="' . $row['dominio'] . '">' . $row['dominio'] . '</option>';
+                          }
+                        ?>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="state" class="form-label">Vlan</label>
+                      <select class="form-select" id="state" name="vlan" required>
+                      <option value=""></option>
+                        <?php
+                          $vlans = new ControlFormulario('');
+                          $vlans_resultado = $vlans->leer($conecta,'vlan');
+                          foreach($vlans_resultado as $row){
+                            echo '<option value="' . $row['numero'] . '">' . $row['numero'] . '</option>';
+                          }
+                          //$vlan = mysqli_query($conecta, "SELECT * FROM `vlan`");
+                          //while($vlan_resultado=mysqli_fetch_array($vlan)) {
+                            
+                          //}
+                        ?>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Nombre del Equipo</label>
+                      <input type="text" class="form-control" id="firstName" name="nombre_equipo" placeholder="" value="" required>
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Disco Duro</label>
+                      <input type="text" class="form-control" id="firstName" name="disco_duro" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Direccion MAC Wifi</label>
+                      <input type="text" class="form-control" id="firstName" name="mac_wifi" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Direccion MAC Ethernet</label>
+                      <input type="text" class="form-control" id="firstName" name="mac_ethernet" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Sistema Operativo</label>
+                      <input type="text" class="form-control" id="firstName" name="so" placeholder="" value=""  >
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                  </div>
 
                   <div class="row g-3">
-                    <div class="col-sm-2">
+                  <div class="col-sm-2">
                       <label for="marca" class="form-label">Marca</label>
-                      <input type="text" class="form-control" id="marca" name="marca" placeholder="" value="">
+                      <input type="text" class="form-control" id="marca" name="marca" placeholder="" <?php if(isset($datoseditar[0]['marca'])){ 
+                        echo 'value="' . $datoseditar[0]['marca'] . '"';
+                      } 
+                        ?>
+                        >
                       <div class="invalid-feedback">
                         dato invalido
                       </div>
@@ -438,7 +661,10 @@ if(isset($_POST['insertar'])){
 
                     <div class="col-sm-3">
                       <label for="modelo" class="form-label">Modelo</label>
-                      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="" value="">
+                      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="" <?php if(isset($datoseditar[0]['modelo'])){ 
+                        echo 'value="' . $datoseditar[0]['modelo'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -446,7 +672,11 @@ if(isset($_POST['insertar'])){
 
                     <div class="col-sm-4">
                       <label for="numeroserie" class="form-label">Numero de serie</label>
-                      <input type="text" class="form-control" id="numeroserie" name="numeroserie" placeholder="" value="" >
+                      <input type="text" class="form-control" id="numeroserie" name="numero_de_serie" placeholder="" <?php if(isset($datoseditar[0]['num_serie'])){ 
+                        echo 'value="' . $datoseditar[0]['num_serie'] . '"';
+                      } 
+                        ?>
+                         >
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -454,7 +684,10 @@ if(isset($_POST['insertar'])){
 
                     <div class="col-sm-4">
                       <label for="procesador" class="form-label">Procesador</label>
-                      <input type="text" class="form-control" id="procesador" name="procesador" placeholder="" value="">
+                      <input type="text" class="form-control" id="procesador" name="procesador" placeholder="" <?php if(isset($datoseditar[0]['procesador'])){ 
+                        echo 'value="' . $datoseditar[0]['procesador'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -462,7 +695,10 @@ if(isset($_POST['insertar'])){
 
                     <div class="col-sm-3">
                       <label for="velocidad" class="form-label">Velocidad del Procesador</label>
-                      <input type="text" class="form-control" id="velocidad" name="velocidad" placeholder="" value="">
+                      <input type="text" class="form-control" id="velocidad" name="velocidad" placeholder="" <?php if(isset($datoseditar[0]['velocidad'])){ 
+                        echo 'value="' . $datoseditar[0]['velocidad'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -470,7 +706,10 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-sm-2">
                       <label for="ram" class="form-label">Cantidad de Memoria RAM</label>
-                      <input type="text" class="form-control" id="ram" name="ram" placeholder="" value="">
+                      <input type="text" class="form-control" id="ram" name="memoria" placeholder="" <?php if(isset($datoseditar[0]['ram'])){ 
+                        echo 'value="' . $datoseditar[0]['ram'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -478,7 +717,10 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-sm-4">
                       <label for="ip" class="form-label">Direccion IP Asignada</label>
-                      <input type="text" class="form-control" id="ip" name="ip" placeholder="" value="" maxlength="15" required>
+                      <input type="text" class="form-control" id="ip" name="ip" placeholder="" <?php if(isset($datoseditar[0]['ip'])){ 
+                        echo 'value="' . $datoseditar[0]['ip'] . '"';
+                      } 
+                        ?> maxlength="15" required>
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -486,7 +728,10 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-sm-3">
                       <label for="activo" class="form-label">Activo Fijo</label>
-                      <input type="text" class="form-control" id="activo" name="activo" placeholder="" value="" maxlength="8">
+                      <input type="text" class="form-control" id="activo" name="activo_fijo" placeholder="" <?php if(isset($datoseditar[0]['activo_fijo'])){ 
+                        echo 'value="' . $datoseditar[0]['activo_fijo'] . '"';
+                      } 
+                        ?> maxlength="8">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -494,7 +739,10 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-sm-3">
                       <label for="inventario" class="form-label">Inventario</label>
-                      <input type="text" class="form-control" id="inventario" name="inventario" placeholder="" value="" maxlength="8">
+                      <input type="text" class="form-control" id="inventario" name="inventario" placeholder="" <?php if(isset($datoseditar[0]['inventario'])){ 
+                        echo 'value="' . $datoseditar[0]['inventario'] . '"';
+                      } 
+                        ?> maxlength="8">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
@@ -502,11 +750,19 @@ if(isset($_POST['insertar'])){
                     
                     <div class="col-md-12">
                         <label class="form-label">Observaciones</label>
-                        <textarea name="observaciones" class="form-control letra" rows="3"></textarea>
+                        <textarea name="observaciones" class="form-control letra" rows="3"><?php if(isset($datoseditar[0]['marca'])){ 
+                        echo $datoseditar[0]['observaciones'];
+                      } 
+                        ?></textarea>
                     </div>
                 
-
-                    <button class="w-100 btn btn-primary btn-lg" type="submit" name="insertar">Registrar</button>
+                    <input type="hidden" name="accion" <?php if(isset($_GET['editar'])){ 
+                        echo 'value="edicion"';
+                      }else{
+                        echo 'value="insertar"';
+                      }
+                        ?>>
+                  <button class="w-100 btn btn-primary btn-lg" type="submit" name="insertar" >Registrar</button>
                   </div>
                 </form>
               </div>
