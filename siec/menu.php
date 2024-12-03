@@ -230,7 +230,7 @@ include "autoloader.php";
               </tr>
               <tr>
                 <td>Empleados</td>
-                <td></td>
+                <td><a href="nuevo_empleado.php">Agregar Empleado</a></td>
                 <td><a href="tabla_empleados.php">Ver tabla de Empleados</a></td>
               </tr>
 
