@@ -560,6 +560,10 @@ switch($_POST['accion']){
                     <div class="col-md-4">
                       <label for="sexo" class="form-label">Sexo</label>
                       <select class="form-select" id="sexo" name="sexo">
+                      <?php if(isset($datoseditar[0]['sexo'])){ 
+                        echo '<option value="' . $datoseditar[0]['sexo'] . '">' . $datoseditar[0]['sexo'] . '</option>';
+                      } 
+                      ?>
                         <option value="Hombre">Hombre</option>
                         <option value="Mujer">Mujer</option>
                       </select>
@@ -580,9 +584,13 @@ switch($_POST['accion']){
                     </div>
 
                     <div class="col-md-4">
-                    <label for="opciones" class="form-label">Usuario responsable</label>
+                    <label for="opciones" class="form-label">Categoria</label>
                       <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
                       <select class="form-select" id="opciones" name="categ">
+                      <?php if(isset($datoseditar[0]['categ'])){ 
+                        echo '<option value="' . $datoseditar[0]['categoria'] . '">' . $datoseditar[0]['categ'] . '</option>';
+                      } 
+                      ?>
                       <option value=""></option>
                         <?php
                           $departamentosselect = new ControlFormulario('');
@@ -631,7 +639,7 @@ switch($_POST['accion']){
                     </div>
 
                     <div class="col-sm-3">
-                      <label for="fecha_jubilacion" class="form-label"></label>
+                      <label for="fecha_jubilacion" class="form-label">Fecha de jubilacion</label>
                       <input type="text" class="form-control" id="fecha_jubilacion" name="fecha_jubilacion" placeholder="" <?php if(isset($datoseditar[0]['fecha_jubilacion'])){ 
                         echo 'value="' . $datoseditar[0]['fecha_jubilacion'] . '"';
                       } 
@@ -655,6 +663,10 @@ switch($_POST['accion']){
                     <div class="col-md-4">
                       <label for="rama" class="form-label">Rama</label>
                       <select class="form-select" id="rama" name="rama">
+                      <?php if(isset($datoseditar[0]['rama'])){ 
+                        echo '<option value="' . $datoseditar[0]['rama'] . '">' . $datoseditar[0]['rama'] . '</option>';
+                      } 
+                      ?>
                       <option value=""></option>
                         <?php
                           $vlans = new ControlFormulario('');
@@ -697,7 +709,7 @@ switch($_POST['accion']){
 
                     <div class="col-sm-3">
                       <label for="correo" class="form-label">Correo</label>
-                      <input type="email" class="form-control" id="correo" name="correo" placeholder="" <?php if(isset($datoseditar[0]['correo'])){ 
+                      <input type="text" class="form-control" id="correo" name="correo" placeholder="" <?php if(isset($datoseditar[0]['correo'])){ 
                         echo 'value="' . $datoseditar[0]['correo'] . '"';
                       } 
                         ?>>
