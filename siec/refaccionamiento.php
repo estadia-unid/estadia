@@ -483,7 +483,6 @@ if(isset($_GET['refaccionamiento'])){
                 <th class="sort asc">Direcctorio activo</th>
                 <th class="sort asc">Antivirus</th>
                 <th class="sort asc">Escritorio remoto</th>
-                <th class="sort asc">Estado</th>
                 <th class="sort asc">Observaciones</th>
                 <th></th>
             </thead>
