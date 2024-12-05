@@ -186,7 +186,7 @@ if(isset($_POST['guardar'])){
         </div>
 
         <button class="btn btn-primary w-100 py-2" type="submit" name="guardar">Iniciar sesion</button>
-        <p class="mt-5 mb-3 text-body-secondary">&copy; 2024–2024</p>
+        <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
       </form>
     </main>
     <script src="js/bootstrap.bundle.min.js"></script>
