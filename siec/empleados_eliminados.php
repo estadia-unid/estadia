@@ -4,13 +4,22 @@ include_once "seguridad.php";
 include "autoloader.php";
 
 if(isset($_GET['borrar'])){
-  $registro = $_GET['borrar'];
+    $registro = $_GET['borrar'];
+    $where = "`id_empleado` = $registro";
+    $datos = new ControlFormulario('');
+    $datosborrar = $datos->borrar($conecta,'empleados_eliminados',$where);
+    $_SESSION['mensaje'] = "Los datos se Borraron con éxito.";
+    header("Location: empleados_eliminados.php");
+    die();
+  }
+if(isset($_GET['refaccionamiento'])){
+  $registro = $_GET['refaccionamiento'];
   $where = "`id_empleado` = $registro";
   $datos = new ControlFormulario('');
-  $formulario = $datos->copiar_datos($conecta,'empleados','empleados_eliminados',$where);
-  $datosborrar = $datos->borrar($conecta,'empleados',$where);
-  $_SESSION['mensaje'] = "Los datos se eliminaron con éxito.";
-  header("Location: tabla_empleados.php");
+  $formulario = $datos->copiar_datos($conecta,'empleados_eliminados','empleados',$where);
+  $datosborrar = $datos->borrar($conecta,'empleados_eliminados',$where);
+  $_SESSION['mensaje'] = "Los datos se reactivaron con éxito.";
+  header("Location: empleados_eliminados.php");
   die();
 }
 ?>
@@ -398,8 +407,7 @@ if(isset($_GET['borrar'])){
 
         <div class="btn-group me-2">
             
-          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="nuevo_empleado.php">Agregar</a></button>
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="empleados_eliminados.php">ver eliminados</a></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_empleados.php">Ver Activos</a></button>
                     <!--  
             <button type="button" class="btn btn-sm btn-outline-secondary"><a href="tabla_computadoras.php?tabla=no_oficiales">No oficiales</a></button>
                     -->
@@ -512,9 +520,9 @@ function getData() {
     let orderType = document.getElementById("orderType").value;
     // Nombres de los archivos dinámicos
     let editFile = "nuevo_empleado.php"; // Cambia según el archivo
-    let deleteFile = "tabla_empleados.php"; // Cambia según el archivo
+    let deleteFile = "empleados_eliminados.php"; // Cambia según el archivo
     let formaData = new FormData();
-    formaData.append('table', 'empleados'); // Tabla dinámica
+    formaData.append('table', 'empleados_eliminados'); // Tabla dinámica
     formaData.append('columns', 'centro_trabajo,rpe,nombre,a_paterno,a_materno,rfc,nss,sexo,n_plaza,categ,f_nacimiento,edad_actual,fecha_antiguedad,fecha_jubilacion,ent_federativa,rama,tp_contrato,est_civil,correo,curp,alta_permanente,fecha_fidelidad,porcentaje_fidelidad,escolaridad'); // Columnas dinámicas
     formaData.append('id', 'id_empleado'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
@@ -525,7 +533,7 @@ function getData() {
     formaData.append('orderCol', orderCol);
     formaData.append('orderType', orderType);
 
-    fetch("load.php", {
+    fetch("load_refac.php", {
         method: "POST",
         body: formaData
     })

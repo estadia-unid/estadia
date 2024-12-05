@@ -5,7 +5,7 @@ $table = isset($_POST['table']) ? htmlspecialchars($_POST['table']) : null;
 $columns = isset($_POST['columns']) ? explode(',', htmlspecialchars($_POST['columns'])) : [];
 
 // Tablas específicas para mostrar el botón "Enviar a refaccionamiento"
-$tablasConRefaccionamiento = ['refac_computadoras', 'refac_switches','refac_servidores','refac_laptops','refac_aps']; // Cambia estos nombres a los de tus tablas
+$tablasConRefaccionamiento = ['refac_computadoras', 'empleados_eliminados','refac_switches','refac_servidores','refac_laptops','refac_aps']; // Cambia estos nombres a los de tus tablas
 
 // Validar parámetros
 if (!$table || !$columns || !$id) {
