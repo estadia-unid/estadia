@@ -8,7 +8,7 @@ class ControlFormulario{
             $columnas = implode(", ", array_keys($datos));
             $valores = ":" . implode(", :", array_keys($datos));
             $insertar = "INSERT INTO `$tabla` ($columnas) VALUES ($valores)";
-            echo $insertar;
+            //echo $insertar;
             $sql = $conecta->prepare($insertar);
             foreach ($datos as $clave => $valor) {
                 $sql->bindValue(":$clave", $valor);
