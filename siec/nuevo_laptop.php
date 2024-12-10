@@ -488,7 +488,7 @@ switch($_POST['accion']){
                   <div class="row g-3">
                       <div class="col-md-2">
                       <label for="oficial" class="form-label">Equipo oficial</label>
-                      <select class="form-select" id="oficial" name="oficial" required>
+                      <select class="form-select" id="oficial" name="oficial">
                       <?php
                         if(isset($datoseditar[0]['oficial'])){ 
                          echo '<option value="' . $datoseditar[0]['oficial'] . '">' . $datoseditar[0]['oficial'] . '</option>';
@@ -503,7 +503,7 @@ switch($_POST['accion']){
                     </div>
                     <div class="col-md-2">
                       <label for="resg" class="form-label">Resguardo</label>
-                      <select class="form-select" id="resg" name="resg" required>
+                      <select class="form-select" id="resg" name="resg">
                       <?php
                         if(isset($datoseditar[0]['resg'])){ 
                          echo '<option value="' . $datoseditar[0]['resg'] . '">' . $datoseditar[0]['resg'] . '</option>';
@@ -518,7 +518,7 @@ switch($_POST['accion']){
                     </div>
                       <div class="col-md-2">
                       <label for="d_activo" class="form-label">Directorio Activo</label>
-                      <select class="form-select" id="d_activo" name="d_activo" required>
+                      <select class="form-select" id="d_activo" name="d_activo">
                       <?php
                         if(isset($datoseditar[0]['d_activo'])){ 
                          echo '<option value="' . $datoseditar[0]['d_activo'] . '">' . $datoseditar[0]['d_activo'] . '</option>';
@@ -533,7 +533,7 @@ switch($_POST['accion']){
                     </div>
                       <div class="col-md-2">
                       <label for="antivirus" class="form-label">Antivirus</label>
-                      <select class="form-select" id="antivirus" name="antivirus" required>
+                      <select class="form-select" id="antivirus" name="antivirus">
                       <?php
                         if(isset($datoseditar[0]['antivirus'])){ 
                          echo '<option value="' . $datoseditar[0]['antivirus'] . '">' . $datoseditar[0]['antivirus'] . '</option>';
@@ -548,7 +548,7 @@ switch($_POST['accion']){
                     </div>
                       <div class="col-md-2">
                       <label for="escritorio_remoto" class="form-label">Escritorio Remoto</label>
-                      <select class="form-select" id="escritorio_remoto" name="escritorio_remoto" required>
+                      <select class="form-select" id="escritorio_remoto" name="escritorio_remoto">
                       <?php
                         if(isset($datoseditar[0]['escritorio_remoto'])){ 
                          echo '<option value="' . $datoseditar[0]['escritorio_remoto'] . '">' . $datoseditar[0]['escritorio_remoto'] . '</option>';
@@ -565,7 +565,7 @@ switch($_POST['accion']){
                       <label for="state" class="form-label">Departamento Asignado</label>
                       <select class="form-select" id="state" name="departamento">
                       <?php
-                        if(isset($datoseditar[0]['puesto'])){ 
+                        if(isset($datoseditar[0]['departamento'])){ 
                          echo '<option value="' . $datoseditar[0]['departamento'] . '">' . $datoseditar[0]['departamento'] . '</option>';
                         } 
                       ?>
@@ -582,6 +582,8 @@ switch($_POST['accion']){
                         Please provide a valid state.
                       </div>
                     </div>
+                    <label for="opciones" class="form-label">Usuario Responsable</label>
+                      <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
                     <select class="form-select" id="opciones" name="rpe_nombre">
 <?php
 if(isset($datoseditar[0]['rpe'])) { 
@@ -621,7 +623,7 @@ foreach ($selectempe as $row) {
                     </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Dominio</label>
-                      <select class="form-select" id="state" name="dominio" required>
+                      <select class="form-select" id="state" name="dominio">
                       <?php
                         if(isset($datoseditar[0]['dominio'])){ 
                          echo '<option value="' . $datoseditar[0]['dominio'] . '">' . $datoseditar[0]['dominio'] . '</option>';
@@ -643,7 +645,7 @@ foreach ($selectempe as $row) {
                     </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Vlan</label>
-                      <select class="form-select" id="state" name="vlan" required>
+                      <select class="form-select" id="state" name="vlan">
                         <?php
                         if(isset($datoseditar[0]['vlan'])){ 
                          echo '<option value="' . $datoseditar[0]['vlan'] . '">' . $datoseditar[0]['vlan'] . '</option>';
@@ -789,7 +791,7 @@ foreach ($selectempe as $row) {
                       <input type="text" class="form-control" id="ip" name="ip" placeholder="" <?php if(isset($datoseditar[0]['ip'])){ 
                         echo 'value="' . $datoseditar[0]['ip'] . '"';
                       } 
-                        ?> maxlength="15" required>
+                        ?> maxlength="15">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
