@@ -38,6 +38,7 @@ if(isset($_POST['insertar'])){
     'memoria' => $_POST['memoria'],
     'disco_duro' => $_POST['disco_duro'],
     'dominio' => $_POST['dominio'],
+    'resg' => $_POST['resg'],
     'd_activo' => $_POST['d_activo'],
     'antivirus' => $_POST['antivirus'],
     'escritorio_remoto' => $_POST['escritorio_remoto'],
@@ -486,8 +487,28 @@ switch($_POST['accion']){
               <form action="" method="post">
                   <div class="row g-3">
                       <div class="col-md-2">
-                      <label for="state" class="form-label">Equipo oficial</label>
-                      <select class="form-select" id="state" name="oficial" required>
+                      <label for="oficial" class="form-label">Equipo oficial</label>
+                      <select class="form-select" id="oficial" name="oficial" required>
+                      <?php
+                        if(isset($datoseditar[0]['oficial'])){ 
+                         echo '<option value="' . $datoseditar[0]['oficial'] . '">' . $datoseditar[0]['oficial'] . '</option>';
+                        } 
+                      ?>
+                        <option value="Si">Si</option>
+                        <option value="no">no</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <label for="resg" class="form-label">Resguardo</label>
+                      <select class="form-select" id="resg" name="resg" required>
+                      <?php
+                        if(isset($datoseditar[0]['resg'])){ 
+                         echo '<option value="' . $datoseditar[0]['resg'] . '">' . $datoseditar[0]['resg'] . '</option>';
+                        } 
+                      ?>
                         <option value="Si">Si</option>
                         <option value="no">no</option>
                       </select>
@@ -496,8 +517,13 @@ switch($_POST['accion']){
                       </div>
                     </div>
                       <div class="col-md-2">
-                      <label for="state" class="form-label">Directorio Activo</label>
-                      <select class="form-select" id="state" name="d_activo" required>
+                      <label for="d_activo" class="form-label">Directorio Activo</label>
+                      <select class="form-select" id="d_activo" name="d_activo" required>
+                      <?php
+                        if(isset($datoseditar[0]['d_activo'])){ 
+                         echo '<option value="' . $datoseditar[0]['d_activo'] . '">' . $datoseditar[0]['d_activo'] . '</option>';
+                        } 
+                      ?>
                         <option value="Si">Si</option>
                         <option value="no">no</option>
                       </select>
@@ -506,8 +532,13 @@ switch($_POST['accion']){
                       </div>
                     </div>
                       <div class="col-md-2">
-                      <label for="state" class="form-label">Antivirus</label>
-                      <select class="form-select" id="state" name="antivirus" required>
+                      <label for="antivirus" class="form-label">Antivirus</label>
+                      <select class="form-select" id="antivirus" name="antivirus" required>
+                      <?php
+                        if(isset($datoseditar[0]['antivirus'])){ 
+                         echo '<option value="' . $datoseditar[0]['antivirus'] . '">' . $datoseditar[0]['antivirus'] . '</option>';
+                        } 
+                      ?>
                         <option value="Si">Si</option>
                         <option value="no">no</option>
                       </select>
@@ -516,8 +547,13 @@ switch($_POST['accion']){
                       </div>
                     </div>
                       <div class="col-md-2">
-                      <label for="state" class="form-label">Escritorio Remoto</label>
-                      <select class="form-select" id="state" name="escritorio_remoto" required>
+                      <label for="escritorio_remoto" class="form-label">Escritorio Remoto</label>
+                      <select class="form-select" id="escritorio_remoto" name="escritorio_remoto" required>
+                      <?php
+                        if(isset($datoseditar[0]['escritorio_remoto'])){ 
+                         echo '<option value="' . $datoseditar[0]['escritorio_remoto'] . '">' . $datoseditar[0]['escritorio_remoto'] . '</option>';
+                        } 
+                      ?>
                         <option value="Si">Si</option>
                         <option value="no">no</option>
                       </select>

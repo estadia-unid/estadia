@@ -486,6 +486,7 @@ if(isset($_GET['refaccionamiento'])){
                 <th class="sort asc">Memoria RAM</th>
                 <th class="sort asc">Disco duro</th>
                 <th class="sort asc">Dominio</th>
+                <th class="sort asc">Resguardo</th>
                 <th class="sort asc">Direcctorio activo</th>
                 <th class="sort asc">Antivirus</th>
                 <th class="sort asc">Escritorio remoto</th>
@@ -531,7 +532,7 @@ function getData() {
     let deleteFile = "refac_laptops.php"; // Cambia según el archivo
     let formaData = new FormData();
     formaData.append('table', 'refac_laptops'); // Tabla dinámica
-    formaData.append('columns', 'oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,d_activo,antivirus,escritorio_remoto,observaciones'); // Columnas dinámicas
+    formaData.append('columns', 'oficial,departamento,puesto,usuario,rpe,nombre_equipo,activo_fijo,inventario,numero_de_serie,marca,modelo,procesador,velocidad,so,ip,vlan,mac_wifi,mac_ethernet,memoria,disco_duro,dominio,resg,d_activo,antivirus,escritorio_remoto,observaciones'); // Columnas dinámicas
     formaData.append('id', 'id_laptop'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
     formaData.append('deleteFile', deleteFile);
