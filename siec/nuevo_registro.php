@@ -11,12 +11,17 @@ if(isset($_GET['editar'])){
 }
 
 if(isset($_POST['insertar'])){
+  if (isset($_POST['rpe_nombre'])) {
+    $valorSeleccionado = $_POST['rpe_nombre'];
+    list($rpe, $nombreCompleto) = explode('|', $valorSeleccionado);
+}
+
   $datos = [
     'oficial' => $_POST['oficial'],
     'departamento' => $_POST['departamento'],
     'puesto' => $_POST['puesto'],
-    'usuario' => $_POST['usuario'],
-    'rpe' => $_POST['rpe'],
+    'usuario' => $nombreCompleto,
+    'rpe' => $rpe,
     'nombre_equipo' => $_POST['nombre_equipo'],
     'activo_fijo' => $_POST['activo_fijo'],
     'inventario' => $_POST['inventario'],
@@ -480,9 +485,9 @@ switch($_POST['accion']){
                 ?>
                 <!--<h4 class="mb-3">Billing address</h4>-->
                 <form action="" method="post">
-                  <div class="row g-3">
-                      <div class="col-md-4">
-                      <label for="state" class="form-label">¿El equipo es oficial?</label>
+                <div class="row g-3">
+                      <div class="col-md-2">
+                      <label for="state" class="form-label">Equipo oficial</label>
                       <select class="form-select" id="state" name="oficial" required>
                         <option value="Si">Si</option>
                         <option value="no">no</option>
@@ -491,7 +496,7 @@ switch($_POST['accion']){
                         Please provide a valid state.
                       </div>
                     </div>
-                      <div class="col-md-4">
+                      <div class="col-md-2">
                       <label for="state" class="form-label">Directorio Activo</label>
                       <select class="form-select" id="state" name="d_activo" required>
                         <option value="Si">Si</option>
@@ -501,7 +506,7 @@ switch($_POST['accion']){
                         Please provide a valid state.
                       </div>
                     </div>
-                      <div class="col-md-4">
+                      <div class="col-md-2">
                       <label for="state" class="form-label">Antivirus</label>
                       <select class="form-select" id="state" name="antivirus" required>
                         <option value="Si">Si</option>
@@ -511,7 +516,7 @@ switch($_POST['accion']){
                         Please provide a valid state.
                       </div>
                     </div>
-                      <div class="col-md-4">
+                      <div class="col-md-2">
                       <label for="state" class="form-label">Escritorio Remoto</label>
                       <select class="form-select" id="state" name="escritorio_remoto" required>
                         <option value="Si">Si</option>
@@ -521,9 +526,14 @@ switch($_POST['accion']){
                         Please provide a valid state.
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                       <label for="state" class="form-label">Departamento Asignado</label>
                       <select class="form-select" id="state" name="departamento">
+                      <?php
+                        if(isset($datoseditar[0]['puesto'])){ 
+                         echo '<option value="' . $datoseditar[0]['departamento'] . '">' . $datoseditar[0]['departamento'] . '</option>';
+                        } 
+                      ?>
                       <option value=""></option>
                         <?php
                           $departamentosselect = new ControlFormulario('');
@@ -537,29 +547,30 @@ switch($_POST['accion']){
                         Please provide a valid state.
                       </div>
                     </div>
-                    <div class="col-md-auto">
-                    <label for="opciones" class="form-label">Usuario responsable</label>
-                      <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
-                      <select class="form-select" id="opciones" name="rpe">
-                      <option value=""></option>
-                        <?php
-                          $empleadosSelect = new ControlFormulario('');
-                          $selectempe = $empleadosSelect->leer($conecta,'empleados');
-                          foreach($selectempe as $row) {
-                            echo '<option value="' . $row['rpe'] . '">' . $row['rpe'] . ' ' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '</option>';
-                          }
-                        ?>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                      <input type="hidden" name="usuario" <?php 
-                      echo 'value="' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '"';
-                      ?>>
-                    </div>
+                    <select class="form-select" id="opciones" name="rpe_nombre">
+<?php
+if(isset($datoseditar[0]['rpe'])) { 
+    echo '<option value="' . $datoseditar[0]['rpe'] . '|' . $datoseditar[0]['usuario'] . '">' . $datoseditar[0]['rpe'] . ' ' . $datoseditar[0]['usuario'] . '</option>';
+} 
+?>
+<option value=""></option>
+<?php
+$empleadosSelect = new ControlFormulario('');
+$selectempe = $empleadosSelect->leer($conecta, 'empleados');
+foreach ($selectempe as $row) {
+    echo '<option value="' . $row['rpe'] . '|' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '">' . $row['rpe'] . ' ' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '</option>';
+}
+?>
+</select>
+
                     <div class="col-md-4">
                       <label for="state" class="form-label">Puesto</label>
                       <select class="form-select" id="state" name="puesto">
+                      <?php
+                        if(isset($datoseditar[0]['puesto'])){ 
+                         echo '<option value="' . $datoseditar[0]['puesto'] . '">' . $datoseditar[0]['puesto'] . '</option>';
+                        } 
+                      ?>
                       <option value=""></option>
                         <?php
                           $departamentosselect = new ControlFormulario('');
@@ -576,6 +587,12 @@ switch($_POST['accion']){
                     <div class="col-md-4">
                       <label for="state" class="form-label">Dominio</label>
                       <select class="form-select" id="state" name="dominio" required>
+                      <?php
+                        if(isset($datoseditar[0]['dominio'])){ 
+                         echo '<option value="' . $datoseditar[0]['dominio'] . '">' . $datoseditar[0]['dominio'] . '</option>';
+                        } 
+
+                      ?>
                       <option value=""></option>
                         <?php
                           $dominios = new ControlFormulario('');
@@ -592,6 +609,11 @@ switch($_POST['accion']){
                     <div class="col-md-4">
                       <label for="state" class="form-label">Vlan</label>
                       <select class="form-select" id="state" name="vlan" required>
+                        <?php
+                        if(isset($datoseditar[0]['vlan'])){ 
+                         echo '<option value="' . $datoseditar[0]['vlan'] . '">' . $datoseditar[0]['vlan'] . '</option>';
+                        } 
+                      ?>
                       <option value=""></option>
                         <?php
                           $vlans = new ControlFormulario('');
@@ -609,45 +631,56 @@ switch($_POST['accion']){
                         Please provide a valid state.
                       </div>
                     </div>
-                    <div class="row g-3">
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Nombre del Equipo</label>
-                      <input type="text" class="form-control" id="firstName" name="nombre_equipo" placeholder="" value="" required>
+                      <input type="text" class="form-control" id="firstName" name="nombre_equipo" placeholder="" <?php if(isset($datoseditar[0]['nombre_equipo'])){ 
+                        echo 'value="' . $datoseditar[0]['nombre_equipo'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Disco Duro</label>
-                      <input type="text" class="form-control" id="firstName" name="disco_duro" placeholder="" value="" >
+                      <input type="text" class="form-control" id="firstName" name="disco_duro" placeholder="" <?php if(isset($datoseditar[0]['disco_duro'])){ 
+                        echo 'value="' . $datoseditar[0]['disco_duro'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Direccion MAC Wifi</label>
-                      <input type="text" class="form-control" id="firstName" name="mac_wifi" placeholder="" value="" >
+                      <input type="text" class="form-control" id="firstName" name="mac_wifi" placeholder="" <?php if(isset($datoseditar[0]['mac_wifi'])){ 
+                        echo 'value="' . $datoseditar[0]['mac_wifi'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Direccion MAC Ethernet</label>
-                      <input type="text" class="form-control" id="firstName" name="mac_ethernet" placeholder="" value="" >
+                      <input type="text" class="form-control" id="firstName" name="mac_ethernet" placeholder="" <?php if(isset($datoseditar[0]['mac_ethernet'])){ 
+                        echo 'value="' . $datoseditar[0]['mac_ethernet'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="firstName" class="form-label">Sistema Operativo</label>
-                      <input type="text" class="form-control" id="firstName" name="so" placeholder="" value=""  >
+                      <input type="text" class="form-control" id="firstName" name="so" placeholder="" <?php if(isset($datoseditar[0]['so'])){ 
+                        echo 'value="' . $datoseditar[0]['so'] . '"';
+                      } 
+                        ?>>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
-                  </div>
-
-                  <div class="row g-3">
                   <div class="col-sm-2">
                       <label for="marca" class="form-label">Marca</label>
                       <input type="text" class="form-control" id="marca" name="marca" placeholder="" <?php if(isset($datoseditar[0]['marca'])){ 
@@ -673,8 +706,8 @@ switch($_POST['accion']){
 
                     <div class="col-sm-4">
                       <label for="numeroserie" class="form-label">Numero de serie</label>
-                      <input type="text" class="form-control" id="numeroserie" name="numero_de_serie" placeholder="" <?php if(isset($datoseditar[0]['num_serie'])){ 
-                        echo 'value="' . $datoseditar[0]['num_serie'] . '"';
+                      <input type="text" class="form-control" id="numeroserie" name="numero_de_serie" placeholder="" <?php if(isset($datoseditar[0]['numero_de_serie'])){ 
+                        echo 'value="' . $datoseditar[0]['numero_de_serie'] . '"';
                       } 
                         ?>
                          >
@@ -707,8 +740,8 @@ switch($_POST['accion']){
                     
                     <div class="col-sm-2">
                       <label for="ram" class="form-label">Cantidad de Memoria RAM</label>
-                      <input type="text" class="form-control" id="ram" name="memoria" placeholder="" <?php if(isset($datoseditar[0]['ram'])){ 
-                        echo 'value="' . $datoseditar[0]['ram'] . '"';
+                      <input type="text" class="form-control" id="ram" name="memoria" placeholder="" <?php if(isset($datoseditar[0]['memoria'])){ 
+                        echo 'value="' . $datoseditar[0]['memoria'] . '"';
                       } 
                         ?>>
                       <div class="invalid-feedback">
@@ -756,7 +789,7 @@ switch($_POST['accion']){
                       } 
                         ?></textarea>
                     </div>
-                    
+                
                     <input type="hidden" name="accion" <?php if(isset($_GET['editar'])){ 
                         echo 'value="edicion"';
                       }else{
@@ -769,14 +802,6 @@ switch($_POST['accion']){
               </div>
         </main>
 
-        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-          <p class="mb-1">&copy; 2017–2024 Company Name</p>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-          </ul>
-        </footer>
       </div>
     </div>
 

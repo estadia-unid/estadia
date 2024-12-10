@@ -214,17 +214,9 @@ if(isset($_POST['insertar'])){
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Bienvenido</h1>
+        <h1 class="h2">Ingrese los Datos del Usuario a Agregar</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="ControlSesiones.php?cerrarSesion=true">cerrar sesion</a></button>
 
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-            <svg class="bi"><use xlink:href="#calendar3"/></svg>
-            This week
-          </button>
         </div>
       </div>
 
@@ -238,8 +230,6 @@ if(isset($_POST['insertar'])){
 
         <form action="" method="post" class="row g-3">
             <div class="text-center">
-                <img class="mb-6" src="imagenes/svg/cfe_icon.svg" alt="logo cfe en svg" width="200" height="160">
-                <h1 class="h3 mb-3 fw-normal" >Ingrese los Datos del Usuario a Agregar</h1>
             </div>
 
             <div class="form-floating">
@@ -253,7 +243,6 @@ if(isset($_POST['insertar'])){
             </div>
 
             <button class="btn btn-primary w-100 py-2" type="submit" name="insertar">agregar usuario</button>
-                <p class="mt-5 mb-3 text-body-secondary">&copy; 2024–2024</p>
         </form>
 
         <!-- /formulario-->

@@ -485,8 +485,8 @@ if(isset($_GET['refaccionamiento'])){
                 <th class="sort asc">Direccion MAC Ethernet</th>
                 <th class="sort asc">Memoria RAM</th>
                 <th class="sort asc">Disco duro</th>
-                <th class="sort asc">Resguardo</th>
                 <th class="sort asc">Dominio</th>
+                <th class="sort asc">Resguardo</th>
                 <th class="sort asc">Direcctorio activo</th>
                 <th class="sort asc">Antivirus</th>
                 <th class="sort asc">Escritorio remoto</th>
