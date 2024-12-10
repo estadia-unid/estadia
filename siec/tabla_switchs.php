@@ -286,13 +286,12 @@ if(isset($_GET['refaccionamiento'])){
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
             <thead>
-                <th class="sort asc">Siitic</th>
                 <th class="sort asc">IP</th>
                 <th class="sort asc">Mascara</th>
                 <th class="sort asc">Gateway</th>
                 <th class="sort asc">Marca</th>
                 <th class="sort asc">Hostname</th>
-                <th class="sort asc">Pid</th>
+                <th class="sort asc">Modelo</th>
                 <th class="sort asc">Serial</th>
                 <th class="sort asc">Ubicacion</th>
                 <th class="sort asc">Descripcion</th>
@@ -339,7 +338,7 @@ function getData() {
     let deleteFile = "tabla_switchs.php"; // Cambia según el archivo
     let formaData = new FormData();
     formaData.append('table', 'switches'); // Tabla dinámica
-    formaData.append('columns', 'siitic,ip,mask,gw,marca,hostaname,pid,serial,ubicacion,descripcion,firmware'); // Columnas dinámicas
+    formaData.append('columns', 'ip,mask,gw,marca,hostaname,pid,serial,ubicacion,descripcion,firmware'); // Columnas dinámicas
     formaData.append('id', 'id_switch'); // Clave primaria
     formaData.append('editFile', editFile); // Archivo de edición
     formaData.append('deleteFile', deleteFile);

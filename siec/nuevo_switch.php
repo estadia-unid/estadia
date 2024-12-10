@@ -12,7 +12,7 @@ if(isset($_GET['editar'])){
 
 if(isset($_POST['insertar'])){
   $datos = [
-    'siitic' => $_POST['siitic'],
+    //'siitic' => $_POST['siitic'],
     'ip' => $_POST['ip'],
     'mask' => $_POST['mask'],
     'gw' => $_POST['gw'],
@@ -286,11 +286,14 @@ switch($_POST['accion']){
                       <label for="opciones" class="form-label">Ubicacion</label>
                       <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
                       <select class="form-select" id="opciones" name="ubicacion">
+                      <?php
+                        if(isset($datoseditar[0]['ubicacion'])){ 
+                         echo '<option value="' . $datoseditar[0]['ubicacion'] . '">' . $datoseditar[0]['ubicacion'] . '</option>';
+                        } 
+
+                      ?>
                       <option value=""></option>
                         <?php
-                        if(isset($datoseditar[0]['ubicacion'])){ 
-                          echo '<option value="' . $datoseditar[0]['ubicacion'] . '">' . $datoseditar[0]['ubicacion'] . '</option>';
-                        } 
                           $departamentosselect = new ControlFormulario('');
                           $opciondepa = $departamentosselect->leer($conecta,'departamentos');
                           foreach($opciondepa as $row) {
@@ -315,21 +318,21 @@ switch($_POST['accion']){
                         dato invalido
                       </div>
                     </div>
-
+                    <!--
                     <div class="col-sm-2">
                       <label for="marca" class="form-label">Siitic</label>
-                      <input type="text" class="form-control" id="marca" name="siitic" placeholder="" <?php if(isset($datoseditar[0]['siitic'])){ 
+                      <input type="text" class="form-control" id="marca" name="siitic" placeholder="" <?php /*if(isset($datoseditar[0]['siitic'])){ 
                         echo 'value="' . $datoseditar[0]['siitic'] . '"';
-                      } 
+                      } */
                         ?>
                         >
                       <div class="invalid-feedback">
                         dato invalido
                       </div>
                     </div>
-
+                    -->
                     <div class="col-sm-3">
-                      <label for="hostaname" class="form-label">hostaname</label>
+                      <label for="hostaname" class="form-label">Hostaname</label>
                       <input type="text" class="form-control" id="hostaname" name="hostaname" placeholder="" <?php if(isset($datoseditar[0]['hostaname'])){ 
                         echo 'value="' . $datoseditar[0]['hostaname'] . '"';
                       } 
@@ -352,7 +355,7 @@ switch($_POST['accion']){
                     </div>
 
                     <div class="col-sm-4">
-                      <label for="pid" class="form-label">pid</label>
+                      <label for="pid" class="form-label">Modelo</label>
                       <input type="text" class="form-control" id="pid" name="pid" placeholder="" <?php if(isset($datoseditar[0]['pid'])){ 
                         echo 'value="' . $datoseditar[0]['pid'] . '"';
                       } 
@@ -427,14 +430,6 @@ switch($_POST['accion']){
               </div>
         </main>
 
-        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-          <p class="mb-1">&copy; 2017–2024 Company Name</p>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-          </ul>
-        </footer>
       </div>
     </div>
 
