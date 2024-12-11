@@ -4,7 +4,7 @@ include_once "seguridad.php";
 include "autoloader.php";
 ?>
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="es" data-bs-theme="auto">
   <head><script src="js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -202,7 +202,7 @@ include "autoloader.php";
 
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
 
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"> <?php echo "Hola". '  ' . $_SESSION['rpe']; ?></a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"> <?php echo $_SESSION['rpe'] . ' ' . $_SESSION['nombre'] . '<br>' . $_SESSION['apellidos'];?></a>
 
   <ul class="navbar-nav flex-row d-md-none">
     <!--

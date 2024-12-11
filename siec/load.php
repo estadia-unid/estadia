@@ -63,29 +63,29 @@ $output = [
 if ($data) {
     foreach ($data as $row) {
         $output['data'] .= '<tr>';
+
+                // Agregar acciones de edición, eliminación y "Enviar a refaccionamiento"
+                $output['data'] .= '<td>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Opciones
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['editFile']) . '?editar=' . $row[$id] . '">Editar</a></li>
+                        <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?borrar=' . $row[$id] . '">Eliminar</a></li>';
+    
+            // Mostrar botón "Enviar a refaccionamiento" solo para tablas específicas
+            if (in_array($table, $tablasConRefaccionamiento)) {
+                $output['data'] .= '<li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?refaccionamiento=' . $row[$id] . '">Enviar a refaccionamiento</a></li>';
+            }
+    
+            $output['data'] .= '</ul>
+                </div>
+            </td>';
+
         foreach ($columns as $column) {
             $output['data'] .= '<td>' . htmlspecialchars($row[$column]) . '</td>';
         }
-
-        // Agregar acciones de edición, eliminación y "Enviar a refaccionamiento"
-        $output['data'] .= '<td>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    Opciones
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['editFile']) . '?editar=' . $row[$id] . '">Editar</a></li>
-                    <li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?borrar=' . $row[$id] . '">Eliminar</a></li>';
-
-        // Mostrar botón "Enviar a refaccionamiento" solo para tablas específicas
-        if (in_array($table, $tablasConRefaccionamiento)) {
-            $output['data'] .= '<li><a class="dropdown-item" href="' . htmlspecialchars($_POST['deleteFile']) . '?refaccionamiento=' . $row[$id] . '">Enviar a refaccionamiento</a></li>';
-        }
-
-        $output['data'] .= '</ul>
-            </div>
-        </td>';
-
         $output['data'] .= '</tr>';
     }
 } else {

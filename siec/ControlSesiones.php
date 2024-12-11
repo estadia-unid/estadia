@@ -12,13 +12,18 @@ class ControlSesiones{
 
     function iniciar_sesion($conecta) {
         $sesion = "SELECT * FROM `usuarios` WHERE `rpe` = :usuario";
-    
+        
         $resultado_sesion = $conecta->prepare($sesion);
         $resultado_sesion->execute([':usuario' => $this->usuario]);
         $hash = $resultado_sesion->fetch(PDO::FETCH_ASSOC);
-    
+        $empleado = "SELECT * FROM `empleados` WHERE `rpe` = :usuario";
+        $resultado_empleado = $conecta->prepare($empleado);
+        $resultado_empleado->execute([':usuario' => $this->usuario]);
+        $info_empleado = $resultado_empleado->fetch(PDO::FETCH_ASSOC);
         if ($hash !== false) {
             if (password_verify($this->contraseña, $hash['clave'])) {
+                $_SESSION['nombre'] = $info_empleado['nombre'] . '  ';
+                $_SESSION['apellidos'] = $info_empleado['a_paterno'] . '  '. $info_empleado['a_materno'];
                 $_SESSION['rpe'] = $hash['rpe'];
                 header("Location: principal.php");
                 die();
