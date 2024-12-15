@@ -6,6 +6,6 @@ $nombre_base_de_datos = "siec";
 try{
 	$conecta = new PDO('mysql:host=localhost;dbname=siec', $usuario, $contraseña);
 }catch(Exception $e){
-	echo "Ocurrió algo con la base de datos: " . $e->getMessage();
+    die("Ocurrió algo con la base de datos: " . $e->getMessage());
 }
 ?> 
