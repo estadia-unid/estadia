@@ -63,9 +63,6 @@ $output = [
 if ($data) {
     foreach ($data as $row) {
         $output['data'] .= '<tr>';
-        foreach ($columns as $column) {
-            $output['data'] .= '<td>' . htmlspecialchars($row[$column]) . '</td>';
-        }
 
         // Agregar acciones de edición, eliminación y "Enviar a refaccionamiento"
         $output['data'] .= '<td>
@@ -84,6 +81,10 @@ if ($data) {
         $output['data'] .= '</ul>
             </div>
         </td>';
+
+        foreach ($columns as $column) {
+            $output['data'] .= '<td>' . htmlspecialchars($row[$column]) . '</td>';
+        }
 
         $output['data'] .= '</tr>';
     }

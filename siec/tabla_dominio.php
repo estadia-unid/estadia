@@ -271,8 +271,9 @@ if(isset($_GET['borrar'])){
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
             <thead>
+            <th></th>
                 <th class="sort asc">Dominio</th>
-                <th></th>
+
             </thead>
 
             <!-- El id del cuerpo de la tabla. -->

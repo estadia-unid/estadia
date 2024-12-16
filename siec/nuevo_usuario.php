@@ -227,19 +227,52 @@ if(isset($_POST['insertar'])){
       2.-Contraseña.
     -->
         <!-- formulario-->
+        <?php
+        if(isset($_SESSION['resultado'])){
+          switch($_SESSION['resultado']){
+            case "chi":
+              echo '<div class="alert alert-success" role="alert">' . $_SESSION['mensaje'] . '</div>';
+              unset($_SESSION['mensaje']);
+              unset($_SESSION['resultado']);
+                break;
+              case "ño":
+                echo '<div class="alert alert-danger" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                unset($_SESSION['mensaje']);
+                unset($_SESSION['resultado']);
+                break;
+          }
+        }
 
+                ?>
         <form action="" method="post" class="row g-3">
             <div class="text-center">
             </div>
 
-            <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="rpe" placeholder="Ponga su RPE" maxlength="5" style="text-transform: uppercase;">
-                <label for="floatingInput">RPE De La Persona</label>
-            </div>
+            <label for="opciones" class="form-label">RPE del empleado a agregar</label>
+                      <input type="text" id="buscador" onkeyup="filtrarOpciones()" placeholder="Escribe para buscar...">
+                    <select class="form-select" id="opciones" name="rpe">
+                    <?php
+                      if(isset($datoseditar[0]['rpe'])) { 
+                         echo '<option value="' . $datoseditar[0]['rpe'] . '">' . $datoseditar[0]['rpe'] . ' ' . $datoseditar[0]['usuario'] . '</option>';
+                      } 
+                    ?>
+                  <option value=""></option>
+                    <?php
+                    $empleadosSelect = new ControlFormulario('');
+                    $selectempe = $empleadosSelect->leer($conecta, 'empleados');
+                    foreach ($selectempe as $row) {
+                        echo '<option value="' . $row['rpe'] . '">' . $row['rpe'] . ' ' . $row['nombre'] . ' ' . $row['a_paterno'] . ' ' . $row['a_materno'] . '</option>';
+                    }
+                    ?>
+                    </select>
 
             <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" name="contraseña" placeholder="Password" maxlength="8">
                 <label for="floatingPassword">Contraseña</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" name="contraseña_confirm" placeholder="Password" maxlength="8">
+                <label for="floatingPassword">Vuelva a ingresar su contraseña</label>
             </div>
 
             <button class="btn btn-primary w-100 py-2" type="submit" name="insertar">agregar usuario</button>

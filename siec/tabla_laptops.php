@@ -461,9 +461,10 @@ if(isset($_GET['refaccionamiento'])){
     <div class="col">
         <table class="table table-bordered table-striped table-hover">
             <thead>
+                <th></th>
                 <th class="sort asc">Oficial</th>
                 <th class="sort asc">Departamento Asignado</th>
-                <th class="sort asc">puesto</th>
+                <th class="sort asc">Puesto</th>
                 <th class="sort asc">Usuario Responsable</th>
                 <th class="sort asc">RPE</th>
                 <th class="sort asc">Nombre del equipo</th>
@@ -487,7 +488,6 @@ if(isset($_GET['refaccionamiento'])){
                 <th class="sort asc">Antivirus</th>
                 <th class="sort asc">Escritorio remoto</th>
                 <th class="sort asc">Observaciones</th>
-                <th></th>
             </thead>
 
             <!-- El id del cuerpo de la tabla. -->
