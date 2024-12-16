@@ -43,6 +43,7 @@ class ControlSesiones{
     }
 
     function agregar_usuario($conecta){
+        if($this->contraseña == $_POST['contraseña_confirm']){
             $contraseñaCifrada = password_hash($this->contraseña, PASSWORD_BCRYPT);
             $sql="INSERT INTO `usuarios` (`rpe`, `clave`) VALUES (:rpe,:clave)";
             
@@ -52,6 +53,17 @@ class ControlSesiones{
             $sql->bindParam(':clave',$contraseñaCifrada);
             
             $sql->execute();
+            $_SESSION['resultado'] = "chi";
+            $_SESSION['mensaje'] = "usuario agregado con exito";
+            header("Location: nuevo_usuario.php");
+            die();
+        }
+        else{
+            $_SESSION['resultado'] = "ño";
+            $_SESSION['mensaje'] = "Las contraseñas no coinciden";
+            header("Location: nuevo_usuario.php");
+            die();
+        }
             
     }
 }
