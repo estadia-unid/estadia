@@ -529,7 +529,7 @@ switch($_POST['accion']){
                       <input type="text" class="form-control" id="ip" name="ip" placeholder="" <?php if(isset($datoseditar[0]['ip'])){ 
                         echo 'value="' . $datoseditar[0]['ip'] . '"';
                       } 
-                        ?> maxlength="15" required>
+                        ?> maxlength="15">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>

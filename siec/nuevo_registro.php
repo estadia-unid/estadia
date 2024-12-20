@@ -488,7 +488,7 @@ switch($_POST['accion']){
                 <div class="row g-3">
                       <div class="col-md-2">
                       <label for="state" class="form-label">Equipo oficial</label>
-                      <select class="form-select" id="state" name="oficial" required>
+                      <select class="form-select" id="state" name="oficial">
                         <option value="Si">Si</option>
                         <option value="no">no</option>
                       </select>
@@ -498,7 +498,7 @@ switch($_POST['accion']){
                     </div>
                       <div class="col-md-2">
                       <label for="state" class="form-label">Directorio Activo</label>
-                      <select class="form-select" id="state" name="d_activo" required>
+                      <select class="form-select" id="state" name="d_activo">
                         <option value="Si">Si</option>
                         <option value="no">no</option>
                       </select>
@@ -508,7 +508,7 @@ switch($_POST['accion']){
                     </div>
                       <div class="col-md-2">
                       <label for="state" class="form-label">Antivirus</label>
-                      <select class="form-select" id="state" name="antivirus" required>
+                      <select class="form-select" id="state" name="antivirus" >
                         <option value="Si">Si</option>
                         <option value="no">no</option>
                       </select>
@@ -518,7 +518,7 @@ switch($_POST['accion']){
                     </div>
                       <div class="col-md-2">
                       <label for="state" class="form-label">Escritorio Remoto</label>
-                      <select class="form-select" id="state" name="escritorio_remoto" required>
+                      <select class="form-select" id="state" name="escritorio_remoto">
                         <option value="Si">Si</option>
                         <option value="no">no</option>
                       </select>
@@ -586,7 +586,7 @@ foreach ($selectempe as $row) {
                     </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Dominio</label>
-                      <select class="form-select" id="state" name="dominio" required>
+                      <select class="form-select" id="state" name="dominio">
                       <?php
                         if(isset($datoseditar[0]['dominio'])){ 
                          echo '<option value="' . $datoseditar[0]['dominio'] . '">' . $datoseditar[0]['dominio'] . '</option>';
@@ -608,7 +608,7 @@ foreach ($selectempe as $row) {
                     </div>
                     <div class="col-md-4">
                       <label for="state" class="form-label">Vlan</label>
-                      <select class="form-select" id="state" name="vlan" required>
+                      <select class="form-select" id="state" name="vlan">
                         <?php
                         if(isset($datoseditar[0]['vlan'])){ 
                          echo '<option value="' . $datoseditar[0]['vlan'] . '">' . $datoseditar[0]['vlan'] . '</option>';
@@ -754,7 +754,7 @@ foreach ($selectempe as $row) {
                       <input type="text" class="form-control" id="ip" name="ip" placeholder="" <?php if(isset($datoseditar[0]['ip'])){ 
                         echo 'value="' . $datoseditar[0]['ip'] . '"';
                       } 
-                        ?> maxlength="15" required>
+                        ?> maxlength="15">
                       <div class="invalid-feedback">
                       dato invalido
                       </div>
