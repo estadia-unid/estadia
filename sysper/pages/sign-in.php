@@ -60,7 +60,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="cfe.mx">
+                  <a class="nav-link me-2" href="../cfe.mx">
                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
                     CFE
                   </a>
