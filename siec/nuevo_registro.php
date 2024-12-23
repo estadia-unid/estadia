@@ -501,21 +501,6 @@ switch($_POST['accion']){
                         Please provide a valid state.
                       </div>
                     </div>
-                    <div class="col-md-2">
-                      <label for="resg" class="form-label">Resguardo</label>
-                      <select class="form-select" id="resg" name="resg">
-                      <?php
-                        if(isset($datoseditar[0]['resg'])){ 
-                         echo '<option value="' . $datoseditar[0]['resg'] . '">' . $datoseditar[0]['resg'] . '</option>';
-                        } 
-                      ?>
-                        <option value="Si">Si</option>
-                        <option value="no">no</option>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please provide a valid state.
-                      </div>
-                    </div>
                       <div class="col-md-2">
                       <label for="d_activo" class="form-label">Directorio Activo</label>
                       <select class="form-select" id="d_activo" name="d_activo">
