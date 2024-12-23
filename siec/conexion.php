@@ -1,7 +1,7 @@
 <?php
 session_start();
 $contraseña = "ctpalm2113";
-$usuario = "siec";
+$usuario = "skyper";
 $nombre_base_de_datos = "estadiaunid";
 try{
 	$conecta = new PDO('mysql:host=localhost;dbname=estadiaunid', $usuario, $contraseña);
