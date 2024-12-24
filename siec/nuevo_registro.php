@@ -50,8 +50,8 @@ switch($_POST['accion']){
           $usuario->insertar_datos($conecta,'computadoras',$datos);
           $_SESSION['mensaje'] = "Los datos se registraron con éxito.";
           
-          //header("Location: nuevo_registro.php");
-          //die();
+          header("Location: nuevo_registro.php");
+          die();
           
       break;
     case  'edicion':
