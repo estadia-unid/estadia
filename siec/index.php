@@ -188,6 +188,10 @@ if(isset($_POST['guardar'])){
         <button class="btn btn-primary w-100 py-2" type="submit" name="guardar">Iniciar sesion</button>
         <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
       </form>
+      <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../sysper/pages/sign-in.php">
+                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                    Sisper
+                  </a>
     </main>
     <script src="js/bootstrap.bundle.min.js"></script>
 

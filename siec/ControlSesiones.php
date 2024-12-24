@@ -21,15 +21,20 @@ class ControlSesiones{
         $resultado_empleado->execute([':usuario' => $this->usuario]);
         $info_empleado = $resultado_empleado->fetch(PDO::FETCH_ASSOC);
         if ($hash !== false) {
-            if (password_verify($this->contraseña, $hash['clave'])) {
-                $_SESSION['nombre'] = $info_empleado['nombre'] . '  ';
-                $_SESSION['apellidos'] = $info_empleado['a_paterno'] . '  '. $info_empleado['a_materno'];
-                $_SESSION['rpe'] = $hash['rpe'];
-                header("Location: principal.php");
-                die();
-            } else {
-                $_SESSION['mensaje'] = 'Contraseña inválida.';
+            if($hash['siec']==1){
+                if (password_verify($this->contraseña, $hash['clave'])) {
+                    $_SESSION['nombre'] = $info_empleado['nombre'] . '  ';
+                    $_SESSION['apellidos'] = $info_empleado['a_paterno'] . '  '. $info_empleado['a_materno'];
+                    $_SESSION['rpe'] = $hash['rpe'];
+                    header("Location: principal.php");
+                    die();
+                } else {
+                    $_SESSION['mensaje'] = 'Contraseña inválida.';
+                }
+            }else{
+                $_SESSION['mensaje'] = 'Este usuario no es blanco';
             }
+
         } else {
             $_SESSION['mensaje'] = 'Usuario no encontrado.';
         }
@@ -45,13 +50,14 @@ class ControlSesiones{
     function agregar_usuario($conecta){
         if($this->contraseña == $_POST['contraseña_confirm']){
             $contraseñaCifrada = password_hash($this->contraseña, PASSWORD_BCRYPT);
-            $sql="INSERT INTO `usuarios` (`rpe`, `clave`) VALUES (:rpe,:clave)";
+            $privilegio = 1;
+            $sql="INSERT INTO `usuarios` (`rpe`, `clave`, `privilegio`) VALUES (:rpe,:clave,:privilegio)";
             
             $sql = $conecta->prepare($sql);
             
             $sql->bindParam(':rpe',$this->usuario);
             $sql->bindParam(':clave',$contraseñaCifrada);
-            
+            $sql->bindParam(':privilegio',$privilegio);
             $sql->execute();
             $_SESSION['resultado'] = "chi";
             $_SESSION['mensaje'] = "usuario agregado con exito";
